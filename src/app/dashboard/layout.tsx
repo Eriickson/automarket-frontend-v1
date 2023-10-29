@@ -11,8 +11,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <Box h="100vh" w="100vw">
       <Flex h="full">
         <Sidebar />
-        <SidebarMenu />
-        <Content>{children}</Content>
+        {children}
       </Flex>
     </Box>
   );
