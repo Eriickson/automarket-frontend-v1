@@ -9,7 +9,7 @@ interface ContentProps {
 export const Content: FC<ContentProps> = ({ children }) => {
   return (
     <Box flex="1" overflow="auto">
-      <Box /* pl="8" pt="8" pr="8" */>{children}</Box>
+      <Box h="full" /* pl="8" pt="8" pr="8" */>{children}</Box>
     </Box>
   );
 };
