@@ -1,20 +1,10 @@
 import React from "react";
 
-import {
-  Box,
-  Button,
-  FormControl,
-  FormHelperText,
-  FormLabel,
-  HStack,
-  Heading,
-  Input,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Button, FormControl, FormHelperText, HStack, Heading, Stack, Text } from "@chakra-ui/react";
 import { useSwiper } from "swiper/react";
 import { SimpleTextField } from "@/components/atoms/SimpleTextField";
 import { TextDateField } from "@/components/atoms/TextDateField";
+import { PasswordField } from "@/components/atoms/PasswordField";
 
 export const RegisterPersonalInformationStep = () => {
   const swiperSlide = useSwiper();
@@ -36,22 +26,8 @@ export const RegisterPersonalInformationStep = () => {
         <SimpleTextField label="Nombre de usuario" placeholder="Ingresa tu nombre de usuario" />
         <FormControl>
           <HStack spacing="4">
-            <FormControl>
-              <FormLabel mb="1">Contraseña</FormLabel>
-              <Input
-                _focus={{ ringColor: "#165ef0", borderColor: "#165ef0", ring: "1.5" }}
-                py="6"
-                placeholder="Ingresa tu contraseña"
-              />
-            </FormControl>
-            <FormControl>
-              <FormLabel mb="1">Confirmar Contraseña</FormLabel>
-              <Input
-                _focus={{ ringColor: "#165ef0", borderColor: "#165ef0", ring: "1.5" }}
-                py="6"
-                placeholder="Ingresa tu contraseña"
-              />
-            </FormControl>
+            <PasswordField label="Contraseña" placeholder="Ingresa tu contraseña" />
+            <PasswordField label="Confirmar Contraseña" placeholder="Ingresa tu contraseña" />
           </HStack>
           <FormHelperText>
             La contraseña debe tener al menos 8 caracteres conformada por mayúsculas, minúsculas y números.
