@@ -23,7 +23,7 @@ const registerPersonalInformationSchema = z.object({
   //     },
   //     { message: "Debes ser mayor de edad" }
   //   ),
-  // birthday: z.string().min(1, "Este campo es requerido"),
+  birthday: z.string().min(1, "Este campo es requerido"),
 });
 
 export const resolver = zodResolver(registerPersonalInformationSchema);

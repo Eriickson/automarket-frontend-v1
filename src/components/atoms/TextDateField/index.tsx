@@ -1,9 +1,12 @@
-import React, { FC } from "react";
+import React, { FC, forwardRef } from "react";
 import { SimpleTextFieldProps } from "../SimpleTextField";
-import { TextMaskField } from "../TextMaskField";
+import { TextMaskField, TextMaskFieldProps } from "../TextMaskField";
+import MaskedInput from "react-text-mask";
 
-export interface TextDateFieldProps extends SimpleTextFieldProps {}
+export interface TextDateFieldProps extends SimpleTextFieldProps, Omit<TextMaskFieldProps, "mask"> {}
 
-export const TextDateField: FC<TextDateFieldProps> = ({ ...props }) => {
-  return <TextMaskField mask={[/\d/, /\d/, "/", /\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/]} {...props} />;
-};
+export const TextDateField = forwardRef<MaskedInput, TextDateFieldProps>((props, ref) => {
+  return <TextMaskField ref={ref} mask={[/\d/, /\d/, "/", /\d/, /\d/, "/", /\d/, /\d/, /\d/, /\d/]} {...props} />;
+});
+
+TextDateField.displayName = "TextDateField";
