@@ -1,21 +1,8 @@
 import React from "react";
 
-import {
-  Box,
-  Button,
-  Center,
-  Flex,
-  FormControl,
-  FormLabel,
-  GridItem,
-  HStack,
-  Heading,
-  Input,
-  SimpleGrid,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Center, Flex, GridItem, SimpleGrid, Stack, Text } from "@chakra-ui/react";
 import { StepIndicatorLine } from "../StepIndicatorLine";
+import { RegisterPersonalInformationStep } from "./steps/RegisterPersonalInformation";
 
 export const RegisterEmailView = () => {
   return (
@@ -37,69 +24,10 @@ export const RegisterEmailView = () => {
             </Box>
             <Center flex="1">
               <Box w="full" maxW="xl">
-                <Box mb="8">
-                  <Heading as="h2" size="xl" fontWeight="semibold">
-                    Información personal
-                  </Heading>
-                  <Text>Necesitamos algunos datos para crear tu cuenta.</Text>
-                </Box>
-
-                <Stack mb="8" spacing="4">
-                  <FormControl>
-                    <FormLabel mb="1">Nombre completo </FormLabel>
-                    <Input
-                      _focus={{ ringColor: "#165ef0", borderColor: "#165ef0", ring: "1.5" }}
-                      py="6"
-                      placeholder="Ingresa tu nombre completo"
-                    />
-                  </FormControl>
-                  <FormControl>
-                    <FormLabel mb="1">Fecha de nacimiento</FormLabel>
-                    <Input
-                      _focus={{ ringColor: "#165ef0", borderColor: "#165ef0", ring: "1.5" }}
-                      py="6"
-                      placeholder="Día / Mes / Año"
-                    />
-                  </FormControl>
-                  <FormControl>
-                    <FormLabel mb="1">Correo electrónico</FormLabel>
-                    <Input
-                      _focus={{ ringColor: "#165ef0", borderColor: "#165ef0", ring: "1.5" }}
-                      py="6"
-                      placeholder="Ingresa tu correo electrónico"
-                    />
-                  </FormControl>
-                  <FormControl>
-                    <FormLabel mb="1">Nombre de usuario</FormLabel>
-                    <Input
-                      _focus={{ ringColor: "#165ef0", borderColor: "#165ef0", ring: "1.5" }}
-                      py="6"
-                      placeholder="Ingresa tu nombre de usuario"
-                    />
-                  </FormControl>
-                  <HStack spacing="4">
-                    <FormControl>
-                      <FormLabel mb="1">Contraseña</FormLabel>
-                      <Input
-                        _focus={{ ringColor: "#165ef0", borderColor: "#165ef0", ring: "1.5" }}
-                        py="6"
-                        placeholder="Ingresa tu contraseña"
-                      />
-                    </FormControl>
-                    <FormControl>
-                      <FormLabel mb="1">Confirmar Contraseña</FormLabel>
-                      <Input
-                        _focus={{ ringColor: "#165ef0", borderColor: "#165ef0", ring: "1.5" }}
-                        py="6"
-                        placeholder="Ingresa tu contraseña"
-                      />
-                    </FormControl>
-                  </HStack>
+                <Stack spacing="16">
+                  <RegisterPersonalInformationStep />
+                  <StepIndicatorLine currentStep={0} totalSteps={5} />
                 </Stack>
-                <Button loadingText="Validando" mb="8" py="6" w="full" color="white" bgColor="#165ef0">
-                  Enviar código de invitación
-                </Button>
-                <StepIndicatorLine currentStep={0} totalSteps={5} />
               </Box>
             </Center>
             <Box h="32" />
