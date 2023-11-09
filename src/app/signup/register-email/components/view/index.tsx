@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Box, Center, Flex, GridItem, SimpleGrid, Stack, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, GridItem, SimpleGrid, Stack, Text, VStack } from "@chakra-ui/react";
 import { StepIndicatorLine } from "../StepIndicatorLine";
-import { RegisterPersonalInformationStep } from "./steps/RegisterPersonalInformation";
+import { ValidateInvitationCodeStep } from "./steps/ValidateInvitationCode";
 
 export const RegisterEmailView = () => {
   return (
@@ -25,7 +25,7 @@ export const RegisterEmailView = () => {
             <Center flex="1">
               <Box w="full" maxW="xl">
                 <Stack spacing="16">
-                  <RegisterPersonalInformationStep />
+                  <ValidateInvitationCodeStep />
                   <StepIndicatorLine currentStep={0} totalSteps={5} />
                 </Stack>
               </Box>
