@@ -13,9 +13,11 @@ import {
   Text,
 } from "@chakra-ui/react";
 import React from "react";
+import { useSwiper } from "swiper/react";
 
 export const CreateAnAgencyStep = () => {
-  /* Nombre, slogan, dirección  */
+  const swiperSlide = useSwiper();
+
   return (
     <Box>
       <Box mb="8">
@@ -89,7 +91,7 @@ export const CreateAnAgencyStep = () => {
           />
         </FormControl>
       </Stack>
-      <Button py="6" w="full" color="white" bgColor="#165ef0">
+      <Button onClick={() => swiperSlide.slideNext(500)} py="6" w="full" color="white" bgColor="#165ef0">
         Validar datos de la agencia
       </Button>
     </Box>

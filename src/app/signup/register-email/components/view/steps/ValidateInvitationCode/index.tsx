@@ -1,9 +1,11 @@
 import { Box, Button, HStack, Heading, PinInput, PinInputField, Stack, Text } from "@chakra-ui/react";
 import React from "react";
+import { useSwiper } from "swiper/react";
 
 const CustomPinInputField = () => <PinInputField w="16" h="16" fontSize="xl" fontWeight="medium" />;
 
 export const ValidateInvitationCodeStep = () => {
+  const swiperSlide = useSwiper();
   return (
     <Box>
       <Box mb="8">
@@ -24,7 +26,14 @@ export const ValidateInvitationCodeStep = () => {
             <CustomPinInputField />
           </PinInput>
         </HStack>
-        <Button loadingText="Validando" py="6" w="full" color="white" bgColor="#165ef0">
+        <Button
+          onClick={() => swiperSlide.slideNext(500)}
+          loadingText="Validando"
+          py="6"
+          w="full"
+          color="white"
+          bgColor="#165ef0"
+        >
           Validar código de invitación
         </Button>
       </Stack>
