@@ -13,14 +13,12 @@ export const ValidateInvitationCodeStep = () => {
         <Text>Ingresa el código de invitación que te enviamos a tu correo electrónico.</Text>
       </Box>
       <Stack spacing="4">
-        <HStack>
+        <HStack justifyContent="center">
           <PinInput otp>
             <CustomPinInputField />
             <CustomPinInputField />
             <CustomPinInputField />
-            <CustomPinInputField />
             <Text fontSize="xl">-</Text>
-            <CustomPinInputField />
             <CustomPinInputField />
             <CustomPinInputField />
             <CustomPinInputField />

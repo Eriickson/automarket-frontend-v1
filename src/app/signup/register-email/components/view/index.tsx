@@ -2,6 +2,8 @@ import React from "react";
 
 import { Box, Center, Flex, GridItem, SimpleGrid, Stack, Text, VStack } from "@chakra-ui/react";
 import { StepIndicatorLine } from "../StepIndicatorLine";
+import { CreateAnAgencyStep } from "./steps/CreateAnAgency";
+import { RegisterPersonalInformationStep } from "./steps/RegisterPersonalInformation";
 import { ValidateInvitationCodeStep } from "./steps/ValidateInvitationCode";
 
 export const RegisterEmailView = () => {
@@ -25,8 +27,10 @@ export const RegisterEmailView = () => {
             <Center flex="1">
               <Box w="full" maxW="xl">
                 <Stack spacing="16">
-                  <ValidateInvitationCodeStep />
-                  <StepIndicatorLine currentStep={0} totalSteps={5} />
+                  <RegisterPersonalInformationStep />
+                  {/* <ValidateInvitationCodeStep /> */}
+                  {/* <CreateAnAgencyStep /> */}
+                  <StepIndicatorLine currentStep={2} totalSteps={5} />
                 </Stack>
               </Box>
             </Center>
