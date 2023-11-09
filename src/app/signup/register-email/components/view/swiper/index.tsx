@@ -26,13 +26,13 @@ export const SwiperSteps = () => {
           allowTouchMove={false}
           spaceBetween={50}
           onSlideChange={(swiper) => setCurrentSlider(swiper.activeIndex)}
-          autoHeight={true}
+          // onSwiper={(swiper) => console.log(swiper)}
+          // autoHeight={true}
           navigation
           tabIndex={2}
-          updateOnWindowResize={true}
         >
           {steps.map((step, index) => (
-            <SwiperSlide key={index}>
+            <SwiperSlide id={`slider-${index + index}`} key={index}>
               <Box px="0.5">{step.component}</Box>
             </SwiperSlide>
           ))}

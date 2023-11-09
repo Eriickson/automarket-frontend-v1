@@ -8,13 +8,17 @@ import { TextDateField } from "@/components/atoms/TextDateField";
 import { PasswordField } from "@/components/atoms/PasswordField";
 import { SimpleTextFieldController } from "@/components/atoms/SimpleTextField/controller";
 
+import { resolver } from "./schema";
+import { TextDateFieldController } from "@/components/atoms/TextDateField/controller";
+
 export const RegisterPersonalInformationStep = () => {
   const swiperSlide = useSwiper();
-  const methods = useForm();
+  const methods = useForm({ resolver });
 
   async function onSubmit(values: any) {
     console.log("submit");
     console.log(values);
+    // swiperSlide.slideNext();
   }
   return (
     <Box>
@@ -26,14 +30,8 @@ export const RegisterPersonalInformationStep = () => {
       </Box>
       <FormProvider {...methods}>
         <Stack as="form" onSubmit={methods.handleSubmit(onSubmit)} spacing="4">
-          <FormControl>
-            <SimpleTextFieldController
-              name="fullname"
-              label="Nombre completo"
-              placeholder="Ingresa tu nombre completo"
-            />
-          </FormControl>
-          <TextDateField label="Fecha de nacimiento" placeholder="Día / Mes / Año" />
+          <SimpleTextFieldController name="fullname" label="Nombre completo" placeholder="Ingresa tu nombre completo" />
+          <TextDateFieldController name="birthday" label="Fecha de nacimiento" placeholder="Día / Mes / Año" />
           <SimpleTextField label="Correo electrónico" placeholder="Ingresa tu correo electrónico" />
           <SimpleTextField label="Nombre de usuario" placeholder="Ingresa tu nombre de usuario" />
           <FormControl>

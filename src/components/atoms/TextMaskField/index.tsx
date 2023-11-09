@@ -24,9 +24,19 @@ export const TextMaskField: FC<TextMaskFieldProps> = ({
       placeholderChar={placeholderChar}
       keepCharPositions={keepCharPositions}
       pipe={pipe}
+      onChange={props.onChange}
       showMask={showMask}
       render={(ref, maskedInputProps) => {
-        return <SimpleTextField {...maskedInputProps} {...props} ref={ref} />;
+        return (
+          <SimpleTextField
+            {...props}
+            {...maskedInputProps}
+            onChange={(e) => {
+              maskedInputProps.onChange(e);
+            }}
+            ref={ref}
+          />
+        );
       }}
     />
   );
