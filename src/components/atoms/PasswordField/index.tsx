@@ -19,6 +19,7 @@ export const PasswordField: FC<PasswordFieldProps> = ({ ...props }) => {
           {showing ? "H" : "S"}
         </Button>
       </Box>
+      {showing ? <Box h="10" w="10" bgColor="red"></Box> : null}
     </Box>
   );
 };
