@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { useSwiper } from "swiper/react";
 import { SimpleTextField } from "@/components/atoms/SimpleTextField";
+import { TextDateField } from "@/components/atoms/TextDateField";
 
 export const RegisterPersonalInformationStep = () => {
   const swiperSlide = useSwiper();
@@ -30,14 +31,7 @@ export const RegisterPersonalInformationStep = () => {
         <FormControl>
           <SimpleTextField label="Nombre completo" placeholder="Ingresa tu nombre completo" />
         </FormControl>
-        <FormControl>
-          <FormLabel mb="1">Fecha de nacimiento</FormLabel>
-          <Input
-            _focus={{ ringColor: "#165ef0", borderColor: "#165ef0", ring: "1.5" }}
-            py="6"
-            placeholder="Día / Mes / Año"
-          />
-        </FormControl>
+        <TextDateField label="Fecha de nacimiento" placeholder="Día / Mes / Año" />
         <SimpleTextField label="Correo electrónico" placeholder="Ingresa tu correo electrónico" />
         <SimpleTextField label="Nombre de usuario" placeholder="Ingresa tu nombre de usuario" />
         <FormControl>
