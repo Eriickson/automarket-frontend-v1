@@ -1,8 +1,9 @@
-import { Box, Button, HStack, Heading, PinInput, PinInputField, Stack, Text } from "@chakra-ui/react";
 import React from "react";
+
+import { Box, Button, Heading, Stack, Text } from "@chakra-ui/react";
 import { useSwiper } from "swiper/react";
 
-const CustomPinInputField = () => <PinInputField w="16" h="16" fontSize="xl" fontWeight="medium" />;
+import { CodeVerificationField } from "@/components/atoms/CodeVerificationField";
 
 export const ValidateInvitationCodeStep = () => {
   const swiperSlide = useSwiper();
@@ -15,17 +16,7 @@ export const ValidateInvitationCodeStep = () => {
         <Text>Ingresa el código de invitación que te enviamos a tu correo electrónico.</Text>
       </Box>
       <Stack spacing="4">
-        <HStack justifyContent="center">
-          <PinInput otp>
-            <CustomPinInputField />
-            <CustomPinInputField />
-            <CustomPinInputField />
-            <Text fontSize="xl">-</Text>
-            <CustomPinInputField />
-            <CustomPinInputField />
-            <CustomPinInputField />
-          </PinInput>
-        </HStack>
+        <CodeVerificationField />
         <Button
           onClick={() => swiperSlide.slideNext(500)}
           loadingText="Validando"
