@@ -6,7 +6,16 @@ export interface SimpleTextFieldProps extends InputProps {
 }
 
 export const SimpleTextField = forwardRef<HTMLElement, SimpleTextFieldProps>(({ label, ...props }, ref) => {
-  return <Input _focus={{ ringColor: "#165ef0", borderColor: "#165ef0", ring: "1.5" }} py="6" {...props} ref={ref} />;
+  return (
+    <Input
+      rounded="sm"
+      _focus={{ ringColor: "#165ef0", borderColor: "#165ef0", ring: "1.5" }}
+      py="6"
+      isRequired={false}
+      {...props}
+      ref={ref}
+    />
+  );
 });
 
 SimpleTextField.displayName = "SimpleTextField";

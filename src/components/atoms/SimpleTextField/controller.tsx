@@ -1,15 +1,16 @@
 import React, { FC, useMemo } from "react";
 
-import { Box, Text } from "@chakra-ui/react";
+import { Box, FormControl, FormErrorMessage, FormHelperText, FormLabel, Text } from "@chakra-ui/react";
 import { useFormContext } from "react-hook-form";
 
 import { SimpleTextField, SimpleTextFieldProps } from ".";
 
 interface SimpleTextFieldControllerProps extends SimpleTextFieldProps {
   name: string;
+  helperText?: string;
 }
 
-export const SimpleTextFieldController: FC<SimpleTextFieldControllerProps> = ({ name, ...props }) => {
+export const SimpleTextFieldController: FC<SimpleTextFieldControllerProps> = ({ name, helperText, ...props }) => {
   const { register, formState } = useFormContext();
   const errorData = formState.errors[name];
 
@@ -17,8 +18,15 @@ export const SimpleTextFieldController: FC<SimpleTextFieldControllerProps> = ({ 
 
   return (
     <Box>
-      <SimpleTextField {...register(name)} {...props} />
-      {error ? <Text color="red.500">{error}</Text> : null}
+      <FormControl isRequired isInvalid={Boolean(error)}>
+        <FormLabel mb="1.5">{props.label}</FormLabel>
+        <SimpleTextField {...register(name)} {...props} />
+        {error ? (
+          <FormErrorMessage mt="1.5">{error ? error : null}</FormErrorMessage>
+        ) : helperText ? (
+          <FormHelperText mt="1.5">{helperText}</FormHelperText>
+        ) : null}
+      </FormControl>
     </Box>
   );
 };
