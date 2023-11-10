@@ -62,7 +62,7 @@ export const RegisterPersonalInformationStep = () => {
               La contraseña debe tener al menos 8 caracteres conformada por mayúsculas, minúsculas y números.
             </FormHelperText>
           </FormControl>
-          <Button type="submit" loadingText="Validando" py="6" w="full" color="white" bgColor="#165ef0">
+          <Button type="submit" loadingText="Validando" py="6" w="full" color="white" colorScheme="primary">
             Enviar código de invitación
           </Button>
         </Stack>
