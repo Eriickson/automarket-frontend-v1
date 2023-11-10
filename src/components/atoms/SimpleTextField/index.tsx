@@ -1,6 +1,5 @@
 import React, { forwardRef } from "react";
 import { Input, InputProps } from "@chakra-ui/react";
-import { FieldComponentProps } from "@/app/signup/register-email/components/view/steps/RegisterPersonalInformation";
 
 export interface SimpleTextFieldProps extends InputProps {
   label?: string;

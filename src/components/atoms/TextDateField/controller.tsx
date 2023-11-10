@@ -1,6 +1,6 @@
 import React, { FC, useMemo } from "react";
 
-import { Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
 import { useFormContext, Controller } from "react-hook-form";
 
 import { TextDateField, TextDateFieldProps } from ".";
@@ -10,14 +10,14 @@ interface TextDateFieldControllerProps extends TextDateFieldProps {
 }
 
 export const TextDateFieldController: FC<TextDateFieldControllerProps> = ({ name, ...props }) => {
-  const { control, register, formState } = useFormContext();
+  const { control, formState } = useFormContext();
 
   const errorData = formState.errors[name];
 
   const error = useMemo(() => errorData?.message as string | null, [errorData]);
 
   return (
-    <>
+    <Box>
       <Controller
         name={name}
         control={control}
@@ -32,6 +32,6 @@ export const TextDateFieldController: FC<TextDateFieldControllerProps> = ({ name
         )}
       />
       {error ? <Text color="red.500">{error}</Text> : null}
-    </>
+    </Box>
   );
 };

@@ -73,26 +73,3 @@ export const RegisterPersonalInformationStep = () => {
     </Box>
   );
 };
-
-export interface FieldComponentProps {
-  name: string;
-  placeholder: string;
-}
-
-interface FormControlProps {
-  placeholder: string;
-  name: string;
-  label: string;
-  helperText?: string;
-  FieldComponent: FC<FieldComponentProps>;
-}
-
-export const MyFormControl: FC<FormControlProps> = ({ FieldComponent, label, name, placeholder, helperText }) => {
-  return (
-    <FormControl isInvalid={false}>
-      <FormLabel mb="1">{label}</FormLabel>
-      <FieldComponent name={name} placeholder={placeholder} />
-      <FormHelperText mt="1">{helperText}</FormHelperText>
-    </FormControl>
-  );
-};
