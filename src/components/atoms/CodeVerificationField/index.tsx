@@ -27,7 +27,7 @@ export interface CodeVerificationFieldProps {
 
 export const CodeVerificationField: FC<CodeVerificationFieldProps> = ({ isDisabled, onChange, value }) => {
   return (
-    <HStack justifyContent="center">
+    <HStack justifyContent="">
       <PinInput placeholder="●" isDisabled={isDisabled} value={value} onChange={onChange} otp>
         <CustomPinInputField />
         <CustomPinInputField />

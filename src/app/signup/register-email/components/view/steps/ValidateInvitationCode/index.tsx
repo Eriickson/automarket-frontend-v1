@@ -37,7 +37,7 @@ export const ValidateInvitationCodeStep = () => {
       </Box>
       <FormProvider {...methods}>
         <Stack as="form" onSubmit={methods.handleSubmit(handleSubmit)} spacing="4">
-          <CodeVerificationFieldController name="invitationCode" />
+          <CodeVerificationFieldController label="" name="invitationCode" />
           <Button
             type="submit"
             loadingText="Validando código de invitación"

@@ -11,10 +11,18 @@ export interface FormControlProps {
   isRequired?: boolean;
   isInvalid?: boolean;
   label: string;
+  name?: string;
 }
 
-export const FormControl: FC<FormControlProps> = ({ children, helperText, isInvalid, isRequired, label }) => {
-  const name = children.props.name;
+export const FormControl: FC<FormControlProps> = ({
+  name: nameProp,
+  children,
+  helperText,
+  isInvalid,
+  isRequired,
+  label,
+}) => {
+  const name = nameProp || children.props.name;
   const formContext = useFormContext();
 
   const errorFound = useMemo(() => {
