@@ -20,9 +20,12 @@ export const ValidateInvitationCodeStep = () => {
   const methods = useForm<ValidateInvitationCodeFormType>({ resolver: resolver });
 
   async function handleSubmit(values: ValidateInvitationCodeFormType) {
+
+    console.log(swiperSlide.previousIndex);
     const response = await simulateCallApi();
 
     console.log(values);
+
 
     if (response) swiperSlide.slideNext();
   }

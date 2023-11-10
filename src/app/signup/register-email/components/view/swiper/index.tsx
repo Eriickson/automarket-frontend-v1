@@ -15,9 +15,9 @@ export const SwiperSteps = () => {
   const [currentSlider, setCurrentSlider] = useState(0);
 
   const steps = [
+    { title: "Crear una agencia", component: <CreateAnAgencyStep /> },
     { title: "Validar código de invitación", component: <ValidateInvitationCodeStep /> },
     { title: "Información personal", component: <RegisterPersonalInformationStep /> },
-    { title: "Crear una agencia", component: <CreateAnAgencyStep /> },
   ];
 
   return (
@@ -27,7 +27,7 @@ export const SwiperSteps = () => {
           allowTouchMove={false}
           spaceBetween={50}
           onSlideChange={(swiper) => setCurrentSlider(swiper.activeIndex)}
-          autoHeight={true}
+          // autoHeight={true}
           navigation
           tabIndex={currentSlider}
         >
