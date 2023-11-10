@@ -13,7 +13,7 @@ export const RegisterPersonalInformationStep = () => {
   const swiperSlide = useSwiper();
   const methods = useForm({ resolver });
 
-  async function onSubmit(values: any) {
+  async function handleSubmit(values: any) {
     console.log("submit");
     console.log(values);
     swiperSlide.slideNext();
@@ -28,7 +28,7 @@ export const RegisterPersonalInformationStep = () => {
       </Box>
 
       <FormProvider {...methods}>
-        <Stack as="form" onSubmit={methods.handleSubmit(onSubmit)} spacing="4">
+        <Stack as="form" onSubmit={methods.handleSubmit(handleSubmit)} spacing="4">
           <SimpleTextFieldController name="fullname" label="Nombre completo" placeholder="Ingresa tu nombre completo" />
           <TextDateFieldController name="birthday" label="Fecha de nacimiento" placeholder="Día / Mes / Año" />
           <SimpleTextFieldController

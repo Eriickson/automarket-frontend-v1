@@ -15,18 +15,20 @@ const CustomPinInputField = () => (
     _focus={{ border: "1px solid", borderColor: "primary.500", ring: "1.5", ringColor: "primary.500" }}
     rounded="sm"
     transition="150ms"
+    _placeholder={{ color: "gray.300" }}
   />
 );
 
 export interface CodeVerificationFieldProps {
   value?: string;
+  isDisabled?: boolean;
   onChange?(value: string): void;
 }
 
-export const CodeVerificationField: FC<CodeVerificationFieldProps> = ({ onChange, value }) => {
+export const CodeVerificationField: FC<CodeVerificationFieldProps> = ({ isDisabled, onChange, value }) => {
   return (
     <HStack justifyContent="center">
-      <PinInput value={value} onChange={onChange} otp>
+      <PinInput placeholder="●" isDisabled={isDisabled} value={value} onChange={onChange} otp>
         <CustomPinInputField />
         <CustomPinInputField />
         <CustomPinInputField />
