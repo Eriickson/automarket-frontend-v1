@@ -1,23 +1,19 @@
-import React, { FC, useMemo } from "react";
+import React, { FC } from "react";
 
-import { Box, Text } from "@chakra-ui/react";
 import { useFormContext, Controller } from "react-hook-form";
 
 import { TextDateField, TextDateFieldProps } from ".";
+import { FormControl, FormControlPropsForFields } from "../FormControl";
 
-interface TextDateFieldControllerProps extends TextDateFieldProps {
+interface TextDateFieldControllerProps extends TextDateFieldProps, FormControlPropsForFields {
   name: string;
 }
 
 export const TextDateFieldController: FC<TextDateFieldControllerProps> = ({ name, ...props }) => {
-  const { control, formState } = useFormContext();
-
-  const errorData = formState.errors[name];
-
-  const error = useMemo(() => errorData?.message as string | null, [errorData]);
+  const { control } = useFormContext();
 
   return (
-    <Box>
+    <FormControl {...props}>
       <Controller
         name={name}
         control={control}
@@ -31,7 +27,6 @@ export const TextDateFieldController: FC<TextDateFieldControllerProps> = ({ name
           />
         )}
       />
-      {error ? <Text color="red.500">{error}</Text> : null}
-    </Box>
+    </FormControl>
   );
 };

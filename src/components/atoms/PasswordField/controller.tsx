@@ -1,23 +1,21 @@
-import React, { FC, useMemo } from "react";
-import { Box, Text } from "@chakra-ui/react";
-import { useFormContext } from "react-hook-form";
-import { PasswordField, PasswordFieldProps } from ".";
+import React, { FC } from "react";
 
-interface PasswordFieldControllerProps extends PasswordFieldProps {
+import { useFormContext } from "react-hook-form";
+
+import { PasswordField, PasswordFieldProps } from ".";
+import { FormControl, FormControlPropsForFields } from "../FormControl";
+
+interface PasswordFieldControllerProps extends PasswordFieldProps, FormControlPropsForFields {
   name: string;
 }
 
 export const PasswordFieldController: FC<PasswordFieldControllerProps> = ({ name, ...props }) => {
-  const { register, formState } = useFormContext();
-  const errorData = formState.errors[name];
-
-  const error = useMemo(() => errorData?.message as string | null, [errorData]);
+  const { register } = useFormContext();
 
   return (
-    <Box w="full" pos="relative">
+    <FormControl {...props}>
       <PasswordField {...register(name)} {...props} />
-      {error ? <Text color="red.500">{error}</Text> : null}
-    </Box>
+    </FormControl>
   );
 };
 

@@ -1,20 +1,8 @@
-import React, { FC } from "react";
+import React from "react";
 
 import { useForm, FormProvider } from "react-hook-form";
-import {
-  Box,
-  Button,
-  FormControl,
-  FormHelperText,
-  FormLabel,
-  HStack,
-  Heading,
-  Input,
-  Stack,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Button, FormControl, FormHelperText, HStack, Heading, Stack, Text } from "@chakra-ui/react";
 import { useSwiper } from "swiper/react";
-import { TextDateField } from "@/components/atoms/TextDateField";
 import { SimpleTextFieldController } from "@/components/atoms/SimpleTextField/controller";
 
 import { resolver } from "./schema";
@@ -28,7 +16,7 @@ export const RegisterPersonalInformationStep = () => {
   async function onSubmit(values: any) {
     console.log("submit");
     console.log(values);
-    // swiperSlide.slideNext();
+    swiperSlide.slideNext();
   }
   return (
     <Box>
@@ -38,6 +26,7 @@ export const RegisterPersonalInformationStep = () => {
         </Heading>
         <Text>Necesitamos algunos datos para crear tu cuenta.</Text>
       </Box>
+
       <FormProvider {...methods}>
         <Stack as="form" onSubmit={methods.handleSubmit(onSubmit)} spacing="4">
           <SimpleTextFieldController name="fullname" label="Nombre completo" placeholder="Ingresa tu nombre completo" />
@@ -46,16 +35,24 @@ export const RegisterPersonalInformationStep = () => {
             name="email"
             label="Correo electrónico"
             placeholder="Ingresa tu correo electrónico"
+            autoComplete="email"
           />
           <SimpleTextFieldController
             name="username"
             label="Nombre de usuario"
             placeholder="Ingresa tu nombre de usuario"
+            autoComplete="username"
           />
           <FormControl>
             <HStack alignItems="flex-start" spacing="4">
-              <PasswordFieldController name="password" label="Contraseña" placeholder="Ingresa tu contraseña" />
               <PasswordFieldController
+                autoComplete="new-password"
+                name="password"
+                label="Contraseña"
+                placeholder="Ingresa tu contraseña"
+              />
+              <PasswordFieldController
+                autoComplete="new-password"
                 name="confirmPassword"
                 label="Confirmar Contraseña"
                 placeholder="Ingresa tu contraseña"

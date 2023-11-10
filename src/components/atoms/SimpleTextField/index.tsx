@@ -1,11 +1,9 @@
 import React, { forwardRef } from "react";
 import { Input, InputProps } from "@chakra-ui/react";
 
-export interface SimpleTextFieldProps extends InputProps {
-  label?: string;
-}
+export interface SimpleTextFieldProps extends InputProps {}
 
-export const SimpleTextField = forwardRef<HTMLElement, SimpleTextFieldProps>(({ label, ...props }, ref) => {
+export const SimpleTextField = forwardRef<HTMLElement, SimpleTextFieldProps>(({ ...props }, ref) => {
   return (
     <Input
       rounded="sm"
