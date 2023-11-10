@@ -1,14 +1,24 @@
-import React from "react";
+import React, { FC } from "react";
 
 import { useForm, FormProvider } from "react-hook-form";
-import { Box, Button, FormControl, FormHelperText, HStack, Heading, Stack, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  FormControl,
+  FormHelperText,
+  FormLabel,
+  HStack,
+  Heading,
+  Input,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import { useSwiper } from "swiper/react";
-import { SimpleTextField } from "@/components/atoms/SimpleTextField";
 import { TextDateField } from "@/components/atoms/TextDateField";
-import { PasswordField } from "@/components/atoms/PasswordField";
 import { SimpleTextFieldController } from "@/components/atoms/SimpleTextField/controller";
 
 import { resolver } from "./schema";
+import { PasswordFieldController } from "@/components/atoms/PasswordField/controller";
 import { TextDateFieldController } from "@/components/atoms/TextDateField/controller";
 
 export const RegisterPersonalInformationStep = () => {
@@ -32,12 +42,24 @@ export const RegisterPersonalInformationStep = () => {
         <Stack as="form" onSubmit={methods.handleSubmit(onSubmit)} spacing="4">
           <SimpleTextFieldController name="fullname" label="Nombre completo" placeholder="Ingresa tu nombre completo" />
           <TextDateFieldController name="birthday" label="Fecha de nacimiento" placeholder="Día / Mes / Año" />
-          <SimpleTextField label="Correo electrónico" placeholder="Ingresa tu correo electrónico" />
-          <SimpleTextField label="Nombre de usuario" placeholder="Ingresa tu nombre de usuario" />
+          <SimpleTextFieldController
+            name="email"
+            label="Correo electrónico"
+            placeholder="Ingresa tu correo electrónico"
+          />
+          <SimpleTextFieldController
+            name="username"
+            label="Nombre de usuario"
+            placeholder="Ingresa tu nombre de usuario"
+          />
           <FormControl>
-            <HStack spacing="4">
-              <PasswordField label="Contraseña" placeholder="Ingresa tu contraseña" />
-              <PasswordField label="Confirmar Contraseña" placeholder="Ingresa tu contraseña" />
+            <HStack alignItems="flex-start" spacing="4">
+              <PasswordFieldController name="password" label="Contraseña" placeholder="Ingresa tu contraseña" />
+              <PasswordFieldController
+                name="confirmPassword"
+                label="Confirmar Contraseña"
+                placeholder="Ingresa tu contraseña"
+              />
             </HStack>
             <FormHelperText>
               La contraseña debe tener al menos 8 caracteres conformada por mayúsculas, minúsculas y números.
@@ -49,5 +71,28 @@ export const RegisterPersonalInformationStep = () => {
         </Stack>
       </FormProvider>
     </Box>
+  );
+};
+
+export interface FieldComponentProps {
+  name: string;
+  placeholder: string;
+}
+
+interface FormControlProps {
+  placeholder: string;
+  name: string;
+  label: string;
+  helperText?: string;
+  FieldComponent: FC<FieldComponentProps>;
+}
+
+export const MyFormControl: FC<FormControlProps> = ({ FieldComponent, label, name, placeholder, helperText }) => {
+  return (
+    <FormControl isInvalid={false}>
+      <FormLabel mb="1">{label}</FormLabel>
+      <FieldComponent name={name} placeholder={placeholder} />
+      <FormHelperText mt="1">{helperText}</FormHelperText>
+    </FormControl>
   );
 };

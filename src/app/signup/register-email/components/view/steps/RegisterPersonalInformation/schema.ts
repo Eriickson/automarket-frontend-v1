@@ -4,27 +4,29 @@ import { z } from "zod";
 
 import moment from "moment";
 
-const registerPersonalInformationSchema = z.object({
-  // fullname: z
-  //   .string()
-  //   .min(1, "Este campo es requerido")
-  //   .regex(/^([0-9]{2})-([0-9]{2})-([0-9]{4})$/, "El formato de fecha es dd-mm-yyyy")
-  //   .refine(
-  //     (data) => {
-  //       const date = moment(data, "DD-MM-YYYY");
-  //       return date.isValid();
-  //     },
-  //     { message: "La fecha no es válida" }
-  //   )
-  //   .refine(
-  //     (data) => {
-  //       const date = moment(data, "DD-MM-YYYY");
-  //       return moment().diff(date, "years") >= 18;
-  //     },
-  //     { message: "Debes ser mayor de edad" }
-  //   ),
-  birthday: z.string().min(1, "Este campo es requerido"),
-});
+const registerPersonalInformationSchema = z
+  .object({
+    fullname: z.string().min(1, "Este campo es requerido"),
+    birthday: z
+      .string()
+      .regex(/^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$/, "El formato de fecha no es válido")
+      .refine((data) => moment(data).isValid(), { message: "La fecha no es válida" })
+      .refine((data) => moment().diff(data, "years") >= 18, { message: "Debes ser mayor de edad" }),
+    email: z.string().email("El formato de email no es válido").min(1, "Este campo es requerido"),
+    username: z.string().min(1, "Este campo es requerido"),
+    password: z
+      .string()
+      .min(8, "La contraseña debe tener al menos 8 caracteres")
+      .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/, "La contraseña debe tener al menos 8 caracteres"),
+    confirmPassword: z
+      .string()
+      .min(8, "La contraseña debe tener al menos 8 caracteres")
+      .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/, "La contraseña debe tener al menos 8 caracteres"),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    path: ["confirmPassword"],
+    message: "Las contraseñas no coinciden",
+  });
 
 export const resolver = zodResolver(registerPersonalInformationSchema);
 

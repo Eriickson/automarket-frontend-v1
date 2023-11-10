@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useMemo } from "react";
 
 import { Text } from "@chakra-ui/react";
 import { useFormContext, Controller } from "react-hook-form";
@@ -12,9 +12,12 @@ interface TextDateFieldControllerProps extends TextDateFieldProps {
 export const TextDateFieldController: FC<TextDateFieldControllerProps> = ({ name, ...props }) => {
   const { control, register, formState } = useFormContext();
 
+  const errorData = formState.errors[name];
+
+  const error = useMemo(() => errorData?.message as string | null, [errorData]);
+
   return (
     <>
-      {/* <TextDateField {...register(name)} {...props} /> */}
       <Controller
         name={name}
         control={control}
@@ -23,14 +26,12 @@ export const TextDateFieldController: FC<TextDateFieldControllerProps> = ({ name
             {...props}
             value={field.value}
             onChange={(e) => {
-              console.log(e.target.value);
-
               field.onChange(e.target.value);
             }}
           />
         )}
       />
-      <Text color="red.500">{formState.errors[name]?.message?.toString()}</Text>
+      {error ? <Text color="red.500">{error}</Text> : null}
     </>
   );
 };

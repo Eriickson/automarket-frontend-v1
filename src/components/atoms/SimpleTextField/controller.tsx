@@ -1,6 +1,6 @@
-import React, { FC } from "react";
+import React, { FC, useMemo } from "react";
 
-import { FormHelperText, Text } from "@chakra-ui/react";
+import { Text } from "@chakra-ui/react";
 import { useFormContext } from "react-hook-form";
 
 import { SimpleTextField, SimpleTextFieldProps } from ".";
@@ -11,11 +11,14 @@ interface SimpleTextFieldControllerProps extends SimpleTextFieldProps {
 
 export const SimpleTextFieldController: FC<SimpleTextFieldControllerProps> = ({ name, ...props }) => {
   const { register, formState } = useFormContext();
+  const errorData = formState.errors[name];
+
+  const error = useMemo(() => errorData?.message as string | null, [errorData]);
 
   return (
     <>
       <SimpleTextField {...register(name)} {...props} />
-      <Text color="red.500">{formState.errors[name]?.message?.toString()}</Text>
+      {/* {error ? <Text color="red.500">{error}</Text> : null} */}
     </>
   );
 };
