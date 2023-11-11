@@ -20,7 +20,7 @@ export const RegisterPersonalInformationStep = () => {
   }
   return (
     <Box>
-      <Box mb="8">
+      <Box mb="8" textAlign="center">
         <Heading as="h2" size="xl" fontWeight="semibold">
           Información personal
         </Heading>

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box, Button, Heading, Stack, Text } from "@chakra-ui/react";
+import { Box, Button, Heading, Stack, Text, VStack } from "@chakra-ui/react";
 import { useSwiper } from "swiper/react";
 
 import { FormProvider, useForm } from "react-hook-form";
@@ -20,26 +20,24 @@ export const ValidateInvitationCodeStep = () => {
   const methods = useForm<ValidateInvitationCodeFormType>({ resolver: resolver });
 
   async function handleSubmit(values: ValidateInvitationCodeFormType) {
-
     console.log(swiperSlide.previousIndex);
     const response = await simulateCallApi();
 
     console.log(values);
-
 
     if (response) swiperSlide.slideNext();
   }
 
   return (
     <Box>
-      <Box mb="8">
+      <Box textAlign="center" mb="8">
         <Heading as="h2" size="xl" fontWeight="semibold">
           Validar código de invitación
         </Heading>
         <Text>Ingresa el código de invitación que te enviamos a tu correo electrónico.</Text>
       </Box>
       <FormProvider {...methods}>
-        <Stack as="form" onSubmit={methods.handleSubmit(handleSubmit)} spacing="4">
+        <VStack as="form" onSubmit={methods.handleSubmit(handleSubmit)} spacing="4">
           <CodeVerificationFieldController label="" name="invitationCode" />
           <Button
             type="submit"
@@ -52,7 +50,7 @@ export const ValidateInvitationCodeStep = () => {
           >
             Validar código de invitación
           </Button>
-        </Stack>
+        </VStack>
       </FormProvider>
     </Box>
   );
