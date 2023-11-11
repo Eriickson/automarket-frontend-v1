@@ -78,7 +78,7 @@ export const CreateAnAgencyStep = () => {
             </FormControl>
           </HStack>
           <SimpleTextFieldController name="reference" label="Referencía" placeholder="Ingresa la referencia" />
-          <Button py="6" w="full" color="white" bgColor="#165ef0">
+          <Button py="6" w="full" colorScheme="primary">
             Validar datos de la agencia
           </Button>
         </Stack>
