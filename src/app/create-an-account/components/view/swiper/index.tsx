@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Box, Stack } from "@chakra-ui/react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { RegisterPersonalInformationStep } from "../steps/RegisterPersonalInformation";
+import { RegisterPersonalInformationStep } from "../steps/PersonalInformation";
 import { ValidateInvitationCodeStep } from "../steps/ValidateInvitationCode";
 import { CreateAnAgencyStep } from "../steps/CreateAnAgency";
 
