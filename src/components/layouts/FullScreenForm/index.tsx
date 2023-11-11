@@ -1,6 +1,6 @@
 "use client";
 
-import React, { FC, useEffect } from "react";
+import React, { FC } from "react";
 
 import { Box, Center, Flex, GridItem, SimpleGrid, Stack, Text } from "@chakra-ui/react";
 
@@ -27,11 +27,7 @@ export const FullScreenFormLayout: FC<FullScreenFormLayoutProps> = ({ children, 
                 </Text>
               </Flex>
             </Box>
-            <Center flex="1">
-              <Box w="full">
-                <Box className="children">{children}</Box>
-              </Box>
-            </Center>
+            <Center flex="1">{children}</Center>
             <Box h="32" />
           </Stack>
         </GridItem>
