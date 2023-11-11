@@ -15,9 +15,9 @@ export const SwiperSteps = () => {
   const [currentSlider, setCurrentSlider] = useState(0);
 
   const steps = [
-    { title: "Crear una agencia", component: <CreateAnAgencyStep /> },
-    { title: "Validar código de invitación", component: <ValidateInvitationCodeStep /> },
     { title: "Información personal", component: <RegisterPersonalInformationStep /> },
+    { title: "Validar código de invitación", component: <ValidateInvitationCodeStep /> },
+    { title: "Crear una agencia", component: <CreateAnAgencyStep /> },
   ];
 
   return (
