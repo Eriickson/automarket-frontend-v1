@@ -10,7 +10,6 @@ export type Option = {
 };
 
 interface SelectFieldProps extends Omit<SelectFieldContextProviderArgs, "children"> {
-  defaultValue?: Array<Option>;
   options: Array<Option>;
   value?: Option;
   onChange?(value: Option): void;

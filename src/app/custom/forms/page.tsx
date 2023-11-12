@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Box, Stack } from "@chakra-ui/react";
 
@@ -8,11 +8,35 @@ import { Option, SelectField } from "@/components/atoms/SelectField";
 import { SimpleTextField } from "@/components/atoms/SimpleTextField";
 
 const CustomPage = () => {
+  const [defaultValue, setDefaultValue] = useState<Option[]>([]);
+
+  async function callToApi() {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(true);
+      }, 3000);
+    });
+  }
+
+  useEffect(() => {
+    callToApi().then(() => {
+      setDefaultValue([
+        { label: "John Smith", value: "1" },
+        { label: "Elena Fernandez", value: "8" },
+        { label: "Robert Sanchez", value: "15" },
+        { label: "Sophia Martin", value: "16" },
+        { label: "Anthony Alvarez", value: "19" },
+      ]);
+    });
+  }, []);
+
+  console.log(defaultValue);
+
   return (
     <Box m="24">
       <Stack w="96">
         <SimpleTextField />
-        <SelectField options={personas} allowMultiple defaultValue={[{ label: "John Smith", value: "1" }]} />
+        <SelectField options={personas} allowMultiple defaultValue={defaultValue} />
       </Stack>
     </Box>
   );

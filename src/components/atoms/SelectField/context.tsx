@@ -1,4 +1,4 @@
-import { createContext, Context, useContext, useState, useRef, useMemo, RefObject } from "react";
+import { createContext, Context, useContext, useState, useRef, useMemo, RefObject, useEffect } from "react";
 import { useOutsideClick } from "@chakra-ui/react";
 import { useDebounce } from "use-debounce";
 
@@ -27,10 +27,16 @@ export const SelectFieldContext = createContext<SelectFieldContextProps | undefi
 export interface SelectFieldContextProviderArgs {
   allowMultiple?: boolean;
   children: React.ReactNode;
+  defaultValue?: Array<Option>;
   options: Array<Option>;
 }
 
-export const SelectFieldContextProvider = ({ allowMultiple, children, options }: SelectFieldContextProviderArgs) => {
+export const SelectFieldContextProvider = ({
+  defaultValue,
+  allowMultiple,
+  children,
+  options,
+}: SelectFieldContextProviderArgs) => {
   const inputRepresentationRef = useRef<HTMLInputElement>(null);
 
   const [searchValue, setSearchValue] = useState("");
@@ -76,6 +82,14 @@ export const SelectFieldContextProvider = ({ allowMultiple, children, options }:
     setIsFocus(false);
     setSearchValue("");
   }
+
+  function setDefaultValues(defaultValue: Option[]) {
+    setValuesSelected(defaultValue);
+  }
+
+  useEffect(() => {
+    if (defaultValue) setDefaultValues(defaultValue);
+  }, [defaultValue]);
 
   return (
     <SelectFieldContext.Provider
