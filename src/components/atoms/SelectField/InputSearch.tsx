@@ -19,6 +19,7 @@ export const InputSearch = () => {
         id="search"
         outline="none"
         placeholder="Buscar..."
+        backgroundColor="transparent"
         w="full"
       />
       {searchValue ? (

@@ -8,6 +8,7 @@ export const SimpleTextField = forwardRef<HTMLElement, SimpleTextFieldProps>(({ 
     <Input
       rounded="sm"
       _focus={{ ringColor: "#165ef0", borderColor: "#165ef0", ring: "1.5" }}
+      _disabled={{ bgColor: "gray.50" }}
       py="6"
       isRequired={false}
       {...props}

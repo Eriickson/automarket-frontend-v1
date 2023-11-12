@@ -5,6 +5,7 @@ import { useDebounce } from "use-debounce";
 import { Option } from ".";
 
 interface SelectFieldContextProps {
+  isDisabled?: boolean;
   allowMultiple?: boolean;
   isFocus: boolean;
   boxContainerRef: RefObject<HTMLDivElement>;
@@ -29,6 +30,7 @@ export interface SelectFieldContextProviderArgs {
   children: React.ReactNode;
   defaultValue?: Array<Option>;
   options: Array<Option>;
+  isDisabled?: boolean;
 }
 
 export const SelectFieldContextProvider = ({
@@ -36,6 +38,7 @@ export const SelectFieldContextProvider = ({
   allowMultiple,
   children,
   options,
+  isDisabled,
 }: SelectFieldContextProviderArgs) => {
   const inputRepresentationRef = useRef<HTMLInputElement>(null);
 
@@ -71,6 +74,7 @@ export const SelectFieldContextProvider = ({
   }
 
   function handleFocus(newValue: boolean) {
+    if (isDisabled) return;
     setIsFocus(newValue);
   }
 
@@ -94,6 +98,7 @@ export const SelectFieldContextProvider = ({
   return (
     <SelectFieldContext.Provider
       value={{
+        isDisabled,
         allowMultiple,
         inputRepresentationRef,
         boxContainerRef,

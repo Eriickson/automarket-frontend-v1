@@ -18,24 +18,24 @@ const CustomPage = () => {
     });
   }
 
-  useEffect(() => {
-    callToApi().then(() => {
-      setDefaultValue([
-        { label: "John Smith", value: "1" },
-        { label: "Elena Fernandez", value: "8" },
-        { label: "Robert Sanchez", value: "15" },
-        { label: "Sophia Martin", value: "16" },
-        { label: "Anthony Alvarez", value: "19" },
-      ]);
-    });
-  }, []);
+  // useEffect(() => {
+  //   callToApi().then(() => {
+  //     setDefaultValue([
+  //       { label: "John Smith", value: "1" },
+  //       { label: "Elena Fernandez", value: "8" },
+  //       { label: "Robert Sanchez", value: "15" },
+  //       { label: "Sophia Martin", value: "16" },
+  //       { label: "Anthony Alvarez", value: "19" },
+  //     ]);
+  //   });
+  // }, []);
 
-  console.log(defaultValue);
+  // console.log(defaultValue);
 
   return (
     <Box m="24">
       <Stack w="96">
-        <SimpleTextField />
+        <SimpleTextField placeholder="Erickson Manuel Holguín" />
         <SelectField options={personas} allowMultiple defaultValue={defaultValue} />
       </Stack>
     </Box>
