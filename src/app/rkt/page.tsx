@@ -8,6 +8,8 @@ import { jsonPlaceholderApi } from "@/store/features/api/jsonplaceholder";
 const RktPage = () => {
   const { data } = jsonPlaceholderApi.useGetTodosQuery({});
 
+  console.log(data);
+  
   return <Box m="48">RktPage - </Box>;
 };
 
