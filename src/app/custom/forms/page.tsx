@@ -4,7 +4,7 @@ import React from "react";
 
 import { Box, Stack } from "@chakra-ui/react";
 
-import { SelectField } from "@/components/atoms/SelectField";
+import { Option, SelectField } from "@/components/atoms/SelectField";
 import { SimpleTextField } from "@/components/atoms/SimpleTextField";
 
 const CustomPage = () => {
@@ -20,7 +20,7 @@ const CustomPage = () => {
 
 export default CustomPage;
 
-const personas = [
+const personas: Option[] = [
   { label: "John Smith", value: "1" },
   { label: "Maria Rodriguez", value: "2" },
   { label: "David Johnson", value: "3" },

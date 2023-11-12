@@ -8,7 +8,7 @@ import { InputSearch } from "./InputSearch";
 import { OptionsList } from "./OptionsList";
 
 export const ContextualMenu = () => {
-  const { isFocus, boxContainerRef } = useSelectFieldContext();
+  const { isFocus, boxContainerRef, options } = useSelectFieldContext();
 
   return (
     <Box position="relative" ref={boxContainerRef}>
@@ -24,7 +24,7 @@ export const ContextualMenu = () => {
         right="0"
         display={isFocus ? "block" : "none"}
       >
-        <InputSearch />
+        {options.length === 0 ? null : <InputSearch />}
         <OptionsList />
       </Box>
     </Box>

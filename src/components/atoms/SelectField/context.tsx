@@ -57,6 +57,7 @@ export const SelectFieldContextProvider = ({ allowMultiple, children, options }:
 
   function handleClearSelectedOptions() {
     setValuesSelected([]);
+    setSearchValue("");
   }
 
   function handleRemoveItemToSelectedList(nv: Option) {
