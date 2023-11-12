@@ -12,7 +12,7 @@ const CustomPage = () => {
     <Box m="24">
       <Stack w="96">
         <SimpleTextField />
-        <SelectField options={personas} defaultValue={[{ label: "John Smith", value: "1" }]} />
+        <SelectField options={personas} allowMultiple defaultValue={[{ label: "John Smith", value: "1" }]} />
       </Stack>
     </Box>
   );

@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import { SelectFieldContextProvider } from "./context";
+import { SelectFieldContextProvider, SelectFieldContextProviderArgs } from "./context";
 import { ContextualMenu } from "./ContextualMenu";
 
 export type Option = {
@@ -9,16 +9,16 @@ export type Option = {
   isDisabled?: boolean;
 };
 
-interface SelectFieldProps {
+interface SelectFieldProps extends Omit<SelectFieldContextProviderArgs, "children"> {
   defaultValue?: Array<Option>;
   options: Array<Option>;
   value?: Option;
   onChange?(value: Option): void;
 }
 
-export const SelectField: FC<SelectFieldProps> = ({ defaultValue = [], options, value, onChange }) => {
+export const SelectField: FC<SelectFieldProps> = ({ ...props }) => {
   return (
-    <SelectFieldContextProvider allowMultiple options={options}>
+    <SelectFieldContextProvider {...props}>
       <ContextualMenu />
     </SelectFieldContextProvider>
   );

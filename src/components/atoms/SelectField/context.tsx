@@ -24,7 +24,7 @@ export const SelectFieldContext = createContext<SelectFieldContextProps | undefi
   undefined
 ) as Context<SelectFieldContextProps>;
 
-interface SelectFieldContextProviderArgs {
+export interface SelectFieldContextProviderArgs {
   allowMultiple?: boolean;
   children: React.ReactNode;
   options: Array<Option>;
