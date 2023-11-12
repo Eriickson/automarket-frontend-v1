@@ -12,7 +12,7 @@ import { authApi } from "@/store/features/api/auth";
 
 export const RegisterPersonalInformationStep = () => {
   const swiperSlide = useSwiper();
-  const { FormProvider, methods } = useFormProvider({
+  const { FormProvider, methods } = useFormProvider<RegisterPersonalInformationFormType>({
     resolver,
     defaultValues: {
       fullname: "Jorge Luis",
@@ -26,12 +26,11 @@ export const RegisterPersonalInformationStep = () => {
   const [checkFieldAvailability] = authApi.useLazyCheckFieldAvailabilityQuery();
 
   async function handleSubmit(values: RegisterPersonalInformationFormType) {
-    const response = await checkFieldAvailability({ field: "username", value: values.username });
+    const response = await checkFieldAvailability({ field: "email", value: values.email });
 
-    methods.setError("username", {
-      message: "El nombre de usuario ya está en uso",
+    methods.setError("email", {
+      message: "No disponible",
     });
-    methods.setFocus("username");
   }
 
   return (
