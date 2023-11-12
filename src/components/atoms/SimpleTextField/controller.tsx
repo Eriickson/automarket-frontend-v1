@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 import { useFormContext } from "react-hook-form";
 
-import { SimpleTextField, SimpleTextFieldProps } from ".";
+import { SimpleTextField, SimpleTextFieldProps } from "./simple";
 import { FormControl, FormControlPropsForFields } from "../FormControl";
 
 interface SimpleTextFieldControllerProps extends SimpleTextFieldProps, FormControlPropsForFields {

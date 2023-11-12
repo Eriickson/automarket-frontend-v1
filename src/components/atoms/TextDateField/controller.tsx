@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 import { useFormContext, Controller } from "react-hook-form";
 
-import { TextDateField, TextDateFieldProps } from ".";
+import { TextDateField, TextDateFieldProps } from "./simple";
 import { FormControl, FormControlPropsForFields } from "../FormControl";
 
 interface TextDateFieldControllerProps extends TextDateFieldProps, FormControlPropsForFields {

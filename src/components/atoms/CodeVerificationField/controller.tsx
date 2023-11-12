@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 import { useController } from "react-hook-form";
 
-import { CodeVerificationField, CodeVerificationFieldProps } from ".";
+import { CodeVerificationField, CodeVerificationFieldProps } from "./simple";
 import { FormControl, FormControlPropsForFields } from "../FormControl";
 
 interface CodeVerificationFieldControllerProps extends CodeVerificationFieldProps, FormControlPropsForFields {
