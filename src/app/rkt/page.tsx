@@ -1,14 +1,14 @@
 "use client";
 import React from "react";
 
-import { useSelector } from "react-redux";
 
 import { Box } from "@chakra-ui/react";
+import { jsonPlaceholderApi } from "@/store/features/api/jsonplaceholder";
 
 const RktPage = () => {
-  const data = useSelector((store) => store.counter);
+  const { data } = jsonPlaceholderApi.useGetTodosQuery({});
 
-  return <Box m="48">RktPage - {data.value}</Box>;
+  return <Box m="48">RktPage - </Box>;
 };
 
 export default RktPage;

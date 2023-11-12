@@ -3,9 +3,11 @@ import { Provider as ReduxProvider } from "react-redux";
 import { mainTheme } from "@/themes/mainTheme";
 import { CacheProvider } from "@chakra-ui/next-js";
 import { ChakraProvider } from "@chakra-ui/react";
-import { store } from "@/store/store";
+import { useStore } from "@/store/useStore.store";
 
 export function Providers({ children }: { children: React.ReactNode }) {
+  const { store } = useStore();
+
   return (
     <ReduxProvider store={store}>
       <CacheProvider>
