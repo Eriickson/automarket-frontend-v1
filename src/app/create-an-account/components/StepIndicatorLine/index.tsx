@@ -1,5 +1,6 @@
-import { Box, HStack } from "@chakra-ui/react";
 import React, { FC } from "react";
+
+import { Box, HStack } from "@chakra-ui/react";
 
 interface StepIndicatorLineProps {
   currentStep: number;
@@ -13,12 +14,12 @@ export const StepIndicatorLine: FC<StepIndicatorLineProps> = ({ currentStep, tot
     <HStack spacing="4">
       {steps.map((step) => (
         <Box
-          transition="150ms"
-          key={step}
-          h="2"
           bgColor={currentStep === step ? "#165ef0" : "#e6e7eb"}
           flex="1"
+          h="2"
+          key={step}
           rounded="full"
+          transition="150ms"
         />
       ))}
     </HStack>

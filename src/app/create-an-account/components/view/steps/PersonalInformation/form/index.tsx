@@ -10,7 +10,7 @@ import { RegisterPersonalInformationFormType, resolver } from "./schema";
 import { useValidateBeforeSubmit } from "./validateBeforeSubmit";
 
 interface PersonalInformationFormProps {
-  onSubmit(data: any): void;
+  onSubmit(data: RegisterPersonalInformationFormType): void;
   defaultValues?: RegisterPersonalInformationFormType;
 }
 
@@ -23,12 +23,8 @@ export const PersonalInformationForm: FC<PersonalInformationFormProps> = ({ onSu
     defaultValues,
   });
 
-  async function handleSubmit(data: any) {
-    console.log(data);
-  }
-
   return (
-    <FormProvider onSubmit={handleSubmit}>
+    <FormProvider onSubmit={onSubmit}>
       <SimpleTextFieldController label="Nombre completo" name="fullname" placeholder="Ingresa tu nombre completo" />
       <TextDateFieldController label="Fecha de nacimiento" name="birthday" placeholder="Día / Mes / Año" />
       <SimpleTextFieldController
