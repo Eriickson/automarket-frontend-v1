@@ -4,41 +4,18 @@ import { Button, FormControl, FormHelperText, HStack } from "@chakra-ui/react";
 import { RegisterPersonalInformationFormType, resolver } from "./schema";
 import { useFormProvider } from "@/hooks/useFormProvider";
 import { PasswordFieldController, SimpleTextFieldController, TextDateFieldController } from "@/components/atoms";
-import { authApi } from "@/store/features/api/auth";
+import { useValidateBeforeSubmit } from "./validateBeforeSubmit";
 
 interface PersonalInformationFormProps {
   onSubmit(data: any): void;
 }
 
 export const PersonalInformationForm: FC<PersonalInformationFormProps> = ({ onSubmit }) => {
-  const [checkFieldAvailability] = authApi.useLazyCheckFieldAvailabilityQuery();
+  const { before } = useValidateBeforeSubmit();
 
   const { FormProvider, methods } = useFormProvider<RegisterPersonalInformationFormType>({
     resolver,
-    async validateBeforeSubmit({ email, username }, methods) {
-      const [checkEmailAvailability, checkUsernameAvailability] = await Promise.all([
-        checkFieldAvailability({ field: "email", value: email }),
-        checkFieldAvailability({ field: "username", value: username }),
-      ]);
-
-      if (!checkEmailAvailability.data?.data.available || !checkUsernameAvailability.data?.data.available) {
-        if (!checkEmailAvailability.data?.data.available) {
-          methods.setError("email", {
-            type: "manual",
-            message: "No disponible",
-          });
-        }
-        if (!checkUsernameAvailability.data?.data.available) {
-          methods.setError("username", {
-            type: "manual",
-            message: "No disponible",
-          });
-        }
-        return false;
-      }
-
-      return true;
-    },
+    validateBeforeSubmit: before,
     defaultValues: {
       fullname: "Jorge Luis",
       birthday: "03/11/1999",
