@@ -4,20 +4,36 @@ import { Box, Button, FormControl, FormHelperText, HStack, Heading, Text } from 
 import { useSwiper } from "swiper/react";
 import { SimpleTextFieldController } from "@/components/atoms/SimpleTextField/controller";
 
-import { resolver } from "./schema";
+import { resolver, RegisterPersonalInformationFormType } from "./schema";
 import { PasswordFieldController } from "@/components/atoms/PasswordField/controller";
 import { TextDateFieldController } from "@/components/atoms/TextDateField/controller";
 import { useFormProvider } from "@/hooks/useFormProvider";
+import { authApi } from "@/store/features/api/auth";
 
 export const RegisterPersonalInformationStep = () => {
   const swiperSlide = useSwiper();
-  const { FormProvider } = useFormProvider({ resolver });
+  const { FormProvider, methods } = useFormProvider({
+    resolver,
+    defaultValues: {
+      fullname: "Jorge Luis",
+      birthday: "03/11/1999",
+      email: "user03@gmail.com",
+      username: "user03",
+      password: "12345678Ee.",
+      confirmPassword: "12345678Ee.",
+    },
+  });
+  const [checkFieldAvailability] = authApi.useLazyCheckFieldAvailabilityQuery();
 
-  async function handleSubmit(values: any) {
-    console.log("submit");
-    console.log(values);
-    swiperSlide.slideNext();
+  async function handleSubmit(values: RegisterPersonalInformationFormType) {
+    const response = await checkFieldAvailability({ field: "username", value: values.username });
+
+    methods.setError("username", {
+      message: "El nombre de usuario ya está en uso",
+    });
+    methods.setFocus("username");
   }
+
   return (
     <Box>
       <Box mb="8" textAlign="center">
@@ -25,6 +41,9 @@ export const RegisterPersonalInformationStep = () => {
           Información personal
         </Heading>
         <Text>Necesitamos algunos datos para crear tu cuenta.</Text>
+        <Button w="full" colorScheme="primary">
+          Verify
+        </Button>
       </Box>
 
       <FormProvider onSubmit={handleSubmit}>

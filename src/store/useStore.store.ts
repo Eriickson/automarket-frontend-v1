@@ -12,6 +12,7 @@ import { TypedUseSelectorHook, useSelector as _useSelector } from "react-redux";
 
 import { RootStore } from "./reducer";
 import { RejectedAction } from "@reduxjs/toolkit/dist/query/core/buildThunks";
+import { authApi } from "./features/api/auth";
 
 export const useStore = () => {
   const rtkQueryErrorLogger: Middleware = (api: MiddlewareAPI) => (next) => (action: RejectedAction<any, any>) => {
@@ -24,7 +25,7 @@ export const useStore = () => {
   const store = configureStore({
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({}).concat(rtkQueryErrorLogger, jsonPlaceholderApi.middleware),
+      getDefaultMiddleware({}).concat(rtkQueryErrorLogger, jsonPlaceholderApi.middleware, authApi.middleware),
   });
 
   return { store };
