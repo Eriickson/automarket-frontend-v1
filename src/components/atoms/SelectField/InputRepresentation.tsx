@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Box, IconButton, chakra } from "@chakra-ui/react";
+import { Box, HStack, IconButton, chakra } from "@chakra-ui/react";
 
-import { Trash2 } from "react-feather";
+import { ChevronDown, Trash2 } from "react-feather";
 
 import useSelectFieldContext from "./context";
 import { SimpleTextField } from "../SimpleTextField";
@@ -49,21 +49,32 @@ export const InputRepresentation = () => {
         right="0"
         left="0"
       />
-      <IconButton
-        variant="ghost"
-        onClick={(e) => {
-          e.stopPropagation();
-          handleClearSelectedOptions();
-        }}
-        size="xs"
-        pos="absolute"
-        top="3"
-        right="3"
-        aria-label="remove all"
-        rounded="sm"
-      >
-        <Trash2 size="1rem" />
-      </IconButton>
+      <HStack justifyContent="flex-end" w="max-content" pos="absolute" top="3" right="3">
+        <IconButton
+          variant="ghost"
+          onClick={(e) => {
+            e.stopPropagation();
+            handleClearSelectedOptions();
+          }}
+          size="xs"
+          aria-label="remove all"
+          rounded="sm"
+          display={allowMultiple && valuesSelected.length > 0 && isFocus ? "flex" : "none"}
+        >
+          <Trash2 size="1rem" />
+        </IconButton>
+        <IconButton
+          variant="ghost"
+          onClick={() => handleFocus(true)}
+          size="xs"
+          aria-label="remove all"
+          rounded="sm"
+          _hover={{}}
+          _active={{}}
+        >
+          <ChevronDown size="1rem" />
+        </IconButton>
+      </HStack>
     </Box>
   );
 };

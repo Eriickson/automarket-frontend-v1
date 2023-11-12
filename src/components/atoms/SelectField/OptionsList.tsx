@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-import { Box, Divider, List, Text } from "@chakra-ui/react";
+import { Box, Divider, List, ListItem, Text } from "@chakra-ui/react";
 
 import { OptionsListItem } from "./OptionsListItem";
 import useSelectFieldContext from "./context";
@@ -9,8 +9,8 @@ export const OptionsList = () => {
   const { optionsAvailable, valuesSelected } = useSelectFieldContext();
 
   return (
-    <Box maxH="80" overflow="auto">
-      <List>
+    <Box>
+      <List maxH="80" overflow="auto">
         {optionsAvailable.map((option, index) => {
           return (
             <Fragment key={option.value}>
@@ -23,13 +23,19 @@ export const OptionsList = () => {
           );
         })}
         {optionsAvailable.length === 0 ? (
-          <Box p="3">
+          <ListItem p="3">
             <Text textAlign="center" userSelect="none" fontSize="sm" color="gray.400">
               No hay resultados
             </Text>
-          </Box>
+          </ListItem>
         ) : null}
       </List>
+      <Divider />
+      <Box>
+        <Text textAlign="center" py="3" userSelect="none" fontSize="sm" color="gray.400">
+          {optionsAvailable.length} resultados encontrados
+        </Text>
+      </Box>
     </Box>
   );
 };

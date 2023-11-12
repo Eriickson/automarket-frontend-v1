@@ -8,7 +8,7 @@ import { Option, SelectField } from "@/components/atoms/SelectField";
 import { SimpleTextField } from "@/components/atoms/SimpleTextField";
 
 const CustomPage = () => {
-  const [defaultValue, setDefaultValue] = useState<Option[]>([]);
+  const [defaultValue] = useState<Option[]>([]);
 
   async function callToApi() {
     return new Promise((resolve) => {
@@ -36,7 +36,7 @@ const CustomPage = () => {
     <Box m="24">
       <Stack w="96">
         <SimpleTextField placeholder="Erickson Manuel Holguín" />
-        <SelectField options={personas} defaultValue={defaultValue} />
+        <SelectField allowSearch allowMultiple options={personas} defaultValue={defaultValue} />
       </Stack>
     </Box>
   );
