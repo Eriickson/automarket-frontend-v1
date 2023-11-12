@@ -1,18 +1,16 @@
 import React from "react";
 
-import { Box, Button, FormControl, FormHelperText, HStack, Heading, Text } from "@chakra-ui/react";
+import { Box, Heading, Text } from "@chakra-ui/react";
 import { useSwiper } from "swiper/react";
-import { SimpleTextFieldController } from "@/components/atoms/SimpleTextField/controller";
 
-import { resolver, RegisterPersonalInformationFormType } from "./schema";
-import { PasswordFieldController } from "@/components/atoms/PasswordField/controller";
-import { TextDateFieldController } from "@/components/atoms/TextDateField/controller";
+import { resolver, RegisterPersonalInformationFormType } from "./form/schema";
 import { useFormProvider } from "@/hooks/useFormProvider";
 import { authApi } from "@/store/features/api/auth";
+import { PersonalInformationForm } from "./form";
 
 export const RegisterPersonalInformationStep = () => {
   const swiperSlide = useSwiper();
-  const { FormProvider, methods } = useFormProvider<RegisterPersonalInformationFormType>({
+  const { methods } = useFormProvider<RegisterPersonalInformationFormType>({
     resolver,
     defaultValues: {
       fullname: "Jorge Luis",
@@ -26,30 +24,7 @@ export const RegisterPersonalInformationStep = () => {
   const [checkFieldAvailability] = authApi.useLazyCheckFieldAvailabilityQuery();
 
   async function handleSubmit(values: RegisterPersonalInformationFormType) {
-    // const checkEmailAvailability = await checkFieldAvailability({ field: "email", value: values.email });
-
-    const [checkEmailAvailability, checkUsernameAvailability] = await Promise.all([
-      checkFieldAvailability({ field: "email", value: values.email }),
-      checkFieldAvailability({ field: "username", value: values.username }),
-    ]);
-
-    if (!checkEmailAvailability.data?.data.available || !checkUsernameAvailability.data?.data.available) {
-      if (!checkEmailAvailability.data?.data.available) {
-        methods.setError("email", {
-          type: "manual",
-          message: "No disponible",
-        });
-      }
-      if (!checkUsernameAvailability.data?.data.available) {
-        methods.setError("username", {
-          type: "manual",
-          message: "No disponible",
-        });
-      }
-      return;
-    }
-
-    console.log("Hello ");
+    console.log(values);
   }
 
   return (
@@ -61,52 +36,7 @@ export const RegisterPersonalInformationStep = () => {
         <Text>Necesitamos algunos datos para crear tu cuenta.</Text>
       </Box>
 
-      <FormProvider onSubmit={handleSubmit}>
-        <SimpleTextFieldController name="fullname" label="Nombre completo" placeholder="Ingresa tu nombre completo" />
-        <TextDateFieldController name="birthday" label="Fecha de nacimiento" placeholder="Día / Mes / Año" />
-        <SimpleTextFieldController
-          name="email"
-          label="Correo electrónico"
-          placeholder="Ingresa tu correo electrónico"
-          autoComplete="email"
-        />
-        <SimpleTextFieldController
-          name="username"
-          label="Nombre de usuario"
-          placeholder="Ingresa tu nombre de usuario"
-          autoComplete="username"
-        />
-        <FormControl>
-          <HStack alignItems="flex-start" spacing="4">
-            <PasswordFieldController
-              autoComplete="new-password"
-              name="password"
-              label="Contraseña"
-              placeholder="Ingresa tu contraseña"
-            />
-            <PasswordFieldController
-              autoComplete="new-password"
-              name="confirmPassword"
-              label="Confirmar Contraseña"
-              placeholder="Ingresa tu contraseña"
-            />
-          </HStack>
-          <FormHelperText>
-            La contraseña debe tener al menos 8 caracteres conformada por mayúsculas, minúsculas y números.
-          </FormHelperText>
-        </FormControl>
-        <Button
-          isDisabled={!methods.formState.isValid}
-          type="submit"
-          loadingText="Validando"
-          py="6"
-          w="full"
-          color="white"
-          colorScheme="primary"
-        >
-          Enviar código de invitación
-        </Button>
-      </FormProvider>
+      <PersonalInformationForm onSubmit={handleSubmit} />
     </Box>
   );
 };

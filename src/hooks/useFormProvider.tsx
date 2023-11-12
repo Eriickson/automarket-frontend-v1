@@ -1,13 +1,14 @@
-import React, { FC, useCallback } from "react";
+import React, { useCallback } from "react";
 
 import { Stack } from "@chakra-ui/react";
 
-import { useForm, FormProvider as ReactFormProvider, DefaultValues, FieldValues } from "react-hook-form";
+import { useForm, FormProvider as ReactFormProvider, DefaultValues, FieldValues, UseFormReturn } from "react-hook-form";
 
-interface UseFormProviderArgs<T> {
+interface UseFormProviderArgs<T extends FieldValues> {
   id?: string;
   resolver?: any;
   defaultValues?: DefaultValues<T>;
+  validateBeforeSubmit?(data: T, methods: UseFormReturn<T>): Promise<boolean> | boolean;
 }
 
 interface FormProviderProps<T> {
@@ -23,9 +24,20 @@ export const useFormProvider = <T extends FieldValues>(args: UseFormProviderArgs
 
   const FormProvider = useCallback(
     (props: FormProviderProps<T>) => {
+      async function handleSubmit(data: T) {
+        const isValid = await args.validateBeforeSubmit?.(data, methods);
+
+        if (!isValid) {
+          // console.log("No es válido");
+          return;
+        }
+
+        props.onSubmit(data);
+      }
+
       return (
         <ReactFormProvider {...methods}>
-          <Stack as="form" onSubmit={methods.handleSubmit(props.onSubmit)}>
+          <Stack as="form" onSubmit={methods.handleSubmit(handleSubmit)}>
             {props.children}
           </Stack>
         </ReactFormProvider>
