@@ -3,25 +3,12 @@ import React from "react";
 import { Box, Heading, Text } from "@chakra-ui/react";
 import { useSwiper } from "swiper/react";
 
-import { resolver, RegisterPersonalInformationFormType } from "./form/schema";
-import { useFormProvider } from "@/hooks/useFormProvider";
-import { authApi } from "@/store/features/api/auth";
+import { RegisterPersonalInformationFormType } from "./form/schema";
+
 import { PersonalInformationForm } from "./form";
 
 export const RegisterPersonalInformationStep = () => {
   const swiperSlide = useSwiper();
-  const { methods } = useFormProvider<RegisterPersonalInformationFormType>({
-    resolver,
-    defaultValues: {
-      fullname: "Jorge Luis",
-      birthday: "03/11/1999",
-      email: "user03@gmail.com",
-      username: "user03",
-      password: "12345678Ee.",
-      confirmPassword: "12345678Ee.",
-    },
-  });
-  const [checkFieldAvailability] = authApi.useLazyCheckFieldAvailabilityQuery();
 
   async function handleSubmit(values: RegisterPersonalInformationFormType) {
     console.log(values);
@@ -36,7 +23,17 @@ export const RegisterPersonalInformationStep = () => {
         <Text>Necesitamos algunos datos para crear tu cuenta.</Text>
       </Box>
 
-      <PersonalInformationForm onSubmit={handleSubmit} />
+      <PersonalInformationForm
+        defaultValues={{
+          fullname: "Jorge Luis",
+          birthday: "03/11/1999",
+          email: "user03@gmail.com",
+          username: "user03",
+          password: "12345678Ee.",
+          confirmPassword: "12345678Ee.",
+        }}
+        onSubmit={handleSubmit}
+      />
     </Box>
   );
 };

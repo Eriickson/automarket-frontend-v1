@@ -8,22 +8,16 @@ import { useValidateBeforeSubmit } from "./validateBeforeSubmit";
 
 interface PersonalInformationFormProps {
   onSubmit(data: any): void;
+  defaultValues?: RegisterPersonalInformationFormType;
 }
 
-export const PersonalInformationForm: FC<PersonalInformationFormProps> = ({ onSubmit }) => {
+export const PersonalInformationForm: FC<PersonalInformationFormProps> = ({ onSubmit, defaultValues }) => {
   const { before } = useValidateBeforeSubmit();
 
   const { FormProvider, methods } = useFormProvider<RegisterPersonalInformationFormType>({
     resolver,
     validateBeforeSubmit: before,
-    defaultValues: {
-      fullname: "Jorge Luis",
-      birthday: "03/11/1999",
-      email: "user03@gmail.com",
-      username: "user03",
-      password: "12345678Ee.",
-      confirmPassword: "12345678Ee.",
-    },
+    defaultValues,
   });
 
   async function handleSubmit(data: any) {
