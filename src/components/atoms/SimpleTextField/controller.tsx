@@ -10,11 +10,11 @@ interface SimpleTextFieldControllerProps extends SimpleTextFieldProps, FormContr
 }
 
 export const SimpleTextFieldController: FC<SimpleTextFieldControllerProps> = ({ name, ...props }) => {
-  const { register } = useFormContext();
+  const { register, formState } = useFormContext();
 
   return (
     <FormControl {...props}>
-      <SimpleTextField {...register(name)} {...props} />
+      <SimpleTextField isDisabled={formState.isLoading} {...register(name)} {...props} />
     </FormControl>
   );
 };
