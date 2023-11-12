@@ -29,10 +29,8 @@ export const OptionsListItem: FC<OptionsListItemProps> = ({ isSelected, option }
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
       onClick={() => {
-        // setValuesSelected(valuesSelected.concat(option));
         !isSelected && handleAddItemToSelectedList(option);
         !allowMultiple && handleFocus(false);
-        // if (onChange) onChange(option);
       }}
     >
       <HStack h="6" justifyContent="space-between">

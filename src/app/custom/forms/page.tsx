@@ -2,41 +2,29 @@
 
 import React, { useState } from "react";
 
-import { Box, Stack } from "@chakra-ui/react";
+import { Box, Button, Stack } from "@chakra-ui/react";
 
 import { Option, SelectField } from "@/components/atoms/SelectField";
 import { SimpleTextField } from "@/components/atoms/SimpleTextField";
 
 const CustomPage = () => {
-  const [defaultValue] = useState<Option[]>([]);
-
-  async function callToApi() {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(true);
-      }, 3000);
-    });
-  }
-
-  // useEffect(() => {
-  //   callToApi().then(() => {
-  //     setDefaultValue([
-  //       { label: "John Smith", value: "1" },
-  //       { label: "Elena Fernandez", value: "8" },
-  //       { label: "Robert Sanchez", value: "15" },
-  //       { label: "Sophia Martin", value: "16" },
-  //       { label: "Anthony Alvarez", value: "19" },
-  //     ]);
-  //   });
-  // }, []);
-
-  // console.log(defaultValue);
+  const [value, setValue] = useState<Option[]>([
+    { label: "John Smith", value: "1" },
+    { label: "Maria Rodriguez", value: "2" },
+  ]);
 
   return (
     <Box m="24">
       <Stack w="96">
         <SimpleTextField placeholder="Erickson Manuel Holguín" />
-        <SelectField allowSearch allowMultiple options={personas} defaultValue={defaultValue} />
+        <SelectField allowSearch allowMultiple value={value} options={personas} onChange={setValue} />
+        <Button
+          onClick={() => {
+            setValue([]);
+          }}
+        >
+          <Box>Reset</Box>
+        </Button>
       </Stack>
     </Box>
   );

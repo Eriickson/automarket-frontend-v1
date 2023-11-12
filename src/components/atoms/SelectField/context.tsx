@@ -1,4 +1,5 @@
 import { createContext, Context, useContext, useState, useRef, useMemo, RefObject, useEffect } from "react";
+
 import { useOutsideClick } from "@chakra-ui/react";
 import { useDebounce } from "use-debounce";
 
@@ -21,6 +22,7 @@ interface SelectFieldContextProps {
   handleFocus(focus: boolean): void;
   closeContextualMenu(): void;
   handleClearSelectedOptions(): void;
+  onChange?(value: Option): void;
 }
 export const SelectFieldContext = createContext<SelectFieldContextProps | undefined>(
   undefined
@@ -29,21 +31,22 @@ export const SelectFieldContext = createContext<SelectFieldContextProps | undefi
 export interface SelectFieldContextProviderArgs {
   allowMultiple?: boolean;
   children: React.ReactNode;
-  defaultValue?: Array<Option>;
   options: Array<Option>;
   isDisabled?: boolean;
   showSearch?: boolean;
-  // allow search
+  value?: Option[];
   allowSearch?: boolean;
+  onChange?(value: Option[]): void;
 }
 
 export const SelectFieldContextProvider = ({
-  defaultValue,
   allowMultiple,
   children,
   options,
   isDisabled,
   allowSearch,
+  value = [],
+  onChange,
 }: SelectFieldContextProviderArgs) => {
   const inputRepresentationRef = useRef<HTMLInputElement>(null);
 
@@ -65,17 +68,25 @@ export const SelectFieldContextProvider = ({
 
   useOutsideClick({ ref: boxContainerRef, handler: () => closeContextualMenu() });
 
+  function handleChange(nv: Option[]) {
+    if (onChange) onChange(nv);
+    setValuesSelected(nv);
+  }
+
   function handleAddItemToSelectedList(nv: Option) {
-    setValuesSelected((prev) => (allowMultiple ? prev.concat(nv) : [nv]));
+    const newValue = allowMultiple ? valuesSelected.concat(nv) : [nv];
+
+    handleChange(newValue);
   }
 
   function handleClearSelectedOptions() {
-    setValuesSelected([]);
     setSearchValue("");
+    handleChange([]);
   }
 
   function handleRemoveItemToSelectedList(nv: Option) {
-    setValuesSelected((prev) => prev.filter((item) => item.value !== nv.value));
+    const newValue = valuesSelected.filter((item) => item.value !== nv.value);
+    handleChange(newValue);
   }
 
   function handleFocus(newValue: boolean) {
@@ -92,13 +103,9 @@ export const SelectFieldContextProvider = ({
     setSearchValue("");
   }
 
-  function setDefaultValues(defaultValue: Option[]) {
-    setValuesSelected(defaultValue);
-  }
-
   useEffect(() => {
-    if (defaultValue) setDefaultValues(defaultValue);
-  }, [defaultValue]);
+    if (value) setValuesSelected(allowMultiple ? value : value.slice(0, 1));
+  }, [allowMultiple, value]);
 
   return (
     <SelectFieldContext.Provider
