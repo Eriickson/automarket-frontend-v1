@@ -1,20 +1,13 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 
-import { Box, Stack, useOutsideClick } from "@chakra-ui/react";
+import { Box, Stack } from "@chakra-ui/react";
 
 import { SelectField } from "@/components/atoms/SelectField";
 import { SimpleTextField } from "@/components/atoms/SimpleTextField";
 
 const CustomPage = () => {
-  const inputRef = React.useRef<HTMLInputElement>(null);
-  const boxContainerRef = React.useRef(null);
-
-  const [isFocus, setIsFocus] = useState(false);
-
-  useOutsideClick({ ref: boxContainerRef, handler: () => setIsFocus(false) });
-
   return (
     <Box m="24">
       <Stack w="96">

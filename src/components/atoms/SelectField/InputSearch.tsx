@@ -10,7 +10,7 @@ export const InputSearch = () => {
   const { searchValue, handleChangeSearchValue } = useSelectFieldContext();
 
   return (
-    <HStack as="label" htmlFor="search" px="4" py="2.5" borderBottom="1px" borderColor="gray.200">
+    <HStack as="label" htmlFor="search" pl="4" pr="3" py="2.5" borderBottom="1px" borderColor="gray.200">
       <chakra.input
         value={searchValue}
         autoFocus
@@ -21,15 +21,17 @@ export const InputSearch = () => {
         placeholder="Buscar..."
         w="full"
       />
-      <IconButton
-        onClick={() => handleChangeSearchValue("")}
-        rounded="sm"
-        size="xs"
-        variant="ghost"
-        aria-label="clean input"
-      >
-        <X size="1rem" />
-      </IconButton>
+      {searchValue ? (
+        <IconButton
+          onClick={() => handleChangeSearchValue("")}
+          rounded="sm"
+          size="xs"
+          variant="ghost"
+          aria-label="clean input"
+        >
+          <X size="1rem" />
+        </IconButton>
+      ) : null}
     </HStack>
   );
 };

@@ -18,6 +18,7 @@ interface SelectFieldContextProps {
   handleRemoveItemToSelectedList(value: Option): void;
   handleFocus(focus: boolean): void;
   closeContextualMenu(): void;
+  handleClearSelectedOptions(): void;
 }
 export const SelectFieldContext = createContext<SelectFieldContextProps | undefined>(
   undefined
@@ -54,6 +55,10 @@ export const SelectFieldContextProvider = ({ allowMultiple, children, options }:
     setValuesSelected((prev) => (allowMultiple ? prev.concat(nv) : [nv]));
   }
 
+  function handleClearSelectedOptions() {
+    setValuesSelected([]);
+  }
+
   function handleRemoveItemToSelectedList(nv: Option) {
     setValuesSelected((prev) => prev.filter((item) => item.value !== nv.value));
   }
@@ -82,6 +87,7 @@ export const SelectFieldContextProvider = ({ allowMultiple, children, options }:
         optionsAvailable,
         valuesSelected,
         searchValue,
+        handleClearSelectedOptions,
         closeContextualMenu,
         handleChangeSearchValue,
         handleFocus,

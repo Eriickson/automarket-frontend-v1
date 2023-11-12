@@ -11,7 +11,7 @@ export const ContextualMenu = () => {
   const { isFocus, boxContainerRef } = useSelectFieldContext();
 
   return (
-    <Box position="relative">
+    <Box position="relative" ref={boxContainerRef}>
       <InputRepresentation />
       <Box
         backgroundColor="white"
@@ -23,7 +23,6 @@ export const ContextualMenu = () => {
         left="0"
         right="0"
         display={isFocus ? "block" : "none"}
-        ref={boxContainerRef}
       >
         <InputSearch />
         <OptionsList />

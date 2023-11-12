@@ -1,12 +1,15 @@
 import React from "react";
 
-import { Box, chakra } from "@chakra-ui/react";
+import { Box, IconButton, chakra } from "@chakra-ui/react";
 
-import { SimpleTextField } from "../SimpleTextField";
+import { Trash2 } from "react-feather";
+
 import useSelectFieldContext from "./context";
+import { SimpleTextField } from "../SimpleTextField";
 
 export const InputRepresentation = () => {
-  const { inputRepresentationRef, allowMultiple, isFocus, valuesSelected, handleFocus } = useSelectFieldContext();
+  const { inputRepresentationRef, allowMultiple, isFocus, valuesSelected, handleClearSelectedOptions, handleFocus } =
+    useSelectFieldContext();
 
   return (
     <Box pos="relative">
@@ -37,6 +40,21 @@ export const InputRepresentation = () => {
         right="0"
         left="0"
       />
+      <IconButton
+        variant="ghost"
+        onClick={(e) => {
+          e.stopPropagation();
+          handleClearSelectedOptions();
+        }}
+        size="xs"
+        pos="absolute"
+        top="3"
+        right="3"
+        aria-label="remove all"
+        rounded="sm"
+      >
+        <Trash2 size="1rem" />
+      </IconButton>
     </Box>
   );
 };
