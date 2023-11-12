@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { Box, Stack } from "@chakra-ui/react";
 
@@ -36,7 +36,7 @@ const CustomPage = () => {
     <Box m="24">
       <Stack w="96">
         <SimpleTextField placeholder="Erickson Manuel Holguín" />
-        <SelectField options={personas} allowMultiple defaultValue={defaultValue} />
+        <SelectField options={personas} defaultValue={defaultValue} />
       </Stack>
     </Box>
   );

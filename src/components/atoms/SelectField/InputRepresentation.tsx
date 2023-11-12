@@ -18,19 +18,17 @@ export const InputRepresentation = () => {
     handleFocus,
   } = useSelectFieldContext();
 
-  // TODO: El contador de opciones seleccionadas no se actualiza cuando se deselecciona una opción ni se hace click en eliminar todas las opciones seleccionadas
-  // TODO: El contador no llega a 0 cuando se deseleccionan todas las opciones
-
   return (
     <Box pos="relative">
       <chakra.input h="0" w="0" opacity="0" position="absolute" type="button" onFocus={() => handleFocus(true)} />
+
       <SimpleTextField
         isDisabled={isDisabled}
         value={
           allowMultiple
             ? valuesSelected.length > 0
               ? `${valuesSelected.length} opciones seleccionadas`
-              : undefined
+              : ""
             : valuesSelected.find(Boolean)?.label || ""
         }
         _placeholder={{ userSelect: "none" }}

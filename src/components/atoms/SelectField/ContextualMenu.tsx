@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Box } from "@chakra-ui/react";
 
 import useSelectFieldContext from "./context";
@@ -8,7 +9,7 @@ import { InputSearch } from "./InputSearch";
 import { OptionsList } from "./OptionsList";
 
 export const ContextualMenu = () => {
-  const { isFocus, boxContainerRef, options } = useSelectFieldContext();
+  const { isFocus, boxContainerRef, options, allowSearch } = useSelectFieldContext();
 
   return (
     <Box position="relative" ref={boxContainerRef}>
@@ -24,7 +25,7 @@ export const ContextualMenu = () => {
         right="0"
         display={isFocus ? "block" : "none"}
       >
-        {options.length === 0 ? null : <InputSearch />}
+        {options.length === 0 || !allowSearch ? null : <InputSearch />}
         <OptionsList />
       </Box>
     </Box>

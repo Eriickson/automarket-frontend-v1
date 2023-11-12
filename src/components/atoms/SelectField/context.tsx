@@ -6,6 +6,7 @@ import { Option } from ".";
 
 interface SelectFieldContextProps {
   isDisabled?: boolean;
+  allowSearch?: boolean;
   allowMultiple?: boolean;
   isFocus: boolean;
   boxContainerRef: RefObject<HTMLDivElement>;
@@ -31,6 +32,9 @@ export interface SelectFieldContextProviderArgs {
   defaultValue?: Array<Option>;
   options: Array<Option>;
   isDisabled?: boolean;
+  showSearch?: boolean;
+  // allow search
+  allowSearch?: boolean;
 }
 
 export const SelectFieldContextProvider = ({
@@ -39,6 +43,7 @@ export const SelectFieldContextProvider = ({
   children,
   options,
   isDisabled,
+  allowSearch,
 }: SelectFieldContextProviderArgs) => {
   const inputRepresentationRef = useRef<HTMLInputElement>(null);
 
@@ -98,8 +103,9 @@ export const SelectFieldContextProvider = ({
   return (
     <SelectFieldContext.Provider
       value={{
-        isDisabled,
         allowMultiple,
+        allowSearch,
+        isDisabled,
         inputRepresentationRef,
         boxContainerRef,
         isFocus,
