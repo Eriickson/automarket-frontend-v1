@@ -31,8 +31,14 @@ export const SigninForm = () => {
           label="Identificador"
           name="identifier"
           placeholder="Correo electrónico o nombre de usuario"
+          autoComplete="username"
         />
-        <PasswordFieldController label="Contraseña" name="password" placeholder="Ingresa tu contraseña" />
+        <PasswordFieldController
+          label="Contraseña"
+          name="password"
+          placeholder="Ingresa tu contraseña"
+          autoComplete="current-password"
+        />
         <Flex mb="4" justifyContent="flex-end">
           <Button w="max-content" variant="link" color="primary" _hover={{ textDecoration: "underline" }}>
             ¿Olvidaste tu contraseña?
