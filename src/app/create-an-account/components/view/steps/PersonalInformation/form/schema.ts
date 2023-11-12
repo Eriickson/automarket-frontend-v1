@@ -1,8 +1,7 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-
+import moment from "moment";
 import { z } from "zod";
 
-import moment from "moment";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 const registerPersonalInformationSchema = z
   .object({

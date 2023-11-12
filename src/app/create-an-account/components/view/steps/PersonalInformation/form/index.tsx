@@ -1,9 +1,12 @@
 import React, { FC } from "react";
 
 import { Button, FormControl, FormHelperText, HStack } from "@chakra-ui/react";
-import { RegisterPersonalInformationFormType, resolver } from "./schema";
-import { useFormProvider } from "@/hooks/useFormProvider";
+
 import { PasswordFieldController, SimpleTextFieldController, TextDateFieldController } from "@/components/atoms";
+
+import { useFormProvider } from "@/hooks/useFormProvider";
+
+import { RegisterPersonalInformationFormType, resolver } from "./schema";
 import { useValidateBeforeSubmit } from "./validateBeforeSubmit";
 
 interface PersonalInformationFormProps {
@@ -26,32 +29,32 @@ export const PersonalInformationForm: FC<PersonalInformationFormProps> = ({ onSu
 
   return (
     <FormProvider onSubmit={handleSubmit}>
-      <SimpleTextFieldController name="fullname" label="Nombre completo" placeholder="Ingresa tu nombre completo" />
-      <TextDateFieldController name="birthday" label="Fecha de nacimiento" placeholder="Día / Mes / Año" />
+      <SimpleTextFieldController label="Nombre completo" name="fullname" placeholder="Ingresa tu nombre completo" />
+      <TextDateFieldController label="Fecha de nacimiento" name="birthday" placeholder="Día / Mes / Año" />
       <SimpleTextFieldController
-        name="email"
-        label="Correo electrónico"
-        placeholder="Ingresa tu correo electrónico"
         autoComplete="email"
+        label="Correo electrónico"
+        name="email"
+        placeholder="Ingresa tu correo electrónico"
       />
       <SimpleTextFieldController
-        name="username"
-        label="Nombre de usuario"
-        placeholder="Ingresa tu nombre de usuario"
         autoComplete="username"
+        label="Nombre de usuario"
+        name="username"
+        placeholder="Ingresa tu nombre de usuario"
       />
       <FormControl>
         <HStack alignItems="flex-start" spacing="4">
           <PasswordFieldController
             autoComplete="new-password"
-            name="password"
             label="Contraseña"
+            name="password"
             placeholder="Ingresa tu contraseña"
           />
           <PasswordFieldController
             autoComplete="new-password"
-            name="confirmPassword"
             label="Confirmar Contraseña"
+            name="confirmPassword"
             placeholder="Ingresa tu contraseña"
           />
         </HStack>
@@ -60,13 +63,13 @@ export const PersonalInformationForm: FC<PersonalInformationFormProps> = ({ onSu
         </FormHelperText>
       </FormControl>
       <Button
-        isDisabled={!methods.formState.isValid}
-        type="submit"
-        loadingText="Validando"
-        py="6"
-        w="full"
         color="white"
         colorScheme="primary"
+        isDisabled={!methods.formState.isValid}
+        loadingText="Validando"
+        py="6"
+        type="submit"
+        w="full"
       >
         Enviar código de invitación
       </Button>

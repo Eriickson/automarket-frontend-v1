@@ -1,9 +1,9 @@
 "use client";
 import { useEffect } from "react";
 
-import { useDisclosure } from "@chakra-ui/react";
-
 import { Inter } from "next/font/google";
+
+import { useDisclosure } from "@chakra-ui/react";
 
 import { Providers } from "./providers";
 

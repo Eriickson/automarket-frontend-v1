@@ -1,9 +1,8 @@
 import sortKeys from "sort-object-keys";
 
-import { jsonPlaceholderApi } from "./features/api/jsonplaceholder";
-
-import { combineReducers } from "@reduxjs/toolkit";
 import { authApi } from "./features/api/auth";
+import { jsonPlaceholderApi } from "./features/api/jsonplaceholder";
+import { combineReducers } from "@reduxjs/toolkit";
 
 const reducers = sortKeys({
   [jsonPlaceholderApi.reducerPath]: jsonPlaceholderApi.reducer,

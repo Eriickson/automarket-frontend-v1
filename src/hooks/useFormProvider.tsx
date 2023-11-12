@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 
 import { Stack } from "@chakra-ui/react";
 
-import { useForm, FormProvider as ReactFormProvider, DefaultValues, FieldValues, UseFormReturn } from "react-hook-form";
+import { DefaultValues, FieldValues, FormProvider as ReactFormProvider, useForm, UseFormReturn } from "react-hook-form";
 
 interface UseFormProviderArgs<T extends FieldValues> {
   id?: string;

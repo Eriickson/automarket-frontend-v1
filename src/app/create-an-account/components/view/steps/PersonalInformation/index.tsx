@@ -1,11 +1,11 @@
 import React from "react";
 
 import { Box, Heading, Text } from "@chakra-ui/react";
+
 import { useSwiper } from "swiper/react";
 
-import { RegisterPersonalInformationFormType } from "./form/schema";
-
 import { PersonalInformationForm } from "./form";
+import { RegisterPersonalInformationFormType } from "./form/schema";
 
 export const RegisterPersonalInformationStep = () => {
   const swiperSlide = useSwiper();
@@ -17,7 +17,7 @@ export const RegisterPersonalInformationStep = () => {
   return (
     <Box>
       <Box mb="8" textAlign="center">
-        <Heading as="h2" size="xl" fontWeight="semibold">
+        <Heading as="h2" fontWeight="semibold" size="xl">
           Información personal
         </Heading>
         <Text>Necesitamos algunos datos para crear tu cuenta.</Text>
