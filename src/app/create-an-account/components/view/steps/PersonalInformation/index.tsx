@@ -26,11 +26,30 @@ export const RegisterPersonalInformationStep = () => {
   const [checkFieldAvailability] = authApi.useLazyCheckFieldAvailabilityQuery();
 
   async function handleSubmit(values: RegisterPersonalInformationFormType) {
-    const response = await checkFieldAvailability({ field: "email", value: values.email });
+    // const checkEmailAvailability = await checkFieldAvailability({ field: "email", value: values.email });
 
-    methods.setError("email", {
-      message: "No disponible",
-    });
+    const [checkEmailAvailability, checkUsernameAvailability] = await Promise.all([
+      checkFieldAvailability({ field: "email", value: values.email }),
+      checkFieldAvailability({ field: "username", value: values.username }),
+    ]);
+
+    if (!checkEmailAvailability.data?.data.available || !checkUsernameAvailability.data?.data.available) {
+      if (!checkEmailAvailability.data?.data.available) {
+        methods.setError("email", {
+          type: "manual",
+          message: "No disponible",
+        });
+      }
+      if (!checkUsernameAvailability.data?.data.available) {
+        methods.setError("username", {
+          type: "manual",
+          message: "No disponible",
+        });
+      }
+      return;
+    }
+
+    console.log("Hello ");
   }
 
   return (
@@ -40,9 +59,6 @@ export const RegisterPersonalInformationStep = () => {
           Información personal
         </Heading>
         <Text>Necesitamos algunos datos para crear tu cuenta.</Text>
-        <Button w="full" colorScheme="primary">
-          Verify
-        </Button>
       </Box>
 
       <FormProvider onSubmit={handleSubmit}>
@@ -79,7 +95,15 @@ export const RegisterPersonalInformationStep = () => {
             La contraseña debe tener al menos 8 caracteres conformada por mayúsculas, minúsculas y números.
           </FormHelperText>
         </FormControl>
-        <Button type="submit" loadingText="Validando" py="6" w="full" color="white" colorScheme="primary">
+        <Button
+          isDisabled={!methods.formState.isValid}
+          type="submit"
+          loadingText="Validando"
+          py="6"
+          w="full"
+          color="white"
+          colorScheme="primary"
+        >
           Enviar código de invitación
         </Button>
       </FormProvider>

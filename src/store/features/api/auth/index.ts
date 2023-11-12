@@ -6,12 +6,18 @@ type CheckFieldAvailabilityArgs = {
   value: string;
 };
 
+type CheckFieldAvailabilityResponse = {
+  data: {
+    available: boolean;
+  };
+};
+
 export const authApi = createApi({
   baseQuery: axiosBaseQuery(),
   reducerPath: "authApi",
   endpoints: (build) => ({
-    checkFieldAvailability: build.query({
-      query: ({ field, value }: CheckFieldAvailabilityArgs) => ({
+    checkFieldAvailability: build.query<CheckFieldAvailabilityResponse, CheckFieldAvailabilityArgs>({
+      query: ({ field, value }) => ({
         url: `/auth/check-field-availability/${field}/${value}`,
         method: "GET",
       }),

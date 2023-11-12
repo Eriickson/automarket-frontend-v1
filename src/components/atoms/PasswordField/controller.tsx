@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 import { useFormContext } from "react-hook-form";
 
-import { PasswordField, PasswordFieldProps } from ".";
+import { PasswordField, PasswordFieldProps } from "./simple";
 import { FormControl, FormControlPropsForFields } from "../FormControl";
 
 interface PasswordFieldControllerProps extends PasswordFieldProps, FormControlPropsForFields {
