@@ -1,6 +1,7 @@
-import { ENDPOINTS } from "@/utils";
-
 import { EndpointBuilderType } from "@atmk/core";
+import { ServiceResponse } from "@atmk/types";
+
+import { ENDPOINTS } from "@/utils";
 
 type Args = {
   email: string;
@@ -8,14 +9,12 @@ type Args = {
 };
 
 type Response = {
-  data: {
-    email: string;
-    token: string;
-  };
+  email: string;
+  token: string;
 };
 
 export const validateInvitationCode = (build: EndpointBuilderType<"authApi">) => {
-  return build.query<Response, Args>({
+  return build.query<ServiceResponse<Response>, Args>({
     query: ({ email, invitationCode }) => ({
       url: ENDPOINTS.AUTH.VALIDATE_INVITATION_CODE,
       method: "POST",

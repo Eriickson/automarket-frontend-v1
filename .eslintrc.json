@@ -15,7 +15,7 @@
     "simple-import-sort/imports": [
       "error",
       {
-        "groups": [["^react$"], ["^next"], ["@chakra-ui/react"], ["^@/"], ["@/hooks"], ["^\\w"]]
+        "groups": [["^react$"], ["^next"], ["@atmk"], ["@chakra-ui/react"], ["^@/"], ["@/hooks"], ["^\\w"]]
       }
     ]
   }

@@ -1,20 +1,19 @@
+import { EndpointBuilderType } from "@atmk/core";
+import { ServiceResponse } from "@atmk/types";
+
 import { ENDPOINTS, generateDynamicEndpoint } from "@/utils";
 
-import { EndpointBuilderType } from "@atmk/core";
-
-type CheckFieldAvailabilityArgs = {
+type Args = {
   field: string;
   value: string;
 };
 
-type CheckFieldAvailabilityResponse = {
-  data: {
-    available: boolean;
-  };
+type Response = {
+  available: boolean;
 };
 
 export const checkFieldAvailability = (build: EndpointBuilderType<"authApi">) => {
-  return build.query<CheckFieldAvailabilityResponse, CheckFieldAvailabilityArgs>({
+  return build.query<ServiceResponse<Response>, Args>({
     query: (args) => ({
       url: generateDynamicEndpoint(ENDPOINTS.AUTH.CHECK_FIELD_AVAILABILITY, args),
       method: "GET",
