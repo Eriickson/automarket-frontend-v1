@@ -19,11 +19,11 @@ export type AxiosBaseQueryArgs = {
 };
 
 export const axiosBaseQuery =
-  ({ baseUrl, module }: Partial<AxiosBaseQueryArgs> = { baseUrl: "http://localhost:8586/api" }): AxiosBaseQueryFn =>
+  ({ baseUrl = "http://localhost:8586/api", module }: Partial<AxiosBaseQueryArgs>): AxiosBaseQueryFn =>
   async ({ url, method, data, params, headers }) => {
     try {
       const result = await axios({
-        url: module + url,
+        url: baseUrl + module + url,
         method,
         data,
         params,
