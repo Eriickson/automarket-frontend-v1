@@ -1,8 +1,8 @@
 import React, { forwardRef } from "react";
 
-import ReactLoading from "react-loading";
-
 import { Box, Input, InputProps } from "@chakra-ui/react";
+
+import ReactLoading from "react-loading";
 
 export interface SimpleTextFieldProps extends InputProps {
   isLoading?: boolean;
@@ -12,19 +12,20 @@ export const SimpleTextField = forwardRef<HTMLElement, SimpleTextFieldProps>(({ 
   return (
     <Box position="relative">
       <Input
-        rounded="sm"
-        _focus={{ ringColor: "#165ef0", borderColor: "#165ef0", ring: "1.5" }}
         _disabled={{ bgColor: "gray.50" }}
-        py="6"
-        isRequired={false}
-        isDisabled={isLoading}
+        _focus={{ ringColor: "#165ef0", borderColor: "#165ef0", ring: "1.5" }}
         cursor={isLoading ? "wait" : "auto"}
+        isDisabled={isLoading}
+        isRequired={false}
+        px="4"
+        py="6"
+        rounded="sm"
         {...props}
         ref={ref}
       />
       {isLoading ? (
-        <Box position="absolute" top="3" right="4">
-          <ReactLoading width="1.75rem" color="#cdcdcd" type="bars" />
+        <Box position="absolute" right="4" top="3">
+          <ReactLoading color="#cdcdcd" type="bars" width="1.75rem" />
         </Box>
       ) : null}
     </Box>
