@@ -1,5 +1,7 @@
+export * from "./Button";
 export * from "./CodeVerificationField";
 export * from "./FormControl";
+export * from "./IconButton";
 export * from "./PasswordField";
 export * from "./SelectField";
 export * from "./SimpleTextField";

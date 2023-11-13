@@ -1,10 +1,18 @@
 import React, { FC } from "react";
 
-import { Button, FormControl, FormHelperText, HStack } from "@chakra-ui/react";
+import { FormControl, FormHelperText, HStack } from "@chakra-ui/react";
 
-import { PasswordFieldController, SimpleTextFieldController, TextDateFieldController } from "@/components/atoms";
+import {
+  Button,
+  IconButton,
+  PasswordFieldController,
+  SimpleTextFieldController,
+  TextDateFieldController,
+} from "@/components/atoms";
 
 import { useFormProvider } from "@/hooks/useFormProvider";
+
+import { ChevronLeft } from "react-feather";
 
 import { RegisterPersonalInformationFormType, resolver } from "./schema";
 import { useValidateBeforeSubmit } from "./validateBeforeSubmit";
@@ -58,9 +66,14 @@ export const PersonalInformationForm: FC<PersonalInformationFormProps> = ({ onSu
           La contraseña debe tener al menos 8 caracteres conformada por mayúsculas, minúsculas y números.
         </FormHelperText>
       </FormControl>
-      <Button color="white" colorScheme="primary" loadingText="Validando" py="6" type="submit" w="full">
-        Enviar código de invitación
-      </Button>
+      <HStack>
+        <IconButton aria-label="before step" px="3" py="6">
+          <ChevronLeft />
+        </IconButton>
+        <Button color="white" colorScheme="primary" loadingText="Validando" py="6" type="submit" w="full">
+          Enviar código de invitación
+        </Button>
+      </HStack>
     </FormProvider>
   );
 };
