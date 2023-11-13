@@ -2,13 +2,12 @@ import React from "react";
 
 import { Box, Heading, Text } from "@chakra-ui/react";
 
-import { useSwiper } from "swiper/react";
-
+// import { useSwiper } from "swiper/react";
 import { PersonalInformationForm } from "./form";
 import { RegisterPersonalInformationFormType } from "./form/schema";
 
 export const RegisterPersonalInformationStep = () => {
-  const swiperSlide = useSwiper();
+  // const swiperSlide = useSwiper();
 
   async function handleSubmit(values: RegisterPersonalInformationFormType) {
     console.log(values);

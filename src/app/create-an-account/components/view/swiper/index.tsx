@@ -2,14 +2,14 @@
 import React, { useState } from "react";
 
 import { Box, Stack } from "@chakra-ui/react";
-import { Swiper, SwiperSlide } from "swiper/react";
 
-import { RegisterPersonalInformationStep } from "../steps/PersonalInformation";
-import { ValidateInvitationCodeStep } from "../steps/ValidateInvitationCode";
-import { CreateAnAgencyStep } from "../steps/CreateAnAgency";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import { StepIndicatorLine } from "../../StepIndicatorLine";
+import { CreateAnAgencyStep } from "../steps/CreateAnAgency";
+import { RegisterPersonalInformationStep } from "../steps/PersonalInformation";
+import { ValidateInvitationCodeStep } from "../steps/ValidateInvitationCode";
 
 export const SwiperSteps = () => {
   const [currentSlider, setCurrentSlider] = useState(0);
@@ -24,12 +24,11 @@ export const SwiperSteps = () => {
     <Stack spacing="12">
       <Box>
         <Swiper
+          navigation
           allowTouchMove={false}
           spaceBetween={50}
-          onSlideChange={(swiper) => setCurrentSlider(swiper.activeIndex)}
-          // autoHeight={true}
-          navigation
           tabIndex={currentSlider}
+          onSlideChange={(swiper) => setCurrentSlider(swiper.activeIndex)}
         >
           {steps.map((step, index) => (
             <SwiperSlide id={`slider-${index + index}`} key={index}>
