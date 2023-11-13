@@ -7,24 +7,23 @@ import { Box, Center, Flex, GridItem, SimpleGrid, Stack, Text } from "@chakra-ui
 interface FullScreenFormLayoutProps {
   title: string;
   children: React.ReactNode;
+  rightTopComponent?: React.ReactNode;
 }
 
-export const FullScreenFormLayout: FC<FullScreenFormLayoutProps> = ({ children, title }) => {
+export const FullScreenFormLayout: FC<FullScreenFormLayoutProps> = ({ rightTopComponent, children, title }) => {
   return (
     <Box h="100vh">
-      <SimpleGrid h="full" columns={12}>
-        <GridItem h="full" colSpan={5}>
-          <Stack spacing="6" h="full" p="12">
+      <SimpleGrid columns={12} h="full">
+        <GridItem colSpan={5} h="full">
+          <Stack h="full" p="12" spacing="6">
             <Box h="32">
-              <Flex justifyContent="space-between" alignItems="center">
+              <Flex alignItems="center" justifyContent="space-between">
                 <Box>
-                  <Text fontWeight="semibold" fontSize="3xl">
+                  <Text fontSize="3xl" fontWeight="semibold">
                     {title}
                   </Text>
                 </Box>
-                <Text color="#165ef0" fontWeight="semibold" decoration="underline">
-                  Ingresa a tu cuenta
-                </Text>
+                {rightTopComponent}
               </Flex>
             </Box>
             <Center flex="1">{children}</Center>

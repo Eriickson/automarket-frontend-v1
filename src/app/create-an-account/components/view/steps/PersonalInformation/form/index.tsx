@@ -58,15 +58,7 @@ export const PersonalInformationForm: FC<PersonalInformationFormProps> = ({ onSu
           La contraseña debe tener al menos 8 caracteres conformada por mayúsculas, minúsculas y números.
         </FormHelperText>
       </FormControl>
-      <Button
-        color="white"
-        colorScheme="primary"
-        isDisabled={!methods.formState.isValid}
-        loadingText="Validando"
-        py="6"
-        type="submit"
-        w="full"
-      >
+      <Button color="white" colorScheme="primary" loadingText="Validando" py="6" type="submit" w="full">
         Enviar código de invitación
       </Button>
     </FormProvider>
