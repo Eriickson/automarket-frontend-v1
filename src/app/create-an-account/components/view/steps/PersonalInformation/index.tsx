@@ -27,8 +27,8 @@ export const RegisterPersonalInformationStep = () => {
         defaultValues={{
           fullname: "Jorge Luis",
           birthday: "03/11/1999",
-          email: "user03@gmail.com",
-          username: "user03",
+          email: "user06@gmail.com",
+          username: "user06",
           password: "12345678Ee.",
           confirmPassword: "12345678Ee.",
         }}

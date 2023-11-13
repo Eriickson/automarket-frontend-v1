@@ -1,15 +1,18 @@
 "use client";
 import React from "react";
 
-
 import { Box } from "@chakra-ui/react";
-import { jsonPlaceholderApi } from "@/store/features/api/jsonplaceholder";
+
+import { authApi } from "@/store/features/api/auth";
 
 const RktPage = () => {
-  const { data } = jsonPlaceholderApi.useGetTodosQuery({});
+  const { data } = authApi.useCheckFieldAvailabilityQuery({
+    field: "email",
+    value: "erickson01d@gmail.com",
+  });
 
   console.log(data);
-  
+
   return <Box m="48">RktPage - </Box>;
 };
 

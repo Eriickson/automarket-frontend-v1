@@ -1,7 +1,7 @@
-import type { BaseQueryFn } from "@reduxjs/toolkit/query";
-
+import type { AxiosError, AxiosRequestConfig, Method } from "axios";
 import axios from "axios";
-import type { AxiosRequestConfig, AxiosError, Method } from "axios";
+
+import type { BaseQueryFn } from "@reduxjs/toolkit/query";
 
 export type AxiosBaseQueryFnArgs = {
   url: string;
@@ -13,12 +13,17 @@ export type AxiosBaseQueryFnArgs = {
 
 export type AxiosBaseQueryFn = BaseQueryFn<AxiosBaseQueryFnArgs, unknown, unknown>;
 
+export type AxiosBaseQueryArgs = {
+  baseUrl: string;
+  module: string;
+};
+
 export const axiosBaseQuery =
-  ({ baseUrl }: { baseUrl: string } = { baseUrl: "http://localhost:8586/api" }): AxiosBaseQueryFn =>
+  ({ baseUrl, module }: Partial<AxiosBaseQueryArgs> = { baseUrl: "http://localhost:8586/api" }): AxiosBaseQueryFn =>
   async ({ url, method, data, params, headers }) => {
     try {
       const result = await axios({
-        url: baseUrl + url,
+        url: module + url,
         method,
         data,
         params,
