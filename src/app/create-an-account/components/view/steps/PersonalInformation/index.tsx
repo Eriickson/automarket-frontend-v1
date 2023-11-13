@@ -7,8 +7,6 @@ import { PersonalInformationForm } from "./form";
 import { RegisterPersonalInformationFormType } from "./form/schema";
 
 export const RegisterPersonalInformationStep = () => {
-  // const swiperSlide = useSwiper();
-
   async function handleSubmit(values: RegisterPersonalInformationFormType) {
     console.log(values);
   }

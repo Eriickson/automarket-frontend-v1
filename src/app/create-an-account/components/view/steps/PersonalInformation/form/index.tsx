@@ -25,7 +25,7 @@ interface PersonalInformationFormProps {
 export const PersonalInformationForm: FC<PersonalInformationFormProps> = ({ onSubmit, defaultValues }) => {
   const { before } = useValidateBeforeSubmit();
 
-  const { FormProvider, methods } = useFormProvider<RegisterPersonalInformationFormType>({
+  const { FormProvider } = useFormProvider<RegisterPersonalInformationFormType>({
     resolver,
     validateBeforeSubmit: before,
     defaultValues,
