@@ -15,16 +15,16 @@ export const Sidebar = () => {
   ]);
 
   return (
-    <Box h="full" overflow="auto" p="2" pb="4" borderRight="1px" borderColor="gray.200">
+    <Box border="1px" borderColor="gray.200" borderRadius="0" borderY="0" h="full" overflow="auto" p="2" pb="4">
       <Box h="full">
-        <VStack justifyContent="space-between" h="full">
+        <VStack h="full" justifyContent="space-between">
           <VStack spacing="6">
-            <Box bgColor="purple.500" p="4" color="white" borderRadius="md">
+            <Box bgColor="primary.500" borderRadius="md" color="white" p="4">
               <Zap />
             </Box>
             <VStack>
               {sections.map((section) => (
-                <SidebarItem section={section} key={section.pathname} />
+                <SidebarItem key={section.pathname} section={section} />
               ))}
             </VStack>
           </VStack>
@@ -33,7 +33,7 @@ export const Sidebar = () => {
               <IconButton aria-label="icon" variant="ghost">
                 <Square />
               </IconButton>
-              <Tag top="-1" right="-1" colorScheme="purple" variant="solid" pos="absolute">
+              <Tag colorScheme="primary" pos="absolute" right="-1" top="-1" variant="solid">
                 2
               </Tag>
             </Box>

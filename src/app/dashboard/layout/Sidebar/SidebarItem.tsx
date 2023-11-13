@@ -1,11 +1,12 @@
 import React, { FC } from "react";
 
+import { usePathname } from "next/navigation";
+
 import { IconButton, Tooltip } from "@chakra-ui/react";
 
-import { Link } from "@chakra-ui/next-js";
-
 import { Icon } from "react-feather";
-import { usePathname } from "next/navigation";
+
+import { Link } from "@chakra-ui/next-js";
 
 export type SidebarSection = {
   title: string;
@@ -21,7 +22,7 @@ export const SidebarItem: FC<SidebarItemProps> = ({ section }) => {
   const pathname = usePathname();
 
   return (
-    <Tooltip mb="2" ml="1" hasArrow openDelay={100} closeDelay={100} label={section.title} placement="right-end">
+    <Tooltip hasArrow closeDelay={100} label={section.title} mb="2" ml="1" openDelay={100} placement="right-end">
       <Link href={`/dashboard${section.pathname}`}>
         <IconButton
           aria-label="icon"

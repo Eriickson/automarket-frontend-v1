@@ -2,26 +2,26 @@
 
 import React from "react";
 
-import { SidebarMenu } from "../layout/SidebarMenu";
+import { Search } from "react-feather";
 
 import { Content } from "../layout/Content";
-import { Search } from "react-feather";
+import { SidebarMenu } from "../layout/SidebarMenu";
 
 export default function PublicationsLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <SidebarMenu
-        title="Publicaciones"
         sections={[
           {
             title: "General",
             items: [
-              { label: "Publicadas", Icon: Search, count: 35, pathname: "/publications/published" },
+              { isNew: true, label: "Publicadas", Icon: Search, count: 35, pathname: "/publications/published" },
               { label: "Borradores", Icon: Search, count: 14, pathname: "/publications/drafts" },
               { label: "Archivadas", Icon: Search, count: 156, pathname: "/publications/archived" },
             ],
           },
         ]}
+        title="Publicaciones"
       />
       <Content>{children}</Content>
     </>

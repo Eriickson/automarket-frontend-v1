@@ -3,8 +3,6 @@
 import { Box, Flex } from "@chakra-ui/react";
 
 import { Sidebar } from "./layout/Sidebar";
-import { SidebarMenu } from "./layout/SidebarMenu";
-import { Content } from "./layout/Content";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

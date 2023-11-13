@@ -2,6 +2,8 @@
 
 import React, { FC, Fragment } from "react";
 
+import { useRouter } from "next/navigation";
+
 import {
   Badge,
   Box,
@@ -17,8 +19,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-import { MoreVertical, Search, Cloud, Icon } from "react-feather";
-import { useRouter } from "next/navigation";
+import { Cloud, Icon, MoreVertical, Search } from "react-feather";
 
 type SidebarMenuSectionItem = {
   label: string;
@@ -42,25 +43,25 @@ export const SidebarMenu: FC<SidebarMenuProps> = ({ title, sections }) => {
   const { replace } = useRouter();
 
   return (
-    <Stack spacing="4" pb="4" borderRight="1px" overflow="auto" borderColor="gray.200">
+    <Stack border="1px" borderColor="gray.200" borderRadius="0" borderY="0" overflow="auto" pb="4" spacing="4">
       <Box pt="4" px="2">
         <HStack justifyContent="space-between">
-          <Text ml="4" fontSize="xl" fontWeight="bold">
+          <Text fontSize="xl" fontWeight="bold" ml="4">
             {title}
           </Text>
           <HStack spacing="1">
             <IconButton
-              colorScheme="purple"
-              size="sm"
               aria-label="Edit"
+              colorScheme="primary"
               icon={<Search size="1.25rem" />}
+              size="sm"
               variant="ghost"
             />
             <IconButton
-              colorScheme="purple"
-              size="sm"
               aria-label="Edit"
+              colorScheme="primary"
               icon={<MoreVertical size="1.25rem" />}
+              size="sm"
               variant="ghost"
             />
           </HStack>
@@ -71,25 +72,25 @@ export const SidebarMenu: FC<SidebarMenuProps> = ({ title, sections }) => {
         <Fragment key={section.title}>
           {index !== 0 ? <Divider borderColor="gray.200" /> : null}
           <Box px="2">
-            <Text px="4" mb="2" fontSize="sm" fontWeight="semibold" color="gray.500">
+            <Text color="gray.500" fontSize="sm" fontWeight="semibold" mb="2" px="4">
               {section.title}
             </Text>
             <List>
               <Stack spacing="1">
                 {section.items.map(({ Icon, label, count, pathname, isNew }, index) => (
                   <ListItem
+                    _hover={{
+                      color: "primary.500",
+                      backgroundColor: "#f4f4f6",
+                    }}
+                    backgroundColor={index === 4 ? "#f4f4f6" : ""}
+                    color={index === 4 ? "primary.500" : ""}
+                    cursor="pointer"
                     key={label}
                     px="4"
                     py="2"
                     rounded="lg"
                     transition="all 0.15s"
-                    cursor="pointer"
-                    color={index === 4 ? "#642ec0" : ""}
-                    backgroundColor={index === 4 ? "#f4f4f6" : ""}
-                    _hover={{
-                      color: "#642ec0",
-                      backgroundColor: "#f4f4f6",
-                    }}
                     w="96"
                     onClick={() => replace(`/dashboard${pathname}`)}
                   >
@@ -98,7 +99,7 @@ export const SidebarMenu: FC<SidebarMenuProps> = ({ title, sections }) => {
                         <Icon size="1.25rem" strokeWidth="2" />
                         <Text fontWeight="medium">{label}</Text>
                         {isNew ? (
-                          <Badge colorScheme="purple" variant="solid">
+                          <Badge colorScheme="primary" variant="solid">
                             new
                           </Badge>
                         ) : null}
@@ -117,17 +118,17 @@ export const SidebarMenu: FC<SidebarMenuProps> = ({ title, sections }) => {
         <Box borderColor="gray.300" borderWidth="1px" px="3" py="3" rounded="xl">
           <HStack justifyContent="space-between" mb="4">
             <HStack>
-              <Box color="purple.500">
+              <Box color="primary.500">
                 <Cloud strokeWidth="2.5" />
               </Box>
               <Text fontWeight="semibold">Storage</Text>
             </HStack>
-            <Button variant="outline" borderWidth="1px" borderColor="gray.400">
+            <Button borderColor="gray.400" borderWidth="1px" variant="outline">
               Update
             </Button>
           </HStack>
-          <Progress colorScheme="purple" value={90} h="2.5" rounded="full" mb="2" />
-          <Text fontSize="sm" fontWeight="semibold" color="gray.800">
+          <Progress colorScheme="primary" h="2.5" mb="2" rounded="full" value={90} />
+          <Text color="gray.800" fontSize="sm" fontWeight="semibold">
             25.5 GB of 28 GB used
           </Text>
         </Box>
