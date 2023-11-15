@@ -17,7 +17,7 @@ const CustomPage = () => {
     <Box m="24">
       <Stack w="96">
         <SimpleTextField placeholder="Erickson Manuel Holguín" />
-        <SelectField allowSearch allowMultiple value={value} options={personas} onChange={setValue} />
+        <SelectField allowMultiple allowSearch options={personas} />
         <Button
           onClick={() => {
             setValue([]);
@@ -32,7 +32,7 @@ const CustomPage = () => {
 
 export default CustomPage;
 
-const personas: Option[] = [
+export const personas: Option[] = [
   { label: "John Smith", value: "1" },
   { label: "Maria Rodriguez", value: "2" },
   { label: "David Johnson", value: "3" },

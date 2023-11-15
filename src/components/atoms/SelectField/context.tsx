@@ -1,6 +1,7 @@
-import { createContext, Context, useContext, useState, useRef, useMemo, RefObject, useEffect } from "react";
+import { Context, createContext, RefObject, useContext, useEffect, useMemo, useRef, useState } from "react";
 
 import { useOutsideClick } from "@chakra-ui/react";
+
 import { useDebounce } from "use-debounce";
 
 import { Option } from ".";
@@ -103,9 +104,9 @@ export const SelectFieldContextProvider = ({
     setSearchValue("");
   }
 
-  useEffect(() => {
-    if (value) setValuesSelected(allowMultiple ? value : value.slice(0, 1));
-  }, [allowMultiple, value]);
+  // useEffect(() => {
+  //   if (value) setValuesSelected(allowMultiple ? value : value.slice(0, 1));
+  // }, [allowMultiple, value]);
 
   return (
     <SelectFieldContext.Provider

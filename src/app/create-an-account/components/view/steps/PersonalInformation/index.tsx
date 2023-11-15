@@ -1,6 +1,8 @@
 import React from "react";
 
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
+
+import { MultiFormStepTitle } from "@/components/atoms";
 
 // import { useSwiper } from "swiper/react";
 import { PersonalInformationForm } from "./form";
@@ -13,12 +15,7 @@ export const RegisterPersonalInformationStep = () => {
 
   return (
     <Box>
-      <Box mb="8" textAlign="center">
-        <Heading as="h2" fontWeight="semibold" size="xl">
-          Información personal
-        </Heading>
-        <Text>Necesitamos algunos datos para crear tu cuenta.</Text>
-      </Box>
+      <MultiFormStepTitle description="Necesitamos algunos datos para crear tu cuenta." title="Información personal" />
 
       <PersonalInformationForm
         defaultValues={{

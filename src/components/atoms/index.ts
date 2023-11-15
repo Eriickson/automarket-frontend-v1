@@ -7,3 +7,5 @@ export * from "./SelectField";
 export * from "./SimpleTextField";
 export * from "./TextDateField";
 export * from "./TextMaskField";
+export * from "./StepIndicatorLine";
+export * from "./MultiFormStepTitle";
