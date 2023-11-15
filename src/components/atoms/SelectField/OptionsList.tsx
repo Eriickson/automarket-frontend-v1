@@ -2,8 +2,8 @@ import React, { Fragment } from "react";
 
 import { Box, Divider, List, ListItem, Text } from "@chakra-ui/react";
 
-import { OptionsListItem } from "./OptionsListItem";
 import useSelectFieldContext from "./context";
+import { OptionsListItem } from "./OptionsListItem";
 
 export const OptionsList = () => {
   const { optionsAvailable, valuesSelected } = useSelectFieldContext();
@@ -24,7 +24,7 @@ export const OptionsList = () => {
         })}
         {optionsAvailable.length === 0 ? (
           <ListItem p="3">
-            <Text textAlign="center" userSelect="none" fontSize="sm" color="gray.400">
+            <Text color="gray.400" fontSize="sm" textAlign="center" userSelect="none">
               No hay resultados
             </Text>
           </ListItem>
@@ -32,7 +32,7 @@ export const OptionsList = () => {
       </List>
       <Divider />
       <Box>
-        <Text textAlign="center" py="3" userSelect="none" fontSize="sm" color="gray.400">
+        <Text color="gray.400" fontSize="sm" py="3" textAlign="center" userSelect="none">
           {optionsAvailable.length} resultados encontrados
         </Text>
       </Box>

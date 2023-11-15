@@ -15,7 +15,7 @@ export const FullScreenFormLayout: FC<FullScreenFormLayoutProps> = ({ rightTopCo
     <Box h="100vh">
       <SimpleGrid columns={12} h="full">
         <GridItem colSpan={5} h="full">
-          <Stack h="full" p="12" spacing="6">
+          <Stack h="full" px="12" py="4" spacing="6">
             <Box h="32">
               <Flex alignItems="center" justifyContent="space-between">
                 <Box>
@@ -30,7 +30,9 @@ export const FullScreenFormLayout: FC<FullScreenFormLayoutProps> = ({ rightTopCo
             <Box h="32" />
           </Stack>
         </GridItem>
-        <GridItem bgColor="#f3f4f6" colSpan={7}></GridItem>
+        <GridItem colSpan={7} p="4">
+          <Box bgColor="primary.500" h="full" rounded="2xl"></Box>
+        </GridItem>
       </SimpleGrid>
     </Box>
   );

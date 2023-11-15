@@ -6,6 +6,7 @@ import {
   Button,
   IconButton,
   PasswordFieldController,
+  SelectField,
   SimpleTextFieldController,
   TextDateFieldController,
 } from "@/components/atoms";
@@ -47,6 +48,7 @@ export const PersonalInformationForm: FC<PersonalInformationFormProps> = ({ onSu
         name="username"
         placeholder="Ingresa tu nombre de usuario"
       />
+
       <FormControl>
         <HStack alignItems="flex-start" spacing="4">
           <PasswordFieldController
@@ -67,9 +69,6 @@ export const PersonalInformationForm: FC<PersonalInformationFormProps> = ({ onSu
         </FormHelperText>
       </FormControl>
       <HStack>
-        <IconButton aria-label="before step" px="3" py="6">
-          <ChevronLeft />
-        </IconButton>
         <Button color="white" colorScheme="primary" loadingText="Validando" py="6" type="submit" w="full">
           Enviar código de invitación
         </Button>

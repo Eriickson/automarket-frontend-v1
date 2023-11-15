@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from "react";
+import React, { forwardRef, useState } from "react";
 
 import { Box, Button } from "@chakra-ui/react";
 
@@ -12,11 +12,11 @@ export const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(({
   const handleClick = () => setShowing(!showing);
 
   return (
-    <Box w="full" pos="relative">
+    <Box pos="relative" w="full">
       <SimpleTextField isLoading={isLoading} pr="16" type={showing ? "text" : "password"} {...props} ref={ref} />
       {isLoading ? null : (
-        <Box zIndex="1" bottom="2" right="2" pos="absolute">
-          <Button variant="ghost" size="sm" onClick={handleClick}>
+        <Box bottom="2" pos="absolute" right="2" zIndex="0">
+          <Button size="sm" variant="ghost" onClick={handleClick}>
             {showing ? "H" : "S"}
           </Button>
         </Box>
