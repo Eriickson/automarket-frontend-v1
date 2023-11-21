@@ -17,7 +17,7 @@ const CustomPage = () => {
     <Box m="24">
       <Stack w="96">
         <SimpleTextField placeholder="Erickson Manuel Holguín" />
-        <SelectField allowMultiple allowSearch options={personas} />
+        <SelectField allowMultiple allowSearch options={personas} value={value} />
         <Button
           onClick={() => {
             setValue([]);
