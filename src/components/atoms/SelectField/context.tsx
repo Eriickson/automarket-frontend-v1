@@ -46,7 +46,7 @@ export const SelectFieldContextProvider = ({
   options,
   isDisabled,
   allowSearch,
-  value = [],
+  value,
   onChange,
 }: SelectFieldContextProviderArgs) => {
   const inputRepresentationRef = useRef<HTMLInputElement>(null);
@@ -104,6 +104,11 @@ export const SelectFieldContextProvider = ({
     setSearchValue("");
   }
 
+  useEffect(() => {
+    if (value) {
+      setValuesSelected(allowMultiple ? value : value.slice(0, 1));
+    }
+  }, [value, allowMultiple]);
   // useEffect(() => {
   //   if (value) setValuesSelected(allowMultiple ? value : value.slice(0, 1));
   // }, [allowMultiple, value]);
