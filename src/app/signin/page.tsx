@@ -2,16 +2,10 @@
 
 import React from "react";
 
-import { Box } from "@chakra-ui/react";
-
-import { SigninForm } from "./SigninForm";
+import { SigninView } from "./view";
 
 const SigninPage = () => {
-  return (
-    <Box maxW="lg" w="full">
-      <SigninForm />
-    </Box>
-  );
+  return <SigninView />;
 };
 
 export default SigninPage;

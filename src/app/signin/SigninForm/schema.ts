@@ -13,4 +13,4 @@ const signinFormSchema = z.object({
 
 export const signinFormSchemaResolver = zodResolver(signinFormSchema);
 
-export type SigninFormType = z.infer<typeof signinFormSchema>;
+export type SigninValuesFormType = z.infer<typeof signinFormSchema>;

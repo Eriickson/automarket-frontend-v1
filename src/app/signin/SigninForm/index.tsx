@@ -1,4 +1,6 @@
-import React from "react";
+import React, { FC } from "react";
+
+import { FormComponentProps } from "@atmk/components";
 
 import { Box, Button, Checkbox, Flex, Heading, Text } from "@chakra-ui/react";
 
@@ -7,18 +9,15 @@ import { SimpleTextFieldController } from "@/components/atoms/SimpleTextField/co
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 
-import delay from "delay";
+import { signinFormSchemaResolver, SigninValuesFormType } from "./schema";
 
-import { signinFormSchemaResolver, SigninFormType } from "./schema";
+interface SigninFormProps extends FormComponentProps<SigninValuesFormType> {}
 
-export const SigninForm = () => {
-  const { FormProvider, methods } = useFormProvider<SigninFormType>({
+export const SigninForm: FC<SigninFormProps> = ({ onSubmit, defaultValues }) => {
+  const { FormProvider, methods } = useFormProvider<SigninValuesFormType>({
     resolver: signinFormSchemaResolver,
+    defaultValues,
   });
-
-  async function handleSubmit(values: SigninFormType) {
-    console.log(values);
-  }
 
   return (
     <Box>
@@ -29,7 +28,7 @@ export const SigninForm = () => {
         <Text>Inicia sesión para comprar, vender y disfrutar de todos los beneficios de nuestra plataforma.</Text>
       </Box>
 
-      <FormProvider onSubmit={handleSubmit}>
+      <FormProvider onSubmit={onSubmit}>
         <SimpleTextFieldController
           autoComplete="username"
           label="Identificador"
