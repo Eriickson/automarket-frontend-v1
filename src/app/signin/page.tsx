@@ -8,7 +8,7 @@ import { SigninForm } from "./SigninForm";
 
 const SigninPage = () => {
   return (
-    <Box w="full" maxW="lg">
+    <Box maxW="lg" w="full">
       <SigninForm />
     </Box>
   );
