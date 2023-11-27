@@ -19,11 +19,13 @@ const CustomPage = () => {
         <SimpleTextField placeholder="Erickson Manuel Holguín" />
         <SelectField allowMultiple allowSearch options={personas} value={value} />
         <Button
+          colorScheme="red"
+          variant="outline"
           onClick={() => {
             setValue([]);
           }}
         >
-          <Box>Reset</Box>
+          Reset
         </Button>
       </Stack>
     </Box>
@@ -32,7 +34,7 @@ const CustomPage = () => {
 
 export default CustomPage;
 
-export const personas: Option[] = [
+const personas: Option[] = [
   { label: "John Smith", value: "1" },
   { label: "Maria Rodriguez", value: "2" },
   { label: "David Johnson", value: "3" },
