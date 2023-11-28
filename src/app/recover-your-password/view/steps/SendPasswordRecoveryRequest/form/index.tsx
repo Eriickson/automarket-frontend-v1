@@ -1,18 +1,25 @@
 import React, { FC } from "react";
 
+import { FormComponentProps } from "@atmk/components";
+
 import { Button, SimpleTextFieldController } from "@/components/atoms";
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 
-interface SendPasswordRecoveryRequestFormProps {
-  onSubmit: () => Promise<void>;
-}
+import { resolver, SendPasswordRecoveryRequestFormType } from "./schema";
 
-export const SendPasswordRecoveryRequestForm: FC<SendPasswordRecoveryRequestFormProps> = ({ onSubmit }) => {
-  const { FormProvider } = useFormProvider({});
+interface SendPasswordRecoveryRequestFormProps extends FormComponentProps<SendPasswordRecoveryRequestFormType> {}
+
+export const SendPasswordRecoveryRequestForm: FC<SendPasswordRecoveryRequestFormProps> = ({
+  onSubmit,
+  defaultValues,
+}) => {
+  const { FormProvider } = useFormProvider<SendPasswordRecoveryRequestFormType>({ resolver, defaultValues });
+
   return (
     <FormProvider onSubmit={onSubmit}>
       <SimpleTextFieldController
+        autoFocus
         autoComplete="email"
         label="Correo electrónico"
         name="email"
