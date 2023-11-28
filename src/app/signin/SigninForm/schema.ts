@@ -10,6 +10,6 @@ const signinFormSchema = z.object({
   rememberMe: z.boolean(),
 });
 
-export const signinFormSchemaResolver = zodResolver(signinFormSchema);
+export const resolver = zodResolver(signinFormSchema);
 
 export type SigninValuesFormType = z.infer<typeof signinFormSchema>;

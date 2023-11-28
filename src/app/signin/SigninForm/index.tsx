@@ -6,18 +6,17 @@ import { Box, Button, Checkbox, Flex, Heading, Text } from "@chakra-ui/react";
 
 import { PasswordFieldController } from "@/components/atoms/PasswordField/controller";
 import { SimpleTextFieldController } from "@/components/atoms/SimpleTextField/controller";
+import { SubmitButton } from "@/components/atoms/SubmitButton";
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 
-import { signinFormSchemaResolver, SigninValuesFormType } from "./schema";
+import { resolver, SigninValuesFormType } from "./schema";
+import { Link } from "@chakra-ui/next-js";
 
 interface SigninFormProps extends FormComponentProps<SigninValuesFormType> {}
 
 export const SigninForm: FC<SigninFormProps> = ({ onSubmit, defaultValues }) => {
-  const { FormProvider, methods } = useFormProvider<SigninValuesFormType>({
-    resolver: signinFormSchemaResolver,
-    defaultValues,
-  });
+  const { FormProvider, methods } = useFormProvider<SigninValuesFormType>({ resolver, defaultValues });
 
   return (
     <Box>
@@ -27,7 +26,6 @@ export const SigninForm: FC<SigninFormProps> = ({ onSubmit, defaultValues }) => 
         </Heading>
         <Text>Inicia sesión para comprar, vender y disfrutar de todos los beneficios de nuestra plataforma.</Text>
       </Box>
-
       <FormProvider onSubmit={onSubmit}>
         <SimpleTextFieldController
           autoComplete="username"
@@ -45,22 +43,15 @@ export const SigninForm: FC<SigninFormProps> = ({ onSubmit, defaultValues }) => 
           <Checkbox {...methods.register("rememberMe")} colorScheme="primary">
             <Text>Recuérdame</Text>
           </Checkbox>
-          <Button _hover={{ textDecoration: "underline" }} color="primary" variant="link" w="max-content">
-            ¿Olvidaste tu contraseña?
-          </Button>
+          <Link href="/recover-your-password">
+            <Button _hover={{ textDecoration: "underline" }} color="primary" variant="link" w="max-content">
+              ¿Olvidaste tu contraseña?
+            </Button>
+          </Link>
         </Flex>
-        <Button
-          color="white"
-          colorScheme="primary"
-          isLoading={methods.formState.isSubmitting}
-          loadingText="Iniciando sesión"
-          py="6"
-          rounded="sm"
-          type="submit"
-          w="full"
-        >
+        <SubmitButton colorScheme="primary" loadingText="Ingresando a tu cuenta">
           Iniciar sesión
-        </Button>
+        </SubmitButton>
       </FormProvider>
     </Box>
   );
