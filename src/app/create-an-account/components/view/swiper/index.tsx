@@ -11,17 +11,17 @@ import { ValidateInvitationCodeStep } from "../steps/ValidateInvitationCode";
 export const SwiperSteps = () => {
   const steps: MultiStepFormItem[] = [
     {
-      component: <RegisterPersonalInformationStep />,
+      component: RegisterPersonalInformationStep,
       description: "Necesitamos algunos datos necesarios para comenzar con la creación de tu cuenta",
       title: "Recopilación de información",
     },
     {
-      component: <ValidateInvitationCodeStep />,
+      component: ValidateInvitationCodeStep,
       description: "Ingresa el código que te enviamos a tu correo electrónico.",
       title: "Validar código de invitación",
     },
     {
-      component: <CreateAnAgencyStep />,
+      component: CreateAnAgencyStep,
       description: "Estos serán los datos que aparecerán en tu perfil de agencia.",
       title: "Crear una agencia",
     },

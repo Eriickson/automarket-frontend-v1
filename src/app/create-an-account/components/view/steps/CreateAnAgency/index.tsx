@@ -1,16 +1,15 @@
-import React from "react";
+import React, { FC } from "react";
 
-import { useSwiper } from "swiper/react";
+import { MultiStepFormItemComponentProps } from "@/components/organisms";
 
 import { CreateAnAgencyForm } from "./form";
 import { RegisterAgencyFormType } from "./form/schema";
 
-export const CreateAnAgencyStep = () => {
-  const swiperSlide = useSwiper();
+interface CreateAnAgencyStepProps extends MultiStepFormItemComponentProps {}
 
+export const CreateAnAgencyStep: FC<CreateAnAgencyStepProps> = ({ nextStep }) => {
   async function handleSubmit(values: RegisterAgencyFormType) {
     console.log(values);
-    swiperSlide.slideNext();
   }
 
   return <CreateAnAgencyForm onSubmit={handleSubmit} />;

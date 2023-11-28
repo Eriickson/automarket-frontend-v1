@@ -1,16 +1,16 @@
-import React from "react";
+import React, { FC } from "react";
 
-import { useSwiper } from "swiper/react";
+import { MultiStepFormItemComponentProps } from "@/components/organisms";
 
 import { PersonalInformationForm } from "./form";
 import { RegisterPersonalInformationFormType } from "./form/schema";
 
-export const RegisterPersonalInformationStep = () => {
-  const swiperSlide = useSwiper();
+interface RegisterPersonalInformationStepProps extends MultiStepFormItemComponentProps {}
 
+export const RegisterPersonalInformationStep: FC<RegisterPersonalInformationStepProps> = ({ nextStep }) => {
   async function handleSubmit(values: RegisterPersonalInformationFormType) {
     console.log(values);
-    swiperSlide.slideNext();
+    nextStep();
   }
 
   return (

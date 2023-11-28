@@ -1,16 +1,16 @@
-import React from "react";
+import React, { FC } from "react";
 
-import { useSwiper } from "swiper/react";
+import { MultiStepFormItemComponentProps } from "@/components/organisms";
 
 import { ValidateInvitationCodeForm } from "./form";
 import { ValidateInvitationCodeFormType } from "./form/schema";
 
-export const ValidateInvitationCodeStep = () => {
-  const swiperSlide = useSwiper();
+interface ValidateInvitationCodeStepProps extends MultiStepFormItemComponentProps {}
 
+export const ValidateInvitationCodeStep: FC<ValidateInvitationCodeStepProps> = ({ nextStep }) => {
   async function handleSubmit(values: ValidateInvitationCodeFormType) {
     console.log(values);
-    swiperSlide.slideNext();
+    nextStep();
   }
 
   return <ValidateInvitationCodeForm onSubmit={handleSubmit} />;
