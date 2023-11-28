@@ -37,12 +37,15 @@ export const MultiStepForm: FC<MultiStepFormProps> = ({ steps }) => {
     <Box>
       <Stack spacing="12">
         {steps.map((step, index) => (
-          <Box display={currentSlider === index ? "block" : "none"} id={`slider-${index + index}`} key={index}>
+          <Stack
+            display={currentSlider === index ? "flex" : "none"}
+            id={`slider-${index + index}`}
+            key={index}
+            spacing="8"
+          >
             <MultiFormStepTitle description={step.description} title={step.title} />
-            <Box>
-              <step.component nextStep={nextStep} prevStep={prevStep} />
-            </Box>
-          </Box>
+            <step.component nextStep={nextStep} prevStep={prevStep} />
+          </Stack>
         ))}
         <StepIndicatorLine currentStep={currentSlider} totalSteps={steps.length} />
       </Stack>

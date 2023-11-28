@@ -9,7 +9,7 @@ interface MultiFormStepTitleProps {
 
 export const MultiFormStepTitle: FC<MultiFormStepTitleProps> = ({ description, title }) => {
   return (
-    <VStack mb="8" spacing="1">
+    <VStack spacing="1">
       <Heading as="h2" fontWeight="semibold" size="xl">
         {title}
       </Heading>
