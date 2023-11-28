@@ -4,11 +4,11 @@ import React from "react";
 import { MultiStepForm, MultiStepFormItem } from "@/components/organisms";
 
 import "swiper/css";
-import { CreateAnAgencyStep } from "../steps/CreateAnAgency";
-import { RegisterPersonalInformationStep } from "../steps/PersonalInformation";
-import { ValidateInvitationCodeStep } from "../steps/ValidateInvitationCode";
+import { CreateAnAgencyStep } from "./steps/CreateAnAgency";
+import { RegisterPersonalInformationStep } from "./steps/PersonalInformation";
+import { ValidateInvitationCodeStep } from "./steps/ValidateInvitationCode";
 
-export const SwiperSteps = () => {
+export const CreateAnAccountMultiStepForm = () => {
   const steps: MultiStepFormItem[] = [
     {
       component: RegisterPersonalInformationStep,

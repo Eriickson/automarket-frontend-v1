@@ -1,7 +1,7 @@
 import React from "react";
 
-import { SwiperSteps } from "./swiper";
+import { CreateAnAccountMultiStepForm } from "./CreateAnAccountMultiStepForm";
 
 export const RegisterEmailView = () => {
-  return <SwiperSteps />;
+  return <CreateAnAccountMultiStepForm />;
 };
