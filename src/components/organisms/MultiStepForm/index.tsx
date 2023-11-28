@@ -34,7 +34,7 @@ export const MultiStepForm: FC<MultiStepFormProps> = ({ steps }) => {
   }
 
   return (
-    <Box>
+    <Box w="xl">
       <Stack spacing="12">
         {steps.map((step, index) => (
           <Stack

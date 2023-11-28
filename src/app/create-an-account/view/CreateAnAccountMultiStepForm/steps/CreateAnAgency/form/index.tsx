@@ -51,7 +51,9 @@ export const CreateAnAgencyForm: FC<CreateAnAgencyFormProps> = ({ onSubmit, defa
         <SelectFieldController label="Sector" name="sector" options={provinces} />
       </HStack>
       <SimpleTextFieldController label="Referencía" name="reference" placeholder="Ingresa la referencia" />
-      <SubmitButton mt="4">Validar datos de la agencia</SubmitButton>
+      <SubmitButton colorScheme="primary" mt="4">
+        Validar datos de la agencia
+      </SubmitButton>
     </FormProvider>
   );
 };
