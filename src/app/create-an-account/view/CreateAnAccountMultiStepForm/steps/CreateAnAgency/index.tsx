@@ -8,9 +8,12 @@ import { RegisterAgencyFormType } from "./form/schema";
 
 interface CreateAnAgencyStepProps extends MultiStepFormItemComponentProps<CreateAnAccountMultiStepFormType> {}
 
-export const CreateAnAgencyStep: FC<CreateAnAgencyStepProps> = ({ nextStep }) => {
+export const CreateAnAgencyStep: FC<CreateAnAgencyStepProps> = ({ nextStep, addInformation }) => {
   async function handleSubmit(values: RegisterAgencyFormType) {
     console.log(values);
+    addInformation({ registerAgency: values });
+
+    nextStep();
   }
 
   return <CreateAnAgencyForm onSubmit={handleSubmit} />;

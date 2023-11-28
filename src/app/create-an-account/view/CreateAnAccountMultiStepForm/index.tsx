@@ -4,9 +4,12 @@ import React from "react";
 import { MultiStepForm, MultiStepFormItem } from "@/components/organisms";
 
 import "swiper/css";
-import { CreateAnAgencyStep } from "./steps/CreateAnAgency";
-import { RegisterPersonalInformationStep } from "./steps/PersonalInformation";
-import { ValidateInvitationCodeStep } from "./steps/ValidateInvitationCode";
+import {
+  CreateAnAgencyStep,
+  RegisterPersonalInformationStep,
+  ValidateInformationStep,
+  ValidateInvitationCodeStep,
+} from "./steps";
 
 export const CreateAnAccountMultiStepForm = () => {
   const steps: MultiStepFormItem[] = [
@@ -24,6 +27,11 @@ export const CreateAnAccountMultiStepForm = () => {
       component: CreateAnAgencyStep,
       description: "Estos serán los datos que aparecerán en tu perfil de agencia.",
       title: "Crear una agencia",
+    },
+    {
+      component: ValidateInformationStep,
+      description: "Revisa que toda la información sea correcta para continuar.",
+      title: "Validar tu información",
     },
   ];
 
