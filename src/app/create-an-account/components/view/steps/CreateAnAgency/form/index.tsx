@@ -4,7 +4,7 @@ import { FormComponentProps } from "@atmk/components";
 
 import { AspectRatio, Box, Button, FormControl, FormLabel, HStack, Image, Input } from "@chakra-ui/react";
 
-import { SimpleTextFieldController } from "@/components/atoms";
+import { SimpleTextFieldController, SubmitButton } from "@/components/atoms";
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 
@@ -58,9 +58,7 @@ export const CreateAnAgencyForm: FC<CreateAnAgencyFormProps> = ({ onSubmit, defa
         </FormControl>
       </HStack>
       <SimpleTextFieldController label="Referencía" name="reference" placeholder="Ingresa la referencia" />
-      <Button colorScheme="primary" py="6" w="full">
-        Validar datos de la agencia
-      </Button>
+      <SubmitButton mt="4">Validar datos de la agencia</SubmitButton>
     </FormProvider>
   );
 };
