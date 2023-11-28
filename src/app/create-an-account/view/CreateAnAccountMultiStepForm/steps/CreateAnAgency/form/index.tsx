@@ -43,10 +43,10 @@ export const CreateAnAgencyForm: FC<CreateAnAgencyFormProps> = ({ onSubmit, defa
           </Box>
         </HStack>
       </FormControl>
-      <SimpleTextFieldController label="Nombre" name="name" placeholder="Ingresa el nombre de tu agencia" />
-      <SimpleTextFieldController label="Eslogan" name="name" placeholder="Ingresa el eslogan" />
+      <SimpleTextFieldController isRequired label="Nombre" name="name" placeholder="Ingresa el nombre de tu agencia" />
+      <SimpleTextFieldController isRequired label="Eslogan" name="slogan" placeholder="Ingresa el eslogan" />
       <SelectFieldController label="Provincia" name="province" options={provinces} />
-      <HStack spacing="4">
+      <HStack alignItems="flex-start" spacing="4">
         <SelectFieldController label="Municipio" name="municipality" options={provinces} />
         <SelectFieldController label="Sector" name="sector" options={provinces} />
       </HStack>
