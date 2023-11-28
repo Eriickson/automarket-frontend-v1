@@ -1,3 +1,5 @@
+import { passwordFieldValidation } from "@/validations/zod/forms";
+
 import moment from "moment";
 import { z } from "zod";
 
@@ -13,14 +15,8 @@ const registerPersonalInformationSchema = z
       .refine((data) => moment().diff(new Date(data), "years") >= 18, { message: "Debes ser mayor de edad" }),
     email: z.string().email("El formato de email no es válido").min(1, "Este campo es requerido"),
     username: z.string().min(1, "Este campo es requerido"),
-    password: z
-      .string()
-      .min(8, "La contraseña debe tener al menos 8 caracteres")
-      .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/, "La contraseña debe tener al menos 8 caracteres"),
-    confirmPassword: z
-      .string()
-      .min(8, "La contraseña debe tener al menos 8 caracteres")
-      .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.{8,})/, "La contraseña debe tener al menos 8 caracteres"),
+    password: passwordFieldValidation(),
+    confirmPassword: passwordFieldValidation(),
   })
   .refine((data) => data.password === data.confirmPassword, {
     path: ["confirmPassword"],

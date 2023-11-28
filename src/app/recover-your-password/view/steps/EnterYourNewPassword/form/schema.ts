@@ -1,24 +1,13 @@
+import { passwordFieldValidation } from "@/validations/zod/forms";
+
 import { z } from "zod";
 
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const enterYourNewPasswordSchema = z
   .object({
-    newPassword: z
-      .string()
-      .min(8, "La contraseña debe tener al menos 8 caracteres")
-      .regex(
-        /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*()-=_+{};':"\\|,.<>?]{8,}$/,
-        "La contraseña debe estar compuesta por números y letras"
-      ),
-
-    passwordConfirmation: z
-      .string()
-      .min(8, "La contraseña debe tener al menos 8 caracteres")
-      .regex(
-        /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*()-=_+{};':"\\|,.<>?]{8,}$/,
-        "La contraseña debe estar compuesta por números y letras"
-      ),
+    newPassword: passwordFieldValidation(),
+    passwordConfirmation: passwordFieldValidation(),
   })
   .refine((data) => data.newPassword === data.passwordConfirmation, {
     path: ["passwordConfirmation"],
