@@ -9,7 +9,7 @@ export type Option = {
   isDisabled?: boolean;
 };
 
-interface SelectFieldProps extends Omit<SelectFieldContextProviderArgs, "children"> {}
+export interface SelectFieldProps extends Omit<SelectFieldContextProviderArgs, "children"> {}
 
 export const SelectField: FC<SelectFieldProps> = ({ ...props }) => {
   return (

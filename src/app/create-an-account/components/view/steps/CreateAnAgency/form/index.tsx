@@ -2,13 +2,27 @@ import React, { FC } from "react";
 
 import { FormComponentProps } from "@atmk/components";
 
-import { AspectRatio, Box, Button, FormControl, FormLabel, HStack, Image, Input } from "@chakra-ui/react";
+import { AspectRatio, Box, FormControl, FormLabel, HStack, Image, Input } from "@chakra-ui/react";
 
 import { SimpleTextFieldController, SubmitButton } from "@/components/atoms";
+import { SelectField } from "@/components/organisms";
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 
 import { RegisterAgencyFormType, resolver } from "./schema";
+
+const provinces = [
+  { label: "La Altagracia", value: "La Altagracia" },
+  { label: "Azua", value: "Azua" },
+  { label: "Bahoruco", value: "Bahoruco" },
+  { label: "Barahona", value: "Barahona" },
+  { label: "Dajabón", value: "Dajabón" },
+  { label: "Duarte", value: "Duarte" },
+  { label: "Elías Piña", value: "Elías Piña" },
+  { label: "El Seibo", value: "El Seibo" },
+  { label: "Espaillat", value: "Espaillat" },
+  { label: "Hato Mayor", value: "Hato Mayor" },
+];
 
 interface CreateAnAgencyFormProps extends FormComponentProps<RegisterAgencyFormType> {}
 export const CreateAnAgencyForm: FC<CreateAnAgencyFormProps> = ({ onSubmit, defaultValues }) => {
@@ -33,6 +47,7 @@ export const CreateAnAgencyForm: FC<CreateAnAgencyFormProps> = ({ onSubmit, defa
       <SimpleTextFieldController label="Eslogan" name="name" placeholder="Ingresa el eslogan" />
       <FormControl>
         <FormLabel mb="1">Provincia</FormLabel>
+        <SelectField options={provinces} />
         <Input
           _focus={{ ringColor: "#165ef0", borderColor: "#165ef0", ring: "1.5" }}
           placeholder="Ingresa el provincia"
