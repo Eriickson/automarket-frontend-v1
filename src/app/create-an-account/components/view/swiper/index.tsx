@@ -1,11 +1,7 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 
-import { Box, Stack } from "@chakra-ui/react";
-
-import { StepIndicatorLine } from "@/components/atoms";
-
-import { Swiper, SwiperSlide } from "swiper/react";
+import { MultiStepForm, MultiStepFormItem } from "@/components/organisms";
 
 import "swiper/css";
 import { CreateAnAgencyStep } from "../steps/CreateAnAgency";
@@ -13,32 +9,23 @@ import { RegisterPersonalInformationStep } from "../steps/PersonalInformation";
 import { ValidateInvitationCodeStep } from "../steps/ValidateInvitationCode";
 
 export const SwiperSteps = () => {
-  const [currentSlider, setCurrentSlider] = useState(0);
-
-  const steps = [
-    { title: "Información personal", component: <RegisterPersonalInformationStep /> },
-    { title: "Validar código de invitación", component: <ValidateInvitationCodeStep /> },
-    { title: "Crear una agencia", component: <CreateAnAgencyStep /> },
+  const steps: MultiStepFormItem[] = [
+    {
+      component: <RegisterPersonalInformationStep />,
+      description: "Necesitamos algunos datos para crear tu cuenta.",
+      title: "Información personal",
+    },
+    {
+      component: <ValidateInvitationCodeStep />,
+      description: "Ingresa el código que te enviamos a tu correo electrónico.",
+      title: "Validar código de invitación",
+    },
+    {
+      component: <CreateAnAgencyStep />,
+      description: "Estos serán los datos que aparecerán en tu perfil de agencia.",
+      title: "Crear una agencia",
+    },
   ];
 
-  return (
-    <Stack spacing="12">
-      <Box>
-        <Swiper
-          navigation
-          allowTouchMove={false}
-          spaceBetween={50}
-          tabIndex={currentSlider}
-          onSlideChange={(swiper) => setCurrentSlider(swiper.activeIndex)}
-        >
-          {steps.map((step, index) => (
-            <SwiperSlide id={`slider-${index + index}`} key={index}>
-              <Box px="0.5">{step.component}</Box>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </Box>
-      <StepIndicatorLine currentStep={currentSlider} totalSteps={steps.length} />
-    </Stack>
-  );
+  return <MultiStepForm steps={steps} />;
 };

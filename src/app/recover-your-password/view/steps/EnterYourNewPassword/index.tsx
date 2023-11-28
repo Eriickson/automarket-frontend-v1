@@ -8,9 +8,5 @@ export const EnterYourNewPassword = () => {
     console.log(data);
   }
 
-  return (
-    <div>
-      <EnterYourPasswordForm onSubmit={handleSubmit} />
-    </div>
-  );
+  return <EnterYourPasswordForm onSubmit={handleSubmit} />;
 };
