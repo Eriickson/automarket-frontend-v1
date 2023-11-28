@@ -12,6 +12,7 @@ import {
   ValidateInvitationCodeStep,
 } from "./steps";
 
+
 export const CreateAnAccountMultiStepForm = () => {
   const steps: MultiStepFormItem[] = [
     {

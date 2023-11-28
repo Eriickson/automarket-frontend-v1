@@ -1,11 +1,13 @@
-import React from "react";
+import React, { FC } from "react";
 
 import { useRouter } from "next/navigation";
 
 import { Button } from "@/components/atoms";
 
-export const AccountCreatedSuccessfully = () => {
+export const AccountCreatedSuccessfully: FC = () => {
   const { push } = useRouter();
+
+  console.log("Hola a todos");
 
   return (
     <div>

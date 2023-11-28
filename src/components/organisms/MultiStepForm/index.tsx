@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useMemo, useState } from "react";
 
 import { Box, Stack } from "@chakra-ui/react";
 
@@ -10,6 +10,7 @@ import { MultiFormStepTitle } from "./MultiFormStepTitle";
 export interface MultiStepFormItemComponentProps<T = unknown> {
   nextStep(): void;
   prevStep(): void;
+  values: Partial<T>;
   addInformation(values: Partial<T>): void;
 }
 
@@ -24,36 +25,36 @@ interface MultiStepFormProps {
 }
 
 export const MultiStepForm: FC<MultiStepFormProps> = ({ steps }) => {
-  const [currentSlider, setCurrentSlider] = useState(0);
-  const [data, setData] = useState({});
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [values, setValues] = useState({});
+
+  const currentStep = useMemo(() => steps[currentIndex], [steps, currentIndex]);
 
   function nextStep() {
-    setCurrentSlider((prev) => prev + 1);
+    setCurrentIndex((prev) => prev + 1);
   }
 
   function prevStep() {
-    setCurrentSlider((prev) => prev - 1);
+    setCurrentIndex((prev) => prev - 1);
   }
 
   function addInformation(values: any) {
-    setData((prev) => ({ ...prev, ...values }));
+    setValues((prev) => ({ ...prev, ...values }));
   }
 
   return (
     <Box w="xl">
       <Stack spacing="12">
-        {steps.map((step, index) => (
-          <Stack
-            display={currentSlider === index ? "flex" : "none"}
-            id={`slider-${index + index}`}
-            key={index}
-            spacing="8"
-          >
-            <MultiFormStepTitle description={step.description} title={step.title} />
-            <step.component addInformation={addInformation} nextStep={nextStep} prevStep={prevStep} />
-          </Stack>
-        ))}
-        <StepIndicatorLine currentStep={currentSlider} totalSteps={steps.length} />
+        <Stack spacing="8">
+          <MultiFormStepTitle description={currentStep.description} title={currentStep.title} />
+          <currentStep.component
+            addInformation={addInformation}
+            nextStep={nextStep}
+            prevStep={prevStep}
+            values={values}
+          />
+        </Stack>
+        <StepIndicatorLine currentStep={currentIndex} totalSteps={steps.length} />
       </Stack>
     </Box>
   );
