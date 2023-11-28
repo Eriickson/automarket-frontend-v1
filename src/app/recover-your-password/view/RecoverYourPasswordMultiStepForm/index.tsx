@@ -23,7 +23,7 @@ const steps: MultiStepFormItem[] = [
   },
   {
     title: "Contraseña restablecida",
-    description: "Tu contraseña ha sido restablecida exitosamente.",
+    description: "Tu contraseña ha sido restablecida exitosamente, para seguridad todas tus sesiones han sido cerradas",
     component: PasswordResetSuccessfully,
   },
 ];
