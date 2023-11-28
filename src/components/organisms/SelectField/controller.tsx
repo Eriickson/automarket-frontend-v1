@@ -4,7 +4,7 @@ import { FormControl, FormControlPropsForFields } from "@/components/atoms";
 
 import { useController } from "react-hook-form";
 
-import { SelectField, SelectFieldProps } from ".";
+import { SelectField, SelectFieldProps } from "./simple";
 
 interface SelectFieldControllerProps extends SelectFieldProps, FormControlPropsForFields {
   name: string;

@@ -2,10 +2,10 @@ import React, { FC } from "react";
 
 import { FormComponentProps } from "@atmk/components";
 
-import { AspectRatio, Box, FormControl, FormLabel, HStack, Image, Input } from "@chakra-ui/react";
+import { AspectRatio, Box, FormControl, FormLabel, HStack, Image } from "@chakra-ui/react";
 
 import { SimpleTextFieldController, SubmitButton } from "@/components/atoms";
-import { SelectField } from "@/components/organisms";
+import { SelectFieldController } from "@/components/organisms";
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 
@@ -45,32 +45,10 @@ export const CreateAnAgencyForm: FC<CreateAnAgencyFormProps> = ({ onSubmit, defa
       </FormControl>
       <SimpleTextFieldController label="Nombre" name="name" placeholder="Ingresa el nombre de tu agencia" />
       <SimpleTextFieldController label="Eslogan" name="name" placeholder="Ingresa el eslogan" />
-      <FormControl>
-        <FormLabel mb="1">Provincia</FormLabel>
-        <SelectField options={provinces} />
-        <Input
-          _focus={{ ringColor: "#165ef0", borderColor: "#165ef0", ring: "1.5" }}
-          placeholder="Ingresa el provincia"
-          py="6"
-        />
-      </FormControl>
+      <SelectFieldController label="Provincia" name="province" options={provinces} />
       <HStack spacing="4">
-        <FormControl>
-          <FormLabel mb="1">Municipio</FormLabel>
-          <Input
-            _focus={{ ringColor: "#165ef0", borderColor: "#165ef0", ring: "1.5" }}
-            placeholder="Ingresa el municipio"
-            py="6"
-          />
-        </FormControl>
-        <FormControl>
-          <FormLabel mb="1">Sector</FormLabel>
-          <Input
-            _focus={{ ringColor: "#165ef0", borderColor: "#165ef0", ring: "1.5" }}
-            placeholder="Ingresa el sector"
-            py="6"
-          />
-        </FormControl>
+        <SelectFieldController label="Municipio" name="municipality" options={provinces} />
+        <SelectFieldController label="Sector" name="sector" options={provinces} />
       </HStack>
       <SimpleTextFieldController label="Referencía" name="reference" placeholder="Ingresa la referencia" />
       <SubmitButton mt="4">Validar datos de la agencia</SubmitButton>

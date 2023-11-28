@@ -4,7 +4,7 @@ import { useOutsideClick } from "@chakra-ui/react";
 
 import { useDebounce } from "use-debounce";
 
-import { Option } from ".";
+import { Option } from "./simple";
 
 interface SelectFieldContextProps {
   isDisabled?: boolean;
