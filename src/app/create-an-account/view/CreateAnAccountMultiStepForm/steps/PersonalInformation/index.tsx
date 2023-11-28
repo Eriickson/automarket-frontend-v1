@@ -14,7 +14,7 @@ export const RegisterPersonalInformationStep: FC<RegisterPersonalInformationStep
   addInformation,
 }) => {
   async function handleSubmit(values: RegisterPersonalInformationFormType) {
-    addInformation({ registerAgency: values });
+    addInformation({ registerPersonalInformation: values });
     nextStep();
   }
 

@@ -5,6 +5,7 @@ import { MultiStepForm, MultiStepFormItem } from "@/components/organisms";
 
 import "swiper/css";
 import {
+  AccountCreatedSuccessfully,
   CreateAnAgencyStep,
   RegisterPersonalInformationStep,
   ValidateInformationStep,
@@ -32,6 +33,11 @@ export const CreateAnAccountMultiStepForm = () => {
       component: ValidateInformationStep,
       description: "Revisa que toda la información sea correcta para continuar.",
       title: "Validar tu información",
+    },
+    {
+      component: AccountCreatedSuccessfully,
+      description: "Revisaremos la información que nos proporcionaste y serás notificado cuando tu cuenta esté activa.",
+      title: "Cuenta creada exitosamente",
     },
   ];
 
