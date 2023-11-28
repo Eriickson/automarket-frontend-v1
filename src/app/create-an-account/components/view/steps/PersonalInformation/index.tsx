@@ -20,7 +20,6 @@ export const RegisterPersonalInformationStep = () => {
   return (
     <Box>
       <MultiFormStepTitle description="Necesitamos algunos datos para crear tu cuenta." title="Información personal" />
-
       <PersonalInformationForm
         defaultValues={{
           fullname: "Jorge Luis",

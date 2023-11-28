@@ -2,10 +2,16 @@ import React from "react";
 
 import { MultiFormStepTitle } from "@/components/atoms";
 
+import { useSwiper } from "swiper/react";
+
 import { SendPasswordRecoveryRequestForm } from "./form";
 
 export const SendPasswordRecoveryRequest = () => {
-  async function handleSubmit() {}
+  const swiperSlide = useSwiper();
+
+  async function handleSubmit() {
+    swiperSlide.slideNext();
+  }
 
   return (
     <div>
