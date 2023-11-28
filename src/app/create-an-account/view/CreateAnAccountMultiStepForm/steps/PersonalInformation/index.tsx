@@ -2,14 +2,19 @@ import React, { FC } from "react";
 
 import { MultiStepFormItemComponentProps } from "@/components/organisms";
 
+import { CreateAnAccountMultiStepFormType } from "../../CreateAnAccountMultiStepForm.type";
 import { PersonalInformationForm } from "./form";
 import { RegisterPersonalInformationFormType } from "./form/schema";
 
-interface RegisterPersonalInformationStepProps extends MultiStepFormItemComponentProps {}
+interface RegisterPersonalInformationStepProps
+  extends MultiStepFormItemComponentProps<CreateAnAccountMultiStepFormType> {}
 
-export const RegisterPersonalInformationStep: FC<RegisterPersonalInformationStepProps> = ({ nextStep }) => {
+export const RegisterPersonalInformationStep: FC<RegisterPersonalInformationStepProps> = ({
+  nextStep,
+  addInformation,
+}) => {
   async function handleSubmit(values: RegisterPersonalInformationFormType) {
-    console.log(values);
+    addInformation({ registerAgency: values });
     nextStep();
   }
 

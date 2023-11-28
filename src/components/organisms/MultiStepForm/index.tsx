@@ -7,9 +7,10 @@ import { StepIndicatorLine } from "@/components/atoms";
 import "swiper/css";
 import { MultiFormStepTitle } from "./MultiFormStepTitle";
 
-export interface MultiStepFormItemComponentProps {
+export interface MultiStepFormItemComponentProps<T = unknown> {
   nextStep(): void;
   prevStep(): void;
+  addInformation(values: Partial<T>): void;
 }
 
 export interface MultiStepFormItem {
@@ -24,6 +25,7 @@ interface MultiStepFormProps {
 
 export const MultiStepForm: FC<MultiStepFormProps> = ({ steps }) => {
   const [currentSlider, setCurrentSlider] = useState(0);
+  const [data, setData] = useState({});
 
   function nextStep() {
     setCurrentSlider((prev) => prev + 1);
@@ -31,6 +33,10 @@ export const MultiStepForm: FC<MultiStepFormProps> = ({ steps }) => {
 
   function prevStep() {
     setCurrentSlider((prev) => prev - 1);
+  }
+
+  function addInformation(values: any) {
+    setData((prev) => ({ ...prev, ...values }));
   }
 
   return (
@@ -44,7 +50,7 @@ export const MultiStepForm: FC<MultiStepFormProps> = ({ steps }) => {
             spacing="8"
           >
             <MultiFormStepTitle description={step.description} title={step.title} />
-            <step.component nextStep={nextStep} prevStep={prevStep} />
+            <step.component addInformation={addInformation} nextStep={nextStep} prevStep={prevStep} />
           </Stack>
         ))}
         <StepIndicatorLine currentStep={currentSlider} totalSteps={steps.length} />
