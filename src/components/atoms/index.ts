@@ -9,3 +9,4 @@ export * from "./TextDateField";
 export * from "./TextMaskField";
 export * from "./StepIndicatorLine";
 export * from "./MultiFormStepTitle";
+export * from "./SubmitButton";

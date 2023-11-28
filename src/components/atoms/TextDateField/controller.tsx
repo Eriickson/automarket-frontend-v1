@@ -1,9 +1,9 @@
 import React, { FC } from "react";
 
-import { useFormContext, Controller } from "react-hook-form";
+import { Controller, useFormContext } from "react-hook-form";
 
-import { TextDateField, TextDateFieldProps } from "./simple";
 import { FormControl, FormControlPropsForFields } from "../FormControl";
+import { TextDateField, TextDateFieldProps } from "./simple";
 
 interface TextDateFieldControllerProps extends TextDateFieldProps, FormControlPropsForFields {
   name: string;
@@ -15,8 +15,8 @@ export const TextDateFieldController: FC<TextDateFieldControllerProps> = ({ name
   return (
     <FormControl {...props}>
       <Controller
-        name={name}
         control={control}
+        name={name}
         render={({ field }) => (
           <TextDateField
             {...props}

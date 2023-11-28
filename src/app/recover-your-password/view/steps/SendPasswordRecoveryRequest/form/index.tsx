@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import { FormComponentProps } from "@atmk/components";
 
 import { SimpleTextFieldController } from "@/components/atoms";
-import { SubmitButton } from "@/components/atoms/SubmitButton";
+import { SubmitButton } from "@/components/atoms";
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 

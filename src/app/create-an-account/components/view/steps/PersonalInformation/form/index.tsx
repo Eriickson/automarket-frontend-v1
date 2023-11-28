@@ -1,11 +1,11 @@
 import React, { FC } from "react";
 
-import { FormControl, FormHelperText, HStack } from "@chakra-ui/react";
+import { HStack, Text } from "@chakra-ui/react";
 
 import {
-  Button,
   PasswordFieldController,
   SimpleTextFieldController,
+  SubmitButton,
   TextDateFieldController,
 } from "@/components/atoms";
 
@@ -45,30 +45,27 @@ export const PersonalInformationForm: FC<PersonalInformationFormProps> = ({ onSu
         placeholder="Ingresa tu nombre de usuario"
       />
 
-      <FormControl>
-        <HStack alignItems="flex-start" spacing="4">
-          <PasswordFieldController
-            autoComplete="new-password"
-            label="Contraseña"
-            name="password"
-            placeholder="Ingresa tu contraseña"
-          />
-          <PasswordFieldController
-            autoComplete="new-password"
-            label="Confirmar Contraseña"
-            name="confirmPassword"
-            placeholder="Ingresa tu contraseña"
-          />
-        </HStack>
-        <FormHelperText>
-          La contraseña debe tener al menos 8 caracteres conformada por mayúsculas, minúsculas y números.
-        </FormHelperText>
-      </FormControl>
-      <HStack>
-        <Button color="white" colorScheme="primary" loadingText="Validando" py="6" type="submit" w="full">
-          Enviar código de invitación
-        </Button>
+      <HStack alignItems="flex-start" spacing="4">
+        <PasswordFieldController
+          autoComplete="new-password"
+          label="Contraseña"
+          name="password"
+          placeholder="Ingresa tu contraseña"
+        />
+        <PasswordFieldController
+          autoComplete="new-password"
+          label="Confirmar Contraseña"
+          name="confirmPassword"
+          placeholder="Ingresa tu contraseña"
+        />
       </HStack>
+      <Text color="gray.600" fontSize="sm">
+        La contraseña debe tener al menos 8 caracteres conformada por mayúsculas, minúsculas y números.
+      </Text>
+
+      <SubmitButton colorScheme="primary" loadingText="Enviando código de invitación..." mt="4">
+        Enviar código de invitación
+      </SubmitButton>
     </FormProvider>
   );
 };
