@@ -7,6 +7,7 @@ import { TypedUseSelectorHook, useSelector as _useSelector } from "react-redux";
 
 import { authApi } from "./features/api/auth";
 import { jsonPlaceholderApi } from "./features/api/jsonplaceholder";
+import { provincesApi } from "./features/api/provinces";
 import { rootReducer } from "./reducer";
 import { RootStore } from "./reducer";
 import { configureStore, isRejectedWithValue, Middleware, MiddlewareAPI } from "@reduxjs/toolkit";
@@ -23,7 +24,12 @@ export const useStore = () => {
   const store = configureStore({
     reducer: rootReducer,
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware({}).concat(rtkQueryErrorLogger, jsonPlaceholderApi.middleware, authApi.middleware),
+      getDefaultMiddleware({}).concat(
+        rtkQueryErrorLogger,
+        jsonPlaceholderApi.middleware,
+        authApi.middleware,
+        provincesApi.middleware
+      ),
   });
 
   return { store };
