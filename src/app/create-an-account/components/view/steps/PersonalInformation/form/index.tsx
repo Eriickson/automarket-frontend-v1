@@ -4,22 +4,18 @@ import { FormControl, FormHelperText, HStack } from "@chakra-ui/react";
 
 import {
   Button,
-  IconButton,
   PasswordFieldController,
-  SelectField,
   SimpleTextFieldController,
   TextDateFieldController,
 } from "@/components/atoms";
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 
-import { ChevronLeft } from "react-feather";
-
 import { RegisterPersonalInformationFormType, resolver } from "./schema";
 import { useValidateBeforeSubmit } from "./validateBeforeSubmit";
 
 interface PersonalInformationFormProps {
-  onSubmit(data: RegisterPersonalInformationFormType): void;
+  onSubmit(data: RegisterPersonalInformationFormType): Promise<void>;
   defaultValues?: RegisterPersonalInformationFormType;
 }
 

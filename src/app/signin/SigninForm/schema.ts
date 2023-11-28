@@ -7,7 +7,6 @@ const signinFormSchema = z.object({
   password: z
     .string()
     .min(8, "La contraseña debe tener al menos 8 caracteres")
-    // debe
     .regex(
       /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d!@#$%^&*()-=_+{};':"\\|,.<>?]{8,}$/,
       "La contraseña debe estar compuesta por números y letras"
