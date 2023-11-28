@@ -3,7 +3,7 @@ import React from "react";
 
 import { MultiStepForm, MultiStepFormItem } from "@/components/organisms";
 
-import { EnterYourNewPassword, PasswordResetSuccessfully, SendPasswordRecoveryRequest, ValidateCode } from "./steps";
+import { EnterYourNewPassword, PasswordResetSuccessfully, SendPasswordRecoveryRequest, ValidateCode } from "../steps";
 
 const steps: MultiStepFormItem[] = [
   {
@@ -28,6 +28,6 @@ const steps: MultiStepFormItem[] = [
   },
 ];
 
-export const SwiperSteps = () => {
+export const RecoverYourPasswordMultiStepForm = () => {
   return <MultiStepForm steps={steps} />;
 };

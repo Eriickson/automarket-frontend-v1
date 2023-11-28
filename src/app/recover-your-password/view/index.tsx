@@ -2,12 +2,12 @@ import React from "react";
 
 import { Box } from "@chakra-ui/react";
 
-import { SwiperSteps } from "./swiper";
+import { RecoverYourPasswordMultiStepForm } from "./RecoverYourPasswordMultiStepForm";
 
 export const RecoverYourPasswordView = () => {
   return (
     <Box maxW="xl">
-      <SwiperSteps />
+      <RecoverYourPasswordMultiStepForm />
     </Box>
   );
 };
