@@ -2,11 +2,14 @@ import React from "react";
 
 import { Box } from "@chakra-ui/react";
 
+import delay from "delay";
+
 import { SigninForm } from "./SigninForm";
 import { SigninValuesFormType } from "./SigninForm/schema";
 
 export const SigninView = () => {
   async function handleSubmit(values: SigninValuesFormType) {
+    await delay(2000);
     console.log(values);
   }
 

@@ -17,9 +17,11 @@ export const SimpleTextField = forwardRef<HTMLElement, SimpleTextFieldProps>(({ 
         cursor={isLoading ? "wait" : "auto"}
         isDisabled={isLoading}
         isRequired={false}
+        pointerEvents={isLoading ? "none" : "auto"}
         px="4"
         py="6"
         rounded="sm"
+        userSelect={isLoading ? "none" : "auto"}
         {...props}
         ref={ref}
       />

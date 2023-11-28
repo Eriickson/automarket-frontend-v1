@@ -1,6 +1,6 @@
 declare module "@atmk/components" {
   export type FormComponentProps<T> = {
-    onSubmit: (values: T) => void;
+    onSubmit: (values: T) => Promise<void>;
     defaultValues?: Partial<T>;
   };
 }

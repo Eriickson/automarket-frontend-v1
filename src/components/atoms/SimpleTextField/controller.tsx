@@ -14,7 +14,7 @@ export const SimpleTextFieldController: FC<SimpleTextFieldControllerProps> = ({ 
 
   return (
     <FormControl {...props}>
-      <SimpleTextField {...register(name)} {...props} />
+      <SimpleTextField isLoading={formState.isSubmitting} {...register(name)} {...props} />
     </FormControl>
   );
 };

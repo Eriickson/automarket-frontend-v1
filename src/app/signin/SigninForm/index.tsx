@@ -55,6 +55,7 @@ export const SigninForm: FC<SigninFormProps> = ({ onSubmit, defaultValues }) => 
           isLoading={methods.formState.isSubmitting}
           loadingText="Iniciando sesión"
           py="6"
+          rounded="sm"
           type="submit"
           w="full"
         >

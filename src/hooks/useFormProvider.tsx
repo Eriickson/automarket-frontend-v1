@@ -13,7 +13,7 @@ interface UseFormProviderArgs<T extends FieldValues> {
 
 interface FormProviderProps<T> {
   children: React.ReactNode;
-  onSubmit(data: T): void;
+  onSubmit(data: T): Promise<void>;
 }
 
 export const useFormProvider = <T extends FieldValues>(args: UseFormProviderArgs<T> = {}) => {
@@ -32,7 +32,7 @@ export const useFormProvider = <T extends FieldValues>(args: UseFormProviderArgs
         //   return;
         // }
 
-        props.onSubmit(data);
+        await props.onSubmit(data);
       }
 
       return (
