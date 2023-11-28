@@ -8,7 +8,7 @@ import { StepIndicatorLine } from "@/components/atoms";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
-import { SendPasswordRecoveryRequest } from "./steps/SendPasswordRecoveryRequest";
+import { EnterYourNewPassword, SendPasswordRecoveryRequest, ValidateCode } from "./steps";
 export const SwiperSteps = () => {
   const [currentSlider, setCurrentSlider] = useState(0);
 
