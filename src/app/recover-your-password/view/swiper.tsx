@@ -14,8 +14,8 @@ export const SwiperSteps = () => {
 
   const steps = [
     { title: "Información personal", component: <SendPasswordRecoveryRequest /> },
-    { title: "Información personal", component: <EnterYourNewPassword /> },
     { title: "Información personal", component: <ValidateCode /> },
+    { title: "Información personal", component: <EnterYourNewPassword /> },
     { title: "Información personal", component: <PasswordResetSuccessfully /> },
   ];
 

@@ -17,8 +17,8 @@ export const SwiperSteps = () => {
 
   const steps = [
     { title: "Información personal", component: <RegisterPersonalInformationStep /> },
-    { title: "Crear una agencia", component: <CreateAnAgencyStep /> },
     { title: "Validar código de invitación", component: <ValidateInvitationCodeStep /> },
+    { title: "Crear una agencia", component: <CreateAnAgencyStep /> },
   ];
 
   return (
