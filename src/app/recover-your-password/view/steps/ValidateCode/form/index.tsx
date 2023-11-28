@@ -2,7 +2,8 @@ import React, { FC } from "react";
 
 import { FormComponentProps } from "@atmk/components";
 
-import { Button, CodeVerificationFieldController } from "@/components/atoms";
+import { CodeVerificationFieldController } from "@/components/atoms";
+import { SubmitButton } from "@/components/atoms/SubmitButton";
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 
@@ -16,9 +17,9 @@ export const ValidateCodeForm: FC<ValidateCodeFormProps> = ({ onSubmit, defaultV
   return (
     <FormProvider onSubmit={onSubmit}>
       <CodeVerificationFieldController label="" name="passwordResetCode" />
-      <Button colorScheme="primary" loadingText="Validando" mt="4" py="6" type="submit" w="full">
+      <SubmitButton colorScheme="primary" loadingText="Validando código de recuperación..." mt="4">
         Validar código de recuperación
-      </Button>
+      </SubmitButton>
     </FormProvider>
   );
 };

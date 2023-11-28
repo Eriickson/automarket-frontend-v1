@@ -2,7 +2,8 @@ import React, { FC } from "react";
 
 import { FormComponentProps } from "@atmk/components";
 
-import { Button, SimpleTextFieldController } from "@/components/atoms";
+import { SimpleTextFieldController } from "@/components/atoms";
+import { SubmitButton } from "@/components/atoms/SubmitButton";
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 
@@ -26,9 +27,9 @@ export const SendPasswordRecoveryRequestForm: FC<SendPasswordRecoveryRequestForm
         placeholder="Ingresa tu correo electrónico"
       />
 
-      <Button colorScheme="primary" loadingText="Validando" mt="4" py="6" type="submit" w="full">
+      <SubmitButton colorScheme="primary" loadingText="Enviando código de recuperación..." mt="4">
         Enviar código de recuperación
-      </Button>
+      </SubmitButton>
     </FormProvider>
   );
 };

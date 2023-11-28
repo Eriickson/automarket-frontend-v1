@@ -13,9 +13,5 @@ export const ValidateCode = () => {
     swiperSlider.slideNext();
   }
 
-  return (
-    <div>
-      <ValidateCodeForm onSubmit={handleSubmit} />
-    </div>
-  );
+  return <ValidateCodeForm onSubmit={handleSubmit} />;
 };

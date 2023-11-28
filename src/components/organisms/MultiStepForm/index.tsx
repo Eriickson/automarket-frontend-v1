@@ -28,7 +28,6 @@ export const MultiStepForm: FC<MultiStepFormProps> = ({ steps }) => {
         <Box>
           <Swiper
             navigation
-            allowTouchMove={false}
             spaceBetween={50}
             tabIndex={currentSlider}
             onSlideChange={(swiper) => setCurrentSlider(swiper.activeIndex)}
