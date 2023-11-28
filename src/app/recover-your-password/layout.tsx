@@ -8,7 +8,7 @@ import { Button } from "@chakra-ui/react";
 
 import { FullScreenFormLayout } from "@/components/layouts/FullScreenForm";
 
-const RecoverMyPasswordLayout = ({ children }: { children: React.ReactNode }) => {
+const RecoverYourPasswordLayout = ({ children }: { children: React.ReactNode }) => {
   const { push } = useRouter();
 
   return (
@@ -25,4 +25,4 @@ const RecoverMyPasswordLayout = ({ children }: { children: React.ReactNode }) =>
   );
 };
 
-export default RecoverMyPasswordLayout;
+export default RecoverYourPasswordLayout;
