@@ -3,6 +3,7 @@ import React, { useState } from "react";
 
 import { Box, Stack } from "@chakra-ui/react";
 
+import { PasswordResetSuccessfully } from "@/app/recover-your-password/view/steps/PasswordResetSuccessfully";
 import { StepIndicatorLine } from "@/components/atoms";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -19,6 +20,7 @@ export const SwiperSteps = () => {
     { title: "Información personal", component: <RegisterPersonalInformationStep /> },
     { title: "Crear una agencia", component: <CreateAnAgencyStep /> },
     { title: "Validar código de invitación", component: <ValidateInvitationCodeStep /> },
+    { title: "Contraseña restablecida existosamente", component: <PasswordResetSuccessfully /> },
   ];
 
   return (

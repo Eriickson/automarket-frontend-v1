@@ -4,13 +4,17 @@ import { Box } from "@chakra-ui/react";
 
 import { MultiFormStepTitle } from "@/components/atoms";
 
-// import { useSwiper } from "swiper/react";
+import { useSwiper } from "swiper/react";
+
 import { PersonalInformationForm } from "./form";
 import { RegisterPersonalInformationFormType } from "./form/schema";
 
 export const RegisterPersonalInformationStep = () => {
+  const swiperSlide = useSwiper();
+
   async function handleSubmit(values: RegisterPersonalInformationFormType) {
     console.log(values);
+    swiperSlide.slideNext();
   }
 
   return (
