@@ -1,11 +1,18 @@
-import React from "react";
+import React, { FC } from "react";
+
+import { MultiStepFormItemComponentProps } from "@/components/organisms";
+
+import delay from "delay";
 
 import { EnterYourPasswordForm } from "./form";
+import { EnterYourNewPasswordFormType } from "./form/schema";
 
-export const EnterYourNewPassword = () => {
+interface EnterYourNewPasswordProps extends MultiStepFormItemComponentProps {}
 
-  async function handleSubmit(data: any) {
-    console.log(data);
+export const EnterYourNewPassword: FC<EnterYourNewPasswordProps> = ({ nextStep }) => {
+  async function handleSubmit(data: EnterYourNewPasswordFormType) {
+    await delay(1000);
+    nextStep();
   }
 
   return <EnterYourPasswordForm onSubmit={handleSubmit} />;

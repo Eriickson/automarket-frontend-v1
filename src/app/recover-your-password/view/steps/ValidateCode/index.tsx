@@ -1,16 +1,18 @@
-import React from "react";
+import React, { FC } from "react";
 
-import { useSwiper } from "swiper/react";
+import { MultiStepFormItemComponentProps } from "@/components/organisms";
+
+import delay from "delay";
 
 import { ValidateCodeForm } from "./form";
 import { ValidateCodeFormType } from "./form/schema";
 
-export const ValidateCode = () => {
-  const swiperSlider = useSwiper();
+interface ValidateCodeProps extends MultiStepFormItemComponentProps {}
 
+export const ValidateCode: FC<ValidateCodeProps> = ({ nextStep }) => {
   async function handleSubmit(data: ValidateCodeFormType) {
-    console.log(data);
-    swiperSlider.slideNext();
+    await delay(1000);
+    nextStep();
   }
 
   return <ValidateCodeForm onSubmit={handleSubmit} />;
