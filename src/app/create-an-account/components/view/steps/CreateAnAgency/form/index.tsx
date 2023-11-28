@@ -11,8 +11,8 @@ import { useFormProvider } from "@/hooks/useFormProvider";
 import { RegisterAgencyFormType, resolver } from "./schema";
 
 interface CreateAnAgencyFormProps extends FormComponentProps<RegisterAgencyFormType> {}
-export const CreateAnAgencyForm: FC<CreateAnAgencyFormProps> = ({ onSubmit }) => {
-  const { FormProvider } = useFormProvider<RegisterAgencyFormType>({ resolver });
+export const CreateAnAgencyForm: FC<CreateAnAgencyFormProps> = ({ onSubmit, defaultValues }) => {
+  const { FormProvider } = useFormProvider<RegisterAgencyFormType>({ resolver, defaultValues });
 
   return (
     <FormProvider onSubmit={onSubmit}>

@@ -10,6 +10,7 @@ export const CreateAnAgencyStep = () => {
 
   async function handleSubmit(values: RegisterAgencyFormType) {
     console.log(values);
+    swiperSlide.slideNext();
   }
 
   return <CreateAnAgencyForm onSubmit={handleSubmit} />;

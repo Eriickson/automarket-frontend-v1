@@ -12,8 +12,8 @@ export const SwiperSteps = () => {
   const steps: MultiStepFormItem[] = [
     {
       component: <RegisterPersonalInformationStep />,
-      description: "Necesitamos algunos datos para crear tu cuenta.",
-      title: "Información personal",
+      description: "Necesitamos algunos datos necesarios para comenzar con la creación de tu cuenta",
+      title: "Recopilación de información",
     },
     {
       component: <ValidateInvitationCodeStep />,
