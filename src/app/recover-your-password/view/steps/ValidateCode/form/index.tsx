@@ -2,8 +2,6 @@ import React, { FC } from "react";
 
 import { FormComponentProps } from "@atmk/components";
 
-import { Center } from "@chakra-ui/react";
-
 import { Button, CodeVerificationFieldController } from "@/components/atoms";
 
 import { useFormProvider } from "@/hooks/useFormProvider";

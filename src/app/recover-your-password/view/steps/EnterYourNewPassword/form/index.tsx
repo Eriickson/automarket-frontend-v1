@@ -27,7 +27,7 @@ export const EnterYourPasswordForm: FC<EnterYourPasswordFormProps> = ({ onSubmit
         name="passwordConfirmation"
         placeholder="Ingresa tu contraseña"
       />
-      <Button color="white" colorScheme="primary" py="6" type="submit" w="full">
+      <Button color="white" colorScheme="primary" mt="4" py="6" type="submit" w="full">
         Restablecer contraseña
       </Button>
     </FormProvider>
