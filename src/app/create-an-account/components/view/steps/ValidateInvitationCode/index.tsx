@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box, Button, Heading, Stack, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Heading, Text, VStack } from "@chakra-ui/react";
 
 import { CodeVerificationFieldController } from "@/components/atoms/CodeVerificationField/controller";
 
