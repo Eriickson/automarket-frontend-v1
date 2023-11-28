@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import { Box, Heading, Text } from "@chakra-ui/react";
+import { Heading, Text, VStack } from "@chakra-ui/react";
 
 interface MultiFormStepTitleProps {
   title: string;
@@ -9,11 +9,13 @@ interface MultiFormStepTitleProps {
 
 export const MultiFormStepTitle: FC<MultiFormStepTitleProps> = ({ description, title }) => {
   return (
-    <Box mb="8" textAlign="center">
+    <VStack mb="8" spacing="1">
       <Heading as="h2" fontWeight="semibold" size="xl">
         {title}
       </Heading>
-      <Text>{description}</Text>
-    </Box>
+      <Text color="gray.600" maxW="md" textAlign="center">
+        {description}
+      </Text>
+    </VStack>
   );
 };
