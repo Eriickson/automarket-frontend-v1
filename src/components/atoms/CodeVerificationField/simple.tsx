@@ -4,18 +4,18 @@ import { HStack, PinInput, PinInputField as ChakraPinInputField, Text } from "@c
 
 const CustomPinInputField = () => (
   <ChakraPinInputField
-    textAlign="center"
-    w="16"
-    h="16"
+    _focus={{ border: "1px solid", borderColor: "primary.500", ring: "1.5", ringColor: "primary.500" }}
+    _placeholder={{ color: "gray.300" }}
+    border="1px solid"
+    borderColor="gray.200"
     fontSize="xl"
     fontWeight="medium"
-    border="1px solid"
+    h="16"
     outline="none"
-    borderColor="gray.200"
-    _focus={{ border: "1px solid", borderColor: "primary.500", ring: "1.5", ringColor: "primary.500" }}
     rounded="sm"
+    textAlign="center"
     transition="150ms"
-    _placeholder={{ color: "gray.300" }}
+    w="16"
   />
 );
 
@@ -27,8 +27,8 @@ export interface CodeVerificationFieldProps {
 
 export const CodeVerificationField: FC<CodeVerificationFieldProps> = ({ isDisabled, onChange, value }) => {
   return (
-    <HStack w="max-content">
-      <PinInput placeholder="●" isDisabled={isDisabled} value={value} onChange={onChange} otp>
+    <HStack id="hola-a-todos" justifyContent="center" w="full">
+      <PinInput otp isDisabled={isDisabled} placeholder="●" value={value} onChange={onChange}>
         <CustomPinInputField />
         <CustomPinInputField />
         <CustomPinInputField />

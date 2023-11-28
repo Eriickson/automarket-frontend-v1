@@ -2,8 +2,8 @@ import React, { FC } from "react";
 
 import { useController } from "react-hook-form";
 
-import { CodeVerificationField, CodeVerificationFieldProps } from "./simple";
 import { FormControl, FormControlPropsForFields } from "../FormControl";
+import { CodeVerificationField, CodeVerificationFieldProps } from "./simple";
 
 interface CodeVerificationFieldControllerProps extends CodeVerificationFieldProps, FormControlPropsForFields {
   name: string;
@@ -17,8 +17,8 @@ export const CodeVerificationFieldController: FC<CodeVerificationFieldController
       <CodeVerificationField
         isDisabled={formState.isSubmitting}
         {...props}
-        onChange={field.onChange}
         value={field.value}
+        onChange={field.onChange}
       />
     </FormControl>
   );

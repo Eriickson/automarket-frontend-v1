@@ -1,11 +1,13 @@
 import React from "react";
 
 import { Box, Button, Heading, Stack, Text, VStack } from "@chakra-ui/react";
-import { useSwiper } from "swiper/react";
+
+import { CodeVerificationFieldController } from "@/components/atoms/CodeVerificationField/controller";
 
 import { FormProvider, useForm } from "react-hook-form";
-import { CodeVerificationFieldController } from "@/components/atoms/CodeVerificationField/controller";
-import { ValidateInvitationCodeFormType, resolver } from "./schema";
+import { useSwiper } from "swiper/react";
+
+import { resolver, ValidateInvitationCodeFormType } from "./schema";
 
 const simulateCallApi = () => {
   return new Promise((resolve) => {
@@ -30,23 +32,23 @@ export const ValidateInvitationCodeStep = () => {
 
   return (
     <Box>
-      <Box textAlign="center" mb="8">
-        <Heading as="h2" size="xl" fontWeight="semibold">
+      <Box mb="8" textAlign="center">
+        <Heading as="h2" fontWeight="semibold" size="xl">
           Validar código de invitación
         </Heading>
         <Text>Ingresa el código de invitación que te enviamos a tu correo electrónico.</Text>
       </Box>
       <FormProvider {...methods}>
-        <VStack as="form" onSubmit={methods.handleSubmit(handleSubmit)} spacing="4">
+        <VStack as="form" spacing="4" onSubmit={methods.handleSubmit(handleSubmit)}>
           <CodeVerificationFieldController label="" name="invitationCode" />
           <Button
-            type="submit"
-            loadingText="Validando código de invitación"
-            py="6"
-            w="full"
             color="white"
             colorScheme="primary"
             isLoading={methods.formState.isSubmitting}
+            loadingText="Validando código de invitación"
+            py="6"
+            type="submit"
+            w="full"
           >
             Validar código de invitación
           </Button>

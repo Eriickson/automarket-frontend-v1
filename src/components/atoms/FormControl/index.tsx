@@ -1,15 +1,15 @@
 import React, { FC, ReactElement, useMemo } from "react";
 
-import { useFormContext } from "react-hook-form";
-
 import {
-  FormControl as ChakraFormControl,
   Flex,
+  FormControl as ChakraFormControl,
   FormErrorMessage,
   FormHelperText,
   FormLabel,
   Text,
 } from "@chakra-ui/react";
+
+import { useFormContext } from "react-hook-form";
 
 export type FormControlPropsForFields = Omit<FormControlProps, "children">;
 
@@ -19,7 +19,7 @@ export interface FormControlProps {
   isRequired?: boolean;
   isOptional?: boolean;
   isInvalid?: boolean;
-  label: string;
+  label?: string;
   name?: string;
 }
 
@@ -46,17 +46,19 @@ export const FormControl: FC<FormControlProps> = ({
   }, [formContext, name]);
 
   return (
-    <ChakraFormControl isRequired={isRequired} isInvalid={Boolean(errorFound) || isInvalid}>
-      <Flex justifyContent="space-between" mb="1">
-        <FormLabel cursor="pointer" mb="0" w="max-content" userSelect="none">
-          {label}
-        </FormLabel>
-        {isOptional ? (
-          <Text userSelect="none" as="span" color="gray.500" fontSize="sm">
-            (opcional)
-          </Text>
-        ) : null}
-      </Flex>
+    <ChakraFormControl isInvalid={Boolean(errorFound) || isInvalid} isRequired={isRequired}>
+      {label ? (
+        <Flex justifyContent="space-between" mb="1">
+          <FormLabel cursor="pointer" mb="0" userSelect="none" w="max-content">
+            {label}
+          </FormLabel>
+          {isOptional ? (
+            <Text as="span" color="gray.500" fontSize="sm" userSelect="none">
+              (opcional)
+            </Text>
+          ) : null}
+        </Flex>
+      ) : null}
       {children}
       {errorFound ? (
         <FormErrorMessage mt="1.5">{errorFound}</FormErrorMessage>
