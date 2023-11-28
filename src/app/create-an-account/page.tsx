@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import { RegisterEmailView } from "./components/view";
+import { RegisterEmailView } from "./view";
 
 const RegisterEmailPage = () => {
   return <RegisterEmailView />;
