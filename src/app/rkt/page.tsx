@@ -11,7 +11,6 @@ const RktPage = () => {
     value: "erickson01d@gmail.com",
   });
 
-  console.log(data);
 
   return <Box m="48">RktPage - </Box>;
 };

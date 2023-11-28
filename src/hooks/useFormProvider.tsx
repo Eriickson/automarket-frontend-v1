@@ -25,13 +25,6 @@ export const useFormProvider = <T extends FieldValues>(args: UseFormProviderArgs
   const FormProvider = useCallback(
     (props: FormProviderProps<T>) => {
       async function handleSubmit(data: T) {
-        // const isValid = await args.validateBeforeSubmit?.(data, methods);
-
-        // if (!isValid) {
-        //   // console.log("No es válido");
-        //   return;
-        // }
-
         await props.onSubmit(data);
       }
 

@@ -10,7 +10,6 @@ interface ValidateInvitationCodeStepProps extends MultiStepFormItemComponentProp
 
 export const ValidateInvitationCodeStep: FC<ValidateInvitationCodeStepProps> = ({ nextStep, addInformation }) => {
   async function handleSubmit(values: ValidateInvitationCodeFormType) {
-    console.log(values);
     nextStep();
     addInformation({ validateInvitationCode: values });
   }

@@ -10,7 +10,6 @@ interface CreateAnAgencyStepProps extends MultiStepFormItemComponentProps<Create
 
 export const CreateAnAgencyStep: FC<CreateAnAgencyStepProps> = ({ nextStep, addInformation }) => {
   async function handleSubmit(values: RegisterAgencyFormType) {
-    console.log(values);
     addInformation({ registerAgency: values });
 
     nextStep();

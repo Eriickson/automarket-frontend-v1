@@ -7,8 +7,6 @@ import { Button } from "@/components/atoms";
 export const AccountCreatedSuccessfully: FC = () => {
   const { push } = useRouter();
 
-  console.log("Hola a todos");
-
   return (
     <div>
       <Button colorScheme="primary" w="full" onClick={() => push("/")}>
