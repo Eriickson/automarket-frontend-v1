@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 import { FormComponentProps } from "@atmk/components";
 
-import { Button, PasswordFieldController } from "@/components/atoms";
+import { PasswordFieldController, SubmitButton } from "@/components/atoms";
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 
@@ -27,9 +27,9 @@ export const EnterYourPasswordForm: FC<EnterYourPasswordFormProps> = ({ onSubmit
         name="passwordConfirmation"
         placeholder="Ingresa tu contraseña"
       />
-      <Button color="white" colorScheme="primary" mt="4" py="6" type="submit" w="full">
+      <SubmitButton colorScheme="primary" loadingText="Restableciendo contraseña..." mt="4" w="full">
         Restablecer contraseña
-      </Button>
+      </SubmitButton>
     </FormProvider>
   );
 };
