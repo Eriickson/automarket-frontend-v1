@@ -4,8 +4,8 @@ import React, { useState } from "react";
 
 import { Box, Button, Stack } from "@chakra-ui/react";
 
-import { Option, SelectField } from "@/components/atoms/SelectField";
 import { SimpleTextField } from "@/components/atoms/SimpleTextField";
+import { Option, SelectField } from "@/components/organisms";
 
 const CustomPage = () => {
   const [value, setValue] = useState<Option[]>([
