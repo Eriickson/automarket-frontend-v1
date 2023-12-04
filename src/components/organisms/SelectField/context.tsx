@@ -17,6 +17,7 @@ interface SelectFieldContextProps {
   valuesSelected: Array<Option>;
   optionsAvailable: Array<Option>;
   searchValue: string;
+  showTotalSesults?: boolean;
   handleChangeSearchValue(value: string): void;
   handleAddItemToSelectedList(value: Option): void;
   handleRemoveItemToSelectedList(value: Option): void;
@@ -34,6 +35,7 @@ export interface SelectFieldContextProviderArgs {
   children: React.ReactNode;
   options: Array<Option>;
   isDisabled?: boolean;
+  showTotalSesults?: boolean;
   showSearch?: boolean;
   value?: Option[];
   allowSearch?: boolean;
@@ -47,6 +49,7 @@ export const SelectFieldContextProvider = ({
   isDisabled,
   allowSearch,
   value,
+  showTotalSesults,
   onChange,
 }: SelectFieldContextProviderArgs) => {
   const inputRepresentationRef = useRef<HTMLInputElement>(null);
@@ -126,6 +129,7 @@ export const SelectFieldContextProvider = ({
         optionsAvailable,
         valuesSelected,
         searchValue,
+        showTotalSesults,
         handleClearSelectedOptions,
         closeContextualMenu,
         handleChangeSearchValue,

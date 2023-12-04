@@ -14,6 +14,7 @@ export const SimpleTextField = forwardRef<HTMLElement, SimpleTextFieldProps>(({ 
       <Input
         _disabled={{ bgColor: "gray.50" }}
         _focus={{ ringColor: "#165ef0", borderColor: "#165ef0", ring: "1.5" }}
+        _placeholder={{ userSelect: "none" }}
         cursor={isLoading ? "wait" : "auto"}
         isDisabled={isLoading}
         pointerEvents={isLoading ? "none" : "auto"}

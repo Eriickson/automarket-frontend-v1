@@ -6,7 +6,7 @@ import useSelectFieldContext from "./context";
 import { OptionsListItem } from "./OptionsListItem";
 
 export const OptionsList = () => {
-  const { optionsAvailable, valuesSelected } = useSelectFieldContext();
+  const { optionsAvailable, valuesSelected, showTotalSesults } = useSelectFieldContext();
 
   return (
     <Box>
@@ -31,11 +31,13 @@ export const OptionsList = () => {
         ) : null}
       </List>
       <Divider />
-      <Box>
-        <Text color="gray.400" fontSize="sm" py="3" textAlign="center" userSelect="none">
-          {optionsAvailable.length} resultados encontrados
-        </Text>
-      </Box>
+      {showTotalSesults ? (
+        <Box>
+          <Text color="gray.400" fontSize="sm" py="3" textAlign="center" userSelect="none">
+            {optionsAvailable.length} resultados encontrados
+          </Text>
+        </Box>
+      ) : null}
     </Box>
   );
 };

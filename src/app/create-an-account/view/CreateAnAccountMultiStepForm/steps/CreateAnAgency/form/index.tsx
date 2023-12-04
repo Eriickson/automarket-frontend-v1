@@ -23,41 +23,9 @@ export const CreateAnAgencyForm: FC<CreateAnAgencyFormProps> = ({ onSubmit, defa
 
   return (
     <FormProvider onSubmit={onSubmit}>
-      <Center>
-        <Box pos="relative">
-          <Center
-            backgroundColor="white"
-            border="1px"
-            borderColor="gray.200"
-            h="52"
-            overflow="hidden"
-            rounded="xl"
-            w="64"
-          >
-            <Image
-              alt=""
-              maxH="full"
-              maxW="full"
-              src="https://dynamic.brandcrowd.com/asset/logo/4ea86e15-f89f-4488-9a96-fd88e5a84959/logo?logoTemplateVersion=1&v=638327905301500000"
-            />
-          </Center>
-          <HStack bottom="2" pos="absolute" right="2" rounded="xl" zIndex="1">
-            <IconButton aria-label="" rounded="md" size="sm">
-              <Trash2 size="1.25rem" />
-            </IconButton>{" "}
-            <IconButton aria-label="" rounded="md" size="sm">
-              <Camera size="1.25rem" />
-            </IconButton>
-          </HStack>
-        </Box>
-      </Center>
       <SimpleTextFieldController isRequired label="Nombre" name="name" placeholder="Ingresa el nombre de tu agencia" />
       <SimpleTextFieldController isRequired label="Eslogan" name="slogan" placeholder="Ingresa el eslogan" />
-      {/* <SelectFieldController
-        label="Provincia"
-        name="province"
-        options={(data as any)?.data?.map(({ name, id }) => ({ label: name, value: id })) || []}
-      /> */}
+      <SelectFieldController label="Provincia" name="province" options={[]} />
       <HStack alignItems="flex-start" spacing="4">
         <SelectFieldController label="Municipio" name="municipality" options={[]} />
         <SelectFieldController label="Sector" name="sector" options={[]} />
