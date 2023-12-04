@@ -99,9 +99,11 @@ export const SidebarMenu: FC<SidebarMenuProps> = ({ title, sections }) => {
                         <Icon size="1.25rem" strokeWidth="2" />
                         <Text fontWeight="medium">{label}</Text>
                         {isNew ? (
-                          <Badge colorScheme="primary" variant="solid">
-                            new
-                          </Badge>
+                          <HStack>
+                            <Badge colorScheme="primary" variant="solid">
+                              Nuevo
+                            </Badge>
+                          </HStack>
                         ) : null}
                       </HStack>
                       {count > 0 ? <Tag fontWeight="semibold">{count}</Tag> : null}

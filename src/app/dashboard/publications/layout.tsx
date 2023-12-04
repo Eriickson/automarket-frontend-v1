@@ -2,9 +2,10 @@
 
 import React from "react";
 
+import { Box } from "@chakra-ui/react";
+
 import { Search } from "react-feather";
 
-import { Content } from "../layout/Content";
 import { SidebarMenu } from "../layout/SidebarMenu";
 
 export default function PublicationsLayout({ children }: { children: React.ReactNode }) {
@@ -23,7 +24,7 @@ export default function PublicationsLayout({ children }: { children: React.React
         ]}
         title="Publicaciones"
       />
-      <Content>{children}</Content>
+      <Box>{children}</Box>
     </>
   );
 }
