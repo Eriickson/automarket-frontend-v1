@@ -1,5 +1,7 @@
 import React, { FC, forwardRef } from "react";
+
 import MaskedInput, { MaskedInputProps } from "react-text-mask";
+
 import { SimpleTextField, SimpleTextFieldProps } from "../SimpleTextField";
 
 export interface TextMaskFieldProps
@@ -10,26 +12,26 @@ export const TextMaskField = forwardRef<MaskedInput, TextMaskFieldProps>(
   ({ mask, guide = false, placeholderChar, keepCharPositions, pipe, showMask, ...props }, ref) => {
     return (
       <MaskedInput
-        mask={mask}
         guide={guide}
-        placeholderChar={placeholderChar}
         keepCharPositions={keepCharPositions}
+        mask={mask}
         pipe={pipe}
-        onChange={props.onChange}
+        placeholderChar={placeholderChar}
         ref={ref}
-        showMask={showMask}
         render={(maskedInputRef, maskedInputProps) => {
           return (
             <SimpleTextField
               {...props}
               {...maskedInputProps}
+              ref={maskedInputRef}
               onChange={(e) => {
                 maskedInputProps.onChange(e);
               }}
-              ref={maskedInputRef}
             />
           );
         }}
+        showMask={showMask}
+        onChange={props.onChange}
       />
     );
   }

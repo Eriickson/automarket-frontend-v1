@@ -4,9 +4,9 @@ import { FormComponentProps } from "@atmk/components";
 
 import { Box, Button, Checkbox, Flex, Heading, Text } from "@chakra-ui/react";
 
+import { SubmitButton } from "@/components/atoms";
 import { PasswordFieldController } from "@/components/atoms/PasswordField/controller";
 import { SimpleTextFieldController } from "@/components/atoms/SimpleTextField/controller";
-import { SubmitButton } from "@/components/atoms";
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 
