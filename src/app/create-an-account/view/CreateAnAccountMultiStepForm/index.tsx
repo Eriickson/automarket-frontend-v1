@@ -18,17 +18,18 @@ export const CreateAnAccountMultiStepForm = () => {
     {
       component: RegisterPersonalInformationStep,
       description: "Necesitamos algunos datos necesarios para comenzar con la creación de tu cuenta",
-      title: "Recopilación de información",
+      title: "Crea tu cuenta",
     },
     {
       component: ValidateInvitationCodeStep,
-      description: "Ingresa el código que te enviamos a tu correo electrónico.",
+      description:
+        "Te hemos enviado un código a tu correo electrónico. Ingrésalo para continuar con la creación de tu cuenta.",
       title: "Validar código de invitación",
     },
     {
       component: CreateAnAgencyStep,
-      description: "Estos serán los datos que aparecerán en tu perfil de agencia.",
-      title: "Crear una agencia",
+      description: "Esta información será la que aparecerán en tu perfil y será visible para los usuarios.",
+      title: "Datos de tu agencia",
     },
     {
       component: ValidateInformationStep,
