@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Avatar, Box, Flex, HStack, List, ListItem, Stack, Text } from "@chakra-ui/react";
+import { Avatar, Box, Flex, HStack, Image, List, ListItem, Stack, Text } from "@chakra-ui/react";
 
 import { Info } from "react-feather";
 
@@ -9,10 +9,8 @@ const DashboardPage = () => {
     <Stack h="100vh" maxH="100vh" spacing="4">
       <Box borderBottom="1px" borderColor="gray.300" px="24" py="4">
         <Flex alignItems="center" justifyContent="space-between">
-          <Box>
-            <Text fontSize="2xl" fontWeight="semibold">
-              Automarket
-            </Text>
+          <Box cursor="pointer">
+            <Image alt="Logo" src="/assets/logo.svg" userSelect="none" />
           </Box>
           <Box>
             <Box _hover={{ bgColor: "gray.100" }} cursor="pointer" px="4" py="2" rounded="sm" transition="150ms">
