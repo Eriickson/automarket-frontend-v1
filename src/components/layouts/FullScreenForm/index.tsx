@@ -2,7 +2,7 @@
 
 import React, { FC } from "react";
 
-import { Box, Center, Flex, GridItem, SimpleGrid, Stack, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, Stack, Text } from "@chakra-ui/react";
 
 interface FullScreenFormLayoutProps {
   title: string;
@@ -13,27 +13,20 @@ interface FullScreenFormLayoutProps {
 export const FullScreenFormLayout: FC<FullScreenFormLayoutProps> = ({ rightTopComponent, children, title }) => {
   return (
     <Box h="100vh">
-      <SimpleGrid columns={12} h="full">
-        <GridItem colSpan={5} h="full">
-          <Stack h="full" px="12" py="4" spacing="6">
-            <Box h="32">
-              <Flex alignItems="center" justifyContent="space-between">
-                <Box>
-                  <Text fontSize="3xl" fontWeight="semibold">
-                    {title}
-                  </Text>
-                </Box>
-                {rightTopComponent}
-              </Flex>
+      <Stack h="full" px="12" py="4" spacing="6">
+        <Box h="32">
+          <Flex alignItems="center" justifyContent="space-between">
+            <Box>
+              <Text fontSize="3xl" fontWeight="semibold">
+                {title}
+              </Text>
             </Box>
-            <Center flex="1">{children}</Center>
-            <Box h="32" />
-          </Stack>
-        </GridItem>
-        <GridItem colSpan={7} p="4">
-          <Box bgColor="primary.500" h="full" rounded="2xl"></Box>
-        </GridItem>
-      </SimpleGrid>
+            {rightTopComponent}
+          </Flex>
+        </Box>
+        <Center flex="1">{children}</Center>
+        <Box h="32" />
+      </Stack>
     </Box>
   );
 };

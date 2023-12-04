@@ -18,7 +18,7 @@ export const StepIndicatorLine: FC<StepIndicatorLineProps> = ({ currentStep, tot
           flex="1"
           h="2"
           key={step}
-          rounded="full"
+          rounded="sm"
           transition="150ms"
         />
       ))}
