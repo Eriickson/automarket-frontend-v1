@@ -19,26 +19,15 @@ export type AxiosBaseQueryArgs = {
 };
 
 export const axiosBaseQuery =
-  ({ baseUrl = "http://localhost:3000/v1", module }: Partial<AxiosBaseQueryArgs>): AxiosBaseQueryFn =>
+  ({ baseUrl = "http://localhost:8586/v1", module }: Partial<AxiosBaseQueryArgs>): AxiosBaseQueryFn =>
   async ({ url, method, data, params, headers }) => {
     url = url !== "/" ? url : "";
 
     try {
-      const result = await axios({
-        url: baseUrl + module + url,
-        method,
-        data,
-        params,
-        headers,
-      });
+      const result = await axios({ url: baseUrl + module + url, method, data, params, headers });
       return { data: result.data };
     } catch (axiosError) {
       const err = axiosError as AxiosError;
-      return {
-        error: {
-          status: err.response?.status,
-          data: err.response?.data || err.message,
-        },
-      };
+      return { error: { status: err.response?.status, data: err.response?.data || err.message } };
     }
   };
