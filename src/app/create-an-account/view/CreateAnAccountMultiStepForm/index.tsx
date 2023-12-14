@@ -8,10 +8,8 @@ import {
   AccountCreatedSuccessfully,
   CreateAnAgencyStep,
   RegisterPersonalInformationStep,
-  ValidateInformationStep,
   ValidateInvitationCodeStep,
 } from "./steps";
-
 
 export const CreateAnAccountMultiStepForm = () => {
   const steps: MultiStepFormItem[] = [
@@ -30,11 +28,6 @@ export const CreateAnAccountMultiStepForm = () => {
       component: CreateAnAgencyStep,
       description: "Esta información será la que aparecerán en tu perfil y será visible para los usuarios.",
       title: "Datos de tu agencia",
-    },
-    {
-      component: ValidateInformationStep,
-      description: "Revisa que toda la información sea correcta para continuar.",
-      title: "Validar tu información",
     },
     {
       component: AccountCreatedSuccessfully,

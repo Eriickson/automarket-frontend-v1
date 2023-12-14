@@ -31,7 +31,7 @@ export const PersonalInformationForm: FC<PersonalInformationFormProps> = ({ onSu
   return (
     <FormProvider onSubmit={onSubmit}>
       <SimpleTextFieldController label="Nombre completo" name="fullname" placeholder="Ingresa tu nombre completo" />
-      <TextDateFieldController label="Fecha de nacimiento" name="birthday" placeholder="Día / Mes / Año" />
+      <TextDateFieldController label="Fecha de nacimiento" name="birthdate" placeholder="Día / Mes / Año" />
       <SimpleTextFieldController
         autoComplete="email"
         label="Correo electrónico"
@@ -48,7 +48,7 @@ export const PersonalInformationForm: FC<PersonalInformationFormProps> = ({ onSu
         <PasswordFieldController
           autoComplete="new-password"
           label="Confirmar Contraseña"
-          name="confirmPassword"
+          name="passwordConfirmation"
           placeholder="Ingresa tu contraseña"
         />
       </HStack>

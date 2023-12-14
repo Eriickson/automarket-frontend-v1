@@ -33,10 +33,10 @@ export const RegisterPersonalInformationStep: FC<RegisterPersonalInformationStep
     <PersonalInformationForm
       defaultValues={{
         fullname: "Jorge Luis",
-        birthday: "03/11/1999",
+        birthdate: "03/11/1999",
         email: "user03@gmail.com",
         password: "12345678Ee.",
-        confirmPassword: "12345678Ee.",
+        passwordConfirmation: "12345678Ee.",
       }}
       onSubmit={handleSubmit}
     />

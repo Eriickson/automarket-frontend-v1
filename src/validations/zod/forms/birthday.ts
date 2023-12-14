@@ -1,7 +1,7 @@
 import moment from "moment";
 import { z } from "zod";
 
-export const birthdayFieldValidation = (args?: Partial<{ gt: number }>) =>
+export const birthdateFieldValidation = (args?: Partial<{ gt: number }>) =>
   z
     .string()
     .regex(/^(0[1-9]|[12][0-9]|3[01])[/](0[1-9]|1[012])[/](19|20)\d\d$/, "El formato de fecha no es válido")
