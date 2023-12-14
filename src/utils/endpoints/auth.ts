@@ -6,5 +6,5 @@ export const AUTH: Record<AUTH_ENDPOINTS, string> = {
   SIGNUP: "/signup",
   SIGNIN: "/signin",
   SIGNOUT: "/signout",
-  REFRESH_TOKEN: "/refresh",
+  REFRESH_TOKEN: "/refresh-token",
 };
