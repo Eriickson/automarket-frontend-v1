@@ -22,7 +22,7 @@ export const verifyInvitationCode = (build: EndpointBuilderType<"authApi">) => {
   return build.mutation<Response, Args>({
     query(arg) {
       return {
-        url: ENDPOINTS.AUTH.VERIFY_INVITATION_CODE.concat(queryString.stringify(arg.queryParams)),
+        url: ENDPOINTS.AUTH.VERIFY_INVITATION_CODE.concat("?").concat(queryString.stringify(arg.queryParams)),
         method: "GET",
       };
     },

@@ -5,5 +5,5 @@ import { ValidateInvitationCodeFormType } from "./steps/ValidateInvitationCode/f
 export type CreateAnAccountMultiStepFormType = {
   registerAgency: RegisterAgencyFormType;
   registerPersonalInformation: RegisterPersonalInformationFormType;
-  validateInvitationCode: ValidateInvitationCodeFormType;
+  validateInvitationCode: ValidateInvitationCodeFormType & { registrationToken: string };
 };
