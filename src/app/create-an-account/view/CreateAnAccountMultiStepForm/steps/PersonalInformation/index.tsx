@@ -35,7 +35,7 @@ export const RegisterPersonalInformationStep: FC<RegisterPersonalInformationStep
         fullname: "Jorge Luis",
         birthday: "03/11/1999",
         email: "user03@gmail.com",
-        username: "user06",
+        // username: "user06",
         password: "12345678Ee.",
         confirmPassword: "12345678Ee.",
       }}

@@ -38,12 +38,12 @@ export const PersonalInformationForm: FC<PersonalInformationFormProps> = ({ onSu
         name="email"
         placeholder="Ingresa tu correo electrónico"
       />
-      <SimpleTextFieldController
+      {/* <SimpleTextFieldController
         autoComplete="username"
         label="Nombre de usuario"
         name="username"
         placeholder="Ingresa tu nombre de usuario"
-      />
+      /> */}
 
       <HStack alignItems="flex-start" spacing="4">
         <PasswordFieldController
