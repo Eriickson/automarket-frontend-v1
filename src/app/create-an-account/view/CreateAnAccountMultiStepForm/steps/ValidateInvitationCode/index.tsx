@@ -4,6 +4,7 @@ import { MultiStepFormItemComponentProps } from "@/components/organisms";
 import { authApi } from "@/store/features/api/auth";
 
 import { CreateAnAccountMultiStepFormType } from "../../CreateAnAccountMultiStepForm.type";
+import { useHandleErrors } from "../PersonalInformation/useHandleErrors";
 import { ValidateInvitationCodeForm } from "./form";
 import { ValidateInvitationCodeFormType } from "./form/schema";
 
@@ -15,13 +16,14 @@ export const ValidateInvitationCodeStep: FC<ValidateInvitationCodeStepProps> = (
   values: information,
 }) => {
   const [verifyInvitationCodeMutation] = authApi.useVerifyInvitationCodeMutation();
+  const { handleErrors } = useHandleErrors();
 
   async function handleSubmit(values: ValidateInvitationCodeFormType) {
     const { email } = information.registerPersonalInformation!;
 
     const response = await verifyInvitationCodeMutation({ queryParams: { email, code: values.invitationCode } });
 
-    if ("error" in response) return;
+    if ("error" in response) return handleErrors(response);
 
     addInformation({
       validateInvitationCode: {
