@@ -15,7 +15,15 @@ export const SelectFieldController: FC<SelectFieldControllerProps> = ({ name, ..
 
   return (
     <FormControl {...props} name={name}>
-      <SelectField isDisabled={formState.isSubmitting} {...props} value={field.value} onChange={field.onChange} />
+      <SelectField
+        isDisabled={formState.isSubmitting}
+        {...props}
+        value={field.value}
+        onChange={(value) => {
+          field.onChange(value);
+          props.onChange?.(value);
+        }}
+      />
     </FormControl>
   );
 };
