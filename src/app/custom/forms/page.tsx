@@ -51,7 +51,7 @@ const CustomPage = () => {
     <Box m="24">
       <Stack w="96">
         <SimpleTextField placeholder="Erickson Manuel Holguín" />
-        <SelectField allowSearch keepExistingValuesInOptions options={persons} />
+        <SelectField allowSearch options={persons} />
         <Button
           rounded="sm"
           onClick={() => {

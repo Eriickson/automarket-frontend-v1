@@ -21,14 +21,16 @@ export const AddressFields = () => {
 
 
   function handleProvinceChange(values: Option[]) {
-    const value = values.at(0)!;
-    getMunicipalities({ provinceId: value.value });
+    const value = values.at(0);
+    if (value) getMunicipalities({ provinceId: value.value });
   }
 
   function handleMunicipalityChange(values: Option[]) {
-    const value = values.at(0)!;
-    const province: Option[] = getValues("province");
-    getSectors({ municipalityId: value.value, provinceId: province[0].value });
+    const value = values.at(0);
+    if (value) {
+      const province: Option[] = getValues("province");
+      getSectors({ municipalityId: value.value, provinceId: province[0].value });
+    }
   }
 
   return (

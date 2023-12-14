@@ -28,6 +28,7 @@ export const InputRepresentation = () => {
         borderColor={isFocus ? "primary.500" : undefined}
         isDisabled={isDisabled}
         placeholder="Seleccionar una opción"
+        pr="10"
         ref={inputRepresentationRef}
         ring={isFocus ? "1.5px" : undefined}
         ringColor={isFocus ? "primary.500" : undefined}
