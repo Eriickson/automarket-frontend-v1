@@ -18,6 +18,7 @@ interface SelectFieldContextProps {
   optionsAvailable: Array<Option>;
   searchValue: string;
   showTotalSesults?: boolean;
+  keepExistingValuesInOptions?: boolean;
   handleChangeSearchValue(value: string): void;
   handleAddItemToSelectedList(value: Option): void;
   handleRemoveItemToSelectedList(value: Option): void;
@@ -39,6 +40,7 @@ export interface SelectFieldContextProviderArgs {
   showSearch?: boolean;
   value?: Option[];
   allowSearch?: boolean;
+  keepExistingValuesInOptions?: boolean;
   onChange?(value: Option[]): void;
 }
 
@@ -50,6 +52,7 @@ export const SelectFieldContextProvider = ({
   allowSearch,
   value,
   showTotalSesults,
+  keepExistingValuesInOptions,
   onChange,
 }: SelectFieldContextProviderArgs) => {
   const inputRepresentationRef = useRef<HTMLInputElement>(null);
@@ -114,13 +117,14 @@ export const SelectFieldContextProvider = ({
   }, [value, allowMultiple]);
 
   useEffect(() => {
+    if (keepExistingValuesInOptions) return;
+
     if (allowMultiple || valuesSelected.length === 0) return;
     const valueSelected = valuesSelected.at(0)!;
     const valueExistIntoOptions = Boolean(options.find((item) => item.value === valueSelected.value));
 
     if (!valueExistIntoOptions) handleChange([]);
-  }, [options, allowMultiple, valuesSelected]);
-  
+  }, [options, allowMultiple, valuesSelected, handleChange]);
 
   // useEffect(() => {
   //   if (value) setValuesSelected(allowMultiple ? value : value.slice(0, 1));

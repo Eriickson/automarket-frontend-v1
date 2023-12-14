@@ -7,48 +7,7 @@ import { Box, Button, Stack } from "@chakra-ui/react";
 import { SimpleTextField } from "@/components/atoms/SimpleTextField";
 import { Option, SelectField } from "@/components/organisms";
 
-const CustomPage = () => {
-  const [value, setValue] = useState<Option[]>([
-    { label: "John Smith", value: "1" },
-    { label: "Maria Rodriguez", value: "2" },
-  ]);
-
-  return (
-    <Box m="24">
-      <Stack w="96">
-        <SimpleTextField placeholder="Erickson Manuel Holguín" />
-        <SelectField allowMultiple allowSearch options={personas} value={value} />
-        <Button
-          colorScheme="red"
-          variant="outline"
-          onClick={() => {
-            setValue([]);
-          }}
-        >
-          Reset
-        </Button>
-      </Stack>
-    </Box>
-  );
-};
-
-export default CustomPage;
-
-const personas: Option[] = [
-  { label: "John Smith", value: "1" },
-  { label: "Maria Rodriguez", value: "2" },
-  { label: "David Johnson", value: "3" },
-  { label: "Ana García", value: "4" },
-  { label: "Michael Martinez", value: "5" },
-  { label: "Laura Lopez", value: "6" },
-  { label: "Christopher Perez", value: "7" },
-  { label: "Elena Fernandez", value: "8" },
-  { label: "Daniel Ramirez", value: "9" },
-  { label: "Isabel González", value: "10" },
-  { label: "Andrew Hernandez", value: "11" },
-  { label: "Carmen Torres", value: "12" },
-  { label: "James Flores", value: "13" },
-  { label: "Raquel Diaz", value: "14" },
+const personListOne = [
   { label: "Robert Sanchez", value: "15" },
   { label: "Sophia Martin", value: "16" },
   { label: "Gabriel Cruz", value: "17" },
@@ -66,3 +25,50 @@ const personas: Option[] = [
   { label: "Hugo Morales", value: "29" },
   { label: "Natalia Castro", value: "30" },
 ];
+
+const personListTwo = [
+  { label: "John Smith", value: "1" },
+  { label: "Maria Rodriguez", value: "2" },
+  { label: "David Johnson", value: "3" },
+  { label: "Ana García", value: "4" },
+  { label: "Michael Martinez", value: "5" },
+  { label: "Laura Lopez", value: "6" },
+  { label: "Christopher Perez", value: "7" },
+  { label: "Elena Fernandez", value: "8" },
+  { label: "Daniel Ramirez", value: "9" },
+  { label: "Isabel González", value: "10" },
+  { label: "Andrew Hernandez", value: "11" },
+  { label: "Carmen Torres", value: "12" },
+  { label: "James Flores", value: "13" },
+  { label: "Raquel Diaz", value: "14" },
+];
+
+const CustomPage = () => {
+  const [persons, setPersons] = useState(personListOne);
+  const [personListSelected, setPersonListSelected] = useState("personListOne");
+
+  return (
+    <Box m="24">
+      <Stack w="96">
+        <SimpleTextField placeholder="Erickson Manuel Holguín" />
+        <SelectField allowSearch keepExistingValuesInOptions options={persons} />
+        <Button
+          rounded="sm"
+          onClick={() => {
+            if (personListSelected === "personListOne") {
+              setPersons(personListTwo);
+              setPersonListSelected("personListTwo");
+            } else {
+              setPersons(personListOne);
+              setPersonListSelected("personListOne");
+            }
+          }}
+        >
+          Change List ({personListSelected})
+        </Button>
+      </Stack>
+    </Box>
+  );
+};
+
+export default CustomPage;
