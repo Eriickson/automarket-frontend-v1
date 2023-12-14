@@ -22,7 +22,6 @@ export const AddressFields = () => {
 
   function handleProvinceChange(values: Option[]) {
     const value = values.at(0)!;
-    setValue("municipality", null);
     getMunicipalities({ provinceId: value.value });
   }
 
@@ -49,7 +48,7 @@ export const AddressFields = () => {
           options={municipalities?.data.municipalities || []}
           onChange={handleMunicipalityChange}
         />
-        <SelectFieldController allowSearch label="Sector" name="sector" options={sectors?.data.sectors.map || []} />
+        <SelectFieldController allowSearch label="Sector" name="sector" options={sectors?.data.sectors || []} />
       </HStack>
       <SimpleTextFieldController label="Calle" name="street" placeholder="Ingresa la referencia" />
       <SimpleTextFieldController label="Referencía" name="reference" placeholder="Ingresa la referencia" />

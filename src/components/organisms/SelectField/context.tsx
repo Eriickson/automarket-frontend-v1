@@ -112,6 +112,16 @@ export const SelectFieldContextProvider = ({
       setValuesSelected(allowMultiple ? value : value.slice(0, 1));
     }
   }, [value, allowMultiple]);
+
+  useEffect(() => {
+    if (allowMultiple || valuesSelected.length === 0) return;
+    const valueSelected = valuesSelected.at(0)!;
+    const valueExistIntoOptions = Boolean(options.find((item) => item.value === valueSelected.value));
+
+    if (!valueExistIntoOptions) handleChange([]);
+  }, [options, allowMultiple, valuesSelected]);
+  
+
   // useEffect(() => {
   //   if (value) setValuesSelected(allowMultiple ? value : value.slice(0, 1));
   // }, [allowMultiple, value]);
