@@ -9,7 +9,6 @@ const registerPersonalInformationSchema = z
     fullname: z.string().min(1, "Este campo es requerido"),
     birthday: birthdayFieldValidation({ gt: 18 }),
     email: z.string().email("El formato de email no es válido").min(1, "Este campo es requerido"),
-    // username: z.string().min(1, "Este campo es requerido"),
     password: passwordFieldValidation(),
     confirmPassword: passwordFieldValidation(),
   })
