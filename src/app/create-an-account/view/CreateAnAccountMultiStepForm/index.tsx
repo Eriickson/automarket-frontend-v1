@@ -10,9 +10,15 @@ import {
   RegisterPersonalInformationStep,
   ValidateInvitationCodeStep,
 } from "./steps";
+import { SelectAccountTypeStep } from "./steps/SelectAccountType";
 
 export const CreateAnAccountMultiStepForm = () => {
   const steps: MultiStepFormItem[] = [
+    {
+      component: SelectAccountTypeStep,
+      description: "Elige la opción que mejor se adapte a tus necesidades para comenzar con la creación de tu cuenta.",
+      title: "Selecciona el tipo de cuenta",
+    },
     {
       component: RegisterPersonalInformationStep,
       description: "Necesitamos algunos datos necesarios para comenzar con la creación de tu cuenta",
