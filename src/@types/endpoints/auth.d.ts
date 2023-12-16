@@ -6,4 +6,6 @@ declare module "@atmk/endpoints" {
     | "SIGNIN"
     | "SIGNOUT"
     | "REFRESH_TOKEN";
+
+  export type DEALERS_ENDPOINTS = "ROOT" | "SOCIAL_MEDIA";
 }
