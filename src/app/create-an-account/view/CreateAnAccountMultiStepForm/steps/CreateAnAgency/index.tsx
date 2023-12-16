@@ -2,6 +2,8 @@ import React, { FC } from "react";
 
 import { MultiStepFormItemComponentProps } from "@/components/organisms";
 import { authApi } from "@/store/features/api/auth";
+import { dealerBranchesApi } from "@/store/features/api/dealer-branches";
+import { dealersApi } from "@/store/features/api/dealers";
 
 import { useHandleErrors } from "@/hooks";
 
@@ -15,6 +17,8 @@ interface CreateAnAgencyStepProps extends MultiStepFormItemComponentProps<Create
 
 export const CreateAnAgencyStep: FC<CreateAnAgencyStepProps> = ({ nextStep, addInformation, values: information }) => {
   const [signupMutation] = authApi.useSignupMutation();
+  const [updateAddressMutation] = dealerBranchesApi.useUpdateAddressMutation();
+  const [createDealerMutation] = dealersApi.useCreateDealerMutation();
 
   const { handleErrors } = useHandleErrors();
 
@@ -33,6 +37,25 @@ export const CreateAnAgencyStep: FC<CreateAnAgencyStepProps> = ({ nextStep, addI
 
     localStorage.setItem("access-token", response.data.data.tokens.accessToken);
     localStorage.setItem("refresh-token", response.data.data.tokens.refreshToken);
+
+    const createDealerResponse = await createDealerMutation({ data: { name: values.name, slogan: values.slogan } });
+
+    const updateAddressResponse = await updateAddressMutation({
+      data: {
+        address: {
+          location: {
+            provinceId: values.province.at(0)!.value,
+            municipalityId: values.municipality.at(0)!.value,
+            sectorId: values.sector.at(0)!.value,
+            street: values.street,
+            reference: values.reference,
+          },
+        },
+      },
+    });
+
+    console.log(createDealerResponse);
+    console.log(updateAddressResponse);
 
     addInformation({ registerAgency: values });
     nextStep();

@@ -10,6 +10,7 @@ const registerAgencySchema = z.object({
   province: optionFieldValidation(),
   municipality: optionFieldValidation(),
   sector: optionFieldValidation(),
+  street: z.string().min(3),
   reference: z.string().min(3),
 });
 

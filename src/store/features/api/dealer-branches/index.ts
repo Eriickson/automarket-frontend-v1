@@ -1,12 +1,12 @@
 import { axiosBaseQuery } from "@/store/baseQueries";
 
-import { createDealer } from "./create-dealer";
+import { updateAddress } from "./update-address";
 import { createApi } from "@reduxjs/toolkit/query/react";
 
-export const dealersApi = createApi({
+export const dealerBranchesApi = createApi({
   baseQuery: axiosBaseQuery({ module: "/dealers" }),
-  reducerPath: "dealersApi",
+  reducerPath: "dealerBranchesApi",
   endpoints: (build) => ({
-    createDealer: createDealer(build),
+    updateAddress: updateAddress(build),
   }),
 });

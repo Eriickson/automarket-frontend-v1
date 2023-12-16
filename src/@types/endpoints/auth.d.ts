@@ -8,4 +8,6 @@ declare module "@atmk/endpoints" {
     | "REFRESH_TOKEN";
 
   export type DEALERS_ENDPOINTS = "ROOT" | "SOCIAL_MEDIA";
+
+  export type DEALER_BRANCHES_ENDPOINTS = "ROOT" | "ADDRESS" | "CONTACTS";
 }
