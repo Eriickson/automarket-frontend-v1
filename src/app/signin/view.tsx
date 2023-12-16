@@ -4,9 +4,8 @@ import { Box } from "@chakra-ui/react";
 
 import { authApi } from "@/store/features/api/auth";
 
-import delay from "delay";
+import { useHandleErrors } from "@/hooks";
 
-import { useHandleErrors } from "../create-an-account/view/CreateAnAccountMultiStepForm/steps/PersonalInformation/useHandleErrors";
 import { SigninForm } from "./SigninForm";
 import { SigninValuesFormType } from "./SigninForm/schema";
 

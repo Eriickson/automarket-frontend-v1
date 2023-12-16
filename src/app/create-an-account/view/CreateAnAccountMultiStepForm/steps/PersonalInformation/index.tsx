@@ -3,10 +3,11 @@ import React, { FC } from "react";
 import { MultiStepFormItemComponentProps } from "@/components/organisms";
 import { authApi } from "@/store/features/api/auth";
 
+import { useHandleErrors } from "@/hooks";
+
 import { CreateAnAccountMultiStepFormType } from "../../CreateAnAccountMultiStepForm.type";
 import { PersonalInformationForm } from "./form";
 import { RegisterPersonalInformationFormType } from "./form/schema";
-import { useHandleErrors } from "./useHandleErrors";
 
 interface RegisterPersonalInformationStepProps
   extends MultiStepFormItemComponentProps<CreateAnAccountMultiStepFormType> {}

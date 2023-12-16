@@ -3,8 +3,9 @@ import React, { FC } from "react";
 import { MultiStepFormItemComponentProps } from "@/components/organisms";
 import { authApi } from "@/store/features/api/auth";
 
+import { useHandleErrors } from "@/hooks";
+
 import { CreateAnAccountMultiStepFormType } from "../../CreateAnAccountMultiStepForm.type";
-import { useHandleErrors } from "../PersonalInformation/useHandleErrors";
 import { ValidateInvitationCodeForm } from "./form";
 import { ValidateInvitationCodeFormType } from "./form/schema";
 
