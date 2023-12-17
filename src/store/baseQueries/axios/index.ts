@@ -1,5 +1,6 @@
-import type { AxiosError, AxiosRequestConfig, Method } from "axios";
-import axios from "axios";
+import axiosInstance from "@/utils/axios";
+
+import { AxiosError, AxiosRequestConfig, Method } from "axios";
 
 import type { BaseQueryFn } from "@reduxjs/toolkit/query";
 
@@ -19,15 +20,22 @@ export type AxiosBaseQueryArgs = {
 };
 
 export const axiosBaseQuery =
-  ({ baseUrl = "http://localhost:8586/v1", module }: Partial<AxiosBaseQueryArgs>): AxiosBaseQueryFn =>
+  ({ baseUrl = "/v1", module }: Partial<AxiosBaseQueryArgs>): AxiosBaseQueryFn =>
   async ({ url, method, data, params, headers }) => {
     url = url !== "/" ? url : "";
 
+    const accessToken = localStorage.getItem("access-token");
+
+    if (accessToken) headers = { ...headers, Authorization: `Bearer ${accessToken}` };
+
     try {
-      const result = await axios({ url: baseUrl + module + url, method, data, params, headers });
+      const result = await axiosInstance({ url: baseUrl + module + url, method, data, params, headers });
       return { data: result.data };
-    } catch (axiosError) {
-      const err = axiosError as AxiosError;
-      return { error: { status: err.response?.status, data: err.response?.data || err.message } };
+    } catch (err) {
+      if (err instanceof AxiosError) {
+        return { error: { status: err.response?.status, data: err.response?.data || err.message } };
+      }
+
+      return { error: { status: 500, data: "Ha ocurrido un error desconocido" } };
     }
   };
