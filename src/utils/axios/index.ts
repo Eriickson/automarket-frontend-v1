@@ -32,6 +32,8 @@ axiosInstance.interceptors.response.use(
     if (
       err.response &&
       err.response.status === 401 &&
+      // TODO: uncomment this when refresh token is implemented
+      // (err.response?.data as any).error === "EXPIRED_ACCESS_TOKEN" &&
       !originalRequest.url?.includes("/refresh-token") &&
       !originalRequest._retry
     ) {

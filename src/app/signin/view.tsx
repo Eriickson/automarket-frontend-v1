@@ -27,7 +27,7 @@ export const SigninView = () => {
       <SigninForm
         defaultValues={{
           identifier: "erickson01d@gmail.com",
-          password: "123456789e.",
+          password: "12345678Ee.",
           rememberMe: true,
         }}
         onSubmit={handleSubmit}
