@@ -5,11 +5,10 @@ import authService from "./authService";
 type AxiosErrorWithRetry = AxiosError & {
   config: {
     _retry?: boolean;
-    dasdasdasdasdasdasd?: boolean;
   };
 };
 
-const axiosInstance = axios.create({ baseURL: "http://localhost:8586" });
+const axiosInstance = axios.create({ baseURL: process.env.NEXT_PUBLIC_API_BASE_URL });
 
 axiosInstance.interceptors.request.use(
   (config) => {
