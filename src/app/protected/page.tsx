@@ -1,22 +1,22 @@
-// "use client";
 import React from "react";
 
 import { Box } from "@chakra-ui/react";
 
 import { getServerSession } from "@/utils/session/session";
 
-import { useSession } from "@/hooks";
+import { ClientSession } from "./ClientSession";
 
 const ProtectedPage = async () => {
-  // const data = getCookie("automarket.session", { cookies });
-  // const { session } = useSession();
   const session = await getServerSession();
 
-  console.log("session", session);
+  console.log(JSON.stringify(session, null, 2));
 
-  // if (!session) return "Loading...";
-
-  return <Box>ProtectedPage</Box>;
+  return (
+    <Box>
+      ProtectedPage
+      <ClientSession />
+    </Box>
+  );
 };
 
 export default ProtectedPage;

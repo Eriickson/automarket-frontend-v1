@@ -23,9 +23,9 @@ export const SigninView = () => {
 
     if ("error" in response) return handleErrors(response);
 
-    const { tokens } = response.data.data;
+    const { session } = response.data.data;
 
-    const sessionResponse = await axios.post("/api/session", { tokens });
+    const sessionResponse = await axios.post("/api/session", { session });
 
     console.log(sessionResponse);
 

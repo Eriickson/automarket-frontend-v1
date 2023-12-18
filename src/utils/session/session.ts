@@ -11,5 +11,5 @@ export async function setSession(session: any) {
 export async function getServerSession() {
   const response = getCookie("automarket.session", { cookies });
 
-  return { session: JSON.parse(response as string) };
+  return JSON.parse(response as string);
 }

@@ -12,9 +12,11 @@ type Args = {
 type Response = {
   message: string;
   data: {
-    tokens: {
-      accessToken: string;
-      refreshToken: string;
+    session: {
+      tokens: {
+        accessToken: string;
+        refreshToken: string;
+      };
     };
   };
 };

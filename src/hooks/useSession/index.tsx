@@ -6,7 +6,7 @@ export const useSession = () => {
   const [session, setSession] = useState(undefined);
 
   useEffect(() => {
-    axios.get("/api/session").then((response) => setSession(response.data.session));
+    axios.get("/api/session").then((response) => setSession(JSON.parse(response.data.session)));
   }, []);
 
   return { session };
