@@ -7,6 +7,8 @@ import { decryptData, encryptData } from "@/utils/encrypt/encrypt";
 
 import { useHandleErrors } from "@/hooks";
 
+import axios from "axios";
+
 import { SigninForm } from "./SigninForm";
 import { SigninValuesFormType } from "./SigninForm/schema";
 
@@ -21,8 +23,14 @@ export const SigninView = () => {
 
     if ("error" in response) return handleErrors(response);
 
-    localStorage.setItem("access-token", response.data.data.tokens.accessToken);
-    localStorage.setItem("refresh-token", response.data.data.tokens.refreshToken);
+    const { tokens } = response.data.data;
+
+    const sessionResponse = await axios.post("/api/session", { tokens });
+
+    console.log(sessionResponse);
+
+    // localStorage.setItem("access-token", response.data.data.tokens.accessToken);
+    // localStorage.setItem("refresh-token", response.data.data.tokens.refreshToken);
   }
 
   return (
@@ -39,7 +47,7 @@ export const SigninView = () => {
         onClick={async () => {
           const dataEncrypted = await encryptData({ payload: { ping: "pong" }, secretPass: "123456789" });
           console.log(dataEncrypted);
-          setStringHashed(dataEncrypted);
+          // setStringHashed(dataEncrypted);
         }}
       >
         Encrypt

@@ -1,4 +1,4 @@
-import CryptoJS from "crypto-js";
+// import CryptoJS from "crypto-js";
 
 type EncryptDataArgs = {
   payload: Record<string, unknown>;
@@ -11,15 +11,18 @@ type DecryptDataArgs = {
 };
 
 export async function encryptData({ payload, secretPass }: EncryptDataArgs) {
-  const data = CryptoJS.AES.encrypt(JSON.stringify(payload), secretPass).toString();
+  // const data = CryptoJS.AES.encrypt(JSON.stringify(payload), secretPass).toString();
+  const data = JSON.stringify(payload);
+
+  console.log({ data });
 
   return data;
 }
 
 export async function decryptData({ encryptedData, secretPass }: DecryptDataArgs): Promise<Record<string, unknown>> {
-  const data = CryptoJS.AES.decrypt(encryptedData, secretPass).toString(CryptoJS.enc.Utf8);
+  // const data = CryptoJS.AES.decrypt(encryptedData, secretPass).toString(CryptoJS.enc.Utf8);
 
-  console.log(data);
+  const data = encryptedData;
 
   return JSON.parse(data);
 }
