@@ -12,9 +12,7 @@ type DecryptDataArgs = {
 
 export async function encryptData({ payload, secretPass }: EncryptDataArgs) {
   // const data = CryptoJS.AES.encrypt(JSON.stringify(payload), secretPass).toString();
-  const data = JSON.stringify(payload);
-
-  console.log({ data });
+  const data = JSON.stringify(payload || {});
 
   return data;
 }

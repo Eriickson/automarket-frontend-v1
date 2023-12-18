@@ -1,16 +1,20 @@
+// "use client";
 import React from "react";
-
-import { cookies } from "next/headers";
 
 import { Box } from "@chakra-ui/react";
 
-import { getCookie } from "cookies-next";
+import { getServerSession } from "@/utils/session/session";
 
-const ProtectedPage = () => {
-  // TODO: create a hook and a function to get the session data
-  const data = getCookie("automarket.session", { cookies });
+import { useSession } from "@/hooks";
 
-  console.log(data);
+const ProtectedPage = async () => {
+  // const data = getCookie("automarket.session", { cookies });
+  // const { session } = useSession();
+  const session = await getServerSession();
+
+  console.log("session", session);
+
+  // if (!session) return "Loading...";
 
   return <Box>ProtectedPage</Box>;
 };
