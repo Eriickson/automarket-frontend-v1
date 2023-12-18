@@ -17,6 +17,8 @@
     "@hookform/resolvers": "^3.3.2",
     "@reduxjs/toolkit": "^1.9.7",
     "axios": "^1.6.1",
+    "cookies-next": "^4.1.0",
+    "crypto-js": "^4.2.0",
     "delay": "^6.0.0",
     "framer-motion": "^10.16.4",
     "moment": "^2.29.4",
@@ -35,6 +37,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@types/crypto-js": "^4.2.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
