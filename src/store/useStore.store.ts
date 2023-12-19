@@ -10,7 +10,6 @@ import { TypedUseSelectorHook, useSelector as _useSelector } from "react-redux";
 
 import { authApi } from "./features/api/auth";
 import { dealerBranchesApi } from "./features/api/dealer-branches";
-import { jsonPlaceholderApi } from "./features/api/jsonplaceholder";
 import { municipalitiesApi } from "./features/api/municipalities";
 import { provincesApi } from "./features/api/provinces";
 import { sectorsApi } from "./features/api/sectors";
@@ -30,7 +29,6 @@ export const useStore = () => {
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({}).concat(
         rtkQueryErrorLogger,
-        jsonPlaceholderApi.middleware,
         authApi.middleware,
         provincesApi.middleware,
         municipalitiesApi.middleware,
