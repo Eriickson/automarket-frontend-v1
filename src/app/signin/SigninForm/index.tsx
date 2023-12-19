@@ -22,7 +22,7 @@ export const SigninForm: FC<SigninFormProps> = ({ onSubmit, defaultValues }) => 
     <Box>
       <Box mb="8" textAlign="center">
         <Heading as="h2" fontWeight="semibold" size={["lg", "xl"]}>
-          Bienvenido a automarket
+          Bienvenido a de vuelta
         </Heading>
         <Text fontSize={["sm", null, null, "md"]}>
           Inicia sesión para comprar, vender y disfrutar de todos los beneficios de nuestra plataforma.

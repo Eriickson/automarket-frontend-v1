@@ -2,7 +2,9 @@
 
 import React, { FC } from "react";
 
-import { Box, Center, Flex, GridItem, SimpleGrid, Stack, Text } from "@chakra-ui/react";
+import Link from "next/link";
+
+import { Box, Center, Flex, GridItem, Image, SimpleGrid, Stack, Text } from "@chakra-ui/react";
 
 interface FullScreenFormLayoutProps {
   title: string;
@@ -18,11 +20,9 @@ export const FullScreenFormLayout: FC<FullScreenFormLayoutProps> = ({ rightTopCo
           <Stack h="full" px={["4", null, null, "12"]} py="4" spacing="6">
             <Box h="32">
               <Flex alignItems="center" justifyContent="space-between">
-                <Box>
-                  <Text fontSize={["xl", null, null, "3xl"]} fontWeight="semibold">
-                    Automarket
-                  </Text>
-                </Box>
+                <Link href="/">
+                  <Image alt="" src="assets/logo.svg" userSelect="none" w="52" />
+                </Link>
                 {rightTopComponent}
               </Flex>
             </Box>

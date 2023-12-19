@@ -1,7 +1,10 @@
 "use client";
+import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
+
 import { ChakraProvider } from "@chakra-ui/react";
 
 import { useStore } from "@/store/useStore.store";
+import { primaryColor } from "@/themes/color";
 import { mainTheme } from "@/themes/mainTheme";
 
 import { Provider as ReduxProvider } from "react-redux";
@@ -14,7 +17,10 @@ export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ReduxProvider store={store}>
       <CacheProvider>
-        <ChakraProvider theme={mainTheme}>{children}</ChakraProvider>
+        <ChakraProvider theme={mainTheme}>
+          {children}
+          <ProgressBar shallowRouting color={primaryColor[500]} height="4px" options={{ showSpinner: true }} />
+        </ChakraProvider>
       </CacheProvider>
     </ReduxProvider>
   );
