@@ -1,16 +1,14 @@
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
-import { getCookie, setCookie } from "cookies-next";
+import { deleteCookie, getCookie, setCookie } from "cookies-next";
 
-export async function GET(req: NextRequest) {
-  const res = new NextResponse();
-  const session = getCookie("automarket.session", { res, req, path: "/" });
+export async function GET() {
+  const session = getCookie("automarket.session", { cookies, path: "/" });
 
   return NextResponse.json({
     status: "success",
-    message: "GET session",
-    session: session,
+    session: JSON.parse(session as string),
   });
 }
 
@@ -21,6 +19,13 @@ export async function POST(req: NextRequest) {
 
   return NextResponse.json({
     status: "success",
-    message: "POST session",
+  });
+}
+
+export async function DELETE() {
+  deleteCookie("automarket.session", { cookies, path: "/" });
+
+  return NextResponse.json({
+    status: "success",
   });
 }
