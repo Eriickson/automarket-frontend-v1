@@ -1,6 +1,7 @@
 import { axiosBaseQuery } from "@/store/baseQueries";
 
 import { initializePasswordReset } from "./initialize-password-reset";
+import { resetPassword } from "./password-reset";
 import { sendInvitationCode } from "./send-invitation-code";
 import { signin } from "./signin";
 import { signup } from "./signup";
@@ -18,5 +19,6 @@ export const authApi = createApi({
     signin: signin(build),
     initializePasswordReset: initializePasswordReset(build),
     verifyPasswordResetRequest: verifyPasswordResetRequest(build),
+    resetPassword: resetPassword(build),
   }),
 });
