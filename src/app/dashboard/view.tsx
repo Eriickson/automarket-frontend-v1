@@ -1,12 +1,11 @@
 import React from "react";
 
-import { Avatar, Badge, Box, Button, Flex, HStack, IconButton, Image, Stack, Tag, Text } from "@chakra-ui/react";
+import { Avatar, Badge, Box, Button, Flex, HStack, IconButton, Image, Stack, Text } from "@chakra-ui/react";
 
-import { Bell, Star } from "react-feather";
+import { Bell } from "react-feather";
 
 import { ContentPanel } from "./ContentPanel";
 import { SidebarLeft } from "./SidebarLeft";
-import { SidebarRight } from "./SidebarRight";
 
 export const DashboardView = () => {
   return (
