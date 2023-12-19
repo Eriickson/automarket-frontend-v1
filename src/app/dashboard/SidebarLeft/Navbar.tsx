@@ -5,12 +5,12 @@ import { usePathname } from "next/navigation";
 
 import { HStack, List, ListItem, Text } from "@chakra-ui/react";
 
-import { BookOpen, Home, Image as FeatherImage, User } from "react-feather";
+import { BookOpen, Home, Image as FeatherImage, Settings, User } from "react-feather";
 
 const navbarItems = [
   {
     Icon: Home,
-    label: "Tablero Principal",
+    label: "Inicio",
     pathname: "/dashboard",
   },
   {
@@ -24,8 +24,18 @@ const navbarItems = [
     pathname: "/",
   },
   {
+    Icon: FeatherImage,
+    label: "Perfil Personal",
+    pathname: "/",
+  },
+  {
     Icon: User,
     label: "Almacen",
+    pathname: "/",
+  },
+  {
+    Icon: Settings,
+    label: "Configuración",
     pathname: "/",
   },
 ];
