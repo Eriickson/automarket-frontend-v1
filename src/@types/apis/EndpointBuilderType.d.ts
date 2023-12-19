@@ -1,7 +1,7 @@
 declare module "@atmk/core" {
-  import { AxiosBaseQueryFn } from "@/store/baseQueries";
-
   import { EndpointBuilder } from "@reduxjs/toolkit/dist/query/endpointDefinitions";
+
+  import { AxiosBaseQueryFn } from "@/store/baseQueries";
 
   export type Modules =
     | "AGENCIES"
