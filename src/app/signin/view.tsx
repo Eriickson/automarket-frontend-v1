@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
-import { Box, Button } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 
 import { authApi } from "@/store/features/api/auth";
-import { decryptData, encryptData } from "@/utils/encrypt/encrypt";
 
 import { useHandleErrors } from "@/hooks";
 
@@ -16,8 +15,6 @@ export const SigninView = () => {
   const [signinMutation] = authApi.useSigninMutation();
   const { handleErrors } = useHandleErrors();
 
-  const [stringHashed, setStringHashed] = useState("");
-
   async function handleSubmit(values: SigninValuesFormType) {
     const response = await signinMutation({ data: values });
 
@@ -26,11 +23,9 @@ export const SigninView = () => {
     const { session } = response.data.data;
 
     const sessionResponse = await axios.post("/api/session", { session });
-
-    console.log(sessionResponse);
-
-    // localStorage.setItem("access-token", response.data.data.tokens.accessToken);
-    // localStorage.setItem("refresh-token", response.data.data.tokens.refreshToken);
+    if (sessionResponse.status === 200) {
+      window.location.href = "/protected";
+    }
   }
 
   return (
@@ -38,7 +33,7 @@ export const SigninView = () => {
       <SigninForm
         defaultValues={{
           identifier: "erickson01d@gmail.com",
-          password: "12345678Ee.",
+          password: "123456789e.",
           rememberMe: true,
         }}
         onSubmit={handleSubmit}
