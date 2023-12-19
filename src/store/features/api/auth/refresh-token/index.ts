@@ -1,22 +1,12 @@
 import { EndpointBuilderType } from "@atmk/core";
 import { ServiceResponse } from "@atmk/types";
 
-import { ENDPOINTS, generateDynamicEndpoint } from "@/utils";
+import { ENDPOINTS } from "@/utils";
 
-type Args = {
-  field: string;
-  value: string;
-};
+import { RefreshTokenArgsType, RefreshTokenReturnType } from "./types";
 
-type Response = {
-  available: boolean;
-};
-
-export const checkFieldAvailability = (build: EndpointBuilderType<"authApi">) => {
-  return build.query<ServiceResponse<Response>, Args>({
-    query: (args) => ({
-      url: generateDynamicEndpoint(ENDPOINTS.AUTH.SEND_INVITATION_CODE, args),
-      method: "POST",
-    }),
+export const refreshToken = (build: EndpointBuilderType<"authApi">) => {
+  return build.query<ServiceResponse<RefreshTokenReturnType>, RefreshTokenArgsType>({
+    query: ({ headers }) => ({ url: ENDPOINTS.AUTH.REFRESH_TOKEN, method: "POST", headers }),
   });
 };
