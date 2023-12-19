@@ -38,7 +38,7 @@ export const AddressFields = () => {
         allowSearch
         label="Provincia"
         name="province"
-        options={provinces?.data.options || []}
+        options={provinces?.data?.provinces || []}
         onChange={handleProvinceChange}
       />
       <HStack alignItems="flex-start" spacing="4">
@@ -46,10 +46,10 @@ export const AddressFields = () => {
           allowSearch
           label="Municipio"
           name="municipality"
-          options={municipalities?.data.municipalities || []}
+          options={municipalities?.data?.municipalities || []}
           onChange={handleMunicipalityChange}
         />
-        <SelectFieldController allowSearch label="Sector" name="sector" options={sectors?.data || []} />
+        <SelectFieldController allowSearch label="Sector" name="sector" options={sectors?.data?.sectors || []} />
       </HStack>
       <SimpleTextFieldController label="Calle" name="street" placeholder="Ingresa la referencia" />
       <SimpleTextFieldController label="Referencía" name="reference" placeholder="Ingresa la referencia" />
