@@ -5,6 +5,4 @@ export type InitializePasswordResetArgsType = {
   };
 };
 
-export type InitializePasswordResetReturnType = {
-  identifier: string;
-};
+export type InitializePasswordResetReturnType = null;

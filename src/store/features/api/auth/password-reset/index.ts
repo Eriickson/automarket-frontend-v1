@@ -3,23 +3,10 @@ import { ServiceResponse } from "@atmk/types";
 
 import { ENDPOINTS } from "@/utils";
 
-type Args = {
-  data: {
-    newPassword: string;
-    newPasswordConfirmation: string;
-  };
-  headers: {
-    "x-password-reset-token": string;
-  };
-};
-
-type Response = {
-  status: string;
-  userId: string;
-};
+import { ResetPasswordArgsType, ResetPasswordReturnType } from "./types";
 
 export const resetPassword = (build: EndpointBuilderType<"authApi">) => {
-  return build.mutation<ServiceResponse<Response>, Args>({
+  return build.mutation<ServiceResponse<ResetPasswordReturnType>, ResetPasswordArgsType>({
     query: ({ data, headers }) => ({
       url: ENDPOINTS.AUTH.PASSWORD_RESET,
       method: "POST",
