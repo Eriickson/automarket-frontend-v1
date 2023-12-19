@@ -7,6 +7,7 @@ import { authApi } from "@/store/features/api/auth";
 import { useHandleErrors } from "@/hooks";
 
 import axios from "axios";
+import delay from "delay";
 
 import { SigninForm } from "./SigninForm";
 import { SigninValuesFormType } from "./SigninForm/schema";
@@ -25,6 +26,7 @@ export const SigninView = () => {
     const sessionResponse = await axios.post("/api/session", { session });
     if (sessionResponse.status === 200) {
       window.location.href = "/protected";
+      await delay(5000);
     }
   }
 
