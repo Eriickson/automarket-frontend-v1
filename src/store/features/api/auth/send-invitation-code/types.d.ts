@@ -4,6 +4,4 @@ export type SendInvitationCodeArgsType = {
   };
 };
 
-export type SendInvitationCodeReturnType = {
-  id: string;
-};
+export type SendInvitationCodeReturnType = null;
