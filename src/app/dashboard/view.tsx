@@ -4,7 +4,9 @@ import { Avatar, Badge, Box, Button, Flex, HStack, IconButton, Image, Stack, Tex
 
 import { Bell } from "react-feather";
 
+import { ContentPanel } from "./ContentPanel";
 import { SidebarLeft } from "./SidebarLeft";
+import { SidebarRight } from "./SidebarRight";
 
 export const DashboardView = () => {
   return (
@@ -43,9 +45,10 @@ export const DashboardView = () => {
             <Box h="full" w="sm">
               <SidebarLeft />
             </Box>
-            <Box border="1px" flex="1" h="full">
-              Content
+            <Box flex="1" h="full">
+              <ContentPanel />
             </Box>
+            <SidebarRight />
           </HStack>
         </Box>
         <Box />
