@@ -29,7 +29,7 @@ export const ValidateInvitationCodeStep: FC<ValidateInvitationCodeStepProps> = (
     addInformation({
       validateInvitationCode: {
         ...values,
-        registrationToken: response.data.data.token,
+        registrationToken: response.data.data!.registrationToken,
       },
     });
 

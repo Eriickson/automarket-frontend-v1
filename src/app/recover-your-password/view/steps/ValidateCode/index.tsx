@@ -17,10 +17,15 @@ export const ValidateCode: FC<ValidateCodeProps> = ({ nextStep, addInformation, 
       queryParams: { code: values.passwordResetCode, identifier: information.sendPasswordRecoveryRequest!.email },
     });
 
+
+    if (!response.data) {
+      return;
+    }
+
     addInformation({
       validateCode: {
         passwordResetCode: values.passwordResetCode,
-        passwordResetToken: response.data!.data.passwordResetToken,
+        passwordResetToken: response.data.data!.passwordResetToken,
       },
     });
 
