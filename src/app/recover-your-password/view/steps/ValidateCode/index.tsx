@@ -3,8 +3,6 @@ import React, { FC } from "react";
 import { MultiStepFormItemComponentProps } from "@/components/organisms";
 import { authApi } from "@/store/features/api/auth";
 
-import { useHandleErrors } from "@/hooks";
-
 import { RecoverYourPasswordType } from "../../RecoverYourPassword.type";
 import { ValidateCodeForm } from "./form";
 import { ValidateCodeFormType } from "./form/schema";
@@ -13,7 +11,6 @@ interface ValidateCodeProps extends MultiStepFormItemComponentProps<RecoverYourP
 
 export const ValidateCode: FC<ValidateCodeProps> = ({ nextStep, addInformation, values: information }) => {
   const [verifyPasswordResetRequestQuery] = authApi.useLazyVerifyPasswordResetRequestQuery();
-  const { handleErrors } = useHandleErrors();
 
   async function handleSubmit(values: ValidateCodeFormType) {
     const response = await verifyPasswordResetRequestQuery({

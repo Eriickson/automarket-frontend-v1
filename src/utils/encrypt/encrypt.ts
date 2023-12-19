@@ -10,14 +10,14 @@ type DecryptDataArgs = {
   secretPass: string;
 };
 
-export async function encryptData({ payload, secretPass }: EncryptDataArgs) {
+export async function encryptData({ payload }: EncryptDataArgs) {
   // const data = CryptoJS.AES.encrypt(JSON.stringify(payload), secretPass).toString();
   const data = JSON.stringify(payload || {});
 
   return data;
 }
 
-export async function decryptData({ encryptedData, secretPass }: DecryptDataArgs): Promise<Record<string, unknown>> {
+export async function decryptData({ encryptedData }: DecryptDataArgs): Promise<Record<string, unknown>> {
   // const data = CryptoJS.AES.decrypt(encryptedData, secretPass).toString(CryptoJS.enc.Utf8);
 
   const data = encryptedData;

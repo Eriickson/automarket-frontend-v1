@@ -1,4 +1,4 @@
-import React, { FC, forwardRef } from "react";
+import React, { forwardRef } from "react";
 
 import MaskedInput from "react-text-mask";
 

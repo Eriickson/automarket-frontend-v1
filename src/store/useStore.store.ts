@@ -13,11 +13,11 @@ import { provincesApi } from "./features/api/provinces";
 import { sectorsApi } from "./features/api/sectors";
 import { rootReducer } from "./reducer";
 import { RootStore } from "./reducer";
-import { configureStore, isRejectedWithValue, Middleware, MiddlewareAPI } from "@reduxjs/toolkit";
+import { configureStore, isRejectedWithValue, Middleware } from "@reduxjs/toolkit";
 import { RejectedAction } from "@reduxjs/toolkit/dist/query/core/buildThunks";
 
 export const useStore = () => {
-  const rtkQueryErrorLogger: Middleware = (api: MiddlewareAPI) => (next) => (action: RejectedAction<any, any>) => {
+  const rtkQueryErrorLogger: Middleware = () => (next) => (action: RejectedAction<any, any>) => {
     if (isRejectedWithValue(action)) {
     }
 

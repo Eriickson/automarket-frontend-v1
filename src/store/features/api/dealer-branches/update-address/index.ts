@@ -26,8 +26,6 @@ type Args = {
   };
 };
 
-type Response = {};
-
 export const updateAddress = (build: EndpointBuilderType<"dealerBranchesApi">) => {
   return build.mutation<Response, Args>({
     query: ({ data }) => ({ url: ENDPOINTS.DEALER_BRANCHES.ADDRESS, method: "PUT", data }),

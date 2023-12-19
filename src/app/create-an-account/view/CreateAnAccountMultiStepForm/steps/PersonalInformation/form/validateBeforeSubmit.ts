@@ -1,9 +1,9 @@
-import { authApi } from "@/store/features/api/auth";
+// import { authApi } from "@/store/features/api/auth";
 
 export const useValidateBeforeSubmit = () => {
   // const [checkFieldAvailability] = authApi.useLazyCheckFieldAvailabilityQuery();
 
-  async function before({ email, username }: any, methods: any): Promise<boolean> {
+  async function before(/* { email, username }: any, methods: any */): Promise<boolean> {
     // const [checkEmailAvailability, checkUsernameAvailability] = await Promise.all([
     //   checkFieldAvailability({ field: "email", value: email }),
     //   checkFieldAvailability({ field: "username", value: username }),

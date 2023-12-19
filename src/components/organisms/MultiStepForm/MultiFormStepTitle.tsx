@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import { Heading, Image, Text, VStack } from "@chakra-ui/react";
+import { Heading, Text, VStack } from "@chakra-ui/react";
 
 interface MultiFormStepTitleProps {
   title: string;

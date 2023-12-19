@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import { Box, HStack, Image } from "@chakra-ui/react";
+import { Box, HStack } from "@chakra-ui/react";
 
 interface DashboardScreenLayoutProps {
   children: React.ReactNode;

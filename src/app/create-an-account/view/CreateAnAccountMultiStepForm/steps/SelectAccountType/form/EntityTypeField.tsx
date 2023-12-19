@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Center, GridItem, SimpleGrid, Text, VStack } from "@chakra-ui/react";
 

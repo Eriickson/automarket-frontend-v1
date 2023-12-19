@@ -75,6 +75,7 @@ export const SelectFieldContextProvider = ({
 
   useOutsideClick({ ref: boxContainerRef, handler: () => closeContextualMenu() });
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   function handleChange(nv: Option[]) {
     if (onChange) onChange(nv);
     setValuesSelected(nv);
@@ -124,7 +125,7 @@ export const SelectFieldContextProvider = ({
     const valueExistIntoOptions = Boolean(options.find((item) => item.value === valueSelected.value));
 
     if (!valueExistIntoOptions) handleChange([]);
-  }, [options, allowMultiple, valuesSelected, handleChange]);
+  }, [options, allowMultiple, valuesSelected, handleChange, keepExistingValuesInOptions]);
 
   // useEffect(() => {
   //   if (value) setValuesSelected(allowMultiple ? value : value.slice(0, 1));

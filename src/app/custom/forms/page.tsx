@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { Box, Button, Stack } from "@chakra-ui/react";
 
 import { SimpleTextField } from "@/components/atoms/SimpleTextField";
-import { Option, SelectField } from "@/components/organisms";
+import { SelectField } from "@/components/organisms";
 
 const personListOne = [
   { label: "Robert Sanchez", value: "15" },

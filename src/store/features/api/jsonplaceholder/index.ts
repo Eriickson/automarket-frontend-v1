@@ -8,6 +8,6 @@ export const jsonPlaceholderApi = createApi({
   }),
   reducerPath: "jsonServerApi",
   endpoints: (build) => ({
-    getTodos: build.query({ query: (args) => ({ url: "/todos", method: "GET" }) }),
+    getTodos: build.query({ query: () => ({ url: "/todos", method: "GET" }) }),
   }),
 });

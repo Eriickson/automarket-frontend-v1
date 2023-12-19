@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 
 import { Box, Button, HStack } from "@chakra-ui/react";
 

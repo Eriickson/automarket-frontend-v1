@@ -38,9 +38,9 @@ export const CreateAnAgencyStep: FC<CreateAnAgencyStepProps> = ({ nextStep, addI
     localStorage.setItem("access-token", response.data.data.tokens.accessToken);
     localStorage.setItem("refresh-token", response.data.data.tokens.refreshToken);
 
-    const createDealerResponse = await createDealerMutation({ data: { name: values.name, slogan: values.slogan } });
+    await createDealerMutation({ data: { name: values.name, slogan: values.slogan } });
 
-    const updateAddressResponse = await updateAddressMutation({
+    await updateAddressMutation({
       data: {
         address: {
           location: {
@@ -53,7 +53,6 @@ export const CreateAnAgencyStep: FC<CreateAnAgencyStepProps> = ({ nextStep, addI
         },
       },
     });
-
 
     addInformation({ registerAgency: values });
     nextStep();
