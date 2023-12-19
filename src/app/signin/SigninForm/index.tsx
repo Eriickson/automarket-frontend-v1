@@ -29,7 +29,7 @@ export const SigninForm: FC<SigninFormProps> = ({ onSubmit, defaultValues }) => 
       <FormProvider onSubmit={onSubmit}>
         <SimpleTextFieldController
           autoComplete="username"
-          label="Identificador"
+          label="Correo electrónico"
           name="identifier"
           placeholder="Correo electrónico o nombre de usuario"
         />

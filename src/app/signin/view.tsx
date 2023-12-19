@@ -43,23 +43,6 @@ export const SigninView = () => {
         }}
         onSubmit={handleSubmit}
       />
-      <Button
-        onClick={async () => {
-          const dataEncrypted = await encryptData({ payload: { ping: "pong" }, secretPass: "123456789" });
-          console.log(dataEncrypted);
-          // setStringHashed(dataEncrypted);
-        }}
-      >
-        Encrypt
-      </Button>
-      <Button
-        onClick={async () => {
-          const data = await decryptData({ encryptedData: stringHashed, secretPass: "123456789" });
-          console.log(data);
-        }}
-      >
-        Decrypt
-      </Button>
     </Box>
   );
 };
