@@ -1,3 +1,5 @@
+import { Session } from "@atmk/session";
+
 export type SigninArgsType = {
   data: {
     identifier: string;
@@ -5,30 +7,6 @@ export type SigninArgsType = {
   };
 };
 
-type SessionTokens = {
-  accessToken: string;
-  refreshToken: string;
-};
-
-type SessionUser = {
-  sub: string;
-  fullName: string;
-  profilePictureUrl: string | null;
-  email: string;
-};
-
-type SessionDealer = {
-  name: string;
-  slug: string;
-  sub: string;
-  logo: string | null;
-};
-
-type Session = {
-  tokens: SessionTokens;
-  user: SessionUser;
-  dealer: SessionDealer;
-};
 export type SigninReturnType = {
   session: Session;
 };
