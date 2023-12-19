@@ -1,31 +1,12 @@
 import { EndpointBuilderType } from "@atmk/core";
+import { ServiceResponse } from "@atmk/types";
 
 import { ENDPOINTS } from "@/utils";
 
-type Args = {
-  data: {
-    fullname: string;
-    birthdate: string;
-    password: string;
-    passwordConfirmation: string;
-  };
-  headers: {
-    "x-registration-token": string;
-  };
-};
-
-type Response = {
-  message: string;
-  data: {
-    tokens: {
-      accessToken: string;
-      refreshToken: string;
-    };
-  };
-};
+import { SignupArgsType, SignupReturnType } from "./types";
 
 export const signup = (build: EndpointBuilderType<"authApi">) => {
-  return build.mutation<Response, Args>({
+  return build.mutation<ServiceResponse<SignupReturnType>, SignupArgsType>({
     query: ({ data, headers }) => ({ url: ENDPOINTS.AUTH.SIGNUP, method: "POST", data, headers }),
   });
 };
