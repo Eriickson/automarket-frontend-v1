@@ -21,7 +21,7 @@ export const OptionsListItem: FC<OptionsListItemProps> = ({ isSelected, option }
     <ListItem
       _hover={{ bgColor: "gray.50", cursor: "pointer" }}
       bgColor={isSelected ? "gray.50" : "white"}
-      color={isSelected ? undefined : "gray.500"}
+      color={isSelected ? undefined : "gray.800"}
       fontWeight={isSelected ? "semibold" : "normal"}
       pl="4"
       pr="2"

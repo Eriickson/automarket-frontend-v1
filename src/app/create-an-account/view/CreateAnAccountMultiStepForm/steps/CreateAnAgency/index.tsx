@@ -35,8 +35,8 @@ export const CreateAnAgencyStep: FC<CreateAnAgencyStepProps> = ({ nextStep, addI
 
     if ("error" in response) return handleErrors(response);
 
-    localStorage.setItem("access-token", response.data.data.tokens.accessToken);
-    localStorage.setItem("refresh-token", response.data.data.tokens.refreshToken);
+    // localStorage.setItem("access-token", response.data.data.tokens.accessToken);
+    // localStorage.setItem("refresh-token", response.data.data.tokens.refreshToken);
 
     await createDealerMutation({ data: { name: values.name, slogan: values.slogan } });
 
