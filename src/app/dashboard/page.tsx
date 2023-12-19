@@ -1,9 +1,9 @@
 import React from "react";
 
-import { Box } from "@chakra-ui/react";
+import { DashboardView } from "./view";
 
 const DashboardPage = () => {
-  return <Box>Hola a todos</Box>;
+  return <DashboardView />;
 };
 
 export default DashboardPage;
