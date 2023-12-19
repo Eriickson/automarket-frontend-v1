@@ -6,9 +6,18 @@ import { deleteCookie, getCookie, setCookie } from "cookies-next";
 export async function GET() {
   const session = getCookie("automarket.session", { cookies, path: "/" });
 
+  const isSession = session !== undefined;
+
+  if (!isSession) {
+    return NextResponse.json({
+      status: "error",
+      message: "Sessión no encontrada",
+    });
+  }
+
   return NextResponse.json({
     status: "success",
-    session: JSON.parse(session as string),
+    ...JSON.parse(session as string),
   });
 }
 
