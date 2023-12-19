@@ -65,7 +65,6 @@ export const DashboardView = () => {
             <Box flex="1" h="full">
               <ContentPanel />
             </Box>
-            <SidebarRight />
           </HStack>
         </Box>
         <Box />
