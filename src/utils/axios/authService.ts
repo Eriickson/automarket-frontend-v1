@@ -33,8 +33,6 @@ const authService = {
 
       return true;
     } catch (error) {
-      console.log("Refresh token error", error);
-
       localStorage.removeItem("access-token");
       localStorage.removeItem("refresh-token");
       return false;

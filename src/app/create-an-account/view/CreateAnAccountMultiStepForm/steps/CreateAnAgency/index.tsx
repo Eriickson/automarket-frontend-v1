@@ -54,8 +54,6 @@ export const CreateAnAgencyStep: FC<CreateAnAgencyStepProps> = ({ nextStep, addI
       },
     });
 
-    console.log(createDealerResponse);
-    console.log(updateAddressResponse);
 
     addInformation({ registerAgency: values });
     nextStep();

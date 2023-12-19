@@ -5,10 +5,7 @@ import { getCookie, setCookie } from "cookies-next";
 
 export async function GET(req: NextRequest) {
   const res = new NextResponse();
-  // const session = getCookie("automarket.session", { cookies }) as any;
-  const session = getCookie("automarket.session", { res, req, path: "/" }) as any;
-
-  console.log(session);
+  const session = getCookie("automarket.session", { res, req, path: "/" });
 
   return NextResponse.json({
     status: "success",
