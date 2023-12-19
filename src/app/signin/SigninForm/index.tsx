@@ -21,10 +21,12 @@ export const SigninForm: FC<SigninFormProps> = ({ onSubmit, defaultValues }) => 
   return (
     <Box>
       <Box mb="8" textAlign="center">
-        <Heading as="h2" fontWeight="semibold" size="xl">
+        <Heading as="h2" fontWeight="semibold" size={["lg", "xl"]}>
           Bienvenido a automarket
         </Heading>
-        <Text>Inicia sesión para comprar, vender y disfrutar de todos los beneficios de nuestra plataforma.</Text>
+        <Text fontSize={["sm", null, null, "md"]}>
+          Inicia sesión para comprar, vender y disfrutar de todos los beneficios de nuestra plataforma.
+        </Text>
       </Box>
       <FormProvider onSubmit={onSubmit}>
         <SimpleTextFieldController
