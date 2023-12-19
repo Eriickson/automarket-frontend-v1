@@ -1,6 +1,6 @@
-import { axiosBaseQuery } from "@/store/baseQueries";
-
 import { createApi } from "@reduxjs/toolkit/query/react";
+
+import { axiosBaseQuery } from "@/store/baseQueries";
 
 export const jsonPlaceholderApi = createApi({
   baseQuery: axiosBaseQuery({

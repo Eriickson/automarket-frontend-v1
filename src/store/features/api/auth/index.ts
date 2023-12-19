@@ -1,3 +1,5 @@
+import { createApi } from "@reduxjs/toolkit/query/react";
+
 import { axiosBaseQuery } from "@/store/baseQueries";
 
 import { initializePasswordReset } from "./initialize-password-reset";
@@ -7,7 +9,6 @@ import { signin } from "./signin";
 import { signup } from "./signup";
 import { verifyInvitationCode } from "./verify-invitation-code";
 import { verifyPasswordResetRequest } from "./verify-password-reset-request";
-import { createApi } from "@reduxjs/toolkit/query/react";
 
 export const authApi = createApi({
   baseQuery: axiosBaseQuery({ module: "/auth" }),

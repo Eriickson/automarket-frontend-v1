@@ -6,7 +6,5 @@ export type VerifyPasswordResetRequestArgsType = {
 };
 
 export type VerifyPasswordResetRequestReturnType = {
-  data: {
-    passwordResetToken: string;
-  };
+  passwordResetToken: string;
 };

@@ -11,7 +11,7 @@ export const resetPassword = (build: EndpointBuilderType<"authApi">) => {
       url: ENDPOINTS.AUTH.PASSWORD_RESET,
       method: "POST",
       data,
-      headers: { ...headers },
+      headers,
     }),
   });
 };
