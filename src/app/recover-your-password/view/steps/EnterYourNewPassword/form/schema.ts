@@ -7,10 +7,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 const enterYourNewPasswordSchema = z
   .object({
     newPassword: passwordFieldValidation(),
-    passwordConfirmation: passwordFieldValidation(),
+    newPasswordConfirmation: passwordFieldValidation(),
   })
-  .refine((data) => data.newPassword === data.passwordConfirmation, {
-    path: ["passwordConfirmation"],
+  .refine((data) => data.newPassword === data.newPasswordConfirmation, {
+    path: ["newPasswordConfirmation"],
     message: "Las contraseñas no coinciden",
   });
 

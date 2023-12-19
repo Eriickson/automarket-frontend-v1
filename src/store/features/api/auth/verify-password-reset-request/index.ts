@@ -18,9 +18,9 @@ type Response = {
 };
 
 export const verifyPasswordResetRequest = (build: EndpointBuilderType<"authApi">) => {
-  return build.mutation<Response, Args>({
+  return build.query<Response, Args>({
     query: ({ queryParams }) => ({
-      url: ENDPOINTS.AUTH.PASSWORD_RESET.concat("?").concat(queryString.stringify(queryParams)),
+      url: ENDPOINTS.AUTH.PASSWORD_RESET_REQUEST.concat("?").concat(queryString.stringify(queryParams)),
       method: "GET",
     }),
   });

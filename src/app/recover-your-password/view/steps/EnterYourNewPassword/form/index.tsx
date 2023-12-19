@@ -24,7 +24,7 @@ export const EnterYourPasswordForm: FC<EnterYourPasswordFormProps> = ({ onSubmit
       <PasswordFieldController
         autoComplete="new-password"
         label="Confirmar contraseña"
-        name="passwordConfirmation"
+        name="newPasswordConfirmation"
         placeholder="Ingresa tu contraseña"
       />
       <SubmitButton colorScheme="primary" loadingText="Restableciendo contraseña..." mt="4" w="full">
