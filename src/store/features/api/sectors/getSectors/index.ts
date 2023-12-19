@@ -1,9 +1,10 @@
 import { EndpointBuilderType } from "@atmk/core";
+import { ServiceResponse } from "@atmk/types";
 
-import { Option } from "@/components/organisms";
+import { GetSectorsArgsType, GetSectorsReturnType } from "./types";
 
 export const getSectors = (build: EndpointBuilderType<"sectorsApi">) => {
-  return build.query<{ message: string; data: Option[] }, { provinceId: string; municipalityId: string }>({
+  return build.query<ServiceResponse<GetSectorsReturnType>, GetSectorsArgsType>({
     query: ({ provinceId, municipalityId }) => ({
       url: `/${provinceId}/municipalities/${municipalityId}/sectors`,
       method: "GET",

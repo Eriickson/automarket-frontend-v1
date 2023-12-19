@@ -16,7 +16,16 @@
     "simple-import-sort/imports": [
       "error",
       {
-        "groups": [["^react$"], ["^next"], ["@atmk"], ["@chakra-ui/react"], ["^@/"], ["@/hooks"], ["^\\w"]]
+        "groups": [
+          ["^react$"],
+          ["^next"],
+          ["@reduxjs/toolkit"],
+          ["@atmk"],
+          ["@chakra-ui/react"],
+          ["^@/"],
+          ["@/hooks"],
+          ["^\\w"]
+        ]
       }
     ]
   }
