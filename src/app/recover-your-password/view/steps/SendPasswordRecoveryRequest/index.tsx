@@ -16,7 +16,7 @@ export const SendPasswordRecoveryRequest: FC<SendPasswordRecoveryRequestProps> =
   const { handleErrors } = useHandleErrors();
 
   async function handleSubmit(values: SendPasswordRecoveryRequestFormType) {
-    const response = await initializePasswordResetQuery({ identifier: values.email, mode: "code" });
+    const response = await initializePasswordResetQuery({ data: { identifier: values.email, mode: "code" } });
 
     if ("error" in response) return handleErrors(response);
 

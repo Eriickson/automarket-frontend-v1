@@ -1,7 +1,7 @@
 export type InitializePasswordResetArgsType = {
   data: {
     identifier: string;
-    mode: string;
+    mode: "code";
   };
 };
 
