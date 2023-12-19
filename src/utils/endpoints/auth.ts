@@ -7,4 +7,6 @@ export const AUTH: Record<AUTH_ENDPOINTS, string> = {
   SIGNIN: "/signin",
   SIGNOUT: "/signout",
   REFRESH_TOKEN: "/refresh-token",
+  PASSWORD_RESET_REQUEST: "/password-reset-request",
+  PASSWORD_RESET: "/password-reset",
 };
