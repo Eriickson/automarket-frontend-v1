@@ -1,28 +1,12 @@
 import { EndpointBuilderType } from "@atmk/core";
+import { ServiceResponse } from "@atmk/types";
 
 import { ENDPOINTS } from "@/utils";
 
-type Args = {
-  data: {
-    identifier: string;
-    password: string;
-  };
-};
-
-type Response = {
-  message: string;
-  data: {
-    session: {
-      tokens: {
-        accessToken: string;
-        refreshToken: string;
-      };
-    };
-  };
-};
+import { SigninArgsType, SigninReturnType } from "./types";
 
 export const signin = (build: EndpointBuilderType<"authApi">) => {
-  return build.mutation<Response, Args>({
+  return build.mutation<ServiceResponse<SigninReturnType>, SigninArgsType>({
     query: ({ data }) => ({ url: ENDPOINTS.AUTH.SIGNIN, method: "POST", data }),
   });
 };
