@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 
 import { Box, Button, HStack, IconButton, Stack, Text } from "@chakra-ui/react";
 
@@ -11,15 +11,17 @@ interface ProfileSessionProps {
 }
 
 export const ProfileSession: FC<ProfileSessionProps> = ({ children, subtitle, title }) => {
+  const [isHover, setIsHover] = useState(false);
+
   return (
-    <HStack alignItems="flex-start">
+    <HStack alignItems="flex-start" onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
       <Box w="2xl">
         <Box mb="4">
           <HStack>
             <Text fontSize="lg" fontWeight="semibold">
               {title}
             </Text>
-            <IconButton aria-label="" rounded="sm" size="xs" variant="ghost">
+            <IconButton aria-label="" display={isHover ? "inline-flex" : "none"} rounded="sm" size="xs" variant="ghost">
               <Edit size="16" />
             </IconButton>
           </HStack>
