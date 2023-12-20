@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 
 import Link from "next/link";
 
@@ -14,10 +14,17 @@ const menuItems = [
 export const Menu = () => {
   return (
     <HStack>
-      {menuItems.map((item) => (
-        <Link href={item.href} key={item.label}>
-          <Text fontWeight="medium">{item.label}</Text>
-        </Link>
+      {menuItems.map((item, i) => (
+        <Fragment key={item.label}>
+          {i !== 0 ? (
+            <Text color="gray.500" fontSize="2xl" fontWeight="black" lineHeight="0" userSelect="none">
+              ·
+            </Text>
+          ) : null}
+          <Link href={item.href}>
+            <Text fontWeight="medium">{item.label}</Text>
+          </Link>
+        </Fragment>
       ))}
     </HStack>
   );

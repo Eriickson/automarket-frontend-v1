@@ -60,12 +60,16 @@ export const GlobalHeader = () => {
             </HStack>
           </HStack> */}
           <HStack>
-            <Button colorScheme="primary" rounded="sm">
-              Registrarse
-            </Button>
-            <Button bgColor="gray.200" colorScheme="secondary" rounded="sm" variant="ghost">
-              Iniciar Sesión
-            </Button>
+            <Link href="/create-an-account">
+              <Button colorScheme="primary" rounded="sm">
+                Crea tu cuenta
+              </Button>
+            </Link>
+            <Link href="/signin">
+              <Button bgColor="gray.200" colorScheme="secondary" rounded="sm" variant="ghost">
+                Iniciar Sesión
+              </Button>
+            </Link>
           </HStack>
         </Box>
       </Flex>

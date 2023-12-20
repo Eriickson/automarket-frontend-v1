@@ -19,7 +19,7 @@ export const FullScreenFormLayout: FC<FullScreenFormLayoutProps> = ({ rightTopCo
         <GridItem colSpan={[12, null, null, 8]}>
           <Stack h="full" px={["4", null, null, "12"]} py="4" spacing="6">
             <Box h="32">
-              <Flex alignItems="center" justifyContent="space-between">
+              <Flex alignItems="center" justifyContent="space-between" pt="2">
                 <Link href="/">
                   <Image alt="" src="assets/logo.svg" userSelect="none" w="52" />
                 </Link>
