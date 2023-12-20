@@ -31,7 +31,7 @@ export const GlobalHeader = () => {
           ))}
         </HStack>
         <Box>
-          <HStack spacing="8">
+          {/* <HStack spacing="8">
             <HStack>
               <Button bgColor="gray.100" colorScheme="primary" variant="ghost">
                 Nueva publicación
@@ -49,6 +49,14 @@ export const GlobalHeader = () => {
               </Flex>
               <Avatar />
             </HStack>
+          </HStack> */}
+          <HStack>
+            <Button colorScheme="primary" rounded="sm">
+              Registrarse
+            </Button>
+            <Button bgColor="gray.200" colorScheme="secondary" rounded="sm" variant="ghost">
+              Iniciar Sesión
+            </Button>
           </HStack>
         </Box>
       </Flex>
