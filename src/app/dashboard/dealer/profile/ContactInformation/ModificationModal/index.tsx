@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 
 import {
   HStack,
@@ -11,27 +11,43 @@ import {
   ModalOverlay,
   Text,
   useDisclosure,
+  useToast,
 } from "@chakra-ui/react";
 
 import { Button } from "@/components/atoms";
 
 interface ModificationModalProps {
-  isLoading?: boolean;
+  disclosure: ReturnType<typeof useDisclosure>;
 }
 
-export const ModificationModal: FC<ModificationModalProps> = ({ isLoading = true }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+export const ModificationModal: FC<ModificationModalProps> = ({ disclosure }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const toast = useToast();
+
+  async function handleSubmit() {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      disclosure.onClose();
+      toast({
+        status: "success",
+        title: "Información actualizada",
+        description: "La información de contacto ha sido actualizada correctamente.",
+        variant: "left-accent",
+        position: "top-right",
+      });
+    }, 2000);
+  }
+
   return (
     <>
-      <Button onClick={onOpen}>Open Modal</Button>
-
       <Modal
         isCentered
         closeOnEsc={!isLoading}
         closeOnOverlayClick={!isLoading}
-        isOpen={isOpen}
+        isOpen={disclosure.isOpen}
         size="2xl"
-        onClose={onClose}
+        onClose={disclosure.onClose}
       >
         <ModalOverlay />
         <ModalContent rounded="sm">
@@ -52,11 +68,11 @@ export const ModificationModal: FC<ModificationModalProps> = ({ isLoading = true
                 isLoading={isLoading}
                 mr={3}
                 variant="ghost"
-                onClick={onClose}
+                onClick={disclosure.onClose}
               >
                 Cancelar
               </Button>
-              <Button colorScheme="primary" isLoading={isLoading}>
+              <Button colorScheme="primary" isLoading={isLoading} onClick={handleSubmit}>
                 Guardar Cambios
               </Button>
             </HStack>

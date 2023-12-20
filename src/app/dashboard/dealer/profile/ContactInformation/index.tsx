@@ -9,10 +9,10 @@ import { ModificationModal } from "./ModificationModal";
 export const ContactInformation = () => {
   return (
     <ProfileSession
+      ModificationModal={ModificationModal}
       subtitle="Agrega tu información de contacto para que tus clientes puedan contactarte."
       title="Información de contacto"
     >
-      <ModificationModal />
       <HStack>
         <Box flex="1">
           <Text mb="4">Números de teléfono</Text>

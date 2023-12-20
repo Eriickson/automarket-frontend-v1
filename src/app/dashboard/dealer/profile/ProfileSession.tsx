@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 
-import { Box, HStack, IconButton, Stack, Text, useToast } from "@chakra-ui/react";
+import { Box, HStack, IconButton, Stack, Text, useDisclosure, useToast } from "@chakra-ui/react";
 
 import { Edit } from "react-feather";
 
@@ -8,9 +8,16 @@ interface ProfileSessionProps {
   title: string;
   subtitle: string;
   children: React.ReactNode;
+  ModificationModal?: FC<{
+    isLoading?: boolean;
+    disclosure: ReturnType<typeof useDisclosure>;
+  }>;
 }
 
-export const ProfileSession: FC<ProfileSessionProps> = ({ children, subtitle, title }) => {
+export const ProfileSession: FC<ProfileSessionProps> = ({ children, subtitle, title, ModificationModal }) => {
+  const disclosure = useDisclosure();
+  const [allowModifyInformation, setAllowModifyInformation] = useState(true);
+
   const [isHover, setIsHover] = useState(false);
   const toast = useToast();
 
@@ -28,15 +35,29 @@ export const ProfileSession: FC<ProfileSessionProps> = ({ children, subtitle, ti
               rounded="sm"
               size="xs"
               variant="ghost"
-              onClick={() =>
-                toast({
-                  status: "warning",
-                  title: "Información modificada recientemente",
-                  description: "Debes esperar almenos 30 min para poder modificar esta información.",
-                  variant: "left-accent",
-                  position: "top-right",
-                })
-              }
+              // onClick={() =>
+              //   toast({
+              //     status: "warning",
+              //     title: "Información modificada recientemente",
+              //     description: "Debes esperar almenos 30 min para poder modificar esta información.",
+              //     variant: "left-accent",
+              //     position: "top-right",
+              //   })
+              // }
+              // onClick={disclosure.onOpen}
+              onClick={() => {
+                if (allowModifyInformation) {
+                  disclosure.onOpen();
+                } else {
+                  toast({
+                    status: "warning",
+                    title: "Información modificada recientemente",
+                    description: "Debes esperar almenos 30 min para poder modificar esta información.",
+                    variant: "left-accent",
+                    position: "top-right",
+                  });
+                }
+              }}
             >
               <Edit size="16" />
             </IconButton>
@@ -56,6 +77,7 @@ export const ProfileSession: FC<ProfileSessionProps> = ({ children, subtitle, ti
       <Stack flex="1" spacing="4">
         {children}
       </Stack>
+      {ModificationModal ? <ModificationModal disclosure={disclosure} /> : null}
     </HStack>
   );
 };
