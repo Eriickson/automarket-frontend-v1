@@ -10,6 +10,7 @@ import { DashboardSessionTitle } from "../../DashboardSessionTitle";
 import { ContactInformation } from "./ContactInformation";
 import { ProfileSession } from "./ProfileSession";
 import { ScheduleSession } from "./ScheduleSession";
+import { SocialMedia } from "./SocialMedia";
 
 const DealerProfilePage = () => {
   return (
@@ -37,14 +38,15 @@ const DealerProfilePage = () => {
               <FormLabel fontSize="sm" mb="1">
                 Breve Descripción
               </FormLabel>
-              <SimpleTextField />
+              <SimpleTextField type="texarea" />
             </FormControl>
           </ProfileSession>
           <Divider />
-
           <ContactInformation />
           <Divider />
           <ScheduleSession />
+          <Divider />
+          <SocialMedia />
           <Divider />
           <ProfileSession subtitle="Agrega tu dirección para que tus clientes puedan visitarte." title="Dirección">
             <FormControl>
@@ -80,9 +82,12 @@ const DealerProfilePage = () => {
               <SimpleTextField />
             </FormControl>
           </ProfileSession>
+          <Box />
         </Stack>
       </Box>
-      <Box h="full" w="xl"></Box>
+      <Box h="full" w="md">
+        sdad
+      </Box>
     </HStack>
   );
 };
