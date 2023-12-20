@@ -1,6 +1,6 @@
 import React from "react";
 
-import { AspectRatio, Box, Center, Flex, Image } from "@chakra-ui/react";
+import { Box, Center, Flex } from "@chakra-ui/react";
 
 import { GlobalFooter } from "@/components/organisms/GlobalFooter/GlobalFooter";
 import { GlobalHeader } from "@/components/organisms/GlobalHeader";
