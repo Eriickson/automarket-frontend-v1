@@ -1,6 +1,6 @@
 import React, { FC, useState } from "react";
 
-import { Box, HStack, IconButton, Stack, Text } from "@chakra-ui/react";
+import { Box, HStack, IconButton, Stack, Text, useToast } from "@chakra-ui/react";
 
 import { Edit } from "react-feather";
 
@@ -12,6 +12,7 @@ interface ProfileSessionProps {
 
 export const ProfileSession: FC<ProfileSessionProps> = ({ children, subtitle, title }) => {
   const [isHover, setIsHover] = useState(false);
+  const toast = useToast();
 
   return (
     <HStack alignItems="flex-start" onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
@@ -21,7 +22,22 @@ export const ProfileSession: FC<ProfileSessionProps> = ({ children, subtitle, ti
             <Text fontSize="lg" fontWeight="semibold">
               {title}
             </Text>
-            <IconButton aria-label="" display={isHover ? "inline-flex" : "none"} rounded="sm" size="xs" variant="ghost">
+            <IconButton
+              aria-label=""
+              display={isHover ? "inline-flex" : "none"}
+              rounded="sm"
+              size="xs"
+              variant="ghost"
+              onClick={() =>
+                toast({
+                  status: "warning",
+                  title: "Información modificada recientemente",
+                  description: "Debes esperar almenos 30 min para poder modificar esta información.",
+                  variant: "left-accent",
+                  position: "top-right",
+                })
+              }
+            >
               <Edit size="16" />
             </IconButton>
           </HStack>
