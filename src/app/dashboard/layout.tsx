@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box, HStack, Stack } from "@chakra-ui/react";
+import { Box, Divider, Flex, Stack } from "@chakra-ui/react";
 
 import { GlobalHeader } from "@/components/organisms/GlobalHeader";
 
@@ -13,14 +13,15 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       <Stack h="full">
         <GlobalHeader />
         <Box flex="1" px="12">
-          <HStack alignItems="flex-start" h="full" spacing="6">
+          <Flex alignItems="flex-start" h="full">
             <Box h="full" w="sm">
               <SidebarLeft />
             </Box>
+            <Divider mx="4" orientation="vertical" />
             <Box flex="1" h="full">
               <ContentPanel>{children}</ContentPanel>
             </Box>
-          </HStack>
+          </Flex>
         </Box>
         <Box />
       </Stack>

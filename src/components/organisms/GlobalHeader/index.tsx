@@ -40,7 +40,7 @@ export const GlobalHeader = () => {
               <Flex alignItems="flex-end" flexDir="column" userSelect="none">
                 <Text as="b">Erickson Manuel Holguín</Text>
                 <Badge colorScheme="primary" variant="solid">
-                  Label Here
+                  Rent a Car
                 </Badge>
               </Flex>
               <Avatar />
