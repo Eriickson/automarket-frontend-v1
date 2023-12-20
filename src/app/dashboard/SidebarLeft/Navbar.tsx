@@ -16,27 +16,27 @@ const navbarItems = [
   {
     Icon: BookOpen,
     label: "Publicaciones",
-    pathname: "/",
+    pathname: "/dashboard/publications",
   },
   {
     Icon: FeatherImage,
     label: "Perfil Empresarial",
-    pathname: "/",
+    pathname: "/dashboard/profile",
   },
   {
     Icon: FeatherImage,
     label: "Perfil Personal",
-    pathname: "/",
+    pathname: "/dashboard/profile",
   },
   {
     Icon: User,
     label: "Almacen",
-    pathname: "/",
+    pathname: "/dashboard/stock",
   },
   {
     Icon: Settings,
     label: "Configuración",
-    pathname: "/",
+    pathname: "/dashboard/settings",
   },
 ];
 
@@ -47,8 +47,8 @@ export const Navbar = () => {
     <List flex="1" spacing="2">
       {navbarItems.map((item) => (
         <ListItem
-          bgColor={pathname === item.pathname ? "primary.500" : "white"}
-          color={pathname === item.pathname ? "white" : "black"}
+          bgColor={pathname.startsWith(item.pathname) ? "primary.500" : "white"}
+          color={pathname.startsWith(item.pathname) ? "white" : "black"}
           fontWeight="semibold"
           key={item.label}
           px="3"

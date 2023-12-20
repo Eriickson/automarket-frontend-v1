@@ -18,7 +18,7 @@ export const GlobalHeader = () => {
       <Flex alignItems="center" justifyContent="space-between">
         <HStack spacing="6">
           <Box>
-            <Image alt="" src="assets/logo.svg" w="52" />
+            <Image alt="" src="/assets/logo.svg" w="52" />
           </Box>
           {NavbarItems.map((item) => (
             <Box key={item.label}>

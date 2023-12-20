@@ -1,12 +1,16 @@
-import React from "react";
+import React, { FC } from "react";
 
 import { Box, Divider, Flex, HStack, List, ListItem, Stack, Text } from "@chakra-ui/react";
 
-export const ContentPanel = () => {
+interface ContentPanelProps {
+  children: React.ReactNode;
+}
+
+export const ContentPanel: FC<ContentPanelProps> = ({ children }) => {
   return (
     <Box h="full">
       <Stack h="full">
-        <Box flex="1">Content Panel</Box>
+        <Box flex="1">{children}</Box>
         <Divider />
         <Box py="1">
           <Flex justifyContent="space-between">
