@@ -9,10 +9,10 @@ import { SidebarLeft } from "./SidebarLeft";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <Box h="100vh" maxH="100vh">
+    <Box h="100vh" maxH="100vh" overflowX="hidden">
       <Stack h="full">
         <GlobalHeader />
-        <Box flex="1" px="12">
+        <Box flex="1" overflowY="auto" px="12">
           <Flex alignItems="flex-start" h="full">
             <Box h="full" w="sm">
               <SidebarLeft />

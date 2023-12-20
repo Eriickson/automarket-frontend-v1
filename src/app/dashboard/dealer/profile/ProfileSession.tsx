@@ -31,7 +31,6 @@ export const ProfileSession: FC<ProfileSessionProps> = ({ children, subtitle, ti
       <Stack flex="1" spacing="4">
         {children}
       </Stack>
-      <Box flex="1" />
     </HStack>
   );
 };

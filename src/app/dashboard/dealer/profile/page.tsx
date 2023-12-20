@@ -8,6 +8,7 @@ import { SelectField } from "@/components/organisms";
 
 import { DashboardSessionTitle } from "../../DashboardSessionTitle";
 import { ProfileSession } from "./ProfileSession";
+import { ScheduleSession } from "./ScheduleSession";
 
 const DealerProfilePage = () => {
   return (
@@ -45,18 +46,11 @@ const DealerProfilePage = () => {
             </Text>
             <Text fontSize="sm">Agrega tu información de contacto para que tus clientes puedan contactarte.</Text>
           </Box>
-          <Box>
-            <Text fontSize="lg" fontWeight="semibold">
-              Horario
-            </Text>
-            <Text fontSize="sm">Indica el horario en el que tus clientes pueden visitar tus instalaciones.</Text>
-          </Box>
-          <Box>
-            <Text fontSize="lg" fontWeight="semibold">
-              Redes Sociales
-            </Text>
-            <Text fontSize="sm">Agrega tus redes sociales para que tus clientes puedan contactarte.</Text>
-          </Box>
+          {/*   <ProfileSession Horario */}
+          <Divider />
+          <ScheduleSession />
+          <Divider />
+          <ScheduleSession />
           <Divider />
 
           <ProfileSession subtitle="Agrega tu dirección para que tus clientes puedan visitarte." title="Dirección">
