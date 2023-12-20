@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 
 import { usePathname } from "next/navigation";
 
@@ -18,6 +18,7 @@ const navbarItems = [
     label: "Publicaciones",
     pathname: "/dashboard/publications",
   },
+  { Icon: User, label: "Flotilla de Vehículos", pathname: "/dashboard/vehicle-fleet" },
   {
     Icon: FeatherImage,
     label: "Perfil Empresarial",
@@ -27,11 +28,6 @@ const navbarItems = [
     Icon: FeatherImage,
     label: "Perfil Personal",
     pathname: "/dashboard/profile",
-  },
-  {
-    Icon: User,
-    label: "Almacen",
-    pathname: "/dashboard/stock",
   },
   {
     Icon: Settings,
