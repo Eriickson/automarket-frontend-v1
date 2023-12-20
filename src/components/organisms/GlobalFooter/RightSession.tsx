@@ -26,7 +26,7 @@ export const RightSession = () => {
         {items.map((item, i) => (
           <Fragment key={i}>
             {i !== 0 ? (
-              <Text fontSize="2xl" fontWeight="black" lineHeight="0" userSelect="none">
+              <Text color="gray.500" fontSize="2xl" fontWeight="black" lineHeight="0" userSelect="none">
                 ·
               </Text>
             ) : null}

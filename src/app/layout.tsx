@@ -5,6 +5,8 @@ import { Inter } from "next/font/google";
 
 import { useDisclosure } from "@chakra-ui/react";
 
+import { EcommerceLayout } from "@/components/layouts/Ecommerce";
+
 import "./globals.css";
 import { Providers } from "./providers";
 

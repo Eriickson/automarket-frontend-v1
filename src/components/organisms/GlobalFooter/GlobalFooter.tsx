@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box, Divider, Flex, HStack, Image, List, ListItem, Stack, Text } from "@chakra-ui/react";
+import { Box, Divider, Flex, HStack, Image, Stack, Text } from "@chakra-ui/react";
 
 import { BottomSession } from "./BottomSession";
 import { RightSession } from "./RightSession";
