@@ -1,45 +1,40 @@
 "use client";
 import React from "react";
 
-import { Box, Flex, HStack, IconButton, Stack, Text } from "@chakra-ui/react";
+import { Box, Center, Flex, FormControl, FormLabel, HStack, IconButton, Stack, Text } from "@chakra-ui/react";
 
-import { SimpleTextField } from "@/components/atoms";
+import { Button, SimpleTextField } from "@/components/atoms";
 
 import { Copy } from "react-feather";
 
 const DealerProfilePage = () => {
   return (
-    <Box>
-      <Stack>
-        <HStack>
-          <Box bgColor="primary.500" h="20" rounded="full" w="20" />
-          <Box>
-            <Text fontSize="xl" fontWeight="semibold">
-              Erickson Auto Import
-            </Text>
+    <HStack h="full">
+      <Center flex="1" h="full">
+        <Box minW="lg">
+          <Stack>
+            <Center>
+              <Box bgColor="primary.500" h="32" rounded="full" w="32" />
+            </Center>
+            <FormControl>
+              <FormLabel>Nombre del Distribuidor</FormLabel>
+              <SimpleTextField />
+            </FormControl>
+            <FormControl>
+              <FormLabel>Eslogan</FormLabel>
+              <SimpleTextField />
+            </FormControl>
             <HStack>
-              <Text color="gray.500" fontSize="sm" fontWeight="medium">
-                atmk.me/espaillat-motors
-              </Text>
-              <IconButton aria-label="" size="xs" variant="ghost">
-                <Copy size="1rem" />
-              </IconButton>
+              <Button bgColor="gray.100" colorScheme="secondary" variant="ghost">
+                Cancelar
+              </Button>
+              <Button colorScheme="primary">Guardar Cambios</Button>
             </HStack>
-          </Box>
-        </HStack>
-
-        <Flex>
-          <Box w="80">
-            <Text as="b">Nombre de tu distribuidor</Text>
-            <Text fontSize="sm">Con este nombre aparecerás en la plataforma.</Text>
-          </Box>
-          <Box flex="1">
-            <SimpleTextField />
-          </Box>
-          <Box flex="2"></Box>
-        </Flex>
-      </Stack>
-    </Box>
+          </Stack>
+        </Box>
+      </Center>
+      <Box border="1px" h="full" w="xl"></Box>
+    </HStack>
   );
 };
 
