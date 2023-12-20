@@ -1,5 +1,7 @@
 import React from "react";
 
+import Link from "next/link";
+
 import { Avatar, Badge, Box, Button, Flex, HStack, IconButton, Image, Text } from "@chakra-ui/react";
 
 import { Bell } from "react-feather";
@@ -18,7 +20,9 @@ export const GlobalHeader = () => {
       <Flex alignItems="center" justifyContent="space-between">
         <HStack spacing="6">
           <Box>
-            <Image alt="" src="/assets/logo.svg" w="52" />
+            <Link href="/">
+              <Image alt="" src="/assets/logo.svg" w="52" />
+            </Link>
           </Box>
           {NavbarItems.map((item) => (
             <Box key={item.label}>
