@@ -1,12 +1,13 @@
 "use client";
 import React from "react";
 
-import { Box, Divider, FormControl, FormLabel, HStack, Stack, Text } from "@chakra-ui/react";
+import { Box, Divider, FormControl, FormLabel, HStack, Stack } from "@chakra-ui/react";
 
 import { SimpleTextField } from "@/components/atoms";
 import { SelectField } from "@/components/organisms";
 
 import { DashboardSessionTitle } from "../../DashboardSessionTitle";
+import { ContactInformation } from "./ContactInformation";
 import { ProfileSession } from "./ProfileSession";
 import { ScheduleSession } from "./ScheduleSession";
 
@@ -40,19 +41,11 @@ const DealerProfilePage = () => {
             </FormControl>
           </ProfileSession>
           <Divider />
-          <Box>
-            <Text fontSize="lg" fontWeight="semibold">
-              Información de contacto
-            </Text>
-            <Text fontSize="sm">Agrega tu información de contacto para que tus clientes puedan contactarte.</Text>
-          </Box>
-          {/*   <ProfileSession Horario */}
-          <Divider />
-          <ScheduleSession />
-          <Divider />
-          <ScheduleSession />
-          <Divider />
 
+          <ContactInformation />
+          <Divider />
+          <ScheduleSession />
+          <Divider />
           <ProfileSession subtitle="Agrega tu dirección para que tus clientes puedan visitarte." title="Dirección">
             <FormControl>
               <FormLabel fontSize="sm" mb="1">

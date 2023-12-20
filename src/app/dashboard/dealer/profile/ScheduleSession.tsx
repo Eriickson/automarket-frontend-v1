@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Checkbox, Table, TableCaption, TableContainer, Tbody, Td, Tfoot, Th, Thead, Tr } from "@chakra-ui/react";
+import { Checkbox, Table, TableContainer, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
 
 import { ProfileSession } from "./ProfileSession";
 
