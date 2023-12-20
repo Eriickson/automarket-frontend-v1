@@ -4,6 +4,7 @@ import { Box, HStack, ListItem, Text, UnorderedList } from "@chakra-ui/react";
 
 import { LabelValueField } from "../LabelValueField";
 import { ProfileSession } from "../ProfileSession";
+import { ModificationModal } from "./ModificationModal";
 
 export const ContactInformation = () => {
   return (
@@ -11,6 +12,7 @@ export const ContactInformation = () => {
       subtitle="Agrega tu información de contacto para que tus clientes puedan contactarte."
       title="Información de contacto"
     >
+      <ModificationModal />
       <HStack>
         <Box flex="1">
           <Text mb="4">Números de teléfono</Text>
