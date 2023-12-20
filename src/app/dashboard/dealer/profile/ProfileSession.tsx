@@ -1,8 +1,8 @@
 import React, { FC, useState } from "react";
 
-import { Box, Button, HStack, IconButton, Stack, Text } from "@chakra-ui/react";
+import { Box, HStack, IconButton, Stack, Text } from "@chakra-ui/react";
 
-import { Edit, Edit3 } from "react-feather";
+import { Edit } from "react-feather";
 
 interface ProfileSessionProps {
   title: string;
@@ -26,6 +26,9 @@ export const ProfileSession: FC<ProfileSessionProps> = ({ children, subtitle, ti
             </IconButton>
           </HStack>
           <Text fontSize="sm">{subtitle}</Text>
+          <Text fontSize="sm">
+            Últ. act. <Text as="span">Hace 2 días</Text>
+          </Text>
         </Box>
         <HStack>
           {/* <Button rounded="sm">Cancelar</Button>
