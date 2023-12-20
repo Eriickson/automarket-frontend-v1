@@ -19,7 +19,7 @@ export const BottomSession = () => {
             <Button size="sm">Actualizar</Button>
           </HStack>
         </Stack>
-        <Box bgColor="primary.900" color="white" p="4" rounded="md">
+        <Box bgColor="secondary.500" color="white" p="4" rounded="md">
           <Text fontWeight="semibold" textAlign="center">
             Erickson Auto Import
           </Text>
