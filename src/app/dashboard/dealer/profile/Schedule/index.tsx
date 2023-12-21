@@ -2,11 +2,13 @@ import React from "react";
 
 import { Checkbox, Table, TableContainer, Tbody, Td, Th, Thead, Tr } from "@chakra-ui/react";
 
-import { ProfileSession } from "./ProfileSession";
+import { ProfileSession } from "../ProfileSession";
+import { ScheduleModificationModal } from "./ScheduleModificationModal";
 
-export const ScheduleSession = () => {
+export const Schedule = () => {
   return (
     <ProfileSession
+      ModificationComponent={ScheduleModificationModal}
       subtitle="Agrega tu horario de atención para que tus clientes puedan visitarte."
       title="Horario de atención"
     >
@@ -24,7 +26,7 @@ export const ScheduleSession = () => {
             <Tr>
               <Td>Lunes</Td>
               <Td textAlign="center">09:00</Td>
-              <Td textAlign="center">07:00</Td>{" "}
+              <Td textAlign="center">07:00</Td>
               <Td textAlign="center">
                 <Checkbox colorScheme="secondary" size="md" />
               </Td>
@@ -32,7 +34,7 @@ export const ScheduleSession = () => {
             <Tr>
               <Td>Martes</Td>
               <Td textAlign="center">09:00</Td>
-              <Td textAlign="center">07:00</Td>{" "}
+              <Td textAlign="center">07:00</Td>
               <Td textAlign="center">
                 <Checkbox colorScheme="secondary" size="md" />
               </Td>
@@ -40,7 +42,7 @@ export const ScheduleSession = () => {
             <Tr>
               <Td>Miércoles</Td>
               <Td textAlign="center">09:00</Td>
-              <Td textAlign="center">07:00</Td>{" "}
+              <Td textAlign="center">07:00</Td>
               <Td textAlign="center">
                 <Checkbox colorScheme="secondary" size="md" />
               </Td>
@@ -49,7 +51,7 @@ export const ScheduleSession = () => {
             <Tr>
               <Td>Jueves</Td>
               <Td textAlign="center">09:00</Td>
-              <Td textAlign="center">07:00</Td>{" "}
+              <Td textAlign="center">07:00</Td>
               <Td textAlign="center">
                 <Checkbox colorScheme="secondary" size="md" />
               </Td>
@@ -57,7 +59,7 @@ export const ScheduleSession = () => {
             <Tr>
               <Td>Viernes</Td>
               <Td textAlign="center">09:00</Td>
-              <Td textAlign="center">07:00</Td>{" "}
+              <Td textAlign="center">07:00</Td>
               <Td textAlign="center">
                 <Checkbox colorScheme="secondary" size="md" />
               </Td>
@@ -66,7 +68,7 @@ export const ScheduleSession = () => {
             <Tr>
               <Td>Sábado</Td>
               <Td textAlign="center">09:00</Td>
-              <Td textAlign="center">07:00</Td>{" "}
+              <Td textAlign="center">07:00</Td>
               <Td textAlign="center">
                 <Checkbox colorScheme="secondary" size="md" />
               </Td>

@@ -8,7 +8,7 @@ import { Address } from "./Address";
 import { ContactInformation } from "./ContactInformation";
 import { DigitalPresence } from "./DigitalPresence";
 import { GeneralInformation } from "./GeneralInformation";
-import { ScheduleSession } from "./ScheduleSession";
+import { Schedule } from "./Schedule";
 
 const DealerProfilePage = () => {
   return (
@@ -23,7 +23,7 @@ const DealerProfilePage = () => {
           <Divider />
           <ContactInformation />
           <Divider />
-          <ScheduleSession />
+          <Schedule />
           <Divider />
           <DigitalPresence />
           <Divider />
