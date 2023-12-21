@@ -31,9 +31,7 @@ const DealerProfilePage = () => {
           <Box />
         </Stack>
       </Box>
-      <Box h="full" w="md">
-        sdad
-      </Box>
+      <Box h="full" w="md" />
     </HStack>
   );
 };
