@@ -5,6 +5,7 @@ import { Box, Image, Stack, TabPanel } from "@chakra-ui/react";
 import { SimpleTextFieldController } from "@/components/atoms";
 
 import { capitalCase } from "change-case";
+import { useFormContext } from "react-hook-form";
 
 const socialMediaItems = [
   { name: "facebook" },
@@ -16,10 +17,12 @@ const socialMediaItems = [
 ];
 
 export const SocialMediaPanel = () => {
+  const { register } = useFormContext();
+
   return (
     <TabPanel>
       <Stack>
-        {socialMediaItems.map((socialMediaItem) => (
+        {socialMediaItems.map((socialMediaItem, i) => (
           <Box key={socialMediaItem.name} pos="relative">
             <label htmlFor={socialMediaItem.name}>
               <Image
@@ -34,6 +37,7 @@ export const SocialMediaPanel = () => {
                 zIndex="2"
               />
             </label>
+            <input type="hidden" value={socialMediaItem.name} {...register(`socialMedia.${i}.socialMedia`)} />
             <SimpleTextFieldController
               _focus={{ ring: 0 }}
               border="0"
@@ -41,7 +45,7 @@ export const SocialMediaPanel = () => {
               fontSize="sm"
               fontWeight="medium"
               id={socialMediaItem.name}
-              name="facebookProfile"
+              name={`socialMedia.${i}.url`}
               pl="8"
               placeholder={`Perfil de ${capitalCase(socialMediaItem.name)}`}
               px="0"

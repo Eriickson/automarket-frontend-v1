@@ -5,6 +5,7 @@ import { Box, Image, Stack, TabPanel } from "@chakra-ui/react";
 import { SimpleTextFieldController } from "@/components/atoms";
 
 import { capitalCase } from "change-case";
+import { useFormContext } from "react-hook-form";
 
 const messagingServicesItems = [
   { name: "messenger" },
@@ -14,10 +15,11 @@ const messagingServicesItems = [
 ];
 
 export const MessagingServicesPanel = () => {
+  const { register } = useFormContext();
   return (
     <TabPanel>
       <Stack>
-        {messagingServicesItems.map((messagingServiceItem) => (
+        {messagingServicesItems.map((messagingServiceItem, i) => (
           <Box key={messagingServiceItem.name} pos="relative">
             <label htmlFor={messagingServiceItem.name}>
               <Image
@@ -32,6 +34,11 @@ export const MessagingServicesPanel = () => {
                 zIndex="2"
               />
             </label>
+            <input
+              type="hidden"
+              value={messagingServiceItem.name}
+              {...register(`messagingServices.${i}.messagingService`)}
+            />
             <SimpleTextFieldController
               _focus={{ ring: 0 }}
               border="0"
@@ -39,7 +46,7 @@ export const MessagingServicesPanel = () => {
               fontSize="sm"
               fontWeight="medium"
               id={messagingServiceItem.name}
-              name="facebookProfile"
+              name={`messagingServices.${i}.url`}
               pl="8"
               placeholder={`Perfil de ${capitalCase(messagingServiceItem.name)}`}
               px="0"

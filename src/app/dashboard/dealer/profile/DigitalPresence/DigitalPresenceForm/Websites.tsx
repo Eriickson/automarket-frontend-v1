@@ -8,7 +8,7 @@ import { Globe, Type, X } from "react-feather";
 import { useFieldArray } from "react-hook-form";
 
 export const WebsitesPanel = () => {
-  const { append, fields, remove } = useFieldArray({ name: "emails" });
+  const { append, fields, remove } = useFieldArray({ name: "websites" });
 
   return (
     <TabPanel>
@@ -25,7 +25,7 @@ export const WebsitesPanel = () => {
                   border="0"
                   borderBottom="2px"
                   fontSize="sm"
-                  name={`emails.${i}.title`}
+                  name={`websites.${i}.title`}
                   pl="8"
                   placeholder="Nombre del sitio web"
                   px="0"
@@ -42,7 +42,7 @@ export const WebsitesPanel = () => {
                   border="0"
                   borderBottom="2px"
                   fontSize="sm"
-                  name={`emails.${i}.value`}
+                  name={`websites.${i}.url`}
                   pl="8"
                   placeholder="Enlace del sitio web"
                   px="0"
