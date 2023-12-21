@@ -16,13 +16,12 @@ interface ProfileSessionProps {
 
 export const ProfileSession: FC<ProfileSessionProps> = ({ children, subtitle, title, ModificationModal }) => {
   const disclosure = useDisclosure();
-  const [allowModifyInformation, setAllowModifyInformation] = useState(true);
+  const [allowModifyInformation] = useState(true);
 
-  const [isHover, setIsHover] = useState(false);
   const toast = useToast();
 
   return (
-    <HStack alignItems="flex-start" onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
+    <HStack alignItems="flex-start">
       <Box w="2xl">
         <Box mb="4">
           <HStack>
@@ -31,7 +30,6 @@ export const ProfileSession: FC<ProfileSessionProps> = ({ children, subtitle, ti
             </Text>
             <IconButton
               aria-label=""
-              display={isHover ? "inline-flex" : "none"}
               rounded="sm"
               size="xs"
               variant="ghost"

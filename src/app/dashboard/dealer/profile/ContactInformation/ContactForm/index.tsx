@@ -19,7 +19,9 @@ import { Button, SimpleTextFieldController } from "@/components/atoms";
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 
-import { Mail, Phone, Type, X } from "react-feather";
+import { Mail, Type, X } from "react-feather";
+
+import { PhoneNumberPanel } from "./PhoneNumberPanel";
 
 export const ContactForm = () => {
   const { FormProvider } = useFormProvider();
@@ -46,53 +48,8 @@ export const ContactForm = () => {
             </Tab>
           </TabList>
           <TabPanels>
-            <TabPanel>
-              <List spacing="4">
-                {[1, 2].map((item) => (
-                  <ListItem key={item}>
-                    <HStack>
-                      <Box flex="1" pos="relative">
-                        <Box bgColor="blackAlpha.200" bottom="2.5" color="black" p="1" position="absolute" rounded="sm">
-                          <Type size="1rem" strokeWidth="2" />
-                        </Box>
-                        <SimpleTextFieldController
-                          _focus={{ ring: 0 }}
-                          border="0"
-                          borderBottom="2px"
-                          fontSize="sm"
-                          name="email"
-                          pl="8"
-                          placeholder="Nombre de teléfono"
-                          px="0"
-                          py="1"
-                        />
-                      </Box>
-                      <Text fontSize="xl">:</Text>
-                      <Box flex="1" pos="relative">
-                        <Box bgColor="blackAlpha.200" bottom="2.5" color="black" p="1" position="absolute" rounded="sm">
-                          <Phone size="1rem" strokeWidth="2.5" />
-                        </Box>
-                        <SimpleTextFieldController
-                          _focus={{ ring: 0 }}
-                          border="0"
-                          borderBottom="2px"
-                          fontSize="sm"
-                          name="email1"
-                          pl="8"
-                          placeholder="Número de teléfono"
-                          px="0"
-                          py="1"
-                        />
-                      </Box>
-                      <IconButton aria-label="" rounded="sm" size="xs">
-                        <X size="1rem" strokeWidth="2" />
-                      </IconButton>
-                    </HStack>
-                  </ListItem>
-                ))}
-                <Button size="sm">Agregar número telefónico</Button>
-              </List>
-            </TabPanel>
+            <PhoneNumberPanel />
+
             <TabPanel>
               <List spacing="4">
                 {[1, 2, 3, 4, 5].map((item) => (
