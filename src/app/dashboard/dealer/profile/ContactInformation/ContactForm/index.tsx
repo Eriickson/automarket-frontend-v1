@@ -12,12 +12,8 @@ import { ContactFormValuesType, resolver } from "./schema";
 
 interface ContactFormProps extends FormComponentProps<ContactFormValuesType> {}
 
-export const ContactForm: FC<ContactFormProps> = ({ onSubmit, defaultValues }) => {
-  const { FormProvider, methods } = useFormProvider<ContactFormValuesType>({
-    defaultValues,
-    resolver,
-    id: "contact-form",
-  });
+export const ContactForm: FC<ContactFormProps> = ({ onSubmit, defaultValues, id }) => {
+  const { FormProvider, methods } = useFormProvider<ContactFormValuesType>({ defaultValues, resolver, id });
 
   const phoneNumbers = methods.watch("phoneNumbers");
   const emails = methods.watch("emails");

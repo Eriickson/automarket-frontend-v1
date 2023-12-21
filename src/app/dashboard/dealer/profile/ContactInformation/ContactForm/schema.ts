@@ -3,12 +3,14 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const contactFormSchema = z.object({
-  phoneNumbers: z.array(
-    z.object({
-      title: z.string().min(1, "Este campo es requerido"),
-      value: z.string().min(1, "Este campo es requerido"),
-    })
-  ),
+  phoneNumbers: z
+    .array(
+      z.object({
+        title: z.string().min(1, "Este campo es requerido"),
+        value: z.string().min(1, "Este campo es requerido"),
+      })
+    )
+    .min(1, "Debe agregar al menos un número de teléfono"),
   emails: z.array(
     z.object({
       title: z.string().min(1, "Este campo es requerido"),

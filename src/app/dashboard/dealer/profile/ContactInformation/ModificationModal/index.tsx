@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useId, useState } from "react";
 
 import {
   HStack,
@@ -27,6 +27,7 @@ interface ModificationModalProps {
 export const ModificationModal: FC<ModificationModalProps> = ({ disclosure }) => {
   const [isLoading, setIsLoading] = useState(false);
   const toast = useToast();
+  const formId = useId();
 
   const [retrieveContacts, setRetrieveContacts] = useState<ContactFormValuesType>({ emails: [], phoneNumbers: [] });
 
@@ -64,7 +65,7 @@ export const ModificationModal: FC<ModificationModalProps> = ({ disclosure }) =>
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <ContactForm defaultValues={retrieveContacts} onSubmit={handleSubmit} />
+            <ContactForm defaultValues={retrieveContacts} id={formId} onSubmit={handleSubmit} />
           </ModalBody>
           <ModalFooter justifyContent="space-between">
             <Button backgroundColor="red.50" colorScheme="red" variant="ghost">
@@ -74,7 +75,7 @@ export const ModificationModal: FC<ModificationModalProps> = ({ disclosure }) =>
               <Button bgColor="gray.100" colorScheme="secondary" mr={3} variant="ghost" onClick={disclosure.onClose}>
                 Cancelar
               </Button>
-              <Button colorScheme="primary" form="contact-form" type="submit">
+              <Button colorScheme="primary" form={formId} type="submit">
                 Guardar Cambios
               </Button>
             </HStack>
