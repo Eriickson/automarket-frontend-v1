@@ -2,7 +2,6 @@ import React from "react";
 
 import {
   Box,
-  Divider,
   HStack,
   IconButton,
   List,
@@ -16,7 +15,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-import { SimpleTextField, SimpleTextFieldController } from "@/components/atoms";
+import { Button, SimpleTextFieldController } from "@/components/atoms";
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 
@@ -31,8 +30,6 @@ export const ContactForm = () => {
         console.log(data);
       }}
     >
-      {/* <SimpleTextFieldController fontSize="sm" label="Número telefónico" name="phone" px="2.5" py="2" />
-      <SimpleTextFieldController fontSize="sm" label="Correo electrónico" name="email" px="2.5" py="2" /> */}
       <Stack>
         <Text fontWeight="medium"></Text>
         <Tabs colorScheme="primary" variant="enclosed-colored">
@@ -51,7 +48,7 @@ export const ContactForm = () => {
           <TabPanels>
             <TabPanel>
               <List spacing="4">
-                {[1, 2, 3, 4, 5].map((item) => (
+                {[1, 2].map((item) => (
                   <ListItem key={item}>
                     <HStack>
                       <Box flex="1" pos="relative">
@@ -62,7 +59,6 @@ export const ContactForm = () => {
                           _focus={{ ring: 0 }}
                           border="0"
                           borderBottom="2px"
-                          // defaultValue="Correo electrónico Principal"
                           fontSize="sm"
                           name="email"
                           pl="8"
@@ -86,7 +82,6 @@ export const ContactForm = () => {
                           placeholder="Número de teléfono"
                           px="0"
                           py="1"
-                          // defaultValue="erickson01d@gmail.com"
                         />
                       </Box>
                       <IconButton aria-label="" rounded="sm" size="xs">
@@ -95,6 +90,7 @@ export const ContactForm = () => {
                     </HStack>
                   </ListItem>
                 ))}
+                <Button size="sm">Agregar número telefónico</Button>
               </List>
             </TabPanel>
             <TabPanel>
@@ -116,7 +112,6 @@ export const ContactForm = () => {
                           placeholder="Nombre de correo"
                           px="0"
                           py="1"
-                          // defaultValue="Correo electrónico Principal"
                         />
                       </Box>
                       <Text fontSize="xl">:</Text>
@@ -134,7 +129,6 @@ export const ContactForm = () => {
                           placeholder="Correo electrónico"
                           px="0"
                           py="1"
-                          // defaultValue="erickson01d@gmail.com"
                         />
                       </Box>
                       <IconButton aria-label="" rounded="sm" size="xs">
@@ -143,6 +137,9 @@ export const ContactForm = () => {
                     </HStack>
                   </ListItem>
                 ))}
+                <Button isDisabled size="sm">
+                  Agregar Correo Electrónico
+                </Button>
               </List>
             </TabPanel>
           </TabPanels>
