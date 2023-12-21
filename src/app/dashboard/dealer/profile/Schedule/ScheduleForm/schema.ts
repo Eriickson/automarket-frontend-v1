@@ -1,3 +1,4 @@
+import moment from "moment";
 import { z } from "zod";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -5,11 +6,19 @@ import { zodResolver } from "@hookform/resolvers/zod";
 const scheduleFormSchema = z.object({
   schedule: z
     .array(
-      z.object({
-        startTime: z.string(),
-        endTime: z.string(),
-        isClosed: z.boolean(),
-      })
+      z
+        .object({
+          startTime: z.string().regex(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/, "Debes ingresar una hora válida"),
+          endTime: z.string().regex(/^([0-1]?[0-9]|2[0-3]):[0-5][0-9]$/, "Debes ingresar una hora válida"),
+          isClosed: z.boolean(),
+        })
+        .refine(
+          (data) => {
+            if (data.isClosed) return true;
+            return moment(data.startTime, "HH:mm").isBefore(moment(data.endTime, "HH:mm"));
+          },
+          { message: "La hora de apertura es mayor a la hora de cierre" }
+        )
     )
     .min(7)
     .max(7),

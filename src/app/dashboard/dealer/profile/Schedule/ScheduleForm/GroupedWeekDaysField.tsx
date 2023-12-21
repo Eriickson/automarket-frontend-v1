@@ -8,8 +8,6 @@ import { WeekDayField } from "./WeekDayField";
 export const GroupedWeekDaysField = () => {
   const { field } = useController({ name: "schedule" });
 
-  console.log(field.value);
-
   return (
     <WeekDayField
       label="Lunes - Viernes"

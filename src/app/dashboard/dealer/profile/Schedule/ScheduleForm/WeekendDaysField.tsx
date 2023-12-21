@@ -7,7 +7,9 @@ import { WeekDayField } from "./WeekDayField";
 const weekendDays = ["Sábado", "Domingo"];
 
 export const WeekendDaysField = () => {
-  const { field } = useController({ name: "schedule" });
+  const { field, formState } = useController({ name: "schedule" });
+
+  console.log(formState.errors);
 
   return (
     <>
@@ -15,6 +17,7 @@ export const WeekendDaysField = () => {
         const dayIndex = index + 5;
         return (
           <WeekDayField
+            error="Asegúrate de seleccionar un horario válido"
             key={day}
             label={day}
             value={field.value.at(dayIndex)}

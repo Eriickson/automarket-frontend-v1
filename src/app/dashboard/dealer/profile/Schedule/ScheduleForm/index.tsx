@@ -16,9 +16,24 @@ import { WeekendDaysField } from "./WeekendDaysField";
 interface ScheduleFormProps extends FormComponentProps<ScheduleFormValuesType> {}
 
 export const ScheduleForm: FC<ScheduleFormProps> = ({ defaultValues, onSubmit, id }) => {
-  const { FormProvider } = useFormProvider<ScheduleFormValuesType>({ defaultValues, resolver, id });
+  const { FormProvider, methods } = useFormProvider<ScheduleFormValuesType>({ defaultValues, resolver, id });
 
   const [isGroupedWeekDays, setIsGroupedWeekDays] = useState(true);
+
+  function handleChangeGrouping() {
+    const newIsGroupedWeekDays = !isGroupedWeekDays;
+
+    if (newIsGroupedWeekDays) {
+      const mondayValue = methods.getValues("schedule").at(0)!;
+
+      const saturdayValue = methods.getValues("schedule").at(5)!;
+      const sundayValue = methods.getValues("schedule").at(6)!;
+
+      methods.setValue("schedule", Array(5).fill(mondayValue).concat([saturdayValue, sundayValue]));
+    }
+
+    setIsGroupedWeekDays(newIsGroupedWeekDays);
+  }
 
   return (
     <FormProvider onSubmit={onSubmit}>
@@ -30,7 +45,7 @@ export const ScheduleForm: FC<ScheduleFormProps> = ({ defaultValues, onSubmit, i
             size="sm"
             variant="ghost"
             w="max-content"
-            onClick={() => setIsGroupedWeekDays(!isGroupedWeekDays)}
+            onClick={handleChangeGrouping}
           >
             {isGroupedWeekDays ? "Desagrupar" : "Agrupar"} días de la semana
           </Button>
