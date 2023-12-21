@@ -17,6 +17,7 @@ import {
 import { Button } from "@/components/atoms";
 
 import { AlertDialogConfirmation } from "../AlertDialogConfirmation";
+import { ContactForm } from "../ContactForm";
 
 interface ModificationModalProps {
   disclosure: ReturnType<typeof useDisclosure>;
@@ -48,13 +49,14 @@ export const ModificationModal: FC<ModificationModalProps> = ({ disclosure }) =>
       <Modal isCentered isOpen={disclosure.isOpen} motionPreset="slideInBottom" size="2xl" onClose={disclosure.onClose}>
         <ModalOverlay bgColor="#000000AF" />
         <ModalContent rounded="sm">
-          <ModalHeader px="4">
+          <ModalHeader>
             <Text>Información de Contacto</Text>
           </ModalHeader>
           <ModalCloseButton />
-          <ModalBody px="4">Hola a todos</ModalBody>
-
-          <ModalFooter justifyContent="space-between" px="4">
+          <ModalBody>
+            <ContactForm />
+          </ModalBody>
+          <ModalFooter justifyContent="space-between">
             <Button backgroundColor="red.50" colorScheme="red" variant="ghost">
               Restablecer
             </Button>
