@@ -11,13 +11,13 @@ export const ScheduleSession = () => {
       title="Horario de atención"
     >
       <TableContainer>
-        <Table size="sm">
+        <Table size="sm" variant="striped">
           <Thead>
             <Tr>
               <Th>Día de la semana</Th>
-              <Th>Hora de Apertura</Th>
-              <Th>Hora de Cierre</Th>
-              <Th>Abierto</Th>
+              <Th textAlign="center">Hora de Apertura</Th>
+              <Th textAlign="center">Hora de Cierre</Th>
+              <Th textAlign="center">Abierto</Th>
             </Tr>
           </Thead>
           <Tbody>
@@ -74,8 +74,8 @@ export const ScheduleSession = () => {
 
             <Tr>
               <Td>Domingo</Td>
-              <Td textAlign="center">09:00</Td>
-              <Td textAlign="center">07:00</Td>
+              <Td textAlign="center">Cerrado</Td>
+              <Td textAlign="center">Cerrado</Td>
               <Td textAlign="center">
                 <Checkbox colorScheme="secondary" size="md" />
               </Td>
