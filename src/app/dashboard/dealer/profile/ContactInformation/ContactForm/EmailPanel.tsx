@@ -1,14 +1,14 @@
 import React from "react";
 
-import { Box, HStack, IconButton, List, ListItem, TabPanel, Text } from "@chakra-ui/react";
+import { Box, HStack, List, ListItem, TabPanel, Text } from "@chakra-ui/react";
 
-import { Button, SimpleTextFieldController } from "@/components/atoms";
+import { Button, IconButton, SimpleTextFieldController } from "@/components/atoms";
 
-import { Phone, Type, X } from "react-feather";
+import { Mail, Type, X } from "react-feather";
 import { useFieldArray } from "react-hook-form";
 
-export const PhoneNumberPanel = () => {
-  const { append, fields, remove } = useFieldArray({ name: "phoneNumbers" });
+export const EmailPanel = () => {
+  const { append, fields, remove } = useFieldArray({ name: "emails" });
 
   return (
     <TabPanel>
@@ -25,9 +25,9 @@ export const PhoneNumberPanel = () => {
                   border="0"
                   borderBottom="2px"
                   fontSize="sm"
-                  name={`phoneNumbers.${i}.name`}
+                  name={`emails.${i}.name`}
                   pl="8"
-                  placeholder="Nombre de teléfono"
+                  placeholder="Nombre del correo electrónico"
                   px="0"
                   py="1"
                 />
@@ -35,16 +35,16 @@ export const PhoneNumberPanel = () => {
               <Text fontSize="xl">:</Text>
               <Box flex="1" pos="relative">
                 <Box bgColor="blackAlpha.200" bottom="2.5" color="black" p="1" position="absolute" rounded="sm">
-                  <Phone size="1rem" strokeWidth="2.5" />
+                  <Mail size="1rem" strokeWidth="2.5" />
                 </Box>
                 <SimpleTextFieldController
                   _focus={{ ring: 0 }}
                   border="0"
                   borderBottom="2px"
                   fontSize="sm"
-                  name={`phoneNumbers.${i}.value`}
+                  name={`emails.${i}.value`}
                   pl="8"
-                  placeholder="Número de teléfono"
+                  placeholder="Correo electrónico"
                   px="0"
                   py="1"
                 />
@@ -56,7 +56,7 @@ export const PhoneNumberPanel = () => {
           </ListItem>
         ))}
         <Button isDisabled={fields.length === 5} size="sm" onClick={() => append({})}>
-          Agregar Número Telefónico
+          Agregar Correo Electrónico
         </Button>
       </List>
     </TabPanel>
