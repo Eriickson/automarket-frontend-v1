@@ -4,10 +4,15 @@ import { Box, HStack, Image, Stack } from "@chakra-ui/react";
 
 import { LabelValueField } from "../LabelValueField";
 import { ProfileSession } from "../ProfileSession";
+import { AddressModificationModal } from "./AddressModificationModal";
 
 export const Address = () => {
   return (
-    <ProfileSession subtitle="Agrega tu dirección para que tus clientes puedan visitarte." title="Dirección">
+    <ProfileSession
+      ModificationComponent={AddressModificationModal}
+      subtitle="Agrega tu dirección para que tus clientes puedan visitarte."
+      title="Dirección y Geolocalización"
+    >
       <HStack>
         <Stack w="sm">
           <LabelValueField label="Provincia" value="Santiago" />

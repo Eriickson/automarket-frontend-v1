@@ -21,7 +21,6 @@ export const ContactForm: FC<ContactFormProps> = ({ onSubmit, defaultValues, id 
   return (
     <FormProvider onSubmit={onSubmit}>
       <Stack>
-        <Text fontWeight="medium"></Text>
         <Tabs colorScheme="primary" variant="enclosed-colored">
           <TabList>
             <Tab mr="2" px="2.5" py="1.5">
