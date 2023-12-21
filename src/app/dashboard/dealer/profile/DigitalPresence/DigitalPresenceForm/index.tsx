@@ -13,14 +13,14 @@ import { WebsitesPanel } from "./Websites";
 
 const tabsItems = [
   {
-    label: "Servicios de mensajería",
-    field: "messagingServices",
-    TabPanel: MessagingServicesPanel,
-  },
-  {
     label: "Redes sociales",
     field: "socialMedia",
     TabPanel: SocialMediaPanel,
+  },
+  {
+    label: "Servicios de mensajería",
+    field: "messagingServices",
+    TabPanel: MessagingServicesPanel,
   },
   {
     label: "Sitios web",
