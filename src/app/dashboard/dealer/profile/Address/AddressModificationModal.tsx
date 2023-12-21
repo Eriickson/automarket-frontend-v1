@@ -32,6 +32,8 @@ export const AddressModificationModal: FC<AddressModificationModalProps> = ({ di
       Form={AddressForm}
       isLoading={isLoading}
       title={title}
+      waitTime={6}
+      waitTimeUnit="months"
       onConfirm={handleConfirm}
     />
   );

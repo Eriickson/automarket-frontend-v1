@@ -26,9 +26,8 @@ const tabsItems = [
 ];
 
 export const AddressForm: FC<AddressFormProps> = ({ onSubmit, defaultValues, id }) => {
-  const { FormProvider, methods } = useFormProvider<AddressFormValuesType>({ defaultValues, resolver, id });
+  const { FormProvider } = useFormProvider<AddressFormValuesType>({ defaultValues, resolver, id });
 
-  console.log(methods.formState.errors);
 
   return (
     <FormProvider onSubmit={onSubmit}>

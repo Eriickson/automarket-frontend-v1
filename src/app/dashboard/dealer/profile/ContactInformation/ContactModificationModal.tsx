@@ -33,6 +33,8 @@ export const ContactModificationModal: FC<ContactModificationModalProps> = ({ di
       Form={ContactForm}
       isLoading={isLoading}
       title={title}
+      waitTime={30}
+      waitTimeUnit="days"
       onConfirm={handleConfirm}
     />
   );

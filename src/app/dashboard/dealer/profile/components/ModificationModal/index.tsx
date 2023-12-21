@@ -19,6 +19,14 @@ import { Button } from "@/components/atoms";
 
 import { AlertDialogConfirmation } from "../AlertDialogConfirmation";
 
+type WaitTimeUnit = "days" | "months" | "years";
+
+const waitTimeUnitsMapper: Record<WaitTimeUnit, string> = {
+  days: "días",
+  months: "meses",
+  years: "años",
+};
+
 interface ModificationModalProps<TValue> {
   title: string;
   disclosure: ReturnType<typeof useDisclosure>;
@@ -26,6 +34,8 @@ interface ModificationModalProps<TValue> {
   onConfirm: (values: TValue, disclosure: ReturnType<typeof useDisclosure>) => void;
   Form: FC<FormComponentProps<TValue>>;
   defaultValues?: TValue;
+  waitTime: number;
+  waitTimeUnit: WaitTimeUnit;
 }
 
 export const ModificationModal = <TValue,>({
@@ -35,6 +45,8 @@ export const ModificationModal = <TValue,>({
   disclosure,
   Form,
   defaultValues,
+  waitTimeUnit,
+  waitTime,
 }: ModificationModalProps<TValue>) => {
   const formId = useId();
 
@@ -84,7 +96,7 @@ export const ModificationModal = <TValue,>({
       <AlertDialogConfirmation
         disclosure={alertDialogDisclosure}
         isLoading={isLoading}
-        waitTime="90 días"
+        waitTime={`${waitTime} ${waitTimeUnitsMapper[waitTimeUnit]}`}
         onCancel={() => {
           alertDialogDisclosure.onClose();
           disclosure.onOpen();

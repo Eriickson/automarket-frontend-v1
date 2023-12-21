@@ -11,7 +11,7 @@ export const Address = () => {
     <ProfileSession
       ModificationComponent={AddressModificationModal}
       subtitle="Agrega tu dirección para que tus clientes puedan visitarte."
-      title="Dirección y Geolocalización"
+      title="Dirección y Google Maps"
     >
       <HStack>
         <Stack w="sm">
