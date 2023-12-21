@@ -8,14 +8,14 @@ interface ProfileSessionProps {
   title: string;
   subtitle: string;
   children: React.ReactNode;
-  ModificationModal?: FC<{
+  ModificationComponent?: FC<{
     title: string;
     isLoading?: boolean;
     disclosure: ReturnType<typeof useDisclosure>;
   }>;
 }
 
-export const ProfileSession: FC<ProfileSessionProps> = ({ children, subtitle, title, ModificationModal }) => {
+export const ProfileSession: FC<ProfileSessionProps> = ({ children, subtitle, title, ModificationComponent }) => {
   const disclosure = useDisclosure();
   const [allowModifyInformation] = useState(true);
 
@@ -76,7 +76,7 @@ export const ProfileSession: FC<ProfileSessionProps> = ({ children, subtitle, ti
       <Stack flex="1" spacing="4">
         {children}
       </Stack>
-      {ModificationModal ? <ModificationModal disclosure={disclosure} title={title} /> : null}
+      {ModificationComponent ? <ModificationComponent disclosure={disclosure} title={title} /> : null}
     </HStack>
   );
 };

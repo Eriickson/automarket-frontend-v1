@@ -1,5 +1,7 @@
 import React, { FC, useId, useState } from "react";
 
+import { FormComponentProps } from "@atmk/components";
+
 import {
   HStack,
   Modal,
@@ -11,49 +13,37 @@ import {
   ModalOverlay,
   Text,
   useDisclosure,
-  useToast,
 } from "@chakra-ui/react";
 
 import { Button } from "@/components/atoms";
 
-import { ContactForm } from "../../ContactInformation/ContactForm";
-import { ContactFormValuesType } from "../../ContactInformation/ContactForm/schema";
 import { AlertDialogConfirmation } from "../AlertDialogConfirmation";
 
-interface ModificationModalProps {
+interface ModificationModalProps<TValue> {
   title: string;
   disclosure: ReturnType<typeof useDisclosure>;
+  isLoading: boolean;
+  onConfirm: (values: TValue, disclosure: ReturnType<typeof useDisclosure>) => void;
+  Form: FC<FormComponentProps<TValue>>;
 }
 
-export const ModificationModal: FC<ModificationModalProps> = ({ title, disclosure }) => {
-  const [isLoading, setIsLoading] = useState(false);
-  const toast = useToast();
+export const ModificationModal = <TValue,>({
+  isLoading,
+  onConfirm,
+  title,
+  disclosure,
+  Form,
+}: ModificationModalProps<TValue>) => {
   const formId = useId();
 
-  const [retrieveContacts, setRetrieveContacts] = useState<ContactFormValuesType>({ emails: [], phoneNumbers: [] });
+  const [retrieveContacts, setRetrieveContacts] = useState<TValue>({ emails: [], phoneNumbers: [] } as TValue);
 
   const alertDialogDisclosure = useDisclosure();
 
-  async function handleSubmit(values: ContactFormValuesType) {
+  async function handleSubmit(values: TValue) {
     setRetrieveContacts(values);
     disclosure.onClose();
     alertDialogDisclosure.onOpen();
-  }
-
-  async function handleConfirm() {
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false);
-      alertDialogDisclosure.onClose();
-      toast({
-        status: "success",
-        title: "Información actualizada",
-        description: "La información de contacto ha sido actualizada correctamente.",
-        variant: "left-accent",
-        position: "top-right",
-      });
-      setRetrieveContacts({ emails: [], phoneNumbers: [] });
-    }, 2000);
   }
 
   return (
@@ -66,12 +56,9 @@ export const ModificationModal: FC<ModificationModalProps> = ({ title, disclosur
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <ContactForm defaultValues={retrieveContacts} id={formId} onSubmit={handleSubmit} />
+            <Form defaultValues={retrieveContacts} id={formId} onSubmit={handleSubmit} />
           </ModalBody>
-          <ModalFooter /*  justifyContent="space-between" */>
-            {/* <Button backgroundColor="red.50" colorScheme="red" variant="ghost">
-              Restablecer
-            </Button> */}
+          <ModalFooter>
             <HStack spacing="1">
               <Button bgColor="gray.100" colorScheme="secondary" mr={3} variant="ghost" onClick={disclosure.onClose}>
                 Cancelar
@@ -91,7 +78,7 @@ export const ModificationModal: FC<ModificationModalProps> = ({ title, disclosur
           alertDialogDisclosure.onClose();
           disclosure.onOpen();
         }}
-        onConfirm={handleConfirm}
+        onConfirm={() => onConfirm(retrieveContacts as TValue, alertDialogDisclosure)}
       />
     </>
   );

@@ -25,7 +25,7 @@ export const EmailPanel = () => {
                   border="0"
                   borderBottom="2px"
                   fontSize="sm"
-                  name={`emails.${i}.name`}
+                  name={`emails.${i}.title`}
                   pl="8"
                   placeholder="Nombre del correo electrónico"
                   px="0"
