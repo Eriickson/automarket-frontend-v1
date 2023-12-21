@@ -1,14 +1,16 @@
 import React from "react";
 
-import { Box, HStack, Image, List, ListItem, Text, UnorderedList } from "@chakra-ui/react";
+import { HStack, Image, List, ListItem, Text } from "@chakra-ui/react";
 
 import { ProfileSession } from "../ProfileSession";
+import { DigitalPresenceModificationModal } from "./DigitalPresenceModificationModal";
 
-export const SocialMedia = () => {
+export const DigitalPresence = () => {
   return (
     <ProfileSession
+      ModificationComponent={DigitalPresenceModificationModal}
       subtitle="Agrega tus redes sociales para que tus clientes puedan contactarte."
-      title="Redes Sociales y Sitio Web"
+      title="Presencia Digital"
     >
       <List spacing="2">
         <ListItem>

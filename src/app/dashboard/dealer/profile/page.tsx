@@ -6,9 +6,9 @@ import { Box, Divider, HStack, Stack } from "@chakra-ui/react";
 import { DashboardSessionTitle } from "../../DashboardSessionTitle";
 import { Address } from "./Address";
 import { ContactInformation } from "./ContactInformation";
+import { DigitalPresence } from "./DigitalPresence";
 import { GeneralInformation } from "./GeneralInformation";
 import { ScheduleSession } from "./ScheduleSession";
-import { SocialMedia } from "./SocialMedia";
 
 const DealerProfilePage = () => {
   return (
@@ -25,7 +25,7 @@ const DealerProfilePage = () => {
           <Divider />
           <ScheduleSession />
           <Divider />
-          <SocialMedia />
+          <DigitalPresence />
           <Divider />
           <Address />
           <Box />
