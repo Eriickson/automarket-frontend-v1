@@ -1,13 +1,10 @@
 import React from "react";
 
-import { ModificationModal } from "../components/ModificationModal";
 import { ProfileSession } from "../ProfileSession";
 import { ContactList } from "./ContactList";
 import { ContactModificationModal } from "./ContactModificationModal";
 
 export const ContactInformation = () => {
-  async function handleSubmit() {}
-
   return (
     <ProfileSession
       ModificationComponent={ContactModificationModal}

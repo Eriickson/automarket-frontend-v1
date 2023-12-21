@@ -25,6 +25,7 @@ interface ModificationModalProps<TValue> {
   isLoading: boolean;
   onConfirm: (values: TValue, disclosure: ReturnType<typeof useDisclosure>) => void;
   Form: FC<FormComponentProps<TValue>>;
+  defaultValues?: TValue;
 }
 
 export const ModificationModal = <TValue,>({
@@ -33,15 +34,16 @@ export const ModificationModal = <TValue,>({
   title,
   disclosure,
   Form,
+  defaultValues,
 }: ModificationModalProps<TValue>) => {
   const formId = useId();
 
-  const [retrieveContacts, setRetrieveContacts] = useState<TValue>({ emails: [], phoneNumbers: [] } as TValue);
+  const [retrieveValues, setRetrieveValues] = useState<TValue | undefined>(defaultValues);
 
   const alertDialogDisclosure = useDisclosure();
 
   async function handleSubmit(values: TValue) {
-    setRetrieveContacts(values);
+    setRetrieveValues(values);
     disclosure.onClose();
     alertDialogDisclosure.onOpen();
   }
@@ -56,11 +58,20 @@ export const ModificationModal = <TValue,>({
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Form defaultValues={retrieveContacts} id={formId} onSubmit={handleSubmit} />
+            <Form defaultValues={retrieveValues} id={formId} onSubmit={handleSubmit} />
           </ModalBody>
           <ModalFooter>
             <HStack spacing="1">
-              <Button bgColor="gray.100" colorScheme="secondary" mr={3} variant="ghost" onClick={disclosure.onClose}>
+              <Button
+                bgColor="gray.100"
+                colorScheme="secondary"
+                mr={3}
+                variant="ghost"
+                onClick={() => {
+                  disclosure.onClose();
+                  setRetrieveValues(defaultValues);
+                }}
+              >
                 Cancelar
               </Button>
               <Button colorScheme="primary" form={formId} type="submit">
@@ -78,7 +89,7 @@ export const ModificationModal = <TValue,>({
           alertDialogDisclosure.onClose();
           disclosure.onOpen();
         }}
-        onConfirm={() => onConfirm(retrieveContacts as TValue, alertDialogDisclosure)}
+        onConfirm={() => onConfirm(retrieveValues as TValue, alertDialogDisclosure)}
       />
     </>
   );

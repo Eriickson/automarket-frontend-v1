@@ -34,16 +34,6 @@ export const ProfileSession: FC<ProfileSessionProps> = ({ children, subtitle, ti
               rounded="sm"
               size="xs"
               variant="ghost"
-              // onClick={() =>
-              //   toast({
-              //     status: "warning",
-              //     title: "Información modificada recientemente",
-              //     description: "Debes esperar almenos 30 min para poder modificar esta información.",
-              //     variant: "left-accent",
-              //     position: "top-right",
-              //   })
-              // }
-              // onClick={disclosure.onOpen}
               onClick={() => {
                 if (allowModifyInformation) {
                   disclosure.onOpen();
@@ -66,12 +56,6 @@ export const ProfileSession: FC<ProfileSessionProps> = ({ children, subtitle, ti
             Últ. act. <Text as="span">Hace 2 días</Text>
           </Text>
         </Box>
-        <HStack>
-          {/* <Button rounded="sm">Cancelar</Button>
-          <Button colorScheme="primary" rounded="sm">
-            Guardar Cambios
-          </Button> */}
-        </HStack>
       </Box>
       <Stack flex="1" spacing="4">
         {children}

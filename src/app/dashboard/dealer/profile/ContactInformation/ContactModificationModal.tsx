@@ -21,6 +21,7 @@ export const ContactModificationModal: FC<ContactModificationModalProps> = ({ di
 
   return (
     <ModificationModal
+      defaultValues={{ emails: [], phoneNumbers: [] }}
       disclosure={disclosure}
       Form={ContactForm}
       isLoading={isLoading}
