@@ -1,41 +1,29 @@
-import React from "react";
+import React, { FC } from "react";
 
-import {
-  Box,
-  HStack,
-  IconButton,
-  List,
-  ListItem,
-  Stack,
-  Tab,
-  TabList,
-  TabPanel,
-  TabPanels,
-  Tabs,
-  Text,
-} from "@chakra-ui/react";
+import { FormComponentProps } from "@atmk/components";
 
-import { Button, SimpleTextFieldController } from "@/components/atoms";
+import { Stack, Tab, TabList, TabPanels, Tabs, Text } from "@chakra-ui/react";
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 
 import { EmailPanel } from "./EmailPanel";
 import { PhoneNumberPanel } from "./PhoneNumberPanel";
+import { ContactFormValuesType, resolver } from "./schema";
 
-export const ContactForm = () => {
-  const { FormProvider, methods } = useFormProvider({
-    defaultValues: { phoneNumbers: [], emails: [] },
+interface ContactFormProps extends FormComponentProps<ContactFormValuesType> {}
+
+export const ContactForm: FC<ContactFormProps> = ({ onSubmit, defaultValues }) => {
+  const { FormProvider, methods } = useFormProvider<ContactFormValuesType>({
+    defaultValues,
+    resolver,
+    id: "contact-form",
   });
 
   const phoneNumbers = methods.watch("phoneNumbers");
   const emails = methods.watch("emails");
 
   return (
-    <FormProvider
-      onSubmit={async (data) => {
-        console.log(data);
-      }}
-    >
+    <FormProvider onSubmit={onSubmit}>
       <Stack>
         <Text fontWeight="medium"></Text>
         <Tabs colorScheme="primary" variant="enclosed-colored">

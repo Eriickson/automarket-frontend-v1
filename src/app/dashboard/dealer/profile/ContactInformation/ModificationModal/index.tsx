@@ -18,6 +18,7 @@ import { Button } from "@/components/atoms";
 
 import { AlertDialogConfirmation } from "../AlertDialogConfirmation";
 import { ContactForm } from "../ContactForm";
+import { ContactFormValuesType } from "../ContactForm/schema";
 
 interface ModificationModalProps {
   disclosure: ReturnType<typeof useDisclosure>;
@@ -27,9 +28,17 @@ export const ModificationModal: FC<ModificationModalProps> = ({ disclosure }) =>
   const [isLoading, setIsLoading] = useState(false);
   const toast = useToast();
 
+  const [retrieveContacts, setRetrieveContacts] = useState<ContactFormValuesType>({ emails: [], phoneNumbers: [] });
+
   const alertDialogDisclosure = useDisclosure();
 
-  async function handleSubmit() {
+  async function handleSubmit(values: ContactFormValuesType) {
+    setRetrieveContacts(values);
+    disclosure.onClose();
+    alertDialogDisclosure.onOpen();
+  }
+
+  async function handleConfirm() {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
@@ -41,6 +50,7 @@ export const ModificationModal: FC<ModificationModalProps> = ({ disclosure }) =>
         variant: "left-accent",
         position: "top-right",
       });
+      setRetrieveContacts({ emails: [], phoneNumbers: [] });
     }, 2000);
   }
 
@@ -54,7 +64,7 @@ export const ModificationModal: FC<ModificationModalProps> = ({ disclosure }) =>
           </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <ContactForm />
+            <ContactForm defaultValues={retrieveContacts} onSubmit={handleSubmit} />
           </ModalBody>
           <ModalFooter justifyContent="space-between">
             <Button backgroundColor="red.50" colorScheme="red" variant="ghost">
@@ -64,13 +74,7 @@ export const ModificationModal: FC<ModificationModalProps> = ({ disclosure }) =>
               <Button bgColor="gray.100" colorScheme="secondary" mr={3} variant="ghost" onClick={disclosure.onClose}>
                 Cancelar
               </Button>
-              <Button
-                colorScheme="primary"
-                onClick={() => {
-                  disclosure.onClose();
-                  alertDialogDisclosure.onOpen();
-                }}
-              >
+              <Button colorScheme="primary" form="contact-form" type="submit">
                 Guardar Cambios
               </Button>
             </HStack>
@@ -85,9 +89,7 @@ export const ModificationModal: FC<ModificationModalProps> = ({ disclosure }) =>
           alertDialogDisclosure.onClose();
           disclosure.onOpen();
         }}
-        onConfirm={() => {
-          handleSubmit();
-        }}
+        onConfirm={handleConfirm}
       />
     </>
   );

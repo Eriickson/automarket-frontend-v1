@@ -25,7 +25,7 @@ export const PhoneNumberPanel = () => {
                   border="0"
                   borderBottom="2px"
                   fontSize="sm"
-                  name={`phoneNumbers.${i}.name`}
+                  name={`phoneNumbers.${i}.title`}
                   pl="8"
                   placeholder="Nombre de teléfono"
                   px="0"

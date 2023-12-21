@@ -30,7 +30,7 @@ export const useFormProvider = <T extends FieldValues>(args: UseFormProviderArgs
 
       return (
         <ReactFormProvider {...methods}>
-          <Stack as="form" onSubmit={methods.handleSubmit(handleSubmit)}>
+          <Stack as="form" id={args.id} onSubmit={methods.handleSubmit(handleSubmit)}>
             {props.children}
           </Stack>
         </ReactFormProvider>
