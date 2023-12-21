@@ -15,7 +15,7 @@ import { WeekendDaysField } from "./WeekendDaysField";
 
 interface ScheduleFormProps extends FormComponentProps<ScheduleFormValuesType> {}
 
-export const ScheduleForm: FC<ScheduleFormProps> = ({ onSubmit, defaultValues, id }) => {
+export const ScheduleForm: FC<ScheduleFormProps> = ({ defaultValues, onSubmit, id }) => {
   const { FormProvider } = useFormProvider<ScheduleFormValuesType>({ defaultValues, resolver, id });
 
   const [isGroupedWeekDays, setIsGroupedWeekDays] = useState(true);
@@ -35,7 +35,7 @@ export const ScheduleForm: FC<ScheduleFormProps> = ({ onSubmit, defaultValues, i
             {isGroupedWeekDays ? "Desagrupar" : "Agrupar"} días de la semana
           </Button>
           {isGroupedWeekDays ? <GroupedWeekDaysField /> : <UngroupedWeekDaysField />}
-          {/* <WeekendDaysField /> */}
+          <WeekendDaysField />
         </Stack>
       </Stack>
     </FormProvider>
