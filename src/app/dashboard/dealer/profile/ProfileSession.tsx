@@ -9,6 +9,7 @@ interface ProfileSessionProps {
   subtitle: string;
   children: React.ReactNode;
   ModificationModal?: FC<{
+    title: string;
     isLoading?: boolean;
     disclosure: ReturnType<typeof useDisclosure>;
   }>;
@@ -75,7 +76,7 @@ export const ProfileSession: FC<ProfileSessionProps> = ({ children, subtitle, ti
       <Stack flex="1" spacing="4">
         {children}
       </Stack>
-      {ModificationModal ? <ModificationModal disclosure={disclosure} /> : null}
+      {ModificationModal ? <ModificationModal disclosure={disclosure} title={title} /> : null}
     </HStack>
   );
 };
