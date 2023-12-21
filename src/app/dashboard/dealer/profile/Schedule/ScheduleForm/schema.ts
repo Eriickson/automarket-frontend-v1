@@ -17,7 +17,7 @@ const scheduleFormSchema = z.object({
             if (data.isClosed) return true;
             return moment(data.startTime, "HH:mm").isBefore(moment(data.endTime, "HH:mm"));
           },
-          { message: "La hora de apertura es mayor a la hora de cierre" }
+          { message: "La hora de cierre debe ser mayor a la hora de apertura" }
         )
     )
     .min(7)
