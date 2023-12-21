@@ -2,9 +2,11 @@ import React, { FC } from "react";
 
 import { FormComponentProps } from "@atmk/components";
 
-import { Stack, Tab, TabList, TabPanels, Tabs, Text } from "@chakra-ui/react";
+import { Tab, TabList, TabPanels, Tabs, Text } from "@chakra-ui/react";
 
 import { useFormProvider } from "@/hooks/useFormProvider";
+
+import { FieldPath } from "react-hook-form";
 
 import { EmailPanel } from "./EmailPanel";
 import { PhoneNumberPanel } from "./PhoneNumberPanel";
@@ -12,34 +14,40 @@ import { ContactFormValuesType, resolver } from "./schema";
 
 interface ContactFormProps extends FormComponentProps<ContactFormValuesType> {}
 
+const tabsItems = [
+  {
+    label: "Números telefónicos",
+    field: "phoneNumbers" as FieldPath<ContactFormValuesType>,
+    TabPanel: PhoneNumberPanel,
+  },
+  {
+    label: "Correos electrónico",
+    field: "emails" as FieldPath<ContactFormValuesType>,
+    TabPanel: EmailPanel,
+  },
+];
+
 export const ContactForm: FC<ContactFormProps> = ({ onSubmit, defaultValues, id }) => {
   const { FormProvider, methods } = useFormProvider<ContactFormValuesType>({ defaultValues, resolver, id });
 
-  const phoneNumbers = methods.watch("phoneNumbers");
-  const emails = methods.watch("emails");
-
   return (
     <FormProvider onSubmit={onSubmit}>
-      <Stack>
-        <Tabs colorScheme="primary" variant="enclosed-colored">
-          <TabList>
-            <Tab mr="2" px="2.5" py="1.5">
+      <Tabs colorScheme="primary" variant="enclosed-colored">
+        <TabList>
+          {tabsItems.map((item) => (
+            <Tab key={item.field} mr="2" px="2.5" py="1.5">
               <Text fontSize="sm">
-                Números telefónicos <b>({phoneNumbers.length})</b>
+                {item.label} <b>({(methods.watch(item.field) as []).length})</b>
               </Text>
             </Tab>
-            <Tab px="2.5" py="1.5">
-              <Text fontSize="sm">
-                Correos electrónico <b>({emails.length})</b>
-              </Text>
-            </Tab>
-          </TabList>
-          <TabPanels>
-            <PhoneNumberPanel />
-            <EmailPanel />
-          </TabPanels>
-        </Tabs>
-      </Stack>
+          ))}
+        </TabList>
+        <TabPanels>
+          {tabsItems.map((tabItem) => (
+            <tabItem.TabPanel key={tabItem.field} />
+          ))}
+        </TabPanels>
+      </Tabs>
     </FormProvider>
   );
 };
