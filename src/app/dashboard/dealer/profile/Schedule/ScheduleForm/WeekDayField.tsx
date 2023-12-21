@@ -1,19 +1,19 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 
 import { Box, Checkbox, HStack, Text } from "@chakra-ui/react";
 
-import { SimpleTextField, SimpleTextFieldController } from "@/components/atoms";
+import { SimpleTextField } from "@/components/atoms";
 
-type WeekDayValue = {
+export type WeekDayValue = {
   startTime: string;
   endTime: string;
-  isWorkingDay: boolean;
+  isClosed: boolean;
 };
 
 interface WeekDayFieldProps {
   label: string;
-  value?: WeekDayValue;
-  onChange?(value: WeekDayValue): void;
+  value: WeekDayValue;
+  onChange(value: WeekDayValue): void;
 }
 
 export const WeekDayField: FC<WeekDayFieldProps> = ({ onChange, value, label }) => {
@@ -26,31 +26,32 @@ export const WeekDayField: FC<WeekDayFieldProps> = ({ onChange, value, label }) 
         <Box w="36">
           <SimpleTextField
             fontSize="sm"
-            isDisabled={!value?.isWorkingDay}
+            isDisabled={value.isClosed}
             placeholder="Select Date and Time"
             px="2.5"
             py="2"
             type="time"
-            value={value?.startTime}
-            onChange={(e) => console.log(e.target.value)}
+            value={value.startTime}
+            onChange={(e) => onChange({ ...value, startTime: e.target.value })}
           />
         </Box>
         <Box w="36">
           <SimpleTextField
             fontSize="sm"
-            isDisabled={!value?.isWorkingDay}
+            isDisabled={value.isClosed}
             placeholder="Select Date and Time"
             px="2.5"
             py="2"
             size="md"
             type="time"
-            value={value?.endTime}
+            value={value.endTime}
+            onChange={(e) => onChange({ ...value, endTime: e.target.value })}
           />
         </Box>
         <Checkbox
           colorScheme="secondary"
-          isChecked={!value?.isWorkingDay}
-          // onChange={(e) => setIsClosed(e.target.checked)}
+          isChecked={value.isClosed}
+          onChange={(e) => onChange({ ...value, isClosed: e.target.checked })}
         >
           <Text fontWeight="medium">Cerrado</Text>
         </Checkbox>

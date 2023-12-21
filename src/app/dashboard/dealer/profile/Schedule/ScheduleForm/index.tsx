@@ -35,7 +35,7 @@ export const ScheduleForm: FC<ScheduleFormProps> = ({ onSubmit, defaultValues, i
             {isGroupedWeekDays ? "Desagrupar" : "Agrupar"} días de la semana
           </Button>
           {isGroupedWeekDays ? <GroupedWeekDaysField /> : <UngroupedWeekDaysField />}
-          <WeekendDaysField />
+          {/* <WeekendDaysField /> */}
         </Stack>
       </Stack>
     </FormProvider>
