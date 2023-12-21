@@ -7,10 +7,10 @@ import { SimpleTextFieldController } from "@/components/atoms";
 import { capitalCase } from "change-case";
 
 const messagingServicesItems = [
-  // { name: "messenger" },
+  { name: "messenger" },
   { name: "snapchat" },
   { name: "telegram" },
-  // { name: "whatsapp" },
+  { name: "whatsapp" },
 ];
 
 export const MessagingServicesPanel = () => {
