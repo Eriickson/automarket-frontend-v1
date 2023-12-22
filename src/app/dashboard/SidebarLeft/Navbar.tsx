@@ -13,7 +13,7 @@ const navbarItems = [
   { Icon: BookOpen, label: "Publicaciones", pathname: "/dashboard/publications" },
   { Icon: User, label: "Flotilla Vehícular", pathname: "/dashboard/vehicle-fleet" },
   { Icon: FeatherImage, label: "Perfil Empresarial", pathname: "/dashboard/dealer/profile" },
-  { Icon: FeatherImage, label: "Perfil Personal", pathname: "/dashboard/profile" },
+  // { Icon: FeatherImage, label: "Perfil Personal", pathname: "/dashboard/profile" },
   { Icon: Settings, label: "Configuración", pathname: "/dashboard/settings" },
 ];
 
