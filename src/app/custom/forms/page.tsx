@@ -1,11 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Box, Button, Stack } from "@chakra-ui/react";
 
 import { SimpleTextField } from "@/components/atoms/SimpleTextField";
 import { SelectField } from "@/components/organisms";
+import { getClientIp } from "@/utils";
+import { getDeviceInfo } from "@/utils/getClientDeviceInformation";
+import { getIpInfo } from "@/utils/getIpInfo";
+// const deviceInfo = await axios.get("https://ipapi.co/json/");
 
 const personListOne = [
   { label: "Robert Sanchez", value: "15" },
@@ -46,6 +50,18 @@ const personListTwo = [
 const CustomPage = () => {
   const [persons, setPersons] = useState(personListOne);
   const [personListSelected, setPersonListSelected] = useState("personListOne");
+
+  async function getClientInfo() {
+    const { ip } = await getClientIp();
+    const data = getDeviceInfo();
+
+    console.log(data);
+    // console.log(window.navigator);
+  }
+
+  useEffect(() => {
+    getClientInfo();
+  }, []);
 
   return (
     <Box m="24">
