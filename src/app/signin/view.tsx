@@ -2,7 +2,7 @@ import React from "react";
 
 import Link from "next/link";
 
-import { Box, Button, Divider, Heading, HStack, Image, List, Stack, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Divider, Heading, HStack, Image, Text, VStack } from "@chakra-ui/react";
 
 import { authApi } from "@/store/features/api/auth";
 
@@ -11,6 +11,7 @@ import { useHandleErrors } from "@/hooks";
 import axios from "axios";
 import delay from "delay";
 
+import { GoogleAuthButton } from "./GoogleAuthButton";
 import { SigninForm } from "./SigninForm";
 import { SigninValuesFormType } from "./SigninForm/schema";
 
@@ -47,12 +48,7 @@ export const SigninView = () => {
           </Text>
         </Box>
         <HStack spacing="4" w="full">
-          <Button flex="1" py="6" rounded="sm" shadow="sm" variant="outline">
-            <HStack>
-              <Image alt="" src="/assets/login-icons/google.png" w="6" />
-              <Text>Google</Text>
-            </HStack>
-          </Button>
+          <GoogleAuthButton />
           <Button flex="1" py="6" rounded="sm" shadow="sm" variant="outline">
             <HStack>
               <Image alt="" src="/assets/login-icons/facebook.png" w="6" />
