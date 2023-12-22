@@ -28,7 +28,10 @@ export const ScheduleModificationModal: FC<ScheduleModificationModalProps> = ({ 
 
   return (
     <ModificationModal
-      defaultValues={{ schedule: Array.from({ length: 7 }, () => ({ startTime: "", endTime: "", isClosed: false })) }}
+      defaultValues={{
+        schedule: Array.from({ length: 7 }, () => ({ startTime: "", endTime: "", isClosed: false })),
+        isGroupedWeekDays: true,
+      }}
       disclosure={disclosure}
       Form={ScheduleForm}
       isLoading={isLoading}

@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 
 import { FormComponentProps } from "@atmk/components";
 
@@ -18,7 +18,7 @@ interface ScheduleFormProps extends FormComponentProps<ScheduleFormValuesType> {
 export const ScheduleForm: FC<ScheduleFormProps> = ({ defaultValues, onSubmit, id }) => {
   const { FormProvider, methods } = useFormProvider<ScheduleFormValuesType>({ defaultValues, resolver, id });
 
-  const [isGroupedWeekDays, setIsGroupedWeekDays] = useState(true);
+  const isGroupedWeekDays = methods.watch("isGroupedWeekDays");
 
   function handleChangeGrouping() {
     const newIsGroupedWeekDays = !isGroupedWeekDays;
@@ -32,7 +32,7 @@ export const ScheduleForm: FC<ScheduleFormProps> = ({ defaultValues, onSubmit, i
       methods.setValue("schedule", Array(5).fill(mondayValue).concat([saturdayValue, sundayValue]));
     }
 
-    setIsGroupedWeekDays(newIsGroupedWeekDays);
+    methods.setValue("isGroupedWeekDays", newIsGroupedWeekDays);
   }
 
   return (

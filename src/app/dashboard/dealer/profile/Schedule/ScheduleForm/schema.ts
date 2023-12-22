@@ -20,8 +20,10 @@ const scheduleFormSchema = z.object({
           { message: "El horario seleccionado no es válido" }
         )
     )
+
     .min(7)
     .max(7),
+  isGroupedWeekDays: z.boolean(),
 });
 
 export const resolver = zodResolver(scheduleFormSchema);
