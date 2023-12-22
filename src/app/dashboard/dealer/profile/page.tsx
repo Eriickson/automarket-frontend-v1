@@ -4,11 +4,11 @@ import React from "react";
 import { Box, Divider, HStack, Stack } from "@chakra-ui/react";
 
 import { DashboardSessionTitle } from "../../DashboardSessionTitle";
-import { Address } from "./Address";
-import { ContactInformation } from "./ContactInformation";
-import { DigitalPresence } from "./DigitalPresence";
-import { GeneralInformation } from "./GeneralInformation";
-import { Schedule } from "./Schedule";
+import { AddressSession } from "./Address";
+import { ContactInformationSession } from "./ContactInformation";
+import { DigitalPresenceSession } from "./DigitalPresence";
+import { GeneralInformationSession } from "./GeneralInformation";
+import { ScheduleSession } from "./Schedule";
 
 const DealerProfilePage = () => {
   return (
@@ -19,15 +19,15 @@ const DealerProfilePage = () => {
           title="Perfil de distribuidor"
         />
         <Stack mt="16" spacing="12">
-          <GeneralInformation />
+          <GeneralInformationSession />
           <Divider />
-          <ContactInformation />
+          <ContactInformationSession />
           <Divider />
-          <Schedule />
+          <ScheduleSession />
           <Divider />
-          <DigitalPresence />
+          <DigitalPresenceSession />
           <Divider />
-          <Address />
+          <AddressSession />
           <Box />
         </Stack>
       </Box>

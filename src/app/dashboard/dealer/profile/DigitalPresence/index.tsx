@@ -5,7 +5,7 @@ import { HStack, Image, List, ListItem, Text } from "@chakra-ui/react";
 import { ProfileSession } from "../ProfileSession";
 import { DigitalPresenceModificationModal } from "./DigitalPresenceModificationModal";
 
-export const DigitalPresence = () => {
+export const DigitalPresenceSession = () => {
   return (
     <ProfileSession
       ModificationComponent={DigitalPresenceModificationModal}

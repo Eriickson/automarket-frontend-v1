@@ -5,7 +5,7 @@ import { Checkbox, Table, TableContainer, Tbody, Td, Th, Thead, Tr } from "@chak
 import { ProfileSession } from "../ProfileSession";
 import { ScheduleModificationModal } from "./ScheduleModificationModal";
 
-export const Schedule = () => {
+export const ScheduleSession = () => {
   return (
     <ProfileSession
       ModificationComponent={ScheduleModificationModal}

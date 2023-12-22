@@ -6,7 +6,7 @@ import { LabelValueField } from "../LabelValueField";
 import { ProfileSession } from "../ProfileSession";
 import { AddressModificationModal } from "./AddressModificationModal";
 
-export const Address = () => {
+export const AddressSession = () => {
   return (
     <ProfileSession
       ModificationComponent={AddressModificationModal}

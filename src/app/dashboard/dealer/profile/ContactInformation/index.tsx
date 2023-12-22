@@ -4,7 +4,7 @@ import { ProfileSession } from "../ProfileSession";
 import { ContactList } from "./ContactList";
 import { ContactModificationModal } from "./ContactModificationModal";
 
-export const ContactInformation = () => {
+export const ContactInformationSession = () => {
   return (
     <ProfileSession
       ModificationComponent={ContactModificationModal}

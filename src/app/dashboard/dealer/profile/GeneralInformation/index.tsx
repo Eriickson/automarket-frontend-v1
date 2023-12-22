@@ -6,7 +6,7 @@ import { LabelValueField } from "../LabelValueField";
 import { ProfileSession } from "../ProfileSession";
 import { GeneralInformationModificationModal } from "./GeneralInformationModificationModal";
 
-export const GeneralInformation = () => {
+export const GeneralInformationSession = () => {
   return (
     <ProfileSession
       ModificationComponent={GeneralInformationModificationModal}
