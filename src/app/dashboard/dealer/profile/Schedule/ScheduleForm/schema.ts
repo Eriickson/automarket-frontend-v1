@@ -23,6 +23,13 @@ const scheduleFormSchema = z.object({
 
     .min(7)
     .max(7),
+  // .refine(
+  //   (data) => {
+  //     const allDaysIsClosed = data.every((day) => day.isClosed);
+  //     return !allDaysIsClosed;
+  //   },
+  //   { message: "Debe de seleccionar al menos un día de apertura" }
+  // ),
   isGroupedWeekDays: z.boolean(),
 });
 
