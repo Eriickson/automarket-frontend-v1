@@ -12,7 +12,7 @@ export const ItemInfo: FC<ItemInfoProps> = ({ icon, label, value }) => {
   return (
     <HStack>
       <Box w="20">
-        <Text as="span" color="gray.600" fontSize="sm">
+        <Text as="span" color="gray.600" fontSize="sm" userSelect="none">
           {label}:
         </Text>
       </Box>
@@ -20,7 +20,7 @@ export const ItemInfo: FC<ItemInfoProps> = ({ icon, label, value }) => {
         <Box mb="0.5" userSelect="none">
           {icon}
         </Box>
-        <Text as="span" fontWeight="medium">
+        <Text as="span" fontSize="sm" fontWeight="semibold" userSelect="none">
           {value}
         </Text>
       </HStack>

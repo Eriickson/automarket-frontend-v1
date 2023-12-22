@@ -20,7 +20,7 @@ export const ActiveSections: FC<ActiveSectionsProps> = () => {
         </Box>
       </Box>
       <Stack flex="1" spacing="4">
-        <ActiveSessionItem />
+        <ActiveSessionItem isCurrent={true} />
       </Stack>
     </HStack>
   );
