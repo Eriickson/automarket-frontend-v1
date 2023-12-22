@@ -25,7 +25,7 @@ interface MultiStepFormProps {
 }
 
 export const MultiStepForm: FC<MultiStepFormProps> = ({ steps }) => {
-  const [currentIndex, setCurrentIndex] = useState(3);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [values, setValues] = useState({});
 
   const currentStep = useMemo(() => steps[currentIndex], [steps, currentIndex]);
