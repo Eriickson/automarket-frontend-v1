@@ -1,40 +1,26 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import { Box, Button, HStack } from "@chakra-ui/react";
+import { getDeviceInfo } from "@/utils/getClientDeviceInformation";
 
-// import required modules
-import { Navigation } from "swiper/modules";
-// Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
+const CustomPage = () => {
+  const [deviceInformation, setDeviceInformation] = useState({});
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
+  async function getClientInfo() {
+    const data = getDeviceInfo();
 
-export default function App() {
-  const [show, setShow] = useState(false);
+    setDeviceInformation(data);
+  }
+
+  useEffect(() => {
+    getClientInfo();
+  }, []);
 
   return (
-    <>
-      <Swiper autoHeight modules={[Navigation]}>
-        <SwiperSlide>
-          <HStack>
-            <Box>
-              <Button onClick={() => setShow(!show)}>Show</Button>
-            </Box>{" "}
-            {show && (
-              <Box bgColor="red" flex="1" h="64">
-                Hi
-              </Box>
-            )}
-          </HStack>
-        </SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
-      </Swiper>
-    </>
+    <div>
+      <pre>{JSON.stringify(deviceInformation, null, 2)}</pre>
+    </div>
   );
-}
+};
+
+export default CustomPage;
