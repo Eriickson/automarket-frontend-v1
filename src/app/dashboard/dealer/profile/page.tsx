@@ -8,6 +8,7 @@ import { AddressSession } from "./Address";
 import { ContactInformationSession } from "./ContactInformation";
 import { DigitalPresenceSession } from "./DigitalPresence";
 import { GeneralInformationSession } from "./GeneralInformation";
+import { PersonalInformationSession } from "./PersonalInformation";
 import { ScheduleSession } from "./Schedule";
 
 const DealerProfilePage = () => {
@@ -19,6 +20,8 @@ const DealerProfilePage = () => {
           title="Perfil de distribuidor"
         />
         <Stack mt="16" spacing="12">
+          <PersonalInformationSession />
+          <Divider />
           <GeneralInformationSession />
           <Divider />
           <ContactInformationSession />
