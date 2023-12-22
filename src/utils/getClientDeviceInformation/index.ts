@@ -43,11 +43,14 @@ const isBraveBrowser = () => {
   } else return false;
 };
 
-const isOperaBrowser = () => navigator.userAgent.toLowerCase().includes("opr");
+const isOperaBrowser = () =>
+  navigator.userAgent.toLowerCase().includes("opr") || navigator.userAgent.toLowerCase().includes("opt");
 const isMicrosoftEdge = () => navigator.userAgent.toLowerCase().includes("edg");
-const isMozillaFirefox = () => navigator.userAgent.toLowerCase().includes("firefox");
+const isMozillaFirefox = () =>
+  navigator.userAgent.toLowerCase().includes("firefox") || navigator.userAgent.toLowerCase().includes("fxios");
 const isSafariBrowser = () => navigator.userAgent.toLowerCase().includes("safari");
-const isGoogleChrome = () => navigator.userAgent.toLowerCase().includes("chrome");
+const isGoogleChrome = () =>
+  navigator.userAgent.toLowerCase().includes("chrome") || navigator.userAgent.toLowerCase().includes("crios");
 const isInternetExplorer = () => navigator.userAgent.toLowerCase().includes("msie");
 const isSamsungBrowser = () => navigator.userAgent.toLowerCase().includes("samsungbrowser");
 
