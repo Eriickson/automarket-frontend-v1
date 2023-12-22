@@ -36,8 +36,8 @@ export const GeneralInformationModificationModal: FC<GeneralInformationModificat
       Form={GeneralInformationForm}
       isLoading={isLoading}
       title={title}
-      waitTime={30}
-      waitTimeUnit="days"
+      waitTime={6}
+      waitTimeUnit="months"
       onConfirm={handleConfirm}
     />
   );

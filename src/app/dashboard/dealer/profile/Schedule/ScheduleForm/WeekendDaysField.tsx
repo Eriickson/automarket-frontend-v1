@@ -1,15 +1,19 @@
-import React from "react";
+import React, { useMemo } from "react";
 
-import { useController } from "react-hook-form";
+import { ErrorOption, useController } from "react-hook-form";
 
+import { ScheduleFormValuesType } from "./schema";
 import { WeekDayField } from "./WeekDayField";
 
 const weekendDays = ["Sábado", "Domingo"];
 
 export const WeekendDaysField = () => {
-  const { field, formState } = useController({ name: "schedule" });
+  const { field, formState } = useController<ScheduleFormValuesType>({ name: "schedule" });
 
-  console.log(formState.errors);
+  const errors = useMemo(
+    () => ((formState.errors.schedule || []) as ErrorOption[]).map((error) => error.message),
+    [formState.errors.schedule]
+  );
 
   return (
     <>
@@ -17,11 +21,16 @@ export const WeekendDaysField = () => {
         const dayIndex = index + 5;
         return (
           <WeekDayField
-            error="Asegúrate de seleccionar un horario válido"
+            error={errors[dayIndex]}
             key={day}
             label={day}
-            value={field.value.at(dayIndex)}
-            onChange={(value) => field.onChange(field.value.map((v: any, i: number) => (i === dayIndex ? value : v)))}
+            value={(field.value as ScheduleFormValuesType["schedule"])[dayIndex]}
+            onChange={(value) => {
+              const newValues = (field.value as ScheduleFormValuesType["schedule"]).map((v, i) =>
+                i === dayIndex ? value : v
+              );
+              field.onChange(newValues);
+            }}
           />
         );
       })}
