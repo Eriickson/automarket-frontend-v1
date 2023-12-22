@@ -31,7 +31,7 @@ export const GeneralInformationModificationModal: FC<GeneralInformationModificat
 
   return (
     <ModificationModal
-      defaultValues={{ emails: [], phoneNumbers: [] }}
+      defaultValues={{ description: "This is a description" }}
       disclosure={disclosure}
       Form={GeneralInformationForm}
       isLoading={isLoading}
