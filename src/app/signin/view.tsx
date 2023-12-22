@@ -1,6 +1,8 @@
 import React from "react";
 
-import { Box } from "@chakra-ui/react";
+import Link from "next/link";
+
+import { Box, Button, Divider, Heading, HStack, Image, List, Stack, Text, VStack } from "@chakra-ui/react";
 
 import { authApi } from "@/store/features/api/auth";
 
@@ -32,14 +34,56 @@ export const SigninView = () => {
 
   return (
     <Box maxW="lg" w="full">
-      <SigninForm
-        defaultValues={{
-          identifier: "erickson01d@gmail.com",
-          password: "123456789e.",
-          rememberMe: true,
-        }}
-        onSubmit={handleSubmit}
-      />
+      <Link href="/">
+        <Image alt="" mb="4" src="/assets/logo.svg" w="48" />
+      </Link>
+      <VStack spacing="6">
+        <Box w="full">
+          <Heading as="h2" fontWeight="semibold" mb="2" size={["lg", "xl"]}>
+            Ingrese a su cuenta
+          </Heading>
+          <Text fontSize={["sm", null, null, "md"]}>
+            Bienvenido de nuevo! Selecciona el método de inicio de sesión.
+          </Text>
+        </Box>
+        <HStack spacing="4" w="full">
+          <Button flex="1" py="6" rounded="sm" shadow="sm" variant="outline">
+            <HStack>
+              <Image alt="" src="/assets/login-icons/google.png" w="6" />
+              <Text>Google</Text>
+            </HStack>
+          </Button>
+          <Button flex="1" py="6" rounded="sm" shadow="sm" variant="outline">
+            <HStack>
+              <Image alt="" src="/assets/login-icons/facebook.png" w="6" />
+              <Text>Facebook</Text>
+            </HStack>
+          </Button>
+        </HStack>
+        <HStack w="full">
+          <Divider borderColor="gray.300" />
+          <Text color="gray.500" fontSize="sm" fontWeight="medium" minW="max-content">
+            O continua con correo electrónico
+          </Text>
+          <Divider borderColor="gray.300" />
+        </HStack>
+        <SigninForm
+          defaultValues={{
+            identifier: "erickson01d@gmail.com",
+            password: "123456789e.",
+            rememberMe: true,
+          }}
+          onSubmit={handleSubmit}
+        />
+        <Text>
+          ¿No tienes una cuenta?{" "}
+          <Link href="/create-an-account">
+            <Text _hover={{ textDecoration: "underline" }} as="span" color="primary.500" fontWeight="semibold">
+              Crea una cuenta
+            </Text>
+          </Link>
+        </Text>
+      </VStack>
     </Box>
   );
 };

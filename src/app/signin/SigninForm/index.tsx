@@ -19,40 +19,36 @@ export const SigninForm: FC<SigninFormProps> = ({ onSubmit, defaultValues }) => 
   const { FormProvider, methods } = useFormProvider<SigninValuesFormType>({ resolver, defaultValues });
 
   return (
-    <Box>
-      <Box mb="8" textAlign="center">
-        <Heading as="h2" fontWeight="semibold" size={["lg", "xl"]}>
-          Bienvenido a de vuelta
-        </Heading>
-        <Text fontSize={["sm", null, null, "md"]}>
-          Inicia sesión para comprar, vender y disfrutar de todos los beneficios de nuestra plataforma.
-        </Text>
-      </Box>
+    <Box w="full">
       <FormProvider onSubmit={onSubmit}>
         <SimpleTextFieldController
           autoComplete="username"
+          bgColor="gray.50"
+          borderColor="gray.300"
           label="Correo electrónico"
           name="identifier"
           placeholder="Correo electrónico o nombre de usuario"
         />
         <PasswordFieldController
           autoComplete="current-password"
+          bgColor="gray.50"
+          borderColor="gray.300"
           label="Contraseña"
           name="password"
           placeholder="Ingresa tu contraseña"
         />
         <Flex justifyContent="space-between" mb="4">
           <Checkbox {...methods.register("rememberMe")} colorScheme="primary">
-            <Text>Recuérdame</Text>
+            <Text fontWeight="medium">Recuérdame</Text>
           </Checkbox>
           <Link href="/recover-your-password">
-            <Button _hover={{ textDecoration: "underline" }} color="primary" variant="link" w="max-content">
+            <Button _hover={{ textDecoration: "underline" }} color="primary.500" variant="link" w="max-content">
               ¿Olvidaste tu contraseña?
             </Button>
           </Link>
         </Flex>
         <SubmitButton colorScheme="primary" loadingText="Ingresando a tu cuenta">
-          Iniciar sesión
+          Ingresar a mi cuenta
         </SubmitButton>
       </FormProvider>
     </Box>
