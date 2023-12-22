@@ -4,10 +4,15 @@ import { Avatar, FormControl, FormLabel } from "@chakra-ui/react";
 
 import { LabelValueField } from "../LabelValueField";
 import { ProfileSession } from "../ProfileSession";
+import { GeneralInformationModificationModal } from "./GeneralInformationModificationModal";
 
 export const GeneralInformation = () => {
   return (
-    <ProfileSession subtitle="Agrega información general sobre tu distribuidora." title="Información general">
+    <ProfileSession
+      ModificationComponent={GeneralInformationModificationModal}
+      subtitle="Agrega información general sobre tu distribuidora."
+      title="Información general"
+    >
       <FormControl>
         <FormLabel fontSize="sm" mb="1">
           Logo

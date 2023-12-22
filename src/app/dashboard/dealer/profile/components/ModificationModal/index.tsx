@@ -62,7 +62,7 @@ export const ModificationModal = <TValue,>({
 
   return (
     <>
-      <Modal isCentered isOpen={disclosure.isOpen} motionPreset="slideInBottom" size="2xl" onClose={disclosure.onClose}>
+      <Modal isCentered isOpen={disclosure.isOpen} motionPreset="slideInBottom" size="xl" onClose={disclosure.onClose}>
         <ModalOverlay bgColor="#000000AF" />
         <ModalContent rounded="sm">
           <ModalHeader>
