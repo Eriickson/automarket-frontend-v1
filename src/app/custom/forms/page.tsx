@@ -53,10 +53,10 @@ const CustomPage = () => {
 
   async function getClientInfo() {
     const { ip } = await getClientIp();
-    const data = getDeviceInfo();
+    const data = await getIpInfo({ ip });
+    const dataDeviceInfo = getDeviceInfo();
 
     console.log(data);
-    // console.log(window.navigator);
   }
 
   useEffect(() => {
