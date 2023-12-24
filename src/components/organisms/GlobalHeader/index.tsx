@@ -6,13 +6,7 @@ import { Avatar, Badge, Box, Button, Flex, HStack, IconButton, Image, Text } fro
 
 import { Bell } from "react-feather";
 
-const navbarItems = [
-  { label: "Buscar Publicaciones", href: "/searcher/publications" },
-  { label: "Encontrar Distribuidores", href: "/searcher/agencies" },
-  { label: "Explorar", href: "/explore-and-discover" },
-  { label: "Planes y Precios", href: "/plans-and-pricing" },
-  { label: "Dashboard", href: "/" },
-];
+import { GlobalHeaderNavBar } from "./NavBar";
 
 export const GlobalHeader = () => {
   return (
@@ -24,20 +18,7 @@ export const GlobalHeader = () => {
               <Image alt="" src="/assets/logo.svg" w="52" />
             </Link>
           </Box>
-          <HStack>
-            {navbarItems.map((item, i) => (
-              <Link href={item.href} key={item.label}>
-                <Box
-                  borderBottom={i === 2 ? "2px" : "none"}
-                  color={i === 2 ? "primary.500" : undefined}
-                  fontWeight={i === 2 ? "bold" : "semibold"}
-                  px="1"
-                >
-                  <Text userSelect="none">{item.label}</Text>
-                </Box>
-              </Link>
-            ))}
-          </HStack>
+          <GlobalHeaderNavBar />
         </HStack>
         <Box>
           <HStack spacing="8">
