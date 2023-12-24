@@ -8,33 +8,36 @@ import { FeaturedPublicationsSession } from "./home/sessions/featured-publicatio
 import { RecentPostsSession } from "./home/sessions/recent-posts";
 import { SearchSession } from "./home/sessions/search";
 import { JoinOurPlatform } from "./JoinOurPlatform";
+import EcommerceLayout from "./legal/layout";
 
 const HomePage = () => {
   return (
-    <Stack py="6" spacing="12">
-      <SessionWapper>
-        <AdvertisingPostersSession />
-      </SessionWapper>
-      <Box bgColor="gray.100" p="4">
+    <EcommerceLayout>
+      <Stack py="6" spacing="12">
         <SessionWapper>
-          <Box mb="2">
-            <Text fontSize="2xl" fontWeight="semibold">
-              Bienvenido Automarket
-            </Text>
-          </Box>
-          <SearchSession />
+          <AdvertisingPostersSession />
         </SessionWapper>
-      </Box>
-      <SessionWapper>
-        <FeaturedPublicationsSession />
-      </SessionWapper>
-      <SessionWapper>
-        <RecentPostsSession />
-      </SessionWapper>
-      <SessionWapper>
-        <JoinOurPlatform />
-      </SessionWapper>
-    </Stack>
+        <Box bgColor="gray.100" p="4">
+          <SessionWapper>
+            <Box mb="2">
+              <Text fontSize="2xl" fontWeight="semibold">
+                Bienvenido Automarket
+              </Text>
+            </Box>
+            <SearchSession />
+          </SessionWapper>
+        </Box>
+        <SessionWapper>
+          <FeaturedPublicationsSession />
+        </SessionWapper>
+        <SessionWapper>
+          <RecentPostsSession />
+        </SessionWapper>
+        <SessionWapper>
+          <JoinOurPlatform />
+        </SessionWapper>
+      </Stack>
+    </EcommerceLayout>
   );
 };
 
