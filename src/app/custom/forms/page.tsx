@@ -52,8 +52,8 @@ const CustomPage = () => {
   const [personListSelected, setPersonListSelected] = useState("personListOne");
 
   async function getClientInfo() {
-    const { ip } = await getClientIp();
-    const data = await getIpInfo({ ip });
+    const { clientIp } = await getClientIp();
+    const data = await getIpInfo({ ip: clientIp });
     const dataDeviceInfo = getDeviceInfo();
 
     console.log(data);

@@ -28,7 +28,7 @@ export const DigitalPresenceModificationModal: FC<DigitalPresenceModificationMod
 
   return (
     <ModificationModal
-      defaultValues={{ emails: [], phoneNumbers: [] }}
+      defaultValues={{ messagingServices: [], socialMedia: [], websites: [] }}
       disclosure={disclosure}
       Form={DigitalPresenceForm}
       isLoading={isLoading}
