@@ -1,6 +1,5 @@
 import crypto from "crypto";
 
-const key = "a1!b2#c3@d4e5f6g7h8i9j0klmno_pqr";
 const algorithm = "aes-256-ctr";
 const ivLength = 16;
 
