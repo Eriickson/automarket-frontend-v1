@@ -24,7 +24,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>{disclosureRender.isOpen ? children : null}</Providers>
+        <Providers>
+          <EcommerceLayout>{disclosureRender.isOpen ? children : null}</EcommerceLayout>
+        </Providers>
       </body>
     </html>
   );
