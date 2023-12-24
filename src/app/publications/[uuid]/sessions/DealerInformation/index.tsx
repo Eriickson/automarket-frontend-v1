@@ -8,10 +8,10 @@ export const DealerInformationSession = () => {
   return (
     <HStack alignItems="flex-start" spacing="6">
       <HStack>
-        <Avatar />
+        <Avatar src="https://img.supercarros.com/CustomersLogos/100x90/0/55563.jpg" />
         <Box>
           <Text fontWeight="medium" lineHeight="1.2">
-            Nombre del usuario
+            Electric Motors Showroom
           </Text>
           <Text color="gray.500" fontSize="sm" maxW="64" overflow="hidden" textOverflow="ellipsis" whiteSpace="nowrap">
             Los mejores vehículos a los mejores precios

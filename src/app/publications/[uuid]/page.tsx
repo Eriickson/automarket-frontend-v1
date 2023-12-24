@@ -4,6 +4,7 @@ import { Box, GridItem, SimpleGrid, Stack } from "@chakra-ui/react";
 
 import { SessionWapper } from "@/app/home/components/session-wapper";
 
+import { ContactOwnerSession } from "./sessions/ContactOwner";
 import { DealerInformationSession } from "./sessions/DealerInformation";
 import { GallerySliderSession } from "./sessions/GallerySlider";
 import { GeneralDescriptionSession } from "./sessions/GeneralDescription";
@@ -30,6 +31,7 @@ const PublicationDetails = () => {
               <Stack spacing="8">
                 <VehicleDetails />
                 <PriceAndOffers />
+                <ContactOwnerSession />
                 <IndicatorsAndStatistics />
               </Stack>
             </GridItem>
