@@ -4,23 +4,23 @@ import { Box, Flex, HStack, Image } from "@chakra-ui/react";
 
 const socialMedia = [
   {
-    icon: "https://cdn-icons-png.flaticon.com/512/2111/2111463.png",
+    icon: "https://cdn-icons-png.flaticon.com/512/1077/1077042.png",
     name: "Instagram",
   },
   {
-    icon: "https://cdn-icons-png.flaticon.com/512/733/733547.png",
+    icon: "https://cdn-icons-png.flaticon.com/512/1051/1051360.png",
     name: "Facebook",
   },
   {
-    icon: "https://cdn-icons-png.flaticon.com/512/5968/5968830.png",
+    icon: "https://cdn-icons-png.flaticon.com/512/11823/11823292.png",
     name: "X",
   },
   {
-    icon: "https://cdn-icons-png.flaticon.com/512/1384/1384060.png",
+    icon: "https://cdn-icons-png.flaticon.com/512/1077/1077046.png",
     name: "Youtube",
   },
   {
-    icon: "https://cdn-icons-png.flaticon.com/512/3991/3991775.png",
+    icon: "https://cdn-icons-png.flaticon.com/512/1236/1236849.png",
     name: "Linkedin",
   },
 ];
