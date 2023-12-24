@@ -1,11 +1,11 @@
 export function getDeviceInfo() {
-  const os = detectOS();
+  const operatingSystem = detectOS();
 
   const browser = getBrowser();
 
   const deviceType = getDeviceType();
 
-  return { os, browser, device: deviceType };
+  return { operatingSystem, browser, device: deviceType };
 }
 
 function detectOS() {
