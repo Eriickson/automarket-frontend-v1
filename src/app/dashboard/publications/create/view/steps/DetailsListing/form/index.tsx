@@ -2,7 +2,9 @@ import React, { FC } from "react";
 
 import { FormComponentProps } from "@atmk/components";
 
-import { Box, Center, Checkbox, HStack, ListItem, Radio, Text, UnorderedList } from "@chakra-ui/react";
+import { Box, Center, HStack, ListItem, Radio, Text, UnorderedList } from "@chakra-ui/react";
+
+import { CheckboxGroupField } from "@/components/organisms/CheckboxGroupField";
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 
@@ -34,23 +36,18 @@ export const DetailsListingForm: FC<DetailsListingFormProps> = ({ onSubmit, defa
             </ListItem>
             <ListItem>
               <Text fontWeight="medium">Bolsas de aires</Text>
-              <HStack>
-                <Checkbox colorScheme="secondary">
-                  <Text>Todas</Text>
-                </Checkbox>
-                <Checkbox colorScheme="secondary">
-                  <Text>Conductor</Text>
-                </Checkbox>
-                <Checkbox colorScheme="secondary">
-                  <Text>Pasajero</Text>
-                </Checkbox>
-                <Checkbox colorScheme="secondary">
-                  <Text>Traseras</Text>
-                </Checkbox>
-                <Checkbox colorScheme="secondary">
-                  <Text>Laterales</Text>
-                </Checkbox>
-              </HStack>
+              <CheckboxGroupField
+                options={[
+                  { label: "Todas", value: "all", isIndeterminate: true },
+                  { label: "Conductor", value: "driver" },
+                  { label: "Pasajero", value: "passenger" },
+                  { label: "Traseras", value: "rear" },
+                  { label: "Laterales", value: "side" },
+                ]}
+                onChange={(value) => {
+                  console.log(value);
+                }}
+              />
             </ListItem>
             <ListItem>
               <Text fontWeight="medium">Mecanismo de los cristales</Text>
@@ -60,6 +57,23 @@ export const DetailsListingForm: FC<DetailsListingFormProps> = ({ onSubmit, defa
                 </Radio>
                 <Radio colorScheme="secondary">
                   <Text>Manuales</Text>
+                </Radio>
+              </HStack>
+            </ListItem>
+            <ListItem>
+              <Text fontWeight="medium">Material de los Asientos</Text>
+              <HStack>
+                <Radio colorScheme="secondary">
+                  <Text>Pana</Text>
+                </Radio>
+                <Radio colorScheme="secondary">
+                  <Text>Piel</Text>
+                </Radio>
+                <Radio colorScheme="secondary">
+                  <Text>Tela</Text>
+                </Radio>
+                <Radio colorScheme="secondary">
+                  <Text>Algodón</Text>
                 </Radio>
               </HStack>
             </ListItem>
