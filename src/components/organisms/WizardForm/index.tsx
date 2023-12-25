@@ -2,7 +2,7 @@ import React, { FC, Fragment, useMemo, useState } from "react";
 
 import { Box, Center, HStack, Stack, Text } from "@chakra-ui/react";
 
-import { ChevronRight } from "react-feather";
+import { Check, ChevronRight } from "react-feather";
 
 export interface WizardFormItemComponentProps<T = unknown> {
   nextStep(): void;
@@ -42,17 +42,38 @@ export const WizardForm: FC<WizardFormProps> = ({ steps }) => {
     <Box>
       <Stack spacing="6">
         <HStack spacing="6">
-          {steps.map((step, index) => (
-            <Fragment key={index}>
-              {index === 0 ? null : <ChevronRight size="1rem" strokeWidth="3" />}
-              <HStack>
-                <Center bgColor="primary.500" color="white" h="10" rounded="full" w="10">
-                  <Text as="b">{index + 1}</Text>
-                </Center>
-                <Text as="b">{step.title}</Text>
-              </HStack>
-            </Fragment>
-          ))}
+          {steps.map((step, index) => {
+            const isCurrent = index === currentIndex;
+            const isPassed = index < currentIndex;
+
+            return (
+              <Fragment key={index}>
+                {index === 0 ? null : <ChevronRight size="1rem" strokeWidth="3" />}
+                <HStack>
+                  <Center
+                    bgColor={isCurrent || isPassed ? "primary.500" : "white"}
+                    borderWidth="1px"
+                    color={isCurrent || isPassed ? "white" : "black"}
+                    h="10"
+                    rounded="full"
+                    shadow="md"
+                    w="10"
+                  >
+                    {isPassed ? (
+                      <Check size="1.25rem" strokeWidth="3" />
+                    ) : (
+                      <Text as="b" fontSize="lg">
+                        {index + 1}
+                      </Text>
+                    )}
+                  </Center>
+                  <Text as="b" color={isCurrent ? "primary.600" : "black"}>
+                    {step.title}
+                  </Text>
+                </HStack>
+              </Fragment>
+            );
+          })}
         </HStack>
         <Box>
           <currentStep.component

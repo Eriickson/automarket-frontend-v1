@@ -10,10 +10,14 @@ interface GeneralInformationStepProps extends WizardFormItemComponentProps {}
 
 export const GeneralInformationStep: FC<GeneralInformationStepProps> = () => {
   return (
-    <Box>
+    <Box maxW="2xl">
       <Stack>
         <Box>
-          <SelectField options={[]} />
+          <Stack spacing="6">
+            <SelectField options={[]} />
+            <SelectField options={[]} />
+            <SelectField options={[]} />
+          </Stack>
         </Box>
         <HStack>
           <Button bgColor="gray.100" variant="ghost">

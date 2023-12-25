@@ -25,6 +25,8 @@ const CreatePublicationPage = () => {
           steps={[
             { component: GeneralInformationStep, title: "Información General" },
             { component: ResourcesAndMultimediaStep, title: "Recursos y Multimedia" },
+            { component: ResourcesAndMultimediaStep, title: "Listados de Detalles" },
+            { component: ResourcesAndMultimediaStep, title: "Confirmar Datos" },
           ]}
         />
       </Stack>
