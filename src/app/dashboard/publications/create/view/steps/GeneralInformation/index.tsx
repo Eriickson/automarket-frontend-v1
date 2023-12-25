@@ -1,15 +1,15 @@
 import React, { FC, useId } from "react";
 
-import { Box, HStack, Stack } from "@chakra-ui/react";
+import { Box, Stack } from "@chakra-ui/react";
 
-import { Button } from "@/components/atoms";
 import { WizardFormItemComponentProps } from "@/components/organisms/WizardForm";
 
+import { ControllersStep } from "../ControllersStep";
 import { GeneralInformationForm } from "./form";
 
 interface GeneralInformationStepProps extends WizardFormItemComponentProps {}
 
-export const GeneralInformationStep: FC<GeneralInformationStepProps> = ({ nextStep }) => {
+export const GeneralInformationStep: FC<GeneralInformationStepProps> = ({ nextStep, prevStep }) => {
   const formId = useId();
 
   async function handleSubmit(data: any) {
@@ -18,25 +18,16 @@ export const GeneralInformationStep: FC<GeneralInformationStepProps> = ({ nextSt
   }
 
   return (
-    <Box>
-      <Stack>
-        <Box>
-          <GeneralInformationForm id={formId} onSubmit={handleSubmit} />
-          {/* <Stack spacing="6">
+    <Stack spacing={4}>
+      <Box>
+        <GeneralInformationForm id={formId} onSubmit={handleSubmit} />
+        {/* <Stack spacing="6">
             <SelectField options={[]} />
             <SelectField options={[]} />
             <SelectField options={[]} />
           </Stack> */}
-        </Box>
-        <HStack>
-          <Button bgColor="gray.100" variant="ghost">
-            Volver atrás
-          </Button>
-          <Button colorScheme="primary" form={formId} type="submit">
-            Siguiente Paso
-          </Button>
-        </HStack>
-      </Stack>
-    </Box>
+      </Box>
+      <ControllersStep disablePrevStep formId={formId} onPrevStep={prevStep} />
+    </Stack>
   );
 };

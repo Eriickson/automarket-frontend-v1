@@ -1,6 +1,6 @@
 import React from "react";
 
-import { SimpleGrid, Stack, Text } from "@chakra-ui/react";
+import { Box, SimpleGrid, Stack, Text } from "@chakra-ui/react";
 
 import { UploadedFilesListItem } from "./Item";
 
@@ -27,15 +27,18 @@ const images = [
 
 export const UploadedFilesList = () => {
   return (
-    <Stack>
-      <Text fontSize="xl" fontWeight="medium">
-        Listado de archivos subidos
-      </Text>
+    <Box>
+      <Box mb="4">
+        <Text fontSize="xl" fontWeight="medium" lineHeight={1}>
+          Listado de archivos subidos
+        </Text>
+        <Text color="gray.500">Organiza tus elemenos arrastrándolo y soltándolos en el orden que desees.</Text>
+      </Box>
       <SimpleGrid columns={12} gap="2.5">
         {images.map((url) => (
           <UploadedFilesListItem item={{ url }} key={url} />
         ))}
       </SimpleGrid>
-    </Stack>
+    </Box>
   );
 };
