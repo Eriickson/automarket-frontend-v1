@@ -5,6 +5,7 @@ import { FormComponentProps } from "@atmk/components";
 import { Box, Center, HStack, ListItem, Radio, Text, UnorderedList } from "@chakra-ui/react";
 
 import { CheckboxGroupField } from "@/components/organisms/CheckboxGroupField";
+import { RadioGroupField } from "@/components/organisms/RadioGroupField";
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 
@@ -44,38 +45,28 @@ export const DetailsListingForm: FC<DetailsListingFormProps> = ({ onSubmit, defa
                   { label: "Traseras", value: "rear" },
                   { label: "Laterales", value: "side" },
                 ]}
-                onChange={(value) => {
-                  console.log(value);
-                }}
               />
             </ListItem>
             <ListItem>
               <Text fontWeight="medium">Mecanismo de los cristales</Text>
-              <HStack>
-                <Radio colorScheme="secondary">
-                  <Text>Automáticos</Text>
-                </Radio>
-                <Radio colorScheme="secondary">
-                  <Text>Manuales</Text>
-                </Radio>
-              </HStack>
+
+              <RadioGroupField
+                options={[
+                  { label: "Automáticos", value: "automatic" },
+                  { label: "Manuales", value: "manual" },
+                ]}
+              />
             </ListItem>
             <ListItem>
               <Text fontWeight="medium">Material de los Asientos</Text>
-              <HStack>
-                <Radio colorScheme="secondary">
-                  <Text>Pana</Text>
-                </Radio>
-                <Radio colorScheme="secondary">
-                  <Text>Piel</Text>
-                </Radio>
-                <Radio colorScheme="secondary">
-                  <Text>Tela</Text>
-                </Radio>
-                <Radio colorScheme="secondary">
-                  <Text>Algodón</Text>
-                </Radio>
-              </HStack>
+              <RadioGroupField
+                options={[
+                  { label: "Pana", value: "pana" },
+                  { label: "Piel", value: "piel" },
+                  { label: "Tela", value: "tela" },
+                  { label: "Algodón", value: "algodon" },
+                ]}
+              />
             </ListItem>
             <ListItem>
               <Text fontWeight="medium">Condiciones de las Llantas</Text>

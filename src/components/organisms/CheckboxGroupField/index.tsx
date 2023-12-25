@@ -37,13 +37,7 @@ export const CheckboxGroupField: FC<CheckboxGroupFieldProps> = ({ value = [], op
   }
 
   return (
-    <ChakraCheckboxGroup
-      colorScheme="green"
-      defaultValue={["naruto", "kakashi"]}
-      onChange={(value) => {
-        console.log(value);
-      }}
-    >
+    <ChakraCheckboxGroup colorScheme="green" defaultValue={["naruto", "kakashi"]}>
       <Stack direction={["column", "row"]} spacing={[1, 5]}>
         {options.map((option) => (
           <Checkbox
