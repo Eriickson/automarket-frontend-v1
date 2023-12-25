@@ -8,7 +8,7 @@ export const WhatsappButton = () => {
   };
 
   return (
-    <Button colorScheme="green" onClick={openInNewTab}>
+    <Button colorScheme="whatsapp" onClick={openInNewTab}>
       Escribir al Whatsapp
     </Button>
   );

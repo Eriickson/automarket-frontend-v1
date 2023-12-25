@@ -23,6 +23,8 @@ export const NavbarItem: FC<NavbarItemProps> = ({ item }) => {
   const isActive = useMemo(() => {
     if (pathname === "/dashboard" && item.pathname === "/dashboard") return true;
     if (pathname.includes(item.pathname) && item.pathname !== "/dashboard") return true;
+
+    return false;
   }, [item, pathname]);
 
   return (

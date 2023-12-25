@@ -20,10 +20,10 @@ export const ControllersStep: FC<ControllersStepProps> = ({ disablePrevStep, for
           variant="ghost"
           onClick={disablePrevStep ? undefined : onPrevStep}
         >
-          Volver atrás
+          Paso anterior
         </Button>
         <Button colorScheme="primary" form={formId} type="submit">
-          Siguiente Paso
+          Siguiente paso
         </Button>
       </HStack>
     </Box>
