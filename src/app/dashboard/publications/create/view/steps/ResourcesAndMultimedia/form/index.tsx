@@ -2,9 +2,12 @@ import React, { FC } from "react";
 
 import { FormComponentProps } from "@atmk/components";
 
-import { Box } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
 
 import { useFormProvider } from "@/hooks/useFormProvider";
+
+import { FileUploadArea } from "./FileUploadArea";
+import { UploadedFilesList } from "./UploadedFilesList";
 
 interface ResourcesAndMultimediaFormProps extends FormComponentProps<{}> {}
 
@@ -13,7 +16,10 @@ export const ResourcesAndMultimediaForm: FC<ResourcesAndMultimediaFormProps> = (
 
   return (
     <FormProvider onSubmit={onSubmit}>
-      <Box>GeneralInformationForm</Box>
+      <Stack spacing="8">
+        <FileUploadArea />
+        <UploadedFilesList />
+      </Stack>
     </FormProvider>
   );
 };

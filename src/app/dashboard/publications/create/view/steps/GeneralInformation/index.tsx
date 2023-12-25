@@ -18,7 +18,7 @@ export const GeneralInformationStep: FC<GeneralInformationStepProps> = ({ nextSt
   }
 
   return (
-    <Box maxW="2xl">
+    <Box>
       <Stack>
         <Box>
           <GeneralInformationForm id={formId} onSubmit={handleSubmit} />

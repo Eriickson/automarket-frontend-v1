@@ -19,10 +19,11 @@ export interface WizardFormItem {
 
 interface WizardFormProps {
   steps: WizardFormItem[];
+  maxW?: string;
 }
 
-export const WizardForm: FC<WizardFormProps> = ({ steps }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+export const WizardForm: FC<WizardFormProps> = ({ steps, maxW }) => {
+  const [currentIndex, setCurrentIndex] = useState(1);
   const [values, setValues] = useState({});
 
   const currentStep = useMemo(() => steps[currentIndex], [steps, currentIndex]);
@@ -77,12 +78,14 @@ export const WizardForm: FC<WizardFormProps> = ({ steps }) => {
           })}
         </HStack>
         <Box>
-          <currentStep.component
-            addInformation={addInformation}
-            nextStep={nextStep}
-            prevStep={prevStep}
-            values={values}
-          />
+          <Box maxW={maxW}>
+            <currentStep.component
+              addInformation={addInformation}
+              nextStep={nextStep}
+              prevStep={prevStep}
+              values={values}
+            />
+          </Box>
         </Box>
       </Stack>
     </Box>
