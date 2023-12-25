@@ -6,53 +6,53 @@ import { Box, HStack, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from "@cha
 export const ListingsSession = () => {
   return (
     <Box overflow="auto">
-      <Tabs colorScheme="primary" variant="enclosed-colored">
+      <Tabs colorScheme="primary" size="sm" variant="enclosed-colored">
         <TabList>
-          <Tab>
+          <Tab px="2.5">
             <HStack>
-              <Text fontSize="sm" minW="max-content">
+              <Text fontSize="sm" fontWeight="medium" minW="max-content">
                 Comodidades (24)
               </Text>
             </HStack>
           </Tab>
-          <Tab>
+          <Tab px="2.5">
             <HStack>
-              <Text fontSize="sm" minW="max-content">
-                Interior
+              <Text fontSize="sm" fontWeight="medium" minW="max-content">
+                Equipamiento Interior
               </Text>
             </HStack>
           </Tab>
-          <Tab>
+          <Tab px="2.5">
             <HStack>
-              <Text fontSize="sm" minW="max-content">
+              <Text fontSize="sm" fontWeight="medium" minW="max-content">
                 Sistemas de Seguridad
               </Text>
             </HStack>
           </Tab>
-          <Tab>
+          <Tab px="2.5">
             <HStack>
-              <Text fontSize="sm" minW="max-content">
+              <Text fontSize="sm" fontWeight="medium" minW="max-content">
                 Tecnologías
               </Text>
             </HStack>
           </Tab>
-          <Tab>
+          <Tab px="2.5">
             <HStack>
-              <Text fontSize="sm" minW="max-content">
+              <Text fontSize="sm" fontWeight="medium" minW="max-content">
                 Estilo y Diseño exterior
               </Text>
             </HStack>
           </Tab>
-          <Tab>
+          <Tab px="2.5">
             <HStack>
-              <Text fontSize="sm" minW="max-content">
+              <Text fontSize="sm" fontWeight="medium" minW="max-content">
                 Conducción
               </Text>
             </HStack>
           </Tab>
-          <Tab>
+          <Tab px="2.5">
             <HStack>
-              <Text fontSize="sm" minW="max-content">
+              <Text fontSize="sm" fontWeight="medium" minW="max-content">
                 Extras y Añadidos
               </Text>
             </HStack>
