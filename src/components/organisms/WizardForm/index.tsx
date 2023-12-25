@@ -23,7 +23,7 @@ interface WizardFormProps {
 }
 
 export const WizardForm: FC<WizardFormProps> = ({ steps, maxW }) => {
-  const [currentIndex, setCurrentIndex] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [values, setValues] = useState({});
 
   const currentStep = useMemo(() => steps[currentIndex], [steps, currentIndex]);

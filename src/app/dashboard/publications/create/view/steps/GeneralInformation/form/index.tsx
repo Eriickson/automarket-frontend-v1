@@ -2,7 +2,9 @@ import React, { FC } from "react";
 
 import { FormComponentProps } from "@atmk/components";
 
-import { Box } from "@chakra-ui/react";
+import { HStack } from "@chakra-ui/react";
+
+import { SelectFieldController } from "@/components/organisms";
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 
@@ -13,7 +15,18 @@ export const GeneralInformationForm: FC<GeneralInformationFormProps> = ({ onSubm
 
   return (
     <FormProvider onSubmit={onSubmit}>
-      <Box>GeneralInformationForm</Box>
+      <SelectFieldController label="Marca" name="brand" options={[]} />
+      <HStack spacing="4">
+        <SelectFieldController label="Modelo" name="model" options={[]} />
+        <SelectFieldController label="Tipo de modelo" name="trimLevel" options={[]} />
+      </HStack>
+      <SelectFieldController label="Carrocería" name="body" options={[]} />
+      <SelectFieldController label="Combustible" name="body" options={[]} />
+      <HStack spacing="4">
+        <SelectFieldController label="Tracción" name="body" options={[]} />
+        <SelectFieldController label="Transmisión" name="body" options={[]} />
+      </HStack>
+      <SelectFieldController label="Condiciones" name="body" options={[]} />
     </FormProvider>
   );
 };

@@ -21,11 +21,6 @@ export const GeneralInformationStep: FC<GeneralInformationStepProps> = ({ nextSt
     <Stack spacing={4}>
       <Box>
         <GeneralInformationForm id={formId} onSubmit={handleSubmit} />
-        {/* <Stack spacing="6">
-            <SelectField options={[]} />
-            <SelectField options={[]} />
-            <SelectField options={[]} />
-          </Stack> */}
       </Box>
       <ControllersStep disablePrevStep formId={formId} onPrevStep={prevStep} />
     </Stack>
