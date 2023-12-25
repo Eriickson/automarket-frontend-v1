@@ -16,7 +16,7 @@ export const PriceAndOffers = () => {
             <Stack>
               <HStack spacing="2.5">
                 <Text fontSize="2xl" fontWeight="bold" lineHeight="short" mb="1">
-                  US$ 25k
+                  US$ 25,000
                 </Text>
                 <Text
                   color="gray.400"

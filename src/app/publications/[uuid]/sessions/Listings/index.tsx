@@ -11,7 +11,7 @@ export const ListingsSession = () => {
           <Tab>
             <HStack>
               <Text fontSize="sm" minW="max-content">
-                Comodidades
+                Comodidades (24)
               </Text>
             </HStack>
           </Tab>
