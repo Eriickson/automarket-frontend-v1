@@ -2,10 +2,11 @@ import React, { FC } from "react";
 
 import { FormComponentProps } from "@atmk/components";
 
-import { Box, Center, HStack, ListItem, Radio, Text, UnorderedList } from "@chakra-ui/react";
+import { Box, ListItem, Text, UnorderedList } from "@chakra-ui/react";
 
 import { CheckboxGroupField } from "@/components/organisms/CheckboxGroupField";
 import { RadioGroupField } from "@/components/organisms/RadioGroupField";
+import { SelectOptionField } from "@/components/organisms/SelectOptionField";
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 
@@ -26,14 +27,12 @@ export const DetailsListingForm: FC<DetailsListingFormProps> = ({ onSubmit, defa
           <UnorderedList spacing="4">
             <ListItem>
               <Text fontWeight="medium">¿El vehículo tiene aire acondicionado?</Text>
-              <HStack>
-                <Radio colorScheme="secondary">
-                  <Text>Sí</Text>
-                </Radio>
-                <Radio colorScheme="secondary">
-                  <Text>No</Text>
-                </Radio>
-              </HStack>
+              <RadioGroupField
+                options={[
+                  { label: "Sí", value: "yes" },
+                  { label: "No", value: "no" },
+                ]}
+              />
             </ListItem>
             <ListItem>
               <Text fontWeight="medium">Bolsas de aires</Text>
@@ -70,55 +69,33 @@ export const DetailsListingForm: FC<DetailsListingFormProps> = ({ onSubmit, defa
             </ListItem>
             <ListItem>
               <Text fontWeight="medium">Condiciones de las Llantas</Text>
-              <HStack>
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => {
-                  const isActive = item === 5;
-
-                  return (
-                    <Center
-                      bgColor={isActive ? "secondary.500" : "gray.50"}
-                      border="1px"
-                      borderColor="gray.400"
-                      color={isActive ? "white" : "secondary.500"}
-                      cursor="pointer"
-                      h="8"
-                      key={item}
-                      rounded="sm"
-                      w="8"
-                    >
-                      <Text fontSize="sm" fontWeight="medium">
-                        {item}
-                      </Text>
-                    </Center>
-                  );
-                })}
-              </HStack>
+              <SelectOptionField
+                options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => ({
+                  label: value.toString(),
+                  value: value.toString(),
+                }))}
+              />
             </ListItem>
             <ListItem>
               <Text fontWeight="medium">Filas de Asientos</Text>
-              <HStack>
-                {[1, 2, 3].map((item) => {
-                  const isActive = item === 3;
-
-                  return (
-                    <Center
-                      bgColor={isActive ? "secondary.500" : "white"}
-                      border="1px"
-                      borderColor="gray.400"
-                      color={isActive ? "white" : "secondary.500"}
-                      cursor="pointer"
-                      h="8"
-                      key={item}
-                      rounded="sm"
-                      w="8"
-                    >
-                      <Text fontSize="sm" fontWeight="medium">
-                        {item}
-                      </Text>
-                    </Center>
-                  );
-                })}
-              </HStack>
+              <SelectOptionField
+                options={[1, 2, 3].map((value) => ({
+                  label: value.toString(),
+                  value: value.toString(),
+                }))}
+              />
+            </ListItem>
+            <ListItem>
+              <Text fontWeight="medium">Barras de Impacto</Text>
+              <CheckboxGroupField
+                options={[
+                  { label: "Todas", value: "all", isIndeterminate: true },
+                  { label: "Frontal", value: "frontal" },
+                  { label: "Lateral", value: "lateral" },
+                  { label: "Trasera", value: "trasera" },
+                  { label: "Techo", value: "techo" },
+                ]}
+              />
             </ListItem>
           </UnorderedList>
         </Box>
