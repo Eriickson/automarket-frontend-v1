@@ -97,6 +97,15 @@ export const DetailsListingForm: FC<DetailsListingFormProps> = ({ onSubmit, defa
                 ]}
               />
             </ListItem>
+            <ListItem>
+              <Text fontWeight="medium">Condiciones del interior</Text>
+              <SelectOptionField
+                options={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((value) => ({
+                  label: value.toString(),
+                  value: value.toString(),
+                }))}
+              />
+            </ListItem>
           </UnorderedList>
         </Box>
       </Box>
