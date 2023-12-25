@@ -3,7 +3,6 @@ import React, { FC, useId } from "react";
 import { Box, HStack, Stack } from "@chakra-ui/react";
 
 import { Button } from "@/components/atoms";
-import { SelectField } from "@/components/organisms";
 import { WizardFormItemComponentProps } from "@/components/organisms/WizardForm";
 
 import { GeneralInformationForm } from "./form";
