@@ -16,11 +16,11 @@ const entitiesOptions = [
     name: "Concesionarios",
     description: "Destinado a profesionales del sector que se dedican a la compra y venta de vehículos.",
   },
-  {
-    type: "rent-a-car",
-    name: "Servicios de renta",
-    description: "Agencias que disponen de flotas de vehículos para alquilar.",
-  },
+  // {
+  //   type: "rent-a-car",
+  //   name: "Servicios de renta",
+  //   description: "Agencias que disponen de flotas de vehículos para alquilar.",
+  // },
 ];
 export const AccountTypeField = () => {
   const { field } = useController({ name: "accountType" });
