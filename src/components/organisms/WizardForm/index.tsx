@@ -1,3 +1,4 @@
+"use client";
 import React, { FC, Fragment, useMemo, useState } from "react";
 
 import { Box, Center, HStack, Stack, Text } from "@chakra-ui/react";
