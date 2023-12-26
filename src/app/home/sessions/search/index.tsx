@@ -5,8 +5,13 @@ import { Box, GridItem, SimpleGrid, Text } from "@chakra-ui/react";
 
 import { Button } from "@/components/atoms";
 import { SelectField } from "@/components/organisms";
+import { brandsApi } from "@/store/features/api/brands";
 
 export const SearchSession = () => {
+  const { data } = brandsApi.useGetBrandsQuery();
+  const [getModelsByBrandIdQuery] = brandsApi.useLazyGetModelsByBrandIdQuery();
+  const [getTrimLevelByBrandIdAndModelIdQuery] = brandsApi.useLazyGetTrimLevelByBrandIdAndModelIdQuery();
+
   return (
     <Box bgColor="white" p="6" rounded="xl">
       <Box>
@@ -14,13 +19,26 @@ export const SearchSession = () => {
           <GridItem colSpan={3}>
             <Box>
               <Text fontWeight="medium">Marca</Text>
-              <SelectField options={[]} />
+              <SelectField
+                allowSearch
+                options={data?.data?.brands || []}
+                onChange={(valueSelected) => {
+                  const { value } = valueSelected.at(0)!;
+
+                  getModelsByBrandIdQuery({ queryParams: { brandId: value } });
+                }}
+              />
             </Box>
           </GridItem>
           <GridItem colSpan={3}>
             <Box>
               <Text fontWeight="medium">Modelo</Text>
-              <SelectField options={[]} />
+              <SelectField
+                options={[]}
+                onChange={(value) => {
+                  console.log(value);
+                }}
+              />
             </Box>
           </GridItem>
           <GridItem colSpan={3}>
