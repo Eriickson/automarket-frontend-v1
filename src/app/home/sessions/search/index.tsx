@@ -9,8 +9,7 @@ import { brandsApi } from "@/store/features/api/brands";
 
 export const SearchSession = () => {
   const { data } = brandsApi.useGetBrandsQuery();
-  const [getModelsByBrandIdQuery] = brandsApi.useLazyGetModelsByBrandIdQuery();
-  const [getTrimLevelByBrandIdAndModelIdQuery] = brandsApi.useLazyGetTrimLevelByBrandIdAndModelIdQuery();
+  const [getModelsByBrandIdQuery, { data: models }] = brandsApi.useLazyGetModelsByBrandIdQuery();
 
   return (
     <Box bgColor="white" p="6" rounded="xl">
@@ -34,7 +33,7 @@ export const SearchSession = () => {
             <Box>
               <Text fontWeight="medium">Modelo</Text>
               <SelectField
-                options={[]}
+                options={models?.data?.models || []}
                 onChange={(value) => {
                   console.log(value);
                 }}

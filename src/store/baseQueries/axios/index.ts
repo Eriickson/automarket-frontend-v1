@@ -16,11 +16,10 @@ export type AxiosBaseQueryFn = BaseQueryFn<AxiosBaseQueryFnArgs, unknown, unknow
 
 export type AxiosBaseQueryArgs = {
   baseUrl: string;
-  module: string;
 };
 
 export const axiosBaseQuery =
-  ({ baseUrl = "/v1", module }: Partial<AxiosBaseQueryArgs>): AxiosBaseQueryFn =>
+  ({ baseUrl = "/v1" }: Partial<AxiosBaseQueryArgs>): AxiosBaseQueryFn =>
   async ({ url, method, data, params, headers }) => {
     url = url !== "/" ? url : "";
 
@@ -29,7 +28,7 @@ export const axiosBaseQuery =
     if (accessToken) headers = { ...headers, Authorization: `Bearer ${accessToken}` };
 
     try {
-      const result = await axiosInstance({ url: baseUrl + module + url, method, data, params, headers });
+      const result = await axiosInstance({ url: baseUrl + url, method, data, params, headers });
       return { data: result.data };
     } catch (err) {
       if (err instanceof AxiosError) {

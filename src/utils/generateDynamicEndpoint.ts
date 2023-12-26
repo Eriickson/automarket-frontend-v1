@@ -1,14 +1,17 @@
-export function generateDynamicEndpoint(endpoint: string, values: Record<string, string | number>): string {
+export function generateDynamicEndpoint(endpoint: string, ...values: string[]): string {
+  console.log(values);
+  console.log(endpoint);
+
   let dynamicEndpoint = endpoint;
 
-  console.log("dynamicEndpoint", dynamicEndpoint);
-  console.log("values", values);
+  const placeholders = dynamicEndpoint.match(/\/:[^\/]+(?=\/|$)/g) || [];
 
-  for (const [key, value] of Object.entries(values)) {
-    dynamicEndpoint = dynamicEndpoint.replace(`:{${key}}`, value.toString());
-  }
+  placeholders.forEach((placeholder, index) => {
+    const replacement = `/${values[index]}`;
+    dynamicEndpoint = dynamicEndpoint.replace(placeholder, replacement);
+  });
 
   console.log(dynamicEndpoint);
-  
+
   return dynamicEndpoint;
 }

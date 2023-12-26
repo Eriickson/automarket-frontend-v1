@@ -7,7 +7,7 @@ import { getModelsByBrandId } from "./getModelsByBrandId";
 import { getTrimLevelByBrandIdAndModelId } from "./getTrimLevelByBrandIdAndModelId";
 
 export const brandsApi = createApi({
-  baseQuery: axiosBaseQuery({ module: "/brands" }),
+  baseQuery: axiosBaseQuery({}),
   reducerPath: "brandsApi",
   endpoints: (build) => ({
     getBrands: getBrands(build),
