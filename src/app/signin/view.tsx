@@ -17,7 +17,7 @@ import { GoogleAuthButton } from "./GoogleAuthButton";
 import { SigninForm } from "./SigninForm";
 import { SigninValuesFormType } from "./SigninForm/schema";
 
-const key = "a1!b2#c3@d4e5f6g7h8i9j0klmno_pqr";
+
 
 export const SigninView = () => {
   const [signinMutation] = authApi.useSigninMutation();
@@ -26,7 +26,7 @@ export const SigninView = () => {
   async function handleSubmit(values: SigninValuesFormType) {
     const deviceInfo = getDeviceInfo();
     const { clientIp } = await getClientIp();
-    const identityToken = encryptData({ clientIp, deviceInfo }, key);
+    const identityToken = encryptData({ clientIp, deviceInfo }, process.env.NEXT_PUBLIC_ENCRYPTION_IDENTITY_TOKEN_KEY!);
     console.log(values);
     console.log(identityToken);
 
