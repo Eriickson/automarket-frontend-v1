@@ -10,10 +10,12 @@ export const BottomSession = () => {
       <Stack spacing="4">
         <Stack bgColor="primary.500" color="white" p="4" rounded="md">
           <Flex justifyContent="space-between">
-            <Text as="b">Used space</Text>
+            <Text as="b">Publicaciones agregadas</Text>
             <X size="1.25rem" />
           </Flex>
-          <Box>Your team has used 80% of your available space. Need more?</Box>
+          <Box>
+            <Text>Has agregado 15 publicaciones de 35 permitidas. Actualiza tu plan para agregar más</Text>
+          </Box>
           <Progress bgColor="white" colorScheme="gray" value={40} />
           <HStack>
             <Button size="sm">Actualizar</Button>
