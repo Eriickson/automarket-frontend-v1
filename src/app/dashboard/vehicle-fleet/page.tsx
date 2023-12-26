@@ -1,15 +1,9 @@
 import React from "react";
 
-import { Box } from "@chakra-ui/react";
-
-import { Tabbar } from "./Tabbar";
+import { VehicleFleetView } from "./view";
 
 const VehicleFleetPage = () => {
-  return (
-    <Box>
-      <Tabbar />
-    </Box>
-  );
+  return <VehicleFleetView />;
 };
 
 export default VehicleFleetPage;
