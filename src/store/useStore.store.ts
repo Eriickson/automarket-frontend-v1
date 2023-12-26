@@ -9,6 +9,7 @@ import { RejectedAction } from "@reduxjs/toolkit/dist/query/core/buildThunks";
 import { TypedUseSelectorHook, useSelector as _useSelector } from "react-redux";
 
 import { authApi } from "./features/api/auth";
+import { brandsApi } from "./features/api/brands";
 import { dealerBranchesApi } from "./features/api/dealer-branches";
 import { municipalitiesApi } from "./features/api/municipalities";
 import { provincesApi } from "./features/api/provinces";
@@ -33,7 +34,8 @@ export const useStore = () => {
         provincesApi.middleware,
         municipalitiesApi.middleware,
         sectorsApi.middleware,
-        dealerBranchesApi.middleware
+        dealerBranchesApi.middleware,
+        brandsApi.middleware
       ),
   });
 

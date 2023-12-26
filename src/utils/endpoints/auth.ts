@@ -9,4 +9,11 @@ export const AUTH: Record<AUTH_ENDPOINTS, string> = {
   REFRESH_TOKEN: "/refresh-token",
   PASSWORD_RESET_REQUEST: "/password-reset-requests",
   PASSWORD_RESET: "/password-reset",
+  "TRIM-LEVELS": "/trim-levels",
+  "VEHICLE-CONDITIONS": "/vehicle-conditions",
+  BRANDS: "/brands",
+  FUELS: "/fuels",
+  MODELS: "/models",
+  TRACTIONS: "/tractions",
+  TRANSMISSIONS: "/transmissions",
 };

@@ -7,7 +7,14 @@ declare module "@atmk/endpoints" {
     | "SIGNOUT"
     | "REFRESH_TOKEN"
     | "PASSWORD_RESET_REQUEST"
-    | "PASSWORD_RESET";
+    | "PASSWORD_RESET"
+    | "BRANDS"
+    | "MODELS"
+    | "TRIM-LEVELS"
+    | "TRACTIONS"
+    | "TRANSMISSIONS"
+    | "FUELS"
+    | "VEHICLE-CONDITIONS";
 
   export type DEALERS_ENDPOINTS = "ROOT" | "SOCIAL_MEDIA";
 
