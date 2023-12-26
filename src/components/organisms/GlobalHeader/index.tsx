@@ -1,12 +1,16 @@
+"use client";
+
 import React from "react";
 
 import Link from "next/link";
 
-import { Avatar, Badge, Box, Button, Flex, HStack, IconButton, Image, Text } from "@chakra-ui/react";
+import { Box, Flex, HStack, IconButton, Image } from "@chakra-ui/react";
 
 import { Bell } from "react-feather";
 
+import { CurrentUserInformation } from "./CurrentUserInformation";
 import { GlobalHeaderNavBar } from "./NavBar";
+import { NewPublicationButton } from "./NewPublicationButton";
 
 export const GlobalHeader = () => {
   return (
@@ -23,22 +27,12 @@ export const GlobalHeader = () => {
         <Box>
           <HStack spacing="8">
             <HStack>
-              <Button bgColor="gray.100" colorScheme="primary" variant="ghost">
-                Nueva publicación
-              </Button>
+              <NewPublicationButton />
               <IconButton aria-label="" size="sm">
                 <Bell size="1.25rem" />
               </IconButton>
             </HStack>
-            <HStack>
-              <Flex alignItems="flex-end" flexDir="column" userSelect="none">
-                <Text as="b">Erickson Manuel Holguín</Text>
-                <Badge colorScheme="primary" variant="solid">
-                  Administrador
-                </Badge>
-              </Flex>
-              <Avatar />
-            </HStack>
+            <CurrentUserInformation />
           </HStack>
           {/* <HStack>
             <Link href="/create-an-account">

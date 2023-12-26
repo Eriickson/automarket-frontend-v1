@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 
+import { Session } from "@atmk/session";
+
 import axios from "axios";
 
 export const useSession = () => {
-  const [session, setSession] = useState(undefined);
+  const [session, setSession] = useState<Session | undefined>(undefined);
 
 
   async function signout() {
