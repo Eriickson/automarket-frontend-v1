@@ -24,24 +24,24 @@ export const SigninView = () => {
   const { handleErrors } = useHandleErrors();
 
   async function handleSubmit(values: SigninValuesFormType) {
-    //  clientIp, deviceInfo
     const deviceInfo = getDeviceInfo();
     const { clientIp } = await getClientIp();
     const identityToken = encryptData({ clientIp, deviceInfo }, key);
     console.log(values);
     console.log(identityToken);
 
-    // const response = await signinMutation({ data: values });
+    const response = await signinMutation({ data: values, headers: { "x-identity-token": identityToken } });
 
-    // if ("error" in response) return handleErrors(response);
+    if ("error" in response) return handleErrors(response);
 
-    // const { session } = response.data.data!;
+    const { session } = response.data.data!;
 
-    // const sessionResponse = await axios.post("/api/session", { session });
-    // if (sessionResponse.status === 200) {
-    //   window.location.href = "/protected";
-    //   await delay(5000);
-    // }
+    const sessionResponse = await axios.post("/api/session", { session });
+
+    if (sessionResponse.status === 200) {
+      window.location.href = "/dashboard";
+      await delay(5000);
+    }
   }
 
   return (

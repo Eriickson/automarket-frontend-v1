@@ -7,6 +7,6 @@ import { SigninArgsType, SigninReturnType } from "./types";
 
 export const signin = (build: EndpointBuilderType<"authApi">) => {
   return build.mutation<ServiceResponse<SigninReturnType>, SigninArgsType>({
-    query: ({ data }) => ({ url: ENDPOINTS.AUTH.SIGNIN, method: "POST", data }),
+    query: ({ data, headers }) => ({ url: ENDPOINTS.AUTH.SIGNIN, method: "POST", data, headers }),
   });
 };

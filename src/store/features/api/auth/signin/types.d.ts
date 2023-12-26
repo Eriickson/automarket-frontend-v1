@@ -5,6 +5,9 @@ export type SigninArgsType = {
     identifier: string;
     password: string;
   };
+  headers: {
+    "x-identity-token": string;
+  };
 };
 
 export type SigninReturnType = {
