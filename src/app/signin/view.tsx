@@ -5,6 +5,8 @@ import Link from "next/link";
 import { Box, Button, Divider, Heading, HStack, Image, Text, VStack } from "@chakra-ui/react";
 
 import { authApi } from "@/store/features/api/auth";
+import { encryptData, getClientIp } from "@/utils";
+import { getDeviceInfo } from "@/utils/getClientDeviceInformation";
 
 import { useHandleErrors } from "@/hooks";
 
@@ -15,22 +17,31 @@ import { GoogleAuthButton } from "./GoogleAuthButton";
 import { SigninForm } from "./SigninForm";
 import { SigninValuesFormType } from "./SigninForm/schema";
 
+const key = "a1!b2#c3@d4e5f6g7h8i9j0klmno_pqr";
+
 export const SigninView = () => {
   const [signinMutation] = authApi.useSigninMutation();
   const { handleErrors } = useHandleErrors();
 
   async function handleSubmit(values: SigninValuesFormType) {
-    const response = await signinMutation({ data: values });
+    //  clientIp, deviceInfo
+    const deviceInfo = getDeviceInfo();
+    const { clientIp } = await getClientIp();
+    const identityToken = encryptData({ clientIp, deviceInfo }, key);
+    console.log(values);
+    console.log(identityToken);
 
-    if ("error" in response) return handleErrors(response);
+    // const response = await signinMutation({ data: values });
 
-    const { session } = response.data.data!;
+    // if ("error" in response) return handleErrors(response);
 
-    const sessionResponse = await axios.post("/api/session", { session });
-    if (sessionResponse.status === 200) {
-      window.location.href = "/protected";
-      await delay(5000);
-    }
+    // const { session } = response.data.data!;
+
+    // const sessionResponse = await axios.post("/api/session", { session });
+    // if (sessionResponse.status === 200) {
+    //   window.location.href = "/protected";
+    //   await delay(5000);
+    // }
   }
 
   return (

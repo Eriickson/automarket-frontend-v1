@@ -34,7 +34,7 @@ export const GlobalHeader = () => {
               <Flex alignItems="flex-end" flexDir="column" userSelect="none">
                 <Text as="b">Erickson Manuel Holguín</Text>
                 <Badge colorScheme="primary" variant="solid">
-                  Rent a Car
+                  Administrador
                 </Badge>
               </Flex>
               <Avatar />
