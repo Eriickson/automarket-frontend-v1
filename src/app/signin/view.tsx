@@ -13,11 +13,10 @@ import { useHandleErrors } from "@/hooks";
 import axios from "axios";
 import delay from "delay";
 
+import { FacebookAuthButton } from "./FacebookAuthButton";
 import { GoogleAuthButton } from "./GoogleAuthButton";
 import { SigninForm } from "./SigninForm";
 import { SigninValuesFormType } from "./SigninForm/schema";
-
-
 
 export const SigninView = () => {
   const [signinMutation] = authApi.useSigninMutation();
@@ -45,9 +44,9 @@ export const SigninView = () => {
   }
 
   return (
-    <Box maxW="lg" w="full">
+    <Box maxW="lg" px="4" w="full">
       <Link href="/">
-        <Image alt="" mb="4" src="/assets/logo.svg" w="48" />
+        <Image alt="" mb="4" src="/assets/logo.svg" w={["40", null, null, null, "48"]} />
       </Link>
       <VStack spacing="6">
         <Box w="full">
@@ -60,12 +59,7 @@ export const SigninView = () => {
         </Box>
         <HStack spacing="4" w="full">
           <GoogleAuthButton />
-          <Button flex="1" py="6" rounded="sm" shadow="sm" variant="outline">
-            <HStack>
-              <Image alt="" src="/assets/login-icons/facebook.png" w="6" />
-              <Text>Facebook</Text>
-            </HStack>
-          </Button>
+          <FacebookAuthButton />
         </HStack>
         <HStack w="full">
           <Divider borderColor="gray.300" />

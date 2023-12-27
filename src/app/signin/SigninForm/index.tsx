@@ -48,7 +48,7 @@ export const SigninForm: FC<SigninFormProps> = ({ onSubmit, defaultValues }) => 
           </Link>
         </Flex>
         <SubmitButton colorScheme="primary" loadingText="Ingresando a tu cuenta">
-          Ingresar a mi cuenta
+          <Text fontSize={["sm"]}>Ingresar a mi cuenta</Text>
         </SubmitButton>
       </FormProvider>
     </Box>
