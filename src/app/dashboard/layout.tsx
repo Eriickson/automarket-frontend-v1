@@ -14,7 +14,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         <GlobalHeader />
         <Box flex="1" overflowY="auto" px="12">
           <Flex alignItems="flex-start" h="full">
-            <Box h="full" w="sm">
+            <Box h="full" w={["2xs", "xs", null, "sm"]}>
               <SidebarLeft />
             </Box>
             <Divider mx="4" orientation="vertical" />
