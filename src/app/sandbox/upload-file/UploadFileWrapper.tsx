@@ -7,11 +7,17 @@ import { useDropzone } from "react-dropzone";
 
 interface UploadFileWrapperProps {
   maxFiles?: number;
+  allowMultiple?: boolean;
   onChanges?(nv: File[]): void;
   children: (props: { isDragActive: boolean }) => JSX.Element;
 }
 
-export const UploadFileWrapper: FC<UploadFileWrapperProps> = ({ maxFiles, children, onChanges }) => {
+export const UploadFileWrapper: FC<UploadFileWrapperProps> = ({
+  allowMultiple = true,
+  maxFiles,
+  children,
+  onChanges,
+}) => {
   const onDrop = useCallback(
     (acceptedFiles: File[]) => {
       onChanges?.(acceptedFiles);
@@ -19,7 +25,11 @@ export const UploadFileWrapper: FC<UploadFileWrapperProps> = ({ maxFiles, childr
     [onChanges]
   );
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop, maxFiles });
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    multiple: allowMultiple,
+    onDrop,
+    maxFiles,
+  });
 
   return (
     <Box {...getRootProps()} w="max-content">

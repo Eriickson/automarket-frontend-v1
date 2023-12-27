@@ -7,7 +7,7 @@ import { UploadFileWrapper } from "./UploadFileWrapper";
 
 export const ButtonComponent = () => {
   return (
-    <UploadFileWrapper>
+    <UploadFileWrapper allowMultiple={false}>
       {({ isDragActive }) => (
         <Button>
           Upload file
