@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box, Button, Flex, HStack, IconButton, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from "@chakra-ui/react";
+import { Box, Flex, HStack, IconButton, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from "@chakra-ui/react";
 
 import { MoreVertical } from "react-feather";
 
