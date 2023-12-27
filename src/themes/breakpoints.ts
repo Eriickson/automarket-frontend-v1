@@ -1,5 +1,7 @@
 export const breakpoints = {
-  "3xs": "20em", // 320px
+  base: "0em", // 0px
+  "4xs": "20em", // 320px
+  "3xs": "23.4375em", // 375px
   "2xs": "30em", // 480px
   xs: "37.5em", // 600px
   sm: "48em", // 768px
