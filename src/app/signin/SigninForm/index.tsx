@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 import { FormComponentProps } from "@atmk/components";
 
-import { Box, Button, Checkbox, Flex, Heading, Text } from "@chakra-ui/react";
+import { Box, Checkbox, Flex, Text } from "@chakra-ui/react";
 
 import { SubmitButton } from "@/components/atoms";
 import { PasswordFieldController } from "@/components/atoms/PasswordField/controller";
@@ -10,8 +10,8 @@ import { SimpleTextFieldController } from "@/components/atoms/SimpleTextField/co
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 
+import { ForgetYourPasswordButton } from "./ForgetYourPasswordButton";
 import { resolver, SigninValuesFormType } from "./schema";
-import { Link } from "@chakra-ui/next-js";
 
 interface SigninFormProps extends FormComponentProps<SigninValuesFormType> {}
 
@@ -41,14 +41,10 @@ export const SigninForm: FC<SigninFormProps> = ({ onSubmit, defaultValues }) => 
           <Checkbox {...methods.register("rememberMe")} colorScheme="primary">
             <Text fontWeight="medium">Recuérdame</Text>
           </Checkbox>
-          <Link href="/recover-your-password">
-            <Button _hover={{ textDecoration: "underline" }} color="primary.500" variant="link" w="max-content">
-              ¿Olvidaste tu contraseña?
-            </Button>
-          </Link>
+          <ForgetYourPasswordButton />
         </Flex>
         <SubmitButton colorScheme="primary" loadingText="Ingresando a tu cuenta">
-          <Text fontSize={["sm"]}>Ingresar a mi cuenta</Text>
+          <Text fontSize={["sm", null, null, null, null, "md"]}>Ingresar a mi cuenta</Text>
         </SubmitButton>
       </FormProvider>
     </Box>

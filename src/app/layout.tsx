@@ -5,6 +5,8 @@ import { Inter } from "next/font/google";
 
 import { useDisclosure } from "@chakra-ui/react";
 
+import { ScreenSize } from "@/components/atoms";
+
 import "./globals.css";
 import { Providers } from "./providers";
 
@@ -22,7 +24,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>{disclosureRender.isOpen ? children : null}</Providers>
+        <Providers>
+          {disclosureRender.isOpen ? children : null}
+          <ScreenSize />
+        </Providers>
       </body>
     </html>
   );

@@ -50,14 +50,14 @@ export const SigninView = () => {
       </Link>
       <VStack spacing="6">
         <Box w="full">
-          <Heading as="h2" fontWeight="semibold" mb="2" size={["lg", "xl"]}>
+          <Heading as="h2" fontWeight="semibold" mb="2" size={["lg", null, null, null, null, "xl"]}>
             Ingrese a su cuenta
           </Heading>
           <Text fontSize={["sm", null, null, "md"]}>
             Bienvenido de nuevo! Selecciona el método de inicio de sesión.
           </Text>
         </Box>
-        <HStack spacing="4" w="full">
+        <HStack spacing={["2", null, null, null, "4"]} w="full">
           <GoogleAuthButton />
           <FacebookAuthButton />
         </HStack>
