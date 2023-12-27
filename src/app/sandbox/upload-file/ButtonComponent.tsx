@@ -7,7 +7,7 @@ import { UploadFileWrapper } from "./UploadFileWrapper";
 
 export const ButtonComponent = () => {
   return (
-    <UploadFileWrapper acceptedFileTypes={["IMAGES", "VIDEOS"]} allowMultiple={false}>
+    <UploadFileWrapper allowMultiple={false}>
       {({ isDragActive }) => <Button>Upload file {isDragActive ? "true" : "false"}</Button>}
     </UploadFileWrapper>
   );

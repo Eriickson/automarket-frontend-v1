@@ -39,11 +39,6 @@ export const UploadFileWrapper: FC<UploadFileWrapperProps> = ({
     multiple: allowMultiple,
     onDrop,
     maxFiles,
-    accept: (() => {
-      const objectFilesToAccept = {};
-      acceptedFileTypes?.forEach((fileType) => Object.assign(objectFilesToAccept, acceptedFileTypesMapper[fileType]));
-      return objectFilesToAccept;
-    })(),
   });
 
   return (
