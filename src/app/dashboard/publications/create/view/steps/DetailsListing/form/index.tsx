@@ -17,7 +17,7 @@ export const DetailsListingForm: FC<DetailsListingFormProps> = ({ onSubmit, defa
 
   return (
     <FormProvider onSubmit={onSubmit}>
-      <Box>
+      <Box border="1px">
         <Box mb="4">
           <Text fontSize="xl" fontWeight="semibold" lineHeight={1}>
             Comodidades y Confort

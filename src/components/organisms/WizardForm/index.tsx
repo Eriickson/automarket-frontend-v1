@@ -56,10 +56,10 @@ export const WizardForm: FC<WizardFormProps> = ({ steps, maxW }) => {
                     bgColor={isCurrent || isPassed ? "primary.500" : "white"}
                     borderWidth="1px"
                     color={isCurrent || isPassed ? "white" : "black"}
-                    h="10"
+                    minH="10"
+                    minW="10"
                     rounded="full"
                     shadow="md"
-                    w="10"
                   >
                     {isPassed ? (
                       <Check size="1.25rem" strokeWidth="3" />

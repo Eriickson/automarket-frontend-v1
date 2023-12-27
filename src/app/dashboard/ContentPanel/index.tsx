@@ -21,7 +21,9 @@ export const ContentPanel: FC<ContentPanelProps> = ({ children }) => {
               </Box>
             </Box>
           </Box>
-          <SidebarRight />
+          <Box display={["none", null, null, null, null, "block"]}>
+            <SidebarRight />
+          </Box>
         </HStack>
         <Footer />
       </Stack>
