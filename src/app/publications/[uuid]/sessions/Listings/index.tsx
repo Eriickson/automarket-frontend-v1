@@ -1,7 +1,19 @@
 "use client";
 import React from "react";
 
-import { Box, HStack, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from "@chakra-ui/react";
+import {
+  Box,
+  HStack,
+  List,
+  ListItem,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+  Text,
+  UnorderedList,
+} from "@chakra-ui/react";
 
 export const ListingsSession = () => {
   return (
@@ -61,7 +73,13 @@ export const ListingsSession = () => {
 
         <TabPanels>
           <TabPanel>
-            <p>one!</p>
+            <UnorderedList>
+              <ListItem>
+                <Text fontSize="sm" fontWeight="medium">
+                  Aire acondicionado
+                </Text>
+              </ListItem>
+            </UnorderedList>
           </TabPanel>
           <TabPanel>
             <p>two!</p>
