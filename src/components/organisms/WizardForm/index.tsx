@@ -19,7 +19,7 @@ export interface WizardFormItem {
 
 interface WizardFormProps {
   steps: WizardFormItem[];
-  maxW?: string;
+  maxW?: string[];
 }
 
 export const WizardForm: FC<WizardFormProps> = ({ steps, maxW }) => {

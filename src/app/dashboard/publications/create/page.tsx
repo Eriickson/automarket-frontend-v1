@@ -24,7 +24,7 @@ const CreatePublicationPage = () => {
           </Text>
         </Box>
         <WizardForm
-          maxW="8xl"
+          maxW={["6xl", "full"]}
           steps={[
             { component: GeneralInformationStep, title: "Información General" },
             { component: ResourcesAndMultimediaStep, title: "Recursos y Multimedia" },
