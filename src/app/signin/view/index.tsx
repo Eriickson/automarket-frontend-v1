@@ -1,11 +1,8 @@
 "use client";
 import React from "react";
 
-import Link from "next/link";
+import { HStack, VStack } from "@chakra-ui/react";
 
-import { Box, Divider, Heading, HStack, Image, Text, VStack } from "@chakra-ui/react";
-
-import { LogoPresentation } from "@/components/atoms/LogoPresentation";
 import { ScreenAreaDelimiter } from "@/components/atoms/ScreenAreaDelimiter";
 import { authApi } from "@/store/features/api/auth";
 import { encryptData, getClientIp } from "@/utils";
@@ -18,6 +15,8 @@ import delay from "delay";
 
 import { FacebookAuthButton } from "./FacebookAuthButton";
 import { GoogleAuthButton } from "./GoogleAuthButton";
+import { OrDivider } from "./OrDivider";
+import { SessionBottom } from "./SessionBottom";
 import { SessionHeader } from "./SessionHeader";
 import { SigninForm } from "./SigninForm";
 import { SigninValuesFormType } from "./SigninForm/schema";
@@ -27,24 +26,25 @@ export const SigninView = () => {
   const { handleErrors } = useHandleErrors();
 
   async function handleSubmit(values: SigninValuesFormType) {
-    const deviceInfo = getDeviceInfo();
-    const { clientIp } = await getClientIp();
-    const identityToken = encryptData({ clientIp, deviceInfo }, process.env.NEXT_PUBLIC_ENCRYPTION_IDENTITY_TOKEN_KEY!);
-    console.log(values);
-    console.log(identityToken);
+    await delay(5000);
+    // const deviceInfo = getDeviceInfo();
+    // const { clientIp } = await getClientIp();
+    // const identityToken = encryptData({ clientIp, deviceInfo }, process.env.NEXT_PUBLIC_ENCRYPTION_IDENTITY_TOKEN_KEY!);
+    // console.log(values);
+    // console.log(identityToken);
 
-    const response = await signinMutation({ data: values, headers: { "x-identity-token": identityToken } });
+    // const response = await signinMutation({ data: values, headers: { "x-identity-token": identityToken } });
 
-    if ("error" in response) return handleErrors(response);
+    // if ("error" in response) return handleErrors(response);
 
-    const { session } = response.data.data!;
+    // const { session } = response.data.data!;
 
-    const sessionResponse = await axios.post("/api/session", { session });
+    // const sessionResponse = await axios.post("/api/session", { session });
 
-    if (sessionResponse.status === 200) {
-      window.location.href = "/dashboard";
-      await delay(5000);
-    }
+    // if (sessionResponse.status === 200) {
+    //   window.location.href = "/dashboard";
+
+    // }
   }
 
   return (
@@ -55,13 +55,7 @@ export const SigninView = () => {
           <GoogleAuthButton />
           <FacebookAuthButton />
         </HStack>
-        <HStack w="full">
-          <Divider borderColor="gray.300" />
-          <Text color="gray.500" fontSize="sm" fontWeight="medium" minW="max-content">
-            O continua con correo electrónico
-          </Text>
-          <Divider borderColor="gray.300" />
-        </HStack>
+        <OrDivider />
         <SigninForm
           defaultValues={{
             identifier: "erickson01d@gmail.com",
@@ -70,14 +64,7 @@ export const SigninView = () => {
           }}
           onSubmit={handleSubmit}
         />
-        <Text fontSize={["sm", null, null, "md"]}>
-          ¿No tienes una cuenta?{" "}
-          <Link href="/create-an-account">
-            <Text _hover={{ textDecoration: "underline" }} as="span" color="primary.500" fontWeight="semibold">
-              Crea una cuenta
-            </Text>
-          </Link>
-        </Text>
+        <SessionBottom />
       </VStack>
     </ScreenAreaDelimiter>
   );
