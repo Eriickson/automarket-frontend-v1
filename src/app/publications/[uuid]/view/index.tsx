@@ -13,7 +13,7 @@ import { SimilarPublications } from "./sessions/SimilarPublications";
 
 export const PublicationDetailsView = () => {
   return (
-    <Box py="4">
+    <Box py="2">
       <SessionWapper>
         <SimpleGrid columns={12} gap={6}>
           <GridItem colSpan={[12, null, null, 8]}>
