@@ -31,6 +31,7 @@ export const AdvertisingPostersSession = () => {
         </AspectRatio>
       )}
       items={advertisingPosters}
+      spaceBetween={4}
     />
   );
 };
