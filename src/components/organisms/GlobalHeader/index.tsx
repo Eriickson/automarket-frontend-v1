@@ -2,9 +2,7 @@
 
 import React from "react";
 
-import Link from "next/link";
-
-import { Box, Flex, HStack, IconButton, Image } from "@chakra-ui/react";
+import { Box, Flex, HStack, IconButton } from "@chakra-ui/react";
 
 import { Bell } from "react-feather";
 
@@ -17,7 +15,7 @@ import { NewPublicationButton } from "./NewPublicationButton";
 
 export const GlobalHeader = () => {
   return (
-    <Box borderBottom="1px" borderColor="gray.200" px={["4", null, null, "12"]} py={["4", null, null, "6"]}>
+    <Box borderBottom="1px" borderColor="gray.200" px={["2", null, null, 4, "12"]} py={["4", null, null, "6"]}>
       <Flex alignItems="center" justifyContent="space-between">
         <HStack spacing="8">
           <LogoPresentation />
