@@ -10,7 +10,7 @@ interface SessionWapperProps {
 
 export const SessionWapper: FC<SessionWapperProps> = ({ children }) => {
   return (
-    <ScreenAreaDelimiter>
+    <ScreenAreaDelimiter maxWidth="1920">
       <SimpleGrid columns={12}>
         <GridItem colSpan={[0, null, null, null, null, 1]} />
         <GridItem colSpan={[12, null, null, null, null, 10]}>{children}</GridItem>
