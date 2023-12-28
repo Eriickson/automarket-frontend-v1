@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 
 import Link from "next/link";
@@ -17,83 +18,66 @@ import delay from "delay";
 
 import { FacebookAuthButton } from "./FacebookAuthButton";
 import { GoogleAuthButton } from "./GoogleAuthButton";
+import { SessionHeader } from "./SessionHeader";
 import { SigninForm } from "./SigninForm";
 import { SigninValuesFormType } from "./SigninForm/schema";
 
 export const SigninView = () => {
-  // const [signinMutation] = authApi.useSigninMutation();
-  // const { handleErrors } = useHandleErrors();
+  const [signinMutation] = authApi.useSigninMutation();
+  const { handleErrors } = useHandleErrors();
 
-  // async function handleSubmit(values: SigninValuesFormType) {
-  //   const deviceInfo = getDeviceInfo();
-  //   const { clientIp } = await getClientIp();
-  //   const identityToken = encryptData({ clientIp, deviceInfo }, process.env.NEXT_PUBLIC_ENCRYPTION_IDENTITY_TOKEN_KEY!);
-  //   console.log(values);
-  //   console.log(identityToken);
+  async function handleSubmit(values: SigninValuesFormType) {
+    const deviceInfo = getDeviceInfo();
+    const { clientIp } = await getClientIp();
+    const identityToken = encryptData({ clientIp, deviceInfo }, process.env.NEXT_PUBLIC_ENCRYPTION_IDENTITY_TOKEN_KEY!);
+    console.log(values);
+    console.log(identityToken);
 
-  //   const response = await signinMutation({ data: values, headers: { "x-identity-token": identityToken } });
+    const response = await signinMutation({ data: values, headers: { "x-identity-token": identityToken } });
 
-  //   if ("error" in response) return handleErrors(response);
+    if ("error" in response) return handleErrors(response);
 
-  //   const { session } = response.data.data!;
+    const { session } = response.data.data!;
 
-  //   const sessionResponse = await axios.post("/api/session", { session });
+    const sessionResponse = await axios.post("/api/session", { session });
 
-  //   if (sessionResponse.status === 200) {
-  //     window.location.href = "/dashboard";
-  //     await delay(5000);
-  //   }
-  // }
+    if (sessionResponse.status === 200) {
+      window.location.href = "/dashboard";
+      await delay(5000);
+    }
+  }
 
   return (
-    // <Box maxW="lg" px="4" w="full">
-
-    //   <VStack spacing="6">
-
-    //     <HStack w="full">
-    //       <Divider borderColor="gray.300" />
-    //       <Text color="gray.500" fontSize="sm" fontWeight="medium" minW="max-content">
-    //         O continua con correo electrónico
-    //       </Text>
-    //       <Divider borderColor="gray.300" />
-    //     </HStack>
-    //     <SigninForm
-    //       defaultValues={{
-    //         identifier: "erickson01d@gmail.com",
-    //         password: "123456789e.",
-    //         rememberMe: true,
-    //       }}
-    //       onSubmit={async () => {}}
-    //     />
-    //     <Text>
-    //       ¿No tienes una cuenta?{" "}
-    //       <Link href="/create-an-account">
-    //         <Text _hover={{ textDecoration: "underline" }} as="span" color="primary.500" fontWeight="semibold">
-    //           Crea una cuenta
-    //         </Text>
-    //       </Link>
-    //     </Text>
-    //   </VStack>
-    // </Box>
-
     <ScreenAreaDelimiter maxWidth="1920">
       <VStack spacing="6">
-        <Box>
-          <LogoPresentation />
-          <Box mt="2" w="full">
-            <Heading as="h2" fontWeight="semibold" mb="1" size={["lg", null, null, "xl"]}>
-              Ingrese a su cuenta
-            </Heading>
-            <Text fontSize={["sm", null, null, "md"]}>
-              Bienvenido de nuevo! Selecciona el método de inicio de sesión.
-            </Text>
-          </Box>
-        </Box>
-
+        <SessionHeader />
         <HStack spacing={["2", null, null, null, "4"]} w="full">
           <GoogleAuthButton />
           <FacebookAuthButton />
         </HStack>
+        <HStack w="full">
+          <Divider borderColor="gray.300" />
+          <Text color="gray.500" fontSize="sm" fontWeight="medium" minW="max-content">
+            O continua con correo electrónico
+          </Text>
+          <Divider borderColor="gray.300" />
+        </HStack>
+        <SigninForm
+          defaultValues={{
+            identifier: "erickson01d@gmail.com",
+            password: "123456789e.",
+            rememberMe: true,
+          }}
+          onSubmit={handleSubmit}
+        />
+        <Text fontSize={["sm", null, null, "md"]}>
+          ¿No tienes una cuenta?{" "}
+          <Link href="/create-an-account">
+            <Text _hover={{ textDecoration: "underline" }} as="span" color="primary.500" fontWeight="semibold">
+              Crea una cuenta
+            </Text>
+          </Link>
+        </Text>
       </VStack>
     </ScreenAreaDelimiter>
   );
