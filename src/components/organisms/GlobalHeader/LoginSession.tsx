@@ -9,7 +9,12 @@ export const LoginSession = () => {
     <Box>
       <HStack>
         <Link href="/create-an-account">
-          <Button colorScheme="primary" rounded="sm">
+          <Button
+            colorScheme="primary"
+            fontSize={["xs", null, null, "md"]}
+            rounded="sm"
+            size={["sm", null, null, "md"]}
+          >
             Crea tu cuenta
           </Button>
         </Link>
