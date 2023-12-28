@@ -2,6 +2,8 @@ import React from "react";
 
 import { Box, Divider, Flex, Stack } from "@chakra-ui/react";
 
+import { ScreenAreaDelimiter } from "@/components/atoms/ScreenAreaDelimiter";
+
 import { LogoPresentation } from "../GlobalHeader/LogoPresentation";
 import { CopyrightMark } from "./CopyrightMark";
 import { OverviewMenu } from "./OverviewMenu";
@@ -12,7 +14,8 @@ export const GlobalFooter = () => {
   return (
     <Stack spacing="4">
       <Divider borderColor="gray.300" />
-      <Box px={["2", null, null, "12"]}>
+
+      <ScreenAreaDelimiter>
         <Stack direction={["column"]} mb="4" spacing={["4", null, null, "6"]} w="full">
           <Flex alignItems="center" justifyContent="space-between">
             <LogoPresentation />
@@ -27,7 +30,7 @@ export const GlobalFooter = () => {
         <Box pb={["3"]}>
           <CopyrightMark />
         </Box>
-      </Box>
+      </ScreenAreaDelimiter>
     </Stack>
   );
 };
