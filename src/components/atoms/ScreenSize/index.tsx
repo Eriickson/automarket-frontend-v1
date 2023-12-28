@@ -19,7 +19,7 @@ export const ScreenSize = () => {
   console.log(targetBreakpoint);
 
   return (
-    <Box left="2" position="absolute" top="2">
+    <Box bottom="2" left="2" position="absolute">
       <Tag bgColor="black" color="white" py="1" rounded="sm">
         {targetBreakpoint.at(0)} - {innerWidth} x {innerHeight}
       </Tag>

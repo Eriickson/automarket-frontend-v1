@@ -7,7 +7,7 @@ export interface ButtonProps extends ChakraButtonProps {}
 
 export const Button: FC<ButtonProps> = ({ children, ...props }) => {
   return (
-    <ChakraButton rounded="sm" {...props}>
+    <ChakraButton fontSize={["xs"]} size={["sm"]} {...props}>
       {children}
     </ChakraButton>
   );

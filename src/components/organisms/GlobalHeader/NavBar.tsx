@@ -1,6 +1,6 @@
 import React from "react";
 
-import { HStack } from "@chakra-ui/react";
+import { Box, HStack } from "@chakra-ui/react";
 
 import { NavbarItem } from "./NavbarItem";
 
@@ -14,10 +14,12 @@ const navbarItems = [
 
 export const GlobalHeaderNavBar = () => {
   return (
-    <HStack>
-      {navbarItems.map((item, i) => (
-        <NavbarItem item={item} key={i} />
-      ))}
-    </HStack>
+    <Box display={["none", null, null, null]}>
+      <HStack>
+        {navbarItems.map((item, i) => (
+          <NavbarItem item={item} key={i} />
+        ))}
+      </HStack>
+    </Box>
   );
 };
