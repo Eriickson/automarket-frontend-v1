@@ -10,11 +10,13 @@ export const SessionWapper: FC<SessionWapperProps> = ({ children }) => {
   return (
     <Center>
       <Box maxW="1920" w="full">
-        <SimpleGrid columns={12}>
-          <GridItem colSpan={1} />
-          <GridItem colSpan={10}>{children}</GridItem>
-          <GridItem colSpan={1} />
-        </SimpleGrid>
+        <Box px={["2", null, null, "12"]}>
+          <SimpleGrid columns={12}>
+            <GridItem colSpan={[0, null, null, null, null, 1]} />
+            <GridItem colSpan={[12, null, null, null, null, 10]}>{children}</GridItem>
+            <GridItem colSpan={[0, null, null, null, null, 1]} />
+          </SimpleGrid>
+        </Box>
       </Box>
     </Center>
   );

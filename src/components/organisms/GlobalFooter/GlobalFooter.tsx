@@ -12,7 +12,7 @@ export const GlobalFooter = () => {
   return (
     <Stack spacing="4">
       <Divider borderColor="gray.300" />
-      <Box px={["4", null, null, "12"]}>
+      <Box px={["2", null, null, "12"]}>
         <Stack direction={["column"]} mb="4" spacing={["4", null, null, "6"]} w="full">
           <Flex alignItems="center" justifyContent="space-between">
             <LogoPresentation />
