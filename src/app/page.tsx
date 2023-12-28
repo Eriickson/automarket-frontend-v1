@@ -13,7 +13,7 @@ import EcommerceLayout from "./legal/layout";
 const HomePage = () => {
   return (
     <EcommerceLayout>
-      <Stack py="6" spacing="12">
+      <Stack py="4" spacing={["4"]}>
         <SessionWapper>
           <AdvertisingPostersSession />
         </SessionWapper>
