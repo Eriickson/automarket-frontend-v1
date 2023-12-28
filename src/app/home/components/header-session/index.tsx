@@ -1,6 +1,10 @@
 import React, { FC } from "react";
 
-import { Box, Flex, Text } from "@chakra-ui/react";
+import { Box, Flex, HStack, Text } from "@chakra-ui/react";
+
+import { IconButton } from "@/components/atoms";
+
+import { HelpCircle } from "react-feather";
 
 import { SeeMoreButton } from "./SeeMoreButton";
 
@@ -14,9 +18,14 @@ export const HeaderSession: FC<HeaderSessionProps> = ({ description, title }) =>
     <Flex alignItems="center" justifyContent="space-between">
       <Box flex="1">
         <Flex alignItems="center" justifyContent="space-between" mb="0.5">
-          <Text fontSize={["md", null, null, "lg"]} fontWeight="semibold" lineHeight="1">
-            {title}
-          </Text>
+          <HStack spacing="1">
+            <Text fontSize={["md", null, null, "lg"]} fontWeight="semibold" lineHeight="1">
+              {title}
+            </Text>
+            <IconButton aria-label="" size="xs" variant="ghost">
+              <HelpCircle size="1rem" />
+            </IconButton>
+          </HStack>
           <Box display={["block", null, null, null, "none"]}>
             <SeeMoreButton />
           </Box>
