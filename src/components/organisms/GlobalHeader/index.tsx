@@ -15,6 +15,8 @@ import { MobileNavigationMenu } from "./MobileNavigationMenu";
 import { GlobalHeaderNavBar } from "./NavBar";
 import { NewPublicationButton } from "./NewPublicationButton";
 
+const isAuthenticated = false;
+
 export const GlobalHeader = () => {
   return (
     <Box borderBottom="1px" borderColor="gray.200" py={["4", null, null, "6"]}>
@@ -33,8 +35,7 @@ export const GlobalHeader = () => {
                 </IconButton>
               </HStack>
             </HStack>
-            <CurrentUserInformation />
-            {/* <LoginSession /> */}
+            {isAuthenticated ? <LoginSession /> : <CurrentUserInformation />}
             <MobileNavigationMenu />
           </HStack>
         </Flex>
