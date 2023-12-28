@@ -10,11 +10,20 @@ export const InputSearch = () => {
   const { searchValue, handleChangeSearchValue } = useSelectFieldContext();
 
   return (
-    <HStack as="label" borderBottom="1px" borderColor="gray.200" htmlFor="search" pl="4" pr="3" py="2.5">
+    <HStack
+      as="label"
+      borderBottom="1px"
+      borderColor="gray.200"
+      htmlFor="search"
+      pl={["2", null, null, "4"]}
+      pr="3"
+      py="2.5"
+    >
       <chakra.input
         autoFocus
         _placeholder={{ userSelect: "none" }}
         backgroundColor="transparent"
+        fontSize={["sm", null, null, "md"]}
         id="search"
         outline="none"
         placeholder="Buscar..."

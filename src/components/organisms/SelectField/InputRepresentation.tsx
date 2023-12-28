@@ -22,7 +22,6 @@ export const InputRepresentation = () => {
   return (
     <Box pos="relative">
       <chakra.input h="0" opacity="0" position="absolute" type="button" w="0" onFocus={() => handleFocus(true)} />
-
       <SimpleTextField
         _placeholder={{ userSelect: "none" }}
         borderColor={isFocus ? "primary.500" : undefined}
@@ -51,7 +50,13 @@ export const InputRepresentation = () => {
         top="0"
         onClick={() => handleFocus(true)}
       />
-      <HStack justifyContent="flex-end" pos="absolute" right="3" top="3" w="max-content">
+      <HStack
+        justifyContent="flex-end"
+        pos="absolute"
+        right={["2", null, null, "3"]}
+        top={["2", null, null, "3"]}
+        w="max-content"
+      >
         <IconButton
           aria-label="remove all"
           display={allowMultiple && valuesSelected.length > 0 && isFocus ? "flex" : "none"}

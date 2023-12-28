@@ -16,10 +16,11 @@ export const SimpleTextField = forwardRef<HTMLElement, SimpleTextFieldProps>(({ 
         _focus={{ ringColor: "#165ef0", borderColor: "#165ef0", ring: "1.5" }}
         _placeholder={{ userSelect: "none" }}
         cursor={isLoading ? "wait" : "auto"}
+        fontSize={["sm", null, null, "md"]}
         isDisabled={isLoading}
         pointerEvents={isLoading ? "none" : "auto"}
-        px="4"
-        py="6"
+        px={["2", null, null, "4"]}
+        py={["4", null, null, "6"]}
         rounded="sm"
         userSelect={isLoading ? "none" : "auto"}
         {...props}

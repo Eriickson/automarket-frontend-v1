@@ -48,12 +48,12 @@ export const FormControl: FC<FormControlProps> = ({
   return (
     <ChakraFormControl isInvalid={Boolean(errorFound) || isInvalid} isRequired={isRequired}>
       {label ? (
-        <Flex justifyContent="space-between" mb="1">
-          <FormLabel cursor="pointer" mb="0" userSelect="none" w="max-content">
+        <Flex alignItems="flex-end" justifyContent="space-between" mb={["0.5", null, null, "1"]}>
+          <FormLabel cursor="pointer" fontSize={["sm"]} mb="0" userSelect="none" w="max-content">
             {label}
           </FormLabel>
           {isOptional ? (
-            <Text as="span" color="gray.500" fontSize="sm" userSelect="none">
+            <Text as="span" color="gray.500" fontSize={["xs", null, null, "sm"]} userSelect="none">
               (opcional)
             </Text>
           ) : null}
