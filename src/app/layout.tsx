@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <Providers>
           {disclosureRender.isOpen ? children : null}
-          <ScreenSize />
+          {/* <ScreenSize /> */}
         </Providers>
       </body>
     </html>

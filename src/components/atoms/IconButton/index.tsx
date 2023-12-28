@@ -1,3 +1,4 @@
+"use client";
 import React, { FC } from "react";
 
 import { IconButton as ChakraIconButton, IconButtonProps as ChakraIconButtonProps } from "@chakra-ui/react";

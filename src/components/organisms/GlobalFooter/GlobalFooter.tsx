@@ -1,28 +1,33 @@
 import React from "react";
 
-import { Box, Divider, Flex, HStack, Image, Stack } from "@chakra-ui/react";
+import { Box, Divider, Flex, Stack } from "@chakra-ui/react";
 
-import { BottomSession } from "./BottomSession";
-import { Menu } from "./Menu";
+import { LogoPresentation } from "../GlobalHeader/LogoPresentation";
+import { CopyrightMark } from "./CopyrightMark";
+import { OverviewMenu } from "./OverviewMenu";
 import { RightSession } from "./RightSession";
+import { SocialMediaButtons } from "./SocialMediaButtons";
 
 export const GlobalFooter = () => {
   return (
     <Stack spacing="4">
       <Divider borderColor="gray.300" />
-      <Box px="12">
-        <Flex alignItems="center" justifyContent="space-between">
-          <HStack spacing="6">
-            <Box>
-              <Image alt="" cursor="pointer" src="/assets/logo.svg" w="52" />
-            </Box>
-            <Menu />
-          </HStack>
+      <Box px={["4", null, null, "12"]}>
+        <Stack direction={["column"]} mb="4" spacing={["4", null, null, "6"]} w="full">
+          <Flex alignItems="center" justifyContent="space-between">
+            <LogoPresentation />
+            <SocialMediaButtons />
+          </Flex>
+        </Stack>
+        <Stack spacing={["8"]}>
           <RightSession />
-        </Flex>
+          <OverviewMenu />
+        </Stack>
+        <Divider borderColor="gray.300" my="4" />
+        <Box pb={["3"]}>
+          <CopyrightMark />
+        </Box>
       </Box>
-      <Divider borderColor="gray.300" />
-      <BottomSession />
     </Stack>
   );
 };
