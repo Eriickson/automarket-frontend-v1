@@ -4,46 +4,46 @@ import { Box, GridItem, SimpleGrid, Stack } from "@chakra-ui/react";
 
 import { SessionWapper } from "@/app/home/components/session-wapper";
 
-import { ContactOwnerSession } from "./sessions/ContactOwner";
-import { DealerInformationSession } from "./sessions/DealerInformation";
-import { GallerySliderSession } from "./sessions/GallerySlider";
-import { GeneralDescriptionSession } from "./sessions/GeneralDescription";
-import { IndicatorsAndStatistics } from "./sessions/IndicatorsAndStatistics";
-import { ListingsSession } from "./sessions/Listings";
-import { OtherPublications } from "./sessions/OtherPublications";
-import { PriceAndOffers } from "./sessions/PriceAndOffers";
-import { SimilarPublications } from "./sessions/SimilarPublications";
-import { VehicleDetails } from "./sessions/VehicleDetails";
+import { PublicationDetailsView } from "./view";
+import { ContactOwnerSession } from "./view/sessions/ContactOwner";
+import { DealerInformationSession } from "./view/sessions/DealerInformation";
+import { GallerySliderSession } from "./view/sessions/GallerySlider";
+import { GeneralDescriptionSession } from "./view/sessions/GeneralDescription";
+import { IndicatorsAndStatistics } from "./view/sessions/IndicatorsAndStatistics";
+import { ListingsSession } from "./view/sessions/Listings";
+import { OtherPublications } from "./view/sessions/OtherPublications";
+import { PriceAndOffers } from "./view/sessions/PriceAndOffers";
+import { SimilarPublications } from "./view/sessions/SimilarPublications";
+import { VehicleDetails } from "./view/sessions/VehicleDetails";
 
-const PublicationDetails = () => {
+const PublicationDetailsPage = () => {
   return (
-    <Box py="8">
-      <SessionWapper>
-        <Box>
-          <SimpleGrid columns={12} gap={6}>
-            <GridItem colSpan={[12, null, null, 8]}>
-              <Stack spacing="6">
-                <GallerySliderSession />
-                <DealerInformationSession />
-                <GeneralDescriptionSession />
-                <ListingsSession />
-                <SimilarPublications />
-                <OtherPublications />
-              </Stack>
-            </GridItem>
-            <GridItem colSpan={[12, null, null, 4]}>
-              <Stack spacing="8">
-                <VehicleDetails />
-                <PriceAndOffers />
-                <ContactOwnerSession />
-                <IndicatorsAndStatistics />
-              </Stack>
-            </GridItem>
-          </SimpleGrid>
-        </Box>
-      </SessionWapper>
-    </Box>
+    <PublicationDetailsView />
+    // <Box py="8">
+    //   <SessionWapper>
+    //     <SimpleGrid columns={12} gap={6}>
+    //       <GridItem colSpan={[12, null, null, 8]}>
+    //         <Stack spacing="6">
+    //           <GallerySliderSession />
+    //           <DealerInformationSession />
+    //           <GeneralDescriptionSession />
+    //           <ListingsSession />
+    //           <SimilarPublications />
+    //           <OtherPublications />
+    //         </Stack>
+    //       </GridItem>
+    //       <GridItem colSpan={[12, null, null, 4]}>
+    //         <Stack spacing="8">
+    //           <VehicleDetails />
+    //           <PriceAndOffers />
+    //           <ContactOwnerSession />
+    //           <IndicatorsAndStatistics />
+    //         </Stack>
+    //       </GridItem>
+    //     </SimpleGrid>
+    //   </SessionWapper>
+    // </Box>
   );
 };
 
-export default PublicationDetails;
+export default PublicationDetailsPage;
