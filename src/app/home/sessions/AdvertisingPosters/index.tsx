@@ -3,7 +3,7 @@ import React from "react";
 
 import { AspectRatio, Box, Image } from "@chakra-ui/react";
 
-import { SwiperComponent } from "./SwiperComponent";
+import { SimpleSwiper } from "@/components/organisms/SimpleSwiper";
 
 const advertisingPosters = [
   {
@@ -22,7 +22,7 @@ const advertisingPosters = [
 
 export const AdvertisingPostersSession = () => {
   return (
-    <SwiperComponent
+    <SimpleSwiper
       Component={({ props }) => (
         <AspectRatio ratio={[16 / 9]}>
           <Box cursor="pointer" rounded="md">

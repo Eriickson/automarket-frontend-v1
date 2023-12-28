@@ -8,7 +8,7 @@ import { GridOptions } from "swiper/types";
 import "swiper/css";
 import "swiper/css/grid";
 
-interface SwiperComponentProps<T> {
+interface SimpleSwiperProps<T> {
   items: T[];
   Component: FC<{ props: T }>;
   slidesPerView?: number;
@@ -16,13 +16,7 @@ interface SwiperComponentProps<T> {
   grid?: GridOptions;
 }
 
-export const SwiperComponent = <T,>({
-  Component,
-  items,
-  slidesPerView,
-  spaceBetween,
-  grid,
-}: SwiperComponentProps<T>) => {
+export const SimpleSwiper = <T,>({ Component, items, slidesPerView, spaceBetween, grid }: SimpleSwiperProps<T>) => {
   return (
     <Swiper
       grid={grid}
