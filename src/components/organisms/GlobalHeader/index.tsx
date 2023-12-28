@@ -11,6 +11,7 @@ import { Bell } from "react-feather";
 import { CurrentUserInformation } from "./CurrentUserInformation";
 import { LoginSession } from "./LoginSession";
 import { LogoPresentation } from "./LogoPresentation";
+import { MobileNavigationMenu } from "./MobileNavigationMenu";
 import { GlobalHeaderNavBar } from "./NavBar";
 import { NewPublicationButton } from "./NewPublicationButton";
 
@@ -22,7 +23,7 @@ export const GlobalHeader = () => {
           <LogoPresentation />
           <GlobalHeaderNavBar />
         </HStack>
-        <Box>
+        <HStack>
           <HStack display={["none"]} spacing="8">
             <HStack>
               <NewPublicationButton />
@@ -33,7 +34,8 @@ export const GlobalHeader = () => {
             <CurrentUserInformation />
           </HStack>
           <LoginSession />
-        </Box>
+          <MobileNavigationMenu />
+        </HStack>
       </Flex>
     </Box>
   );
