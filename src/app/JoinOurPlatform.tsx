@@ -8,7 +8,7 @@ import { Button } from "../components/atoms/Button";
 
 export const JoinOurPlatform = () => {
   return (
-    <Box bgColor="secondary.500" borderRadius={["md", null, null, "2xl"]} p={["4", null, null, "14"]}>
+    <Box bgColor="secondary.500" borderRadius={["md", null, null, "2xl"]} p={["3.5", null, null, "14"]}>
       <Flex alignItems={["flex-start", null, null, "center"]} flexDir={["column", null, null, "row"]}>
         <Box flex={1} mb={["4", null, null, "0"]}>
           <Box color="white">

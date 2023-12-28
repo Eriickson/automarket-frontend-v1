@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 
-import { Box, Flex, HStack, Text } from "@chakra-ui/react";
+import { Box, Flex, Text } from "@chakra-ui/react";
 
-import { ArrowRight } from "react-feather";
+import { SeeMoreButton } from "./SeeMoreButton";
 
 interface HeaderSessionProps {
   title: string;
@@ -13,17 +13,21 @@ export const HeaderSession: FC<HeaderSessionProps> = ({ description, title }) =>
   return (
     <Flex alignItems="center" justifyContent="space-between">
       <Box>
-        <Text fontSize="lg" fontWeight="semibold" lineHeight="1">
-          {title}
+        <Flex alignItems="center" justifyContent="space-between" mb="0.5">
+          <Text fontSize={["md", null, null, "lg"]} fontWeight="semibold" lineHeight="1">
+            {title}
+          </Text>
+          <Box display={["block", null, null, null, "none"]}>
+            <SeeMoreButton />
+          </Box>
+        </Flex>
+        <Text fontSize={["xs", null, null, "sm"]} lineHeight={["1"]} pr="24">
+          {description}
         </Text>
-        <Text fontSize="sm">{description}</Text>
       </Box>
-      <HStack alignItems="center" spacing="1">
-        <Text fontSize="sm" fontWeight="medium">
-          Ver más
-        </Text>
-        <ArrowRight size="1rem" />
-      </HStack>
+      <Box display={["none", null, null, null, "block"]}>
+        <SeeMoreButton />
+      </Box>
     </Flex>
   );
 };

@@ -14,9 +14,9 @@ const HomePage = () => {
   return (
     <EcommerceLayout>
       <Stack py="4" spacing={["4"]}>
-        <SessionWapper>
+        {/* <SessionWapper>
           <AdvertisingPostersSession />
-        </SessionWapper>
+        </SessionWapper> */}
         {/* <Box bgColor="gray.100" p="4">
           <SessionWapper>
             <Box mb="2">
