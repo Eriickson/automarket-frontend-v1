@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 
 import { AspectRatio, Box, Image } from "@chakra-ui/react";
 
@@ -7,24 +7,14 @@ import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 
 interface BottomSwiperProps {
   items: string[];
+  activeIndex: number;
   setThumbsSwiper?: (swiper: SwiperClass) => void;
 }
 
-export const BottomSwiper: FC<BottomSwiperProps> = ({ setThumbsSwiper, items }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
+export const BottomSwiper: FC<BottomSwiperProps> = ({ setThumbsSwiper, activeIndex, items }) => {
   return (
     <Box backgroundColor="secondary.500" p="1" rounded="sm">
-      <Swiper
-        watchSlidesProgress
-        modules={[Thumbs]}
-        slidesPerView={4}
-        spaceBetween={4}
-        onSwiper={setThumbsSwiper}
-        onTap={(swiper) => {
-          setActiveIndex(swiper.clickedIndex);
-        }}
-      >
+      <Swiper watchSlidesProgress modules={[Thumbs]} slidesPerView={4} spaceBetween={4} onSwiper={setThumbsSwiper}>
         {items.map((item, index) => (
           <SwiperSlide key={item}>
             <Box pos="relative">

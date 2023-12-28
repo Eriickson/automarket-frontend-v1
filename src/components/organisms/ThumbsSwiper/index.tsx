@@ -22,11 +22,21 @@ const items = [
 ];
 
 export const ThumbsSwiper = () => {
+
+  const [activeIndex, setActiveIndex] = useState(0);
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | undefined>(undefined);
+
   return (
     <Box>
       <Box mb="1">
-        <Swiper modules={[Thumbs]} spaceBetween={6} thumbs={{ swiper: thumbsSwiper }}>
+        <Swiper
+          modules={[Thumbs]}
+          spaceBetween={6}
+          thumbs={{ swiper: thumbsSwiper }}
+          onSlideChange={(swiper) => {
+            setActiveIndex(swiper.realIndex);
+          }}
+        >
           {items.map((item) => (
             <SwiperSlide key={item}>
               <Zoom>
@@ -39,7 +49,7 @@ export const ThumbsSwiper = () => {
         </Swiper>
       </Box>
       <Box backgroundColor="secondary.500" p="1" rounded="sm">
-        <BottomSwiper items={items} setThumbsSwiper={setThumbsSwiper} />
+        <BottomSwiper activeIndex={activeIndex} items={items} setThumbsSwiper={setThumbsSwiper} />
       </Box>
     </Box>
   );

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Avatar, Box, HStack, Image, Text } from "@chakra-ui/react";
+import { Box, HStack, Image, Text } from "@chakra-ui/react";
 
 export const DealerInformationSession = () => {
   return (
