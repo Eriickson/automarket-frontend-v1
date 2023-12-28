@@ -17,7 +17,7 @@ const HomePage = () => {
         <SessionWapper>
           <AdvertisingPostersSession />
         </SessionWapper>
-        <Box bgColor="gray.100" p="4">
+        {/* <Box bgColor="gray.100" p="4">
           <SessionWapper>
             <Box mb="2">
               <Text fontSize="2xl" fontWeight="semibold">
@@ -32,7 +32,7 @@ const HomePage = () => {
         </SessionWapper>
         <SessionWapper>
           <RecentPostsSession />
-        </SessionWapper>
+        </SessionWapper> */}
         <SessionWapper>
           <JoinOurPlatform />
         </SessionWapper>
