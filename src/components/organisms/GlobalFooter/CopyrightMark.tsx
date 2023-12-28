@@ -1,13 +1,15 @@
 import React from "react";
 
-import { Center, Text } from "@chakra-ui/react";
+import { Text } from "@chakra-ui/react";
 
 export const CopyrightMark = () => {
   return (
-    <Center>
-      <Text fontSize={["sm", null, null, null, "md"]} maxW={["3xs"]} textAlign="center">
-        © {new Date().getFullYear()} automarket.agency. Todos los derechos reservados.
+    <Text fontSize={["xs", null, null, null, "md"]} textAlign="center">
+      © {new Date().getFullYear()}{" "}
+      <Text as="span" fontWeight="semibold">
+        automarket.agency
       </Text>
-    </Center>
+      . Todos los derechos reservados.
+    </Text>
   );
 };
