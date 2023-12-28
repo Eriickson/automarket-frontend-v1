@@ -12,7 +12,7 @@ interface HeaderSessionProps {
 export const HeaderSession: FC<HeaderSessionProps> = ({ description, title }) => {
   return (
     <Flex alignItems="center" justifyContent="space-between">
-      <Box>
+      <Box flex="1">
         <Flex alignItems="center" justifyContent="space-between" mb="0.5">
           <Text fontSize={["md", null, null, "lg"]} fontWeight="semibold" lineHeight="1">
             {title}
@@ -21,7 +21,7 @@ export const HeaderSession: FC<HeaderSessionProps> = ({ description, title }) =>
             <SeeMoreButton />
           </Box>
         </Flex>
-        <Text fontSize={["xs", null, null, "sm"]} lineHeight={["1"]} pr="24">
+        <Text display={["none", null, null, "block"]} fontSize={["xs", null, null, "sm"]} lineHeight={["1"]} pr="24">
           {description}
         </Text>
       </Box>
