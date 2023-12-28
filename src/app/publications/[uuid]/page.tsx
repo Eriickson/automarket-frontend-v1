@@ -21,7 +21,7 @@ const PublicationDetails = () => {
       <SessionWapper>
         <Box>
           <SimpleGrid columns={12} gap={6}>
-            <GridItem colSpan={8}>
+            <GridItem colSpan={[12, null, null, 8]}>
               <Stack spacing="6">
                 <GallerySliderSession />
                 <DealerInformationSession />
@@ -31,7 +31,7 @@ const PublicationDetails = () => {
                 <OtherPublications />
               </Stack>
             </GridItem>
-            <GridItem colSpan={4}>
+            <GridItem colSpan={[12, null, null, 4]}>
               <Stack spacing="8">
                 <VehicleDetails />
                 <PriceAndOffers />
