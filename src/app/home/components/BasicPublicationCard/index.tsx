@@ -1,6 +1,12 @@
 import React, { FC } from "react";
 
-import { AspectRatio, Box, Image, Text } from "@chakra-ui/react";
+import Image from "next/image";
+
+import { AspectRatio, Box, Text } from "@chakra-ui/react";
+
+import Zoom from "react-medium-image-zoom";
+
+import "react-medium-image-zoom/dist/styles.css";
 
 interface BasicPublicationCardProps {
   src: string;
@@ -10,11 +16,13 @@ export const BasicPublicationCard: FC<BasicPublicationCardProps> = ({ src }) => 
   return (
     <Box>
       <Box pos="relative">
-        <AspectRatio ratio={16 / 9}>
-          <Box cursor="pointer" overflow="hidden">
-            <Image alt="" rounded="lg" src={src} userSelect="none" w="full" />
-          </Box>
-        </AspectRatio>
+        <Zoom>
+          <AspectRatio ratio={16 / 9}>
+            <Box cursor="pointer" overflow="hidden">
+              <Image priority alt="" height={600} quality={85} src={src} width={800} />
+            </Box>
+          </AspectRatio>
+        </Zoom>
         <Box
           bgColor="#00000086"
           bottom={["0.5", null, null, "1.5"]}
