@@ -8,7 +8,6 @@ import { Footer } from "./Footer";
 interface ContentPanelProps {
   children: React.ReactNode;
 }
-
 export const ContentPanel: FC<ContentPanelProps> = ({ children }) => {
   return (
     <Box h="full">
@@ -21,7 +20,7 @@ export const ContentPanel: FC<ContentPanelProps> = ({ children }) => {
               </Box>
             </Box>
           </Box>
-          <Box display={["none", null, null, null, null, "block"]}>
+          <Box display={["none", null, null, null, null, null, "block"]}>
             <SidebarRight />
           </Box>
         </HStack>
