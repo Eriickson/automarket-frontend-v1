@@ -29,10 +29,10 @@ const HomePage = () => {
         </Box>
         <SessionWapper>
           <FeaturedPublicationsSession />
-        </SessionWapper>
+        </SessionWapper> */}
         <SessionWapper>
           <RecentPostsSession />
-        </SessionWapper> */}
+        </SessionWapper>
         <SessionWapper>
           <JoinOurPlatform />
         </SessionWapper>
