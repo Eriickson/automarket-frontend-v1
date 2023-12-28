@@ -2,9 +2,9 @@ import React from "react";
 
 import { Box, Divider, Flex, Stack } from "@chakra-ui/react";
 
+import { LogoPresentation } from "@/components/atoms/LogoPresentation";
 import { ScreenAreaDelimiter } from "@/components/atoms/ScreenAreaDelimiter";
 
-import { LogoPresentation } from "../GlobalHeader/LogoPresentation";
 import { CopyrightMark } from "./CopyrightMark";
 import { OverviewMenu } from "./OverviewMenu";
 import { RightSession } from "./RightSession";

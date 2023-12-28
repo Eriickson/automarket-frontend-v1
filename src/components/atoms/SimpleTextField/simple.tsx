@@ -28,7 +28,7 @@ export const SimpleTextField = forwardRef<HTMLElement, SimpleTextFieldProps>(({ 
         ref={ref}
       />
       {isLoading ? (
-        <Box position="absolute" right="4" top="3">
+        <Box position="absolute" right={["2.5", null, null, "4"]} top={["1.5", null, null, "3"]}>
           <ReactLoading color="#cdcdcd" type="bars" width="1.75rem" />
         </Box>
       ) : null}

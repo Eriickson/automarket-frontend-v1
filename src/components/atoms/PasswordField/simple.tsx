@@ -17,7 +17,7 @@ export const PasswordField = forwardRef<HTMLInputElement, PasswordFieldProps>(({
       <SimpleTextField isLoading={isLoading} pr="16" type={showing ? "text" : "password"} {...props} ref={ref} />
       {isLoading ? null : (
         <Box bottom="2" pos="absolute" right="2" zIndex="1">
-          <Button size="sm" variant="ghost" onClick={handleClick}>
+          <Button size={["xs", null, null, "sm"]} variant="ghost" onClick={handleClick}>
             {showing ? "H" : "S"}
           </Button>
         </Box>

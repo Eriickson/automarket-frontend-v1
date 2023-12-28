@@ -39,7 +39,9 @@ export const SigninForm: FC<SigninFormProps> = ({ onSubmit, defaultValues }) => 
         />
         <Flex justifyContent="space-between" mb="4">
           <Checkbox {...methods.register("rememberMe")} colorScheme="primary">
-            <Text fontWeight="medium">Recuérdame</Text>
+            <Text fontSize={["sm", null, null, "md"]} fontWeight="medium">
+              Recuérdame
+            </Text>
           </Checkbox>
           <ForgetYourPasswordButton />
         </Flex>

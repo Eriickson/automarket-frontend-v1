@@ -10,7 +10,7 @@ export const ForgetYourPasswordButton = () => {
       <Button
         _hover={{ textDecoration: "underline" }}
         color="primary.500"
-        fontSize={["sm", null, null, null, null, null, "md"]}
+        fontSize={["sm", null, null, "md"]}
         variant="link"
         w="max-content"
       >

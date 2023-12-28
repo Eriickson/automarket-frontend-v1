@@ -10,13 +10,7 @@ export const SubmitButton: FC<SubmitButtonProps> = ({ children, ...props }) => {
   const { formState } = useFormContext();
 
   return (
-    <Button
-      isLoading={formState.isSubmitting || formState.isLoading}
-      py={[4, null, 6, null, null, 6, null, null, null, null]}
-      type="submit"
-      w="full"
-      {...props}
-    >
+    <Button isLoading={formState.isSubmitting || formState.isLoading} type="submit" w="full" {...props}>
       {children}
     </Button>
   );

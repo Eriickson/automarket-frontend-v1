@@ -1,9 +1,9 @@
+"use client";
 import React from "react";
 
 import { JoinButton } from "@/components/atoms";
 
 export const GoogleAuthButton = () => {
-
   async function handleClick() {
     console.log("GoogleAuthButton");
   }

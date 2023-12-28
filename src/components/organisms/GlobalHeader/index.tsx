@@ -4,13 +4,13 @@ import React from "react";
 
 import { Box, Flex, HStack, IconButton } from "@chakra-ui/react";
 
+import { LogoPresentation } from "@/components/atoms/LogoPresentation";
 import { ScreenAreaDelimiter } from "@/components/atoms/ScreenAreaDelimiter";
 
 import { Bell } from "react-feather";
 
 import { CurrentUserInformation } from "./CurrentUserInformation";
 import { LoginSession } from "./LoginSession";
-import { LogoPresentation } from "./LogoPresentation";
 import { MobileNavigationMenu } from "./MobileNavigationMenu";
 import { GlobalHeaderNavBar } from "./NavBar";
 import { NewPublicationButton } from "./NewPublicationButton";
