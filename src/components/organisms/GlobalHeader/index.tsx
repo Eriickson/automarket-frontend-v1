@@ -32,9 +32,9 @@ export const GlobalHeader = () => {
                   <Bell size="1.25rem" />
                 </IconButton>
               </HStack>
-              <CurrentUserInformation />
             </HStack>
-            <LoginSession />
+            <CurrentUserInformation />
+            {/* <LoginSession /> */}
             <MobileNavigationMenu />
           </HStack>
         </Flex>
