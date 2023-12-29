@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 import { Box, Flex } from "@chakra-ui/react";
 
-import { GlobalFooter } from "@/components/organisms/GlobalFooter/GlobalFooter";
+import { GlobalFooter } from "@/components/organisms/GlobalFooter";
 import { GlobalHeader } from "@/components/organisms/GlobalHeader";
 
 interface EcommerceLayoutProps {

@@ -1,6 +1,7 @@
 import React from "react";
 
-import EcommerceLayout from "./legacy/legal/layout";
+import { EcommerceLayout } from "@/components/layouts/Ecommerce";
+
 import { HomeView } from "./view";
 
 const HomePage = () => {

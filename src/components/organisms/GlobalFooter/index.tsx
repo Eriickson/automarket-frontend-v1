@@ -2,7 +2,7 @@ import React from "react";
 
 import { Box, Divider, Flex, Stack } from "@chakra-ui/react";
 
-import { LogoPresentation } from "@/components/atoms/LogoPresentation";
+// import { LogoPresentation } from "@/components/atoms/LogoPresentation";
 import { ScreenAreaDelimiter } from "@/components/atoms/ScreenAreaDelimiter";
 
 import { CopyrightMark } from "./CopyrightMark";
@@ -18,7 +18,7 @@ export const GlobalFooter = () => {
       <ScreenAreaDelimiter>
         <Stack direction={["column"]} mb="4" spacing={["4", null, null, "6"]} w="full">
           <Flex alignItems="center" justifyContent="space-between">
-            <LogoPresentation />
+            {/* <LogoPresentation /> */}
             <SocialMediaButtons />
           </Flex>
         </Stack>
