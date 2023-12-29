@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 import { Button } from "@chakra-ui/react";
 
-import { FullScreenFormLayout } from "@/components/layouts/FullScreenForm";
+import { FullScreenFormLayout } from "@/components/layouts/FullScreen";
 
 const RecoverYourPasswordLayout = ({ children }: { children: React.ReactNode }) => {
   const { push } = useRouter();

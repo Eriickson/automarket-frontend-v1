@@ -1,3 +1,3 @@
-import { FullScreenFormLayout } from "@/components/layouts/FullScreenForm";
+import { FullScreenLayout } from "@/components/layouts/FullScreen";
 
-export default FullScreenFormLayout;
+export default FullScreenLayout;
