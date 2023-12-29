@@ -10,4 +10,11 @@ export const mainTheme = extendTheme({
     gray: grayColor,
   },
   breakpoints,
+  styles: {
+    global: {
+      "*": {
+        WebkitTapHighlightColor: "transparent !important",
+      },
+    },
+  },
 });
