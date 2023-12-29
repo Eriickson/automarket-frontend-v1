@@ -7,6 +7,11 @@ import { resizeFile } from "@/utils";
 
 import { UploadFileWrapper } from "./UploadFileWrapper";
 
+const _800x600Dimension: [number, number] = [800, 600];
+const _1440x1080Dimension: [number, number] = [1440, 1080];
+const _1920x1440Dimension: [number, number] = [1920, 1440];
+const _2048x1536Dimension: [number, number] = [2048, 1536];
+
 type ImageType = {
   src: string;
   size: string;
@@ -20,7 +25,7 @@ export const ButtonComponent = () => {
 
   async function handleChange(nv: File[]) {
     setIsLoading(true);
-    const { resizedFile, quality } = await resizeFile({ file: nv[0] });
+    const { resizedFile, quality } = await resizeFile({ file: nv[0], maxDimensions: _2048x1536Dimension });
     const url = URL.createObjectURL(resizedFile);
 
     setWitoutResize({ src: URL.createObjectURL(nv[0]), size: `${(nv[0].size / 1024).toFixed(1)} Kb`, quality: 100 });
