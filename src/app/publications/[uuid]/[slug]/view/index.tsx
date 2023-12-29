@@ -3,6 +3,7 @@ import React from "react";
 import { Box, GridItem, SimpleGrid, Stack } from "@chakra-ui/react";
 
 import { GallerySliderSession } from "@/app/legacy/publications/[uuid]/view/sessions/GallerySlider";
+import { IndicatorsAndStatistics } from "@/app/legacy/publications/[uuid]/view/sessions/IndicatorsAndStatistics";
 import { SimilarPublications } from "@/app/legacy/publications/[uuid]/view/sessions/SimilarPublications";
 import { VehicleDetails } from "@/app/legacy/publications/[uuid]/view/sessions/VehicleDetails";
 import { ScreenAreaDelimiter } from "@/components/atoms/ScreenAreaDelimiter";
@@ -19,7 +20,10 @@ export const PublicationsDisplayView = () => {
             </Stack>
           </GridItem>
           <GridItem colSpan={[12, null, null, null, 5, 4]}>
-            <VehicleDetails />
+            <Stack spacing={["4", null, null, "6"]}>
+              <VehicleDetails />
+              <IndicatorsAndStatistics />
+            </Stack>
           </GridItem>
         </SimpleGrid>
       </ScreenAreaDelimiter>

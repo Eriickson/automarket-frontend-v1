@@ -1,3 +1,4 @@
+"use client";
 import React, { FC } from "react";
 
 import { Box, Flex, HStack, Text } from "@chakra-ui/react";
@@ -10,7 +11,7 @@ import { SeeMoreButton } from "./SeeMoreButton";
 
 interface HeaderSessionProps {
   title: string;
-  description: string;
+  description?: string;
 }
 
 export const HeaderSession: FC<HeaderSessionProps> = ({ description, title }) => {
@@ -22,22 +23,26 @@ export const HeaderSession: FC<HeaderSessionProps> = ({ description, title }) =>
             <Text fontSize={["md", null, null, "lg"]} fontWeight="semibold" lineHeight="1">
               {title}
             </Text>
-            <IconButton aria-label="" display={[null, null, null, null, null, "none"]} size="xs" variant="ghost">
-              <HelpCircle size="1rem" />
-            </IconButton>
+            {description ? (
+              <IconButton aria-label="" display={[null, null, null, null, null, "none"]} size="xs" variant="ghost">
+                <HelpCircle size="1rem" />
+              </IconButton>
+            ) : null}
           </HStack>
           <Box display={["block", null, null, null, "none"]}>
             <SeeMoreButton />
           </Box>
         </Flex>
-        <Text
-          display={["none", null, null, null, null, "block"]}
-          fontSize={["xs", null, null, "sm"]}
-          lineHeight={["1"]}
-          pr="24"
-        >
-          {description}
-        </Text>
+        {description ? (
+          <Text
+            display={["none", null, null, null, null, "block"]}
+            fontSize={["xs", null, null, "sm"]}
+            lineHeight={["1"]}
+            pr="24"
+          >
+            {description}
+          </Text>
+        ) : null}
       </Box>
       <Box display={["none", null, null, null, "block"]}>
         <SeeMoreButton />

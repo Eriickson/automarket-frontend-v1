@@ -1,15 +1,15 @@
 import React from "react";
 
-import { Card, CardBody, Stack, Text } from "@chakra-ui/react";
+import { Card, CardBody, Stack } from "@chakra-ui/react";
+
+import { HeaderSession } from "@/app/legacy/home/components/header-session";
 
 import { VehicleDetailItem } from "./Item";
 
 export const VehicleDetails = () => {
   return (
     <Stack spacing="0.5">
-      <Text fontSize={["md", null, null, "xl"]} fontWeight={["semibold"]}>
-        Detalles Generales
-      </Text>
+      <HeaderSession title="Detalles Generales" />
       <Card rounded="sm">
         <CardBody p={["2", null, null, "4"]}>
           <Stack>
