@@ -14,11 +14,13 @@ interface FullScreenLayoutProps {
   rightTopComponent?: React.ReactNode;
 }
 
+const nulls = generateNull(4);
+
 export const FullScreenLayout: FC<FullScreenLayoutProps> = ({ children }) => {
   return (
     <Box h="100vh">
       <SimpleGrid columns={12} h="full">
-        <GridItem colSpan={[12, ...generateNull(5), 8]}>
+        <GridItem colSpan={[12, ...nulls, 6]}>
           <Flex flexDirection="column" h="full">
             <HeaderSession />
             <Center flex="1" h="full">
@@ -27,7 +29,7 @@ export const FullScreenLayout: FC<FullScreenLayoutProps> = ({ children }) => {
             <Box h={["24"]}></Box>
           </Flex>
         </GridItem>
-        <GridItem colSpan={[12, null, null, 4]} display={["none", ...generateNull(5), "block"]}>
+        <GridItem colSpan={[12, ...nulls, 6]} display={["none", ...nulls, "block"]}>
           <Box bgColor="#1C1C1C" h="full" />
         </GridItem>
       </SimpleGrid>

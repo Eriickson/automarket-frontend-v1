@@ -19,8 +19,8 @@ export const SimpleTextField = forwardRef<HTMLElement, SimpleTextFieldProps>(({ 
         fontSize={["sm", null, null, "md"]}
         isDisabled={isLoading}
         pointerEvents={isLoading ? "none" : "auto"}
-        px={["2", null, null, "4"]}
-        py={["4", null, null, "6"]}
+        px={["2", null, null, "3"]}
+        py={["4", null, null, "5"]}
         rounded="sm"
         userSelect={isLoading ? "none" : "auto"}
         {...props}

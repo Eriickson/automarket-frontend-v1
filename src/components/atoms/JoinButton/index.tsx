@@ -13,10 +13,10 @@ interface JoinButtonProps {
 
 export const JoinButton: FC<JoinButtonProps> = ({ joinWith, onClick }) => {
   return (
-    <Button flex="1" py="6" rounded="sm" shadow="sm" variant="outline" onClick={onClick}>
+    <Button onClick={onClick}>
       <HStack>
         <Image alt="" src={`/assets/login-icons/${joinWith.toLowerCase()}.png`} w={["5", null, null, null, "6"]} />
-        <Text fontSize={["sm", null, null, null, "md"]}>{joinWith}</Text>
+        <Text fontSize="sm">Continua con {joinWith}</Text>
       </HStack>
     </Button>
   );
