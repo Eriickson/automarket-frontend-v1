@@ -1,9 +1,13 @@
+"use client";
 import React from "react";
 
 import { HStack, Image as ChakraImage, Text } from "@chakra-ui/react";
 import { AspectRatio, Box } from "@chakra-ui/react";
 
+import { IconButton } from "@/components/atoms";
 import { ScreenAreaDelimiter } from "@/components/atoms/ScreenAreaDelimiter";
+
+import { MoreVertical } from "react-feather";
 export const BannerPresentation = () => {
   return (
     <ScreenAreaDelimiter withoutPadding maxWidth="1440">
@@ -14,6 +18,7 @@ export const BannerPresentation = () => {
             src="https://grupoambar.com.do/wp-content/themes/yootheme/cache/04-nissan-edi-5987f0a8.jpeg"
           />
         </AspectRatio>
+
         <Box bottom="0" left="2" pos="absolute">
           <HStack alignItems="flex-end">
             <AspectRatio
