@@ -1,7 +1,9 @@
 import React from "react";
 
-const PublicationDisplayPage = () => {
-  return <div>PublicationDisplayPage</div>;
+import { PublicationsDisplayView } from "./view";
+
+const PublicationsDisplayPage = () => {
+  return <PublicationsDisplayView />;
 };
 
-export default PublicationDisplayPage;
+export default PublicationsDisplayPage;

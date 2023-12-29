@@ -1,7 +1,9 @@
 import React from "react";
 
+import { ResetPasswordView } from "./view";
+
 const ResetPasswordPage = () => {
-  return <div>ResetPasswordPage</div>;
+  return <ResetPasswordView />;
 };
 
 export default ResetPasswordPage;

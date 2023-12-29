@@ -1,7 +1,9 @@
 import React from "react";
 
+import { SearchView } from "./view";
+
 const SearchPage = () => {
-  return <div>SearchPage</div>;
+  return <SearchView />;
 };
 
 export default SearchPage;
