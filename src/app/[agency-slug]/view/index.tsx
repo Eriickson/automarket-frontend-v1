@@ -5,6 +5,7 @@ import { Box, Divider, Stack } from "@chakra-ui/react";
 import { BannerPresentation } from "./BannerPresentation";
 import { ContactInformationBanner } from "./components/ContactInformationBanner";
 import { GeneralInformation } from "./components/GeneralInformation";
+import { GeolocationMap } from "./components/Geolocation";
 import { MostRecentPublications } from "./components/MostRecentPublications";
 
 export const AgencyDisplayView = () => {
@@ -15,7 +16,9 @@ export const AgencyDisplayView = () => {
         <GeneralInformation />
         <Divider />
         <ContactInformationBanner />
+        <Divider />
         <MostRecentPublications />
+        <GeolocationMap />
       </Stack>
     </Box>
   );
