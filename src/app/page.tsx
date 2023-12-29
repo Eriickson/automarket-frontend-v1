@@ -2,12 +2,12 @@ import React from "react";
 
 import { Box, Stack, Text } from "@chakra-ui/react";
 
-import { JoinOurPlatform } from "./JoinOurPlatform";
 import { SessionWapper } from "./legacy/home/components/session-wapper";
 import { AdvertisingPostersSession } from "./legacy/home/sessions/AdvertisingPosters";
 import { FeaturedPublicationsSession } from "./legacy/home/sessions/featured-publications";
 import { RecentPostsSession } from "./legacy/home/sessions/recent-posts";
 import { SearchSession } from "./legacy/home/sessions/search";
+import { JoinOurPlatform } from "./legacy/JoinOurPlatform";
 import EcommerceLayout from "./legacy/legal/layout";
 
 const HomePage = () => {

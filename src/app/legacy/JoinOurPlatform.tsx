@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { Box, Flex, Text } from "@chakra-ui/react";
 
-import { Button } from "../components/atoms/Button";
+import { Button } from "../../components/atoms/Button";
 
 export const JoinOurPlatform = () => {
   return (
