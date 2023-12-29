@@ -3,11 +3,8 @@ import React, { FC } from "react";
 
 import { FormComponentProps } from "@atmk/components";
 
-import { Box, Checkbox, Flex, Stack, Text } from "@chakra-ui/react";
+import { Box, Checkbox, Flex, Text } from "@chakra-ui/react";
 
-import { FacebookAuthButton } from "@/app/legacy/signin/view/FacebookAuthButton";
-import { GoogleAuthButton } from "@/app/legacy/signin/view/GoogleAuthButton";
-import { OrDivider } from "@/app/legacy/signin/view/OrDivider";
 import { SubmitButton } from "@/components/atoms";
 import { PasswordFieldController } from "@/components/atoms/PasswordField/controller";
 import { SimpleTextFieldController } from "@/components/atoms/SimpleTextField/controller";
@@ -53,13 +50,6 @@ export const SigninFormHolder: FC<SigninFormHolderProps> = ({ onSubmit, defaultV
           <Text fontSize={["sm", null, null, null, null, "md"]}>Ingresar a mi cuenta</Text>
         </SubmitButton>
       </FormProvider>
-      <Box my="6">
-        <OrDivider />
-      </Box>
-      <Stack>
-        <GoogleAuthButton />
-        <FacebookAuthButton />
-      </Stack>
     </Box>
   );
 };
