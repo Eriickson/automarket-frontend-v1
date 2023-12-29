@@ -5,6 +5,7 @@ import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 
 import { ChakraProvider } from "@chakra-ui/react";
 
+import { ScreenSize } from "@/components/atoms";
 import { useStore } from "@/store/useStore.store";
 import { primaryColor } from "@/themes/color";
 import { mainTheme } from "@/themes/mainTheme";

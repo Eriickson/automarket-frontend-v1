@@ -19,6 +19,13 @@ interface SimpleSwiperProps<T> {
 export const SimpleSwiper = <T,>({ Component, items, slidesPerView, spaceBetween, grid }: SimpleSwiperProps<T>) => {
   return (
     <Swiper
+      breakpoints={{
+        640: { slidesPerView: 4, spaceBetween: 6 },
+        768: { slidesPerView: 2, spaceBetween: 6 },
+        1024: { slidesPerView: 4, spaceBetween: 12 },
+        1200: { slidesPerView: 5, spaceBetween: 12 },
+        1440: { slidesPerView: 6, spaceBetween: 12 },
+      }}
       grid={grid}
       modules={[Grid]}
       slidesPerView={slidesPerView}

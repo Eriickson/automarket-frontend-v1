@@ -10,7 +10,7 @@ export const GallerySliderSession = () => {
   return (
     <Stack spacing="1.5">
       <ThumbsSwiper />
-      <PublicationMetadata />
+      {/* <PublicationMetadata /> */}
     </Stack>
   );
 };

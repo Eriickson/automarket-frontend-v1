@@ -22,7 +22,7 @@ export const HeaderSession: FC<HeaderSessionProps> = ({ description, title }) =>
             <Text fontSize={["md", null, null, "lg"]} fontWeight="semibold" lineHeight="1">
               {title}
             </Text>
-            <IconButton aria-label="" size="xs" variant="ghost">
+            <IconButton aria-label="" display={[null, null, null, null, null, "none"]} size="xs" variant="ghost">
               <HelpCircle size="1rem" />
             </IconButton>
           </HStack>
@@ -30,7 +30,12 @@ export const HeaderSession: FC<HeaderSessionProps> = ({ description, title }) =>
             <SeeMoreButton />
           </Box>
         </Flex>
-        <Text display={["none", null, null, "block"]} fontSize={["xs", null, null, "sm"]} lineHeight={["1"]} pr="24">
+        <Text
+          display={["none", null, null, null, null, "block"]}
+          fontSize={["xs", null, null, "sm"]}
+          lineHeight={["1"]}
+          pr="24"
+        >
           {description}
         </Text>
       </Box>

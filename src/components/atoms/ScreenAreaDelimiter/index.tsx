@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 import { Box, Center } from "@chakra-ui/react";
 
-type MaxWidthValues = "1920" | "640" | "480";
+type MaxWidthValues = "1920" | "1440" | "640" | "480";
 
 interface ScreenAreaDelimiterProps {
   maxWidth?: MaxWidthValues;

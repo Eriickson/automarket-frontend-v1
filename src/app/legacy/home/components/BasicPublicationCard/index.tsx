@@ -38,7 +38,7 @@ export const BasicPublicationCard: FC<BasicPublicationCardProps> = ({ src }) => 
         </Box>
       </Box>
       <Box>
-        <Text fontSize={["2xs"]} fontWeight="semibold">
+        <Text fontSize={["2xs", null, "sm"]} fontWeight="semibold">
           Toyota Corolla - 2023
         </Text>
       </Box>
