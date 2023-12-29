@@ -11,7 +11,7 @@ interface EcommerceLayoutProps {
 
 export const EcommerceLayout: FC<EcommerceLayoutProps> = ({ children }) => {
   return (
-    <Flex flexDirection="column" minH="100vh">
+    <Flex flexDirection="column" minH="100dvh">
       <GlobalHeader />
       <Box flex="1">{children}</Box>
       <GlobalFooter />
