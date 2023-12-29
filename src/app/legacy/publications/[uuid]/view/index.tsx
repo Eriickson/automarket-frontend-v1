@@ -2,7 +2,7 @@ import React from "react";
 
 import { Box, GridItem, SimpleGrid, Stack } from "@chakra-ui/react";
 
-import { SessionWapper } from "@/app/home/components/session-wapper";
+import { SessionWapper } from "@/app/legacy/home/components/session-wapper";
 
 import { DealerInformationSession } from "./sessions/DealerInformation";
 import { GallerySliderSession } from "./sessions/GallerySlider";
