@@ -1,7 +1,9 @@
 import React from "react";
 
+import { PublicationsDashboardView } from "./view";
+
 const PublicationsDashboardPage = () => {
-  return <div>PublicationsDashboardPage</div>;
+  return <PublicationsDashboardView />;
 };
 
 export default PublicationsDashboardPage;

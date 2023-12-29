@@ -1,7 +1,9 @@
 import React from "react";
 
+import { CreateFleetDashboardView } from "./view";
+
 const CreateFleetDashboardPage = () => {
-  return <div>CreateFleetDashboardPage</div>;
+  return <CreateFleetDashboardView />;
 };
 
 export default CreateFleetDashboardPage;

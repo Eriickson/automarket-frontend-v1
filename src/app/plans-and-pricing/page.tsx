@@ -1,7 +1,9 @@
 import React from "react";
 
+import { PlansAndPricingView } from "./view";
+
 const PlansAndPricingPage = () => {
-  return <div>PlansAndPricingPage</div>;
+  return <PlansAndPricingView />;
 };
 
 export default PlansAndPricingPage;

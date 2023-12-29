@@ -1,7 +1,9 @@
 import React from "react";
 
+import { SettingsDashboardView } from "./view";
+
 const SettingsDashboardPage = () => {
-  return <div>SettingsDashboardPage</div>;
+  return <SettingsDashboardView />;
 };
 
 export default SettingsDashboardPage;
