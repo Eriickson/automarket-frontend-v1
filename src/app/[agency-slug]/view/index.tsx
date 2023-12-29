@@ -2,6 +2,9 @@ import React from "react";
 
 import { Box, Divider, Stack } from "@chakra-ui/react";
 
+import { JoinOurPlatform } from "@/app/legacy/JoinOurPlatform";
+import { ScreenAreaDelimiter } from "@/components/atoms/ScreenAreaDelimiter";
+
 import { BannerPresentation } from "./BannerPresentation";
 import { ContactInformationBanner } from "./components/ContactInformationBanner";
 import { GeneralInformation } from "./components/GeneralInformation";
@@ -19,6 +22,9 @@ export const AgencyDisplayView = () => {
         <Divider />
         <MostRecentPublications />
         <GeolocationMap />
+        <ScreenAreaDelimiter maxWidth="1440">
+          <JoinOurPlatform />
+        </ScreenAreaDelimiter>
       </Stack>
     </Box>
   );
