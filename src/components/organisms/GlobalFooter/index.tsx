@@ -22,7 +22,7 @@ export const GlobalFooter = () => {
             <SocialMediaButtons />
           </Flex>
         </Stack>
-        <HStack spacing={["8"]}>
+        <HStack alignItems="flex-start" spacing={["8"]}>
           <OverviewMenu />
           <RightSession />
         </HStack>

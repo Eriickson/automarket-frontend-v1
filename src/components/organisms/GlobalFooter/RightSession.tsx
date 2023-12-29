@@ -2,21 +2,11 @@ import React, { Fragment } from "react";
 
 import Link from "next/link";
 
-import { HStack, List, ListItem, Stack, Text } from "@chakra-ui/react";
+import { List, ListItem, Stack, Text } from "@chakra-ui/react";
 
 const items = [
-  {
-    title: "Políticas de Privacidad",
-    href: "/legal/privacy-policies",
-  },
-  {
-    title: "Términos y Condiciones",
-    href: "/legal/terms-and-conditions",
-  },
-  {
-    title: "Servicio al Cliente",
-    href: "/legal/support",
-  },
+  { label: "Políticas de Privacidad", href: "/legal/privacy-policies" },
+  { label: "Términos y Condiciones", href: "/legal/terms-and-conditions" },
 ];
 
 export const RightSession = () => {
@@ -43,7 +33,7 @@ export const RightSession = () => {
             <Link href={item.href}>
               <ListItem cursor="pointer">
                 <Text fontSize={["xs"]} fontWeight="medium" textDecoration="underline">
-                  {item.title}
+                  {item.label}
                 </Text>
               </ListItem>
             </Link>

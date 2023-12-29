@@ -6,6 +6,7 @@ import { List, Stack, Text } from "@chakra-ui/react";
 
 const menuItems = [
   { label: "Características", href: "/" },
+  { label: "Servicio al Cliente", href: "/legal/support" },
   { label: "Planes y Precios", href: "/plans-and-pricing" },
   { label: "Ayuda", href: "/overview/help" },
 ];
