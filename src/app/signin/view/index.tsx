@@ -5,9 +5,8 @@ import { Stack } from "@chakra-ui/react";
 import { OrDivider } from "@/components/atoms/OrDivider";
 import { ScreenAreaDelimiter } from "@/components/atoms/ScreenAreaDelimiter";
 
-import { ContinueWithSocialMediaButtons } from "./components/ContinueWithSocialMediaButtons";
+import { ContinueWithSocialMediaButtons, TitleComponent } from "./components";
 import { SigninFormContainer } from "./components/SigninForm/SigninFormContainer";
-import { TitleComponent } from "./components/TitleComponent";
 
 export const SigninView = () => {
   return (
