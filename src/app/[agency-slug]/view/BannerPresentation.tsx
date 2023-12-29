@@ -1,7 +1,5 @@
 import React from "react";
 
-import Image from "next/image";
-
 import { HStack, Image as ChakraImage, Text } from "@chakra-ui/react";
 import { AspectRatio, Box } from "@chakra-ui/react";
 
@@ -11,11 +9,9 @@ export const BannerPresentation = () => {
     <ScreenAreaDelimiter withoutPadding maxWidth="1440">
       <Box pb="14" pos="relative">
         <AspectRatio ratio={[16 / 9, null, null, 2.68 / 1]}>
-          <Image
+          <ChakraImage
             alt=""
-            height={600}
-            src="https://images.unsplash.com/photo-1628846231746-b4ed87a0abef?q=80&w=4288&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            width={800}
+            src="https://grupoambar.com.do/wp-content/themes/yootheme/cache/04-nissan-edi-5987f0a8.jpeg"
           />
         </AspectRatio>
         <Box bottom="0" left="2" pos="absolute">
@@ -31,12 +27,12 @@ export const BannerPresentation = () => {
             >
               <ChakraImage
                 alt=""
-                src="https://www.shutterstock.com/image-vector/sport-car-logo-design-automotive-600nw-1967120719.jpg"
+                src="https://media.licdn.com/dms/image/C4D0BAQGIzktkO3G0Og/company-logo_200_200/0/1643324294424/santo_domingo_motors_logo?e=2147483647&v=beta&t=aUVWVMDdQ74si5z-grf8ijzIMY7d4ZtQM_3vtDCJIwQ"
               />
             </AspectRatio>
             <Box mb="2.5">
               <Text fontWeight="semibold" lineHeight="1">
-                Erickson Auto Import
+                Santo Domingo Motors
               </Text>
               <Text color="gray.500" fontSize="sm">
                 Los mejores autos al mejor precio.
