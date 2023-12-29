@@ -1,7 +1,9 @@
 import React from "react";
 
+import { AgenciesView } from "./view";
+
 const AgenciesPage = () => {
-  return <div>AgenciesPage</div>;
+  return <AgenciesView />;
 };
 
 export default AgenciesPage;
