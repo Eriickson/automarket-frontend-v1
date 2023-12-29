@@ -1,19 +1,43 @@
 import Resizer from "react-image-file-resizer";
 
-export async function resizeFile(file: File) {
-  return new Promise<File>((resolve) => {
-    Resizer.imageFileResizer(
-      file,
-      // 4:3
-      2000,
-      2000,
-      "WEBP",
-      85,
-      0,
-      (uri) => {
-        resolve(uri as File);
-      },
-      "file"
-    );
-  });
+interface ResizeFileArgs {
+  file: File;
+  maxSizeInKB?: number;
+}
+
+interface ResizeFileResult {
+  resizedFile: File;
+  quality: number;
+}
+
+export async function resizeFile({ file, maxSizeInKB }: ResizeFileArgs): Promise<ResizeFileResult> {
+  const resizeWithQualityCheck = async (
+    file: File,
+    quality: number,
+    maxSizeInKB: number = 1024
+  ): Promise<ResizeFileResult> => {
+    return new Promise<ResizeFileResult>(async (resolve) => {
+      Resizer.imageFileResizer(
+        file,
+        2000,
+        2000,
+        "WEBP",
+        quality,
+        0,
+        async (uri) => {
+          const resizedFile = uri as File;
+
+          if (resizedFile.size / 1024 > maxSizeInKB && quality > 0) {
+            quality -= 5;
+            resolve(await resizeWithQualityCheck(file, quality, maxSizeInKB));
+          } else {
+            resolve({ resizedFile, quality });
+          }
+        },
+        "file"
+      );
+    });
+  };
+
+  return resizeWithQualityCheck(file, 95, maxSizeInKB);
 }
