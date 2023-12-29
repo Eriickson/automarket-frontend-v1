@@ -4,6 +4,7 @@ import { Box, Divider, Flex, Stack } from "@chakra-ui/react";
 
 import { LogoPresentation } from "@/components/atoms/LogoPresentation";
 import { ScreenAreaDelimiter } from "@/components/atoms/ScreenAreaDelimiter";
+import { generateNull } from "@/utils";
 
 import { CopyrightMark } from "./CopyrightMark";
 import { OverviewMenu } from "./OverviewMenu";
@@ -12,7 +13,7 @@ import { SocialMediaButtons } from "./SocialMediaButtons";
 
 export const GlobalFooter = () => {
   return (
-    <Stack spacing="4">
+    <Stack px={[...generateNull(4), "4"]} spacing="4">
       <Divider borderColor="gray.300" />
 
       <ScreenAreaDelimiter>

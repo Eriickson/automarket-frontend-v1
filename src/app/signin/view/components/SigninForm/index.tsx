@@ -47,7 +47,7 @@ export const SigninFormHolder: FC<SigninFormHolderProps> = ({ onSubmit, defaultV
           <ForgetYourPasswordButton />
         </Flex>
         <SubmitButton colorScheme="primary" loadingText="Ingresando a tu cuenta">
-          <Text fontSize={["sm", null, null, null, null, "md"]}>Ingresar a mi cuenta</Text>
+          Ingresar a mi cuenta
         </SubmitButton>
       </FormProvider>
     </Box>

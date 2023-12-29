@@ -6,6 +6,7 @@ import { Box, Flex, HStack, IconButton } from "@chakra-ui/react";
 
 import { LogoPresentation } from "@/components/atoms/LogoPresentation";
 import { ScreenAreaDelimiter } from "@/components/atoms/ScreenAreaDelimiter";
+import { generateNull } from "@/utils";
 
 import { Bell } from "react-feather";
 
@@ -19,7 +20,7 @@ const isAuthenticated = true;
 
 export const GlobalHeader = () => {
   return (
-    <Box borderBottom="1px" borderColor="gray.200" py={["4", null, null, "6"]}>
+    <Box borderBottom="1px" borderColor="gray.200" px={[...generateNull(4), "4"]} py={["4", null, null, "6"]}>
       <ScreenAreaDelimiter>
         <Flex alignItems="center" justifyContent="space-between">
           <HStack spacing="8">
