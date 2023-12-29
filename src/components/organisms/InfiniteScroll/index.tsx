@@ -45,7 +45,7 @@ export const InfiniteScroll = () => {
     >
       <Box>
         {items.map((_, index) => (
-          <Box backgroundColor="red.500" h="20" key={index} mb="4" w="20">
+          <Box backgroundColor="red.500" className={`rendered-${index + 1}`} h="20" key={index} mb="4" w="20">
             div - #{index + 1}
           </Box>
         ))}
