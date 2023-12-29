@@ -1,3 +1,4 @@
+"use client";
 import { Context, createContext, RefObject, useContext, useEffect, useMemo, useRef, useState } from "react";
 
 import { useOutsideClick } from "@chakra-ui/react";

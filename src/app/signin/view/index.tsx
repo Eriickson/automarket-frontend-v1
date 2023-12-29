@@ -1,16 +1,18 @@
 import React from "react";
 
-import { Box, Heading, Text, VStack } from "@chakra-ui/react";
+import { Heading, Stack, Text, VStack } from "@chakra-ui/react";
 
+import { OrDivider } from "@/components/atoms/OrDivider";
 import { ScreenAreaDelimiter } from "@/components/atoms/ScreenAreaDelimiter";
 import { generateNull } from "@/utils";
 
+import { ContinueWithSocialMediaButtons } from "./components/ContinueWithSocialMediaButtons";
 import { SigninFormContainer } from "./components/SigninForm/SigninFormContainer";
 
 export const SigninView = () => {
   return (
     <ScreenAreaDelimiter maxWidth="480">
-      <Box mb="6">
+      <Stack spacing="6">
         <VStack spacing="1">
           <Heading as="h2" fontWeight="semibold" size={["lg", ...generateNull(5), "xl"]} textAlign="center">
             Ingrese a su cuenta
@@ -19,8 +21,10 @@ export const SigninView = () => {
             Bienvenido de nuevo! Selecciona el método que deseas utilizar para ingresar a tu cuenta.
           </Text>
         </VStack>
-      </Box>
-      <SigninFormContainer />
+        <SigninFormContainer />
+        <OrDivider />
+        <ContinueWithSocialMediaButtons />
+      </Stack>
     </ScreenAreaDelimiter>
   );
 };
