@@ -1,8 +1,9 @@
 import React from "react";
 
+import Link from "next/link";
+
 import { Image } from "@chakra-ui/react";
 
-import { Link } from "@chakra-ui/next-js";
 
 export const LogoPresentation = () => {
   return (
