@@ -9,7 +9,7 @@ import { VehicleDetailItem } from "./Item";
 export const VehicleDetails = () => {
   return (
     <Stack spacing="0.5">
-      <HeaderSession title="Detalles Generales" />
+      <HeaderSession hiddenSeeMore title="Detalles Generales" />
       <Card rounded="sm">
         <CardBody p={["2", null, null, "4"]}>
           <Stack>

@@ -12,9 +12,10 @@ import { SeeMoreButton } from "./SeeMoreButton";
 interface HeaderSessionProps {
   title: string;
   description?: string;
+  hiddenSeeMore?: boolean;
 }
 
-export const HeaderSession: FC<HeaderSessionProps> = ({ description, title }) => {
+export const HeaderSession: FC<HeaderSessionProps> = ({ hiddenSeeMore, description, title }) => {
   return (
     <Flex alignItems="center" justifyContent="space-between">
       <Box flex="1">
@@ -44,9 +45,11 @@ export const HeaderSession: FC<HeaderSessionProps> = ({ description, title }) =>
           </Text>
         ) : null}
       </Box>
-      <Box display={["none", null, null, null, "block"]}>
-        <SeeMoreButton />
-      </Box>
+      {hiddenSeeMore ? null : (
+        <Box display={["none", null, null, null, "block"]}>
+          <SeeMoreButton />
+        </Box>
+      )}
     </Flex>
   );
 };
