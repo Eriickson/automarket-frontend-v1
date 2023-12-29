@@ -18,21 +18,19 @@ const nulls = generateNull(4);
 
 export const FullScreenLayout: FC<FullScreenLayoutProps> = ({ children }) => {
   return (
-    <Box h="100vh">
-      <SimpleGrid columns={12} h="full">
-        <GridItem colSpan={[12, ...nulls, 6]}>
-          <Flex flexDirection="column" h="full">
-            <HeaderSession />
-            <Center flex="1" h="full">
-              {children}
-            </Center>
-            <Box h={["24"]}></Box>
-          </Flex>
-        </GridItem>
-        <GridItem colSpan={[12, ...nulls, 6]} display={["none", ...nulls, "block"]}>
-          <Box bgColor="#1C1C1C" h="full" />
-        </GridItem>
-      </SimpleGrid>
-    </Box>
+    <SimpleGrid borderColor="blue" columns={12} minH="100dvh">
+      <GridItem colSpan={[12, ...nulls, 6]}>
+        <Flex flexDirection="column" h="full">
+          <HeaderSession />
+          <Center flex="1" h="full">
+            {children}
+          </Center>
+          <Box h={[null, null, null, null, "24"]}></Box>
+        </Flex>
+      </GridItem>
+      <GridItem colSpan={[12, ...nulls, 6]} display={["none", ...nulls, "block"]}>
+        <Box bgColor="#1C1C1C" h="full" />
+      </GridItem>
+    </SimpleGrid>
   );
 };
