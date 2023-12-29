@@ -8,7 +8,7 @@ import { ScreenAreaDelimiter } from "@/components/atoms/ScreenAreaDelimiter";
 
 export const ContactInformationBanner = () => {
   return (
-    <ScreenAreaDelimiter maxWidth="1920">
+    <ScreenAreaDelimiter maxWidth="1440">
       <HStack>
         <Button colorScheme="secondary" flex="1">
           Información de contacto
