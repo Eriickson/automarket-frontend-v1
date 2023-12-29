@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Box, Divider, Flex, Stack } from "@chakra-ui/react";
+import { Box, Divider, Flex, HStack, Stack } from "@chakra-ui/react";
 
 import { LogoPresentation } from "@/components/atoms/LogoPresentation";
 import { ScreenAreaDelimiter } from "@/components/atoms/ScreenAreaDelimiter";
@@ -22,10 +22,10 @@ export const GlobalFooter = () => {
             <SocialMediaButtons />
           </Flex>
         </Stack>
-        <Stack spacing={["8"]}>
+        <HStack spacing={["8"]}>
           <OverviewMenu />
           <RightSession />
-        </Stack>
+        </HStack>
         <Divider borderColor="gray.300" my="4" />
         <Box pb={["3"]}>
           <CopyrightMark />
