@@ -1,13 +1,17 @@
 import React from "react";
 
-import { Box } from "@chakra-ui/react";
+import { Box, Stack } from "@chakra-ui/react";
 
 import { BannerPresentation } from "./BannerPresentation";
+import { ContactInformationBanner } from "./components/ContactInformationBanner";
 
 export const AgencyDisplayView = () => {
   return (
     <Box>
-      <BannerPresentation />
+      <Stack>
+        <BannerPresentation />
+        <ContactInformationBanner />
+      </Stack>
     </Box>
   );
 };

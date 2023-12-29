@@ -9,7 +9,7 @@ import { ScreenAreaDelimiter } from "@/components/atoms/ScreenAreaDelimiter";
 export const BannerPresentation = () => {
   return (
     <ScreenAreaDelimiter withoutPadding maxWidth="1440">
-      <Box pos="relative">
+      <Box pb="14" pos="relative">
         <AspectRatio ratio={[16 / 9, null, null, 2.68 / 1]}>
           <Image
             alt=""
@@ -18,7 +18,7 @@ export const BannerPresentation = () => {
             width={800}
           />
         </AspectRatio>
-        <Box bottom="-14" left="2" pos="absolute">
+        <Box bottom="0" left="2" pos="absolute">
           <HStack alignItems="flex-end">
             <AspectRatio
               border="4px"
