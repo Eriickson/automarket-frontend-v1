@@ -1,7 +1,9 @@
 import React from "react";
 
+import { HelpSupportView } from "./view";
+
 const HelpSupportPage = () => {
-  return <div>HelpSupportPage</div>;
+  return <HelpSupportView />;
 };
 
 export default HelpSupportPage;

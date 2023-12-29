@@ -1,7 +1,9 @@
 import React from "react";
 
+import { ContactUsSupportView } from "./view";
+
 const ContactUsSupportPage = () => {
-  return <div>ContactUsSupportPage</div>;
+  return <ContactUsSupportView />;
 };
 
 export default ContactUsSupportPage;
