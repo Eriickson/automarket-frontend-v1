@@ -4,12 +4,12 @@ import { Text } from "@chakra-ui/react";
 
 export const CopyrightMark = () => {
   return (
-    <Text fontSize={["xs", null, null, null, "md"]} textAlign="center">
+    <Text fontSize={["xs", null, "sm", null, "md"]}>
       © {new Date().getFullYear()}{" "}
       <Text as="span" fontWeight="semibold">
-        automarket.agency
-      </Text>
-      . Todos los derechos reservados.
+        automarket.agency.
+      </Text>{" "}
+      Todos los derechos reservados.
     </Text>
   );
 };

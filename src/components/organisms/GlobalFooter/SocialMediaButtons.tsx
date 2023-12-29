@@ -1,6 +1,9 @@
+"use client";
 import React from "react";
 
-import { Box, HStack, Image } from "@chakra-ui/react";
+import { HStack, Image } from "@chakra-ui/react";
+
+import { IconButton } from "@/components/atoms";
 
 const socialMedia = [
   {
@@ -26,9 +29,9 @@ const socialMedia = [
 ];
 export const SocialMediaButtons = () => {
   return (
-    <HStack spacing={["2", null, null, "4"]}>
+    <HStack spacing={["1", null, null, "4"]}>
       {socialMedia.map((item) => (
-        <Box key={item.name} p="0.5">
+        <IconButton aria-label="" key={item.name} rounded="sm" size="sm" variant="ghost">
           <Image
             _hover={{ filter: "grayscale(0)" }}
             alt=""
@@ -36,9 +39,9 @@ export const SocialMediaButtons = () => {
             filter="grayscale(1)"
             src={item.icon}
             transition="all 0.1s ease-in-out"
-            w={["5", null, null, "8"]}
+            w={["5", null, "6", null, "6"]}
           />
-        </Box>
+        </IconButton>
       ))}
     </HStack>
   );

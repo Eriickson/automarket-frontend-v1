@@ -5,6 +5,7 @@ import { AppProgressBar as ProgressBar } from "next-nprogress-bar";
 
 import { ChakraProvider } from "@chakra-ui/react";
 
+import { ScreenSize } from "@/components/atoms";
 import { useStore } from "@/store/useStore.store";
 import { primaryColor } from "@/themes/color";
 import { mainTheme } from "@/themes/mainTheme";
@@ -30,7 +31,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
         <ChakraProvider theme={mainTheme}>
           {isRendered ? children : null}
           <ProgressBar shallowRouting color={primaryColor[500]} height="4px" options={{ showSpinner: true }} />
-          {/* <ScreenSize /> */}
+          <ScreenSize />
         </ChakraProvider>
       </CacheProvider>
     </ReduxProvider>
