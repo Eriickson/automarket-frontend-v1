@@ -26,7 +26,7 @@ export const SigninFormHolder: FC<SigninFormHolderProps> = ({ onSubmit, defaultV
           autoComplete="username"
           bgColor="gray.50"
           borderColor="gray.300"
-          label="Correo electrónico"
+          label="Identificador"
           name="identifier"
           placeholder="Correo electrónico o nombre de usuario"
         />
