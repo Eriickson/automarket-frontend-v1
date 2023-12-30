@@ -14,7 +14,7 @@ export const PublicationsSavedView = () => {
   return (
     <Stack py="2" spacing={4}>
       <ScreenAreaDelimiter maxWidth="1440">
-        <Text fontSize="lg" fontWeight="semibold" mb="2">
+        <Text fontWeight="semibold" mb="2">
           25 Publicaciones guardadas
         </Text>
         <List spacing="2">
