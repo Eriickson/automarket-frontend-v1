@@ -12,7 +12,7 @@ export const MostRecentPublications = () => {
     <ScreenAreaDelimiter maxWidth="1440">
       <HeaderSession title="Publicaciones recientes" />
       <SimpleGrid columns={12} gap="1" mt="1">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
+        {[1, 2, 3, 4, 5, 6].map((item) => (
           <GridItem colSpan={4} key={item}>
             <Image
               alt=""
@@ -21,7 +21,7 @@ export const MostRecentPublications = () => {
           </GridItem>
         ))}
       </SimpleGrid>
-      <Button colorScheme="primary" mt="2" w="full">
+      <Button backgroundColor="gray.100" colorScheme="primary" mt="2" variant="ghost" w="full">
         Mostrar Inventario Completo
       </Button>
     </ScreenAreaDelimiter>
