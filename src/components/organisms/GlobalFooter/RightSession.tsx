@@ -3,7 +3,7 @@ import React from "react";
 import { FooterList } from "./FooterList";
 
 const items = [
-  { label: "Políticas de Privacidad", href: "/privacy-policies" },
+  { label: "Políticas de Privacidad", href: "/privacy-policy" },
   { label: "Términos y Condiciones", href: "/terms-and-conditions" },
 ];
 
