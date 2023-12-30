@@ -15,6 +15,9 @@ export const mainTheme = extendTheme({
       "*": {
         WebkitTapHighlightColor: "transparent !important",
       },
+      ".headroom-wrapper": {
+        zIndex: "1000 !important",
+      },
     },
   },
 });
