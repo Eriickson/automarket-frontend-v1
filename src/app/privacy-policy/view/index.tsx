@@ -13,23 +13,31 @@ export const PrivacyPolicy = () => {
       <Text fontSize="xs">Last updated: December 30, 2023</Text>
       <br />
       <Paragraph>
-        This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your
-        information when You use the Service and tells You about Your privacy rights and how the law protects You.
+        {/* Spanish */}
+        {/* This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your
+        information when You use the Service and tells You about Your privacy rights and how the law protects You. */}
+        Esta Política de privacidad describe nuestras políticas y procedimientos sobre la recopilación, uso y
+        divulgación de su información cuando utiliza el Servicio y le informa sobre sus derechos de privacidad y cómo la
+        ley lo protege.
       </Paragraph>
       <Box h="4" />
       <Paragraph>
-        We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection
+        {/*   We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection
         and use of information in accordance with this Privacy Policy. This Privacy Policy has been created with the
-        help of the{" "}
+        help of the */}
+        Utilizamos sus datos personales para proporcionar y mejorar el Servicio. Al utilizar el Servicio, usted acepta
+        la recopilación y el uso de información de acuerdo con esta Política de privacidad. Esta Política de privacidad
+        se ha creado con la ayuda de la{" "}
         <a href="https://www.privacypolicies.com/privacy-policy-generator/" target="_blank">
           Privacy Policy Generator
         </a>
         .
       </Paragraph>
       <br />
-      <Heading fontSize="lg">Interpretation and Definitions</Heading>
+      <Heading fontSize="lg">Interpretación y definiciones</Heading>
       <Box h="2" />
       <Heading fontSize="md">Interpretation</Heading>
+
       <Box h="2" />
       <Paragraph>
         The words of which the initial letter is capitalized have meanings defined under the following conditions. The
