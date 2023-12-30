@@ -18,6 +18,7 @@ export interface ModalComponentProps {
 
 interface ModalWithButtonProps {
   title?: React.ReactNode;
+  isDisabled?: boolean;
   buttonComponent: React.ReactNode;
   BodyComponent: FC<ModalComponentProps>;
   FooterComponent?: (props: ModalComponentProps) => React.ReactNode;
@@ -28,19 +29,26 @@ export const ModalWithButton: FC<ModalWithButtonProps> = ({
   BodyComponent,
   FooterComponent,
   buttonComponent,
+  isDisabled,
 }) => {
   const disclosure = useDisclosure();
 
   return (
     <>
       <Box onClick={disclosure.onOpen}>{buttonComponent}</Box>
-      <Modal isCentered isOpen={disclosure.isOpen} onClose={disclosure.onClose}>
+      <Modal
+        isCentered
+        closeOnEsc={!isDisabled}
+        closeOnOverlayClick={!isDisabled}
+        isOpen={disclosure.isOpen}
+        onClose={disclosure.onClose}
+      >
         <ModalOverlay />
         <ModalContent mx="1" px="0" rounded="sm">
           <ModalHeader fontSize="md" pb="2" pt="3" px="2">
             {title}
           </ModalHeader>
-          <ModalCloseButton right="1" top="1" />
+          <ModalCloseButton isDisabled={isDisabled} right="1" top="1" />
           <ModalBody px="2">
             <BodyComponent disclosure={disclosure} />
           </ModalBody>
