@@ -9,28 +9,23 @@ const tabsItems = [
   {
     label: "Dashboard",
     href: "/dashboard",
-    TabPanel: () => <Box>Location</Box>,
   },
   {
     label: "Publicaciones",
     href: "/dashboard/publications",
-    TabPanel: () => <Box>Location</Box>,
   },
   {
     label: "Flotilla",
     href: "/dashboard/fleet",
-    TabPanel: () => <Box>Location</Box>,
   },
   {
     label: "Perfil Empresarial",
     href: "/dashboard/profile/settings",
-    TabPanel: () => <Box>Location</Box>,
   },
 
   {
     label: "Configuración",
     href: "/dashboard/settings",
-    TabPanel: () => <Box>Location</Box>,
   },
 ];
 
