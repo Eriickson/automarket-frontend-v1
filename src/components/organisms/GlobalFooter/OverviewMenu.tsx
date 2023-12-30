@@ -4,7 +4,7 @@ import { FooterList } from "./FooterList";
 
 const items = [
   { label: "Características", href: "/" },
-  { label: "Servicio al Cliente", href: "/legal/support" },
+  { label: "Servicio al Cliente", href: "/support" },
   { label: "Planes y Precios", href: "/plans-and-pricing" },
   { label: "Ayuda", href: "/overview/help" },
 ];
