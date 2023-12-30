@@ -50,13 +50,21 @@ export const SessionListItem: FC<SessionListItemProps> = ({ isActive }) => {
         </ListItem>
       }
       FooterComponent={() => (
-        <HStack flex="1" justifyContent="flex-end">
+        <HStack alignItems="center" flex="1" justifyContent="space-between">
+          {isActive ? (
+            <Text color="green.500" fontSize="xs" fontWeight="semibold">
+              Sesión Actual
+            </Text>
+          ) : (
+            <Box />
+          )}
+
           <Button colorScheme="red" variant="ghost">
             Cerrar sesión
           </Button>
         </HStack>
       )}
-      title="Oficina Principal - Distrito Nacional"
+      title="Oficina Principal"
     />
   );
 };
