@@ -1,6 +1,10 @@
 import React, { FC } from "react";
 
-import { Box, HStack } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
+
+import { GlobalHeader } from "@/components/organisms/GlobalHeader";
+
+import { TabbarNavigation } from "./TabbarNavigation";
 
 interface DashboardScreenLayoutProps {
   children: React.ReactNode;
@@ -8,18 +12,12 @@ interface DashboardScreenLayoutProps {
 
 export const DashboardScreenLayout: FC<DashboardScreenLayoutProps> = ({ children }) => {
   return (
-    <Box>
-      <Box>
-        <HStack>
-          <Box p="4">
-            <Box>
-              <Box h="12" w="12" />
-            </Box>
-          </Box>
-          <Box>Hola</Box>
-          <Box>{children}</Box>
-        </HStack>
+    <Flex flexDirection="column" minH="100dvh">
+      <GlobalHeader />
+      <Box my="2">
+        <TabbarNavigation />
+        <Box flex="1">{children}</Box>
       </Box>
-    </Box>
+    </Flex>
   );
 };
