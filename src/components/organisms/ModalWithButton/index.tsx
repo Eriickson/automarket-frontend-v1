@@ -37,14 +37,14 @@ export const ModalWithButton: FC<ModalWithButtonProps> = ({
       <Modal isCentered isOpen={disclosure.isOpen} onClose={disclosure.onClose}>
         <ModalOverlay />
         <ModalContent mx="1" px="0" rounded="sm">
-          <ModalHeader fontSize="md" px="2" py="2">
+          <ModalHeader fontSize="md" pb="2" pt="3" px="2">
             {title}
           </ModalHeader>
           <ModalCloseButton right="1" top="1" />
           <ModalBody px="2">
             <BodyComponent disclosure={disclosure} />
           </ModalBody>
-          <ModalFooter justifyContent="flex-start" px="2" py="2">
+          <ModalFooter justifyContent="flex-start" pb="3" pt="2" px="2">
             {FooterComponent?.({ disclosure })}
           </ModalFooter>
         </ModalContent>

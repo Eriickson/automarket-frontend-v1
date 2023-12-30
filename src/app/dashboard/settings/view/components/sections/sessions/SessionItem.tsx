@@ -49,13 +49,13 @@ export const SessionListItem: FC<SessionListItemProps> = ({ isActive }) => {
           </HStack>
         </ListItem>
       }
-      FooterComponent={({ disclosure }) => {
-        return (
-          <HStack>
-            <Button onClick={disclosure.onClose}>Cerrar sesión</Button>
-          </HStack>
-        );
-      }}
+      FooterComponent={() => (
+        <HStack flex="1" justifyContent="flex-end">
+          <Button colorScheme="red" variant="ghost">
+            Cerrar sesión
+          </Button>
+        </HStack>
+      )}
       title="Oficina Principal - Distrito Nacional"
     />
   );
