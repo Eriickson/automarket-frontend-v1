@@ -7,9 +7,9 @@ export const CurrentUserInformation = () => {
   return (
     <HStack>
       <Avatar
-        h="10"
+        h="8"
         src="https://encuentracommunitymanager.com/wp-content/uploads/2021/10/Foto-perfil-cuadrada.jpg"
-        w="10"
+        w="8"
       />
     </HStack>
   );

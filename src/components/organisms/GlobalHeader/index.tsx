@@ -44,7 +44,7 @@ export const GlobalHeader = () => {
                   </IconButton>
                 </HStack>
               </HStack>
-              {isAuthenticated ? <LoginSession /> : <CurrentUserInformation />}
+              {isAuthenticated ? <CurrentUserInformation /> : <LoginSession />}
               <MobileNavigationMenu />
             </HStack>
           </Flex>
