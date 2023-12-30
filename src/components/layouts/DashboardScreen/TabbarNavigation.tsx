@@ -1,45 +1,36 @@
-import React from "react";
+"use client";
+import React, { useEffect, useRef } from "react";
 
-import { headers } from "next/headers";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-import { Box, HStack, Tab, TabList, Tabs, Text } from "@chakra-ui/react";
+import { Box, HStack, Tab, TabList, Tabs, Text, UseTabListProps } from "@chakra-ui/react";
 
 const tabsItems = [
-  {
-    label: "Dashboard",
-    href: "/dashboard",
-  },
-  {
-    label: "Publicaciones",
-    href: "/dashboard/publications",
-  },
-  {
-    label: "Flotilla",
-    href: "/dashboard/fleet",
-  },
-  {
-    label: "Perfil Empresarial",
-    href: "/dashboard/profile/settings",
-  },
-
-  {
-    label: "Configuración",
-    href: "/dashboard/settings",
-  },
+  { label: "Dashboard", href: "/dashboard" },
+  { label: "Publicaciones", href: "/dashboard/publications" },
+  { label: "Flotilla de Vehículos", href: "/dashboard/fleet" },
+  { label: "Perfil Empresarial", href: "/dashboard/profile/settings" },
+  { label: "Configuración", href: "/dashboard/settings" },
 ];
 
 export const TabbarNavigation = () => {
-  const pathname = headers().get("x-pathname");
-
+  const pathname = usePathname();
   const tabActive = tabsItems.findIndex((item) => item.href === pathname);
+  const tabListRef = useRef<UseTabListProps>(null);
 
-  console.log(tabActive);
+  useEffect(() => {
+    if (tabListRef.current && tabActive !== -1) {
+      const activeTabElement = ((tabListRef.current?.children as HTMLElement[]) || [])[tabActive];
+
+      activeTabElement.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    }
+  }, [tabActive]);
 
   return (
     <Tabs colorScheme="primary" defaultIndex={tabActive} variant="enclosed-colored">
       <Box overflow="auto" pb="1" w="full">
-        <TabList>
+        <TabList ref={tabListRef}>
           {tabsItems.map((item) => (
             <Link passHref href={item.href} key={item.href} replace={true} scroll={false} shallow={true}>
               <Tab key={item.href} px="2" py="1.5">
