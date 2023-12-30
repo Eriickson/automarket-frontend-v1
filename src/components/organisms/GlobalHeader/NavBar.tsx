@@ -7,7 +7,8 @@ import { NavbarItem } from "./NavbarItem";
 const navbarItems = [
   { label: "Buscar Publicaciones", href: "/search" },
   { label: "Encontrar Distribuidores", href: "/search/dealers" },
-  { label: "Explorar", href: "/explore-and-discover" },
+  // TODO:: Activate Explorer page
+  // { label: "Explorar", href: "/explore-and-discover" },
   { label: "Planes y Precios", href: "/plans-and-pricing" },
   { label: "Dashboard", href: "/dashboard" },
 ];
