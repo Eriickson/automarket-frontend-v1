@@ -5,8 +5,6 @@ import Link from "next/link";
 
 import { Box, HStack, Tab, TabList, Tabs, Text } from "@chakra-ui/react";
 
-import { ScreenAreaDelimiter } from "@/components/atoms/ScreenAreaDelimiter";
-
 const tabsItems = [
   {
     label: "Dashboard",
