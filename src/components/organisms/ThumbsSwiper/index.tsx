@@ -39,11 +39,9 @@ export const ThumbsSwiper = () => {
         >
           {items.map((item) => (
             <SwiperSlide key={item}>
-              <Zoom>
-                <AspectRatio overflow="hidden" ratio={16 / 9} rounded="sm">
-                  <Image alt="" src={item} />
-                </AspectRatio>
-              </Zoom>
+              <AspectRatio overflow="hidden" ratio={16 / 9} rounded="sm">
+                <Image alt="" src={item} />
+              </AspectRatio>
             </SwiperSlide>
           ))}
         </Swiper>
