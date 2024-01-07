@@ -3,8 +3,8 @@ import React from "react";
 import { Stack } from "@chakra-ui/react";
 
 import { ScreenAreaDelimiter } from "@/components/atoms/ScreenAreaDelimiter";
+import { InformationSign } from "@/components/organisms/InformationSign";
 
-import { JoinOurPlatform } from "../legacy/JoinOurPlatform";
 import { AdvertisingPostersSession } from "./components/AdvertisingPostersSession";
 import { FeaturedPublicationsSession } from "./components/featured-publications";
 import { RecentPostsSession } from "./components/recent-posts";
@@ -18,7 +18,10 @@ export const HomeView = () => {
       <FeaturedPublicationsSession />
       <RecentPostsSession />
       <ScreenAreaDelimiter>
-        <JoinOurPlatform />
+        <InformationSign
+          description="Únete a nuestra plataforma y empieza a disfrutar de todos los beneficios que tenemos para ti."
+          title="Ven y forma parte de nuetra plataforma"
+        />
       </ScreenAreaDelimiter>
     </Stack>
   );
