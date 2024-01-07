@@ -1,3 +1,4 @@
+"use client";
 import React, { FC } from "react";
 
 import {
@@ -48,7 +49,7 @@ export const ModalWithButton: FC<ModalWithButtonProps> = ({
           <ModalHeader fontSize="md" pb="2" pt="3" px="2">
             {title}
           </ModalHeader>
-          <ModalCloseButton isDisabled={isDisabled} right="1" top="1" />
+          <ModalCloseButton autoFocus={false} isDisabled={isDisabled} right="1" top="1" />
           <ModalBody px="2">
             <BodyComponent disclosure={disclosure} />
           </ModalBody>
