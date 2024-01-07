@@ -3,11 +3,11 @@ import React, { FC } from "react";
 
 import { IconButton as ChakraIconButton, IconButtonProps as ChakraIconButtonProps } from "@chakra-ui/react";
 
-interface IconButtonProps extends ChakraIconButtonProps {}
+interface IconButtonProps extends Omit<ChakraIconButtonProps, "aria-label"> {}
 
 export const IconButton: FC<IconButtonProps> = ({ children, ...props }) => {
   return (
-    <ChakraIconButton rounded="sm" {...props}>
+    <ChakraIconButton aria-label="" rounded="sm" {...props}>
       {children}
     </ChakraIconButton>
   );
