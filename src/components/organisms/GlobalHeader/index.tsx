@@ -17,7 +17,7 @@ import { MobileNavigationMenu } from "./MobileNavigationMenu";
 import { GlobalHeaderNavBar } from "./NavBar";
 import { NewPublicationButton } from "./NewPublicationButton";
 
-const isAuthenticated = true;
+const isAuthenticated = false;
 
 export const GlobalHeader = () => {
   return (
