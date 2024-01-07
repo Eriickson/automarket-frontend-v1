@@ -62,8 +62,8 @@ const ReactZoomPanPinchPage = () => {
       <Modal isCentered isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent backgroundColor="black" h="100dvh" rounded="none">
-          <ModalHeader border="1px">
-            <HStack color="white">
+          <ModalHeader border="1px" pr="4">
+            <HStack color="white" justifyContent="flex-end">
               <IconButton colorScheme="whiteAlpha" size="xs" variant="ghost" onClick={toggleFullscreen}>
                 {isFullscreen ? <Minimize size="1.1rem" /> : <Maximize size="1.1rem" />}
               </IconButton>
@@ -80,12 +80,7 @@ const ReactZoomPanPinchPage = () => {
           </ModalHeader>
           <ModalBody p="1">
             <Center h="full">
-              <Swiper
-                slidesPerView={1}
-                spaceBetween={25}
-                onSlideChange={() => console.log("slide change")}
-                onSwiper={(swiper) => console.log(swiper)}
-              >
+              <Swiper slidesPerView={1} spaceBetween={25}>
                 {images.map((image, index) => (
                   <SwiperSlide key={index}>
                     <Box pb="24">
