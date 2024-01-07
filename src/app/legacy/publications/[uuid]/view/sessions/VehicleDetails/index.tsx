@@ -2,14 +2,14 @@ import React from "react";
 
 import { Card, CardBody, Stack } from "@chakra-ui/react";
 
-import { HeaderSession } from "@/app/legacy/home/components/header-session";
+import { GallerySectionHeader } from "@/components/atoms/GallerySectionHeader";
 
 import { VehicleDetailItem } from "./Item";
 
 export const VehicleDetails = () => {
   return (
     <Stack spacing="0.5">
-      <HeaderSession hiddenSeeMore title="Detalles Generales" />
+      <GallerySectionHeader hiddenSeeMore title="Detalles Generales" />
       <Card rounded="sm">
         <CardBody p={["2", null, null, "4"]}>
           <Stack>

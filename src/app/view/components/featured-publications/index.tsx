@@ -4,7 +4,7 @@ import React from "react";
 import { Box } from "@chakra-ui/react";
 
 import { BasicPublicationCard } from "@/app/legacy/home/components/BasicPublicationCard";
-import { HeaderSession } from "@/app/legacy/home/components/header-session";
+import { GallerySectionHeader } from "@/components/atoms/GallerySectionHeader";
 import { ScreenAreaDelimiter } from "@/components/atoms/ScreenAreaDelimiter";
 import { SimpleSwiper } from "@/components/organisms/SimpleSwiper";
 
@@ -21,7 +21,7 @@ export const FeaturedPublicationsSession = () => {
   return (
     <ScreenAreaDelimiter maxWidth="1440">
       <Box mb="2">
-        <HeaderSession
+        <GallerySectionHeader
           description="Encuentra el vehículo que necesitas, en el lugar que lo necesitas. ¡No esperes más!"
           title="Vehículos Destacados"
         />

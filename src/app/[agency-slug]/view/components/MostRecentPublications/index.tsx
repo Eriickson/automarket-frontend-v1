@@ -3,14 +3,14 @@ import React from "react";
 
 import { GridItem, Image, SimpleGrid } from "@chakra-ui/react";
 
-import { HeaderSession } from "@/app/legacy/home/components/header-session";
 import { Button } from "@/components/atoms";
+import { GallerySectionHeader } from "@/components/atoms/GallerySectionHeader";
 import { ScreenAreaDelimiter } from "@/components/atoms/ScreenAreaDelimiter";
 
 export const MostRecentPublications = () => {
   return (
     <ScreenAreaDelimiter maxWidth="1440">
-      <HeaderSession title="Publicaciones recientes" />
+      <GallerySectionHeader title="Publicaciones recientes" />
       <SimpleGrid columns={12} gap="1" mt="1">
         {[1, 2, 3, 4, 5, 6].map((item) => (
           <GridItem colSpan={4} key={item}>

@@ -4,7 +4,7 @@ import React from "react";
 import { Box } from "@chakra-ui/react";
 
 import { BasicPublicationCard } from "@/app/legacy/home/components/BasicPublicationCard";
-import { HeaderSession } from "@/app/legacy/home/components/header-session";
+import { GallerySectionHeader } from "@/components/atoms/GallerySectionHeader";
 import { ScreenAreaDelimiter } from "@/components/atoms/ScreenAreaDelimiter";
 import { SimpleSwiper } from "@/components/organisms/SimpleSwiper";
 
@@ -32,7 +32,7 @@ export const RecentPostsSession = () => {
   return (
     <ScreenAreaDelimiter>
       <Box mb="2">
-        <HeaderSession
+        <GallerySectionHeader
           description="Dale un vistazo a las publicaciones más recientes de nuestra plataforma."
           title="Publicaciones Recientes"
         />
