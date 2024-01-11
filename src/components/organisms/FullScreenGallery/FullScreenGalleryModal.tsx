@@ -2,25 +2,15 @@
 
 import React from "react";
 
-import Image from "next/image";
-
-import {
-  AspectRatio,
-  Center,
-  Modal,
-  ModalBody,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-} from "@chakra-ui/react";
+import { Center, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/react";
 
 import useFullScreenGalleryContext from "./context";
 import { MainSwiper } from "./MainSwiper";
+import { MiniatureSwiper } from "./MiniatureSwiper";
 import { TopBar } from "./TopBar";
 
 export const FullScreenGalleryModal = () => {
-  const { isOpen, onClose, images } = useFullScreenGalleryContext();
+  const { isOpen, onClose } = useFullScreenGalleryContext();
 
   return (
     <Modal isCentered isOpen={isOpen} size="full" onClose={onClose}>
@@ -34,12 +24,8 @@ export const FullScreenGalleryModal = () => {
             <MainSwiper />
           </Center>
         </ModalBody>
-        <ModalFooter border="1px" justifyContent="center" pr="4">
-          {images.map((image, index) => (
-            <AspectRatio key={index} ratio={4 / 3} w="44">
-              <Image alt="" height={240} src={image} width={320} />
-            </AspectRatio>
-          ))}
+        <ModalFooter border="1px" pr="4">
+          <MiniatureSwiper />
         </ModalFooter>
       </ModalContent>
     </Modal>

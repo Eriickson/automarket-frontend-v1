@@ -1,11 +1,15 @@
 "use client";
 
-import { Context, createContext, RefObject, useContext, useEffect, useMemo, useRef, useState } from "react";
+import { Context, createContext, useContext, useState } from "react";
 
 import { useDisclosure } from "@chakra-ui/react";
 
+import { SwiperClass } from "swiper/react";
+
 interface FullScreenGalleryContextProps {
   isOpen: boolean;
+  thumbsSwiper?: SwiperClass;
+  setThumbsSwiper?(swiper: SwiperClass): void;
   isFullscreen: boolean;
   images: string[];
   onClose(): void;
@@ -25,6 +29,8 @@ export interface FullScreenGalleryContextProviderArgs {
 export const FullScreenGalleryContextProvider = ({ children, images }: FullScreenGalleryContextProviderArgs) => {
   const { isOpen, onClose } = useDisclosure({ defaultIsOpen: true });
   const [isFullscreen, setIsFullscreen] = useState(false);
+
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperClass | undefined>(undefined);
 
   const toggleFullscreen = () => {
     if (document.fullscreenElement) {
@@ -47,6 +53,8 @@ export const FullScreenGalleryContextProvider = ({ children, images }: FullScree
         isOpen,
         isFullscreen,
         images,
+        thumbsSwiper,
+        setThumbsSwiper,
         onClose,
         toggleFullscreen,
         handleCloseGallery,
