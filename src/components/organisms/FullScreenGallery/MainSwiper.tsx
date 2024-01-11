@@ -25,7 +25,7 @@ export const MainSwiper = () => {
       {images.map((image, index) => (
         <SwiperSlide key={index}>
           <Center h="full" overflow="hidden">
-            <AspectRatio height={800} maxHeight="100%" maxWidth="100%" ratio={1} width={1200}>
+            <AspectRatio maxH={800} maxHeight="100%" maxWidth="100%" ratio={1} width={1200}>
               <TransformWrapper
                 disablePadding
                 limitToBounds

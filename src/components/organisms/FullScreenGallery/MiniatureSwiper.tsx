@@ -17,7 +17,7 @@ export const MiniatureSwiper: FC<MiniatureSwiperProps> = ({}) => {
     <Swiper modules={[Thumbs]} slidesPerView={8} spaceBetween={6} onSwiper={setThumbsSwiper}>
       {images.map((image, index) => (
         <SwiperSlide key={index}>
-          <AspectRatio cursor="pointer" ratio={4 / 3} w="44">
+          <AspectRatio cursor="pointer" ratio={4 / 3} w={["12", null, null, "44"]}>
             <Image alt="" height={240} src={image} width={320} />
           </AspectRatio>
         </SwiperSlide>
