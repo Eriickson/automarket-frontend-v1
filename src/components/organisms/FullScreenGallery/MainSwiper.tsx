@@ -30,12 +30,9 @@ export const MainSwiper = () => {
                 disablePadding
                 limitToBounds
                 smooth
-                doubleClick={{ disabled: true }}
                 maxScale={1.8}
                 minScale={1}
                 panning={{ velocityDisabled: true }}
-                velocityAnimation={{ disabled: true }}
-                zoomAnimation={{ disabled: true }}
               >
                 <TransformComponent>
                   <Image alt="" height={800} src={image} width={1200} />
