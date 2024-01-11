@@ -3,3 +3,4 @@ export * from "./MultiStepForm";
 export * from "./SelectField";
 export * from "./GoogleAuthButton";
 export * from "./FacebookAuthButton";
+export * from "./FullScreenGallery";
