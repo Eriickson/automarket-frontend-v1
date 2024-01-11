@@ -29,7 +29,7 @@ export const CreateAndAccountView = () => {
       </Center>
       <Box pb="4">
         <ScreenAreaDelimiter maxWidth="480">
-          <StepIndicatorLine currentStep={1} totalSteps={3} />
+          <StepIndicatorLine currentStep={0} totalSteps={5} />
         </ScreenAreaDelimiter>
       </Box>
     </Stack>
