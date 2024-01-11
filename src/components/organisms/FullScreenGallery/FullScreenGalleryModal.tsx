@@ -2,7 +2,7 @@
 
 import React from "react";
 
-import { Center, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/react";
+import { Box, Center, Modal, ModalBody, ModalContent, ModalFooter, ModalHeader, ModalOverlay } from "@chakra-ui/react";
 
 import useFullScreenGalleryContext from "./context";
 import { MainSwiper } from "./MainSwiper";
@@ -24,8 +24,10 @@ export const FullScreenGalleryModal = () => {
             <MainSwiper />
           </Center>
         </ModalBody>
-        <ModalFooter border="1px" pr="4">
-          <MiniatureSwiper />
+        <ModalFooter justifyContent="center" pr="4">
+          <Box h="full" overflow="hidden" w="8xl">
+            <MiniatureSwiper />
+          </Box>
         </ModalFooter>
       </ModalContent>
     </Modal>

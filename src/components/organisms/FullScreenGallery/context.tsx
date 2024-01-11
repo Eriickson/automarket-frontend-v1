@@ -43,7 +43,8 @@ export const FullScreenGalleryContextProvider = ({ children, images }: FullScree
   };
 
   function handleCloseGallery() {
-    document.exitFullscreen();
+    window.document?.exitFullscreen();
+
     onClose();
   }
 
