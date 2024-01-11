@@ -4,12 +4,7 @@ import { FormComponentProps } from "@atmk/components";
 
 import { Box, HStack } from "@chakra-ui/react";
 
-import {
-  PasswordFieldController,
-  SimpleTextFieldController,
-  SubmitButton,
-  TextDateFieldController,
-} from "@/components/atoms";
+import { PasswordFieldController, SimpleTextFieldController, SubmitButton } from "@/components/atoms";
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 
@@ -18,7 +13,7 @@ import { CreateAnAccountValuesFormType, resolver } from "./schema";
 interface CreateAnAccountHolderProps extends FormComponentProps<CreateAnAccountValuesFormType> {}
 
 export const CreateAnAccountHolder: FC<CreateAnAccountHolderProps> = ({ onSubmit, defaultValues }) => {
-  const { FormProvider, methods } = useFormProvider<CreateAnAccountValuesFormType>({ resolver, defaultValues });
+  const { FormProvider } = useFormProvider<CreateAnAccountValuesFormType>({ resolver, defaultValues });
 
   return (
     <Box w="full">
