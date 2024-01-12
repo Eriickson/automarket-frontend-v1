@@ -8,14 +8,14 @@ const CustomPinInputField = () => (
     _placeholder={{ color: "gray.300" }}
     border="1px solid"
     borderColor="gray.200"
-    fontSize="xl"
+    fontSize="lg"
     fontWeight="medium"
-    h="16"
+    h="14"
     outline="none"
     rounded="sm"
     textAlign="center"
     transition="150ms"
-    w="16"
+    w="14"
   />
 );
 

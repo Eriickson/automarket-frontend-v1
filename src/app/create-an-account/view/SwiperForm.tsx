@@ -11,6 +11,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import { CreateAnAccountContainer } from "./components/CreateAnAccount";
+import { ValidateInvitationContainer } from "./components/ValidateInvitationCode";
 
 export const SwiperForm = () => {
   return (
@@ -35,7 +36,11 @@ export const SwiperForm = () => {
       </SwiperSlide>
       <SwiperSlide style={{ height: "100%" }}>
         <Stack h="full" justifyContent="center" px="1" spacing="6">
-          <Text>111111111</Text>
+          <TitleLoginComponent
+            description="Te hemos enviado un código a tu correo electrónico, ingrésalo acá para continuar."
+            title="Validar código de invitación"
+          />
+          <ValidateInvitationContainer />
         </Stack>
       </SwiperSlide>
       <SwiperSlide style={{ height: "100%" }}>
