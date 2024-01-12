@@ -8,7 +8,7 @@ const personalInformationFormSchema = z
   .object({
     fullname: z.string().min(1, "Este campo es requerido"),
     birthdate: birthdateFieldValidation({ gt: 18 }),
-    email: z.string().email("El formato de email no es válido").min(1, "Este campo es requerido"),
+    email: z.string().min(1, "Este campo es requerido").email("Ingrese un correo electrónico válido"),
     password: passwordFieldValidation(),
     passwordConfirmation: passwordFieldValidation(),
   })

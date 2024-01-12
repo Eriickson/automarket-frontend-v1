@@ -46,7 +46,7 @@ export const PersonalInformationHolder: FC<PersonalInformationHolderProps> = ({ 
         name="email"
         placeholder="Correo electrónico"
       />
-      <HStack alignItems="flex-start" spacing="4">
+      <HStack alignItems="flex-start" spacing="2">
         <PasswordFieldController
           autoComplete="new-password"
           bgColor="gray.50"

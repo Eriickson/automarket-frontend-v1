@@ -1,26 +1,26 @@
 import React from "react";
 
-import { Box, Center, Stack } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
 
-import { StepIndicatorLine } from "@/components/atoms";
+import { ContinueWithSocialMediaButtons } from "@/app/signin/view/components";
+import { OrDivider } from "@/components/atoms/OrDivider";
 import { ScreenAreaDelimiter } from "@/components/atoms/ScreenAreaDelimiter";
+import { TitleLoginComponent } from "@/components/atoms/TitleLoginComponent";
 
-import { SwiperForm } from "./SwiperForm";
+import { PersonalInformationContainer } from "./components/PersonalInformation";
 
 export const CreateAndAccountView = () => {
   return (
-    <Stack h="full">
-      <Box></Box>
-      <Center flex="1">
-        <ScreenAreaDelimiter height="full" maxWidth="480">
-          <SwiperForm />
-        </ScreenAreaDelimiter>
-      </Center>
-      <Box pb="4">
-        <ScreenAreaDelimiter maxWidth="480">
-          <StepIndicatorLine currentStep={0} totalSteps={5} />
-        </ScreenAreaDelimiter>
-      </Box>
-    </Stack>
+    <ScreenAreaDelimiter maxWidth="480">
+      <Stack spacing="6">
+        <TitleLoginComponent
+          description="Necesitamos algunos de tus datos para iniciar con el proceso de creación de tu cuenta."
+          title="Crea tu cuenta"
+        />
+        <PersonalInformationContainer />
+        <OrDivider />
+        <ContinueWithSocialMediaButtons />
+      </Stack>
+    </ScreenAreaDelimiter>
   );
 };
