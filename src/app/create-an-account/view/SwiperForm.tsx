@@ -17,6 +17,7 @@ export const SwiperForm = () => {
   return (
     <Swiper
       autoHeight
+      initialSlide={1}
       slidesPerView={1}
       spaceBetween={25}
       style={{ height: "100%", width: "100%" }}
@@ -46,16 +47,6 @@ export const SwiperForm = () => {
       <SwiperSlide style={{ height: "100%" }}>
         <Stack h="full" justifyContent="center" px="1" spacing="6">
           <Text>22222222</Text>
-        </Stack>
-      </SwiperSlide>
-      <SwiperSlide style={{ height: "100%" }}>
-        <Stack h="full" justifyContent="center" px="1" spacing="6">
-          <Text>33333333</Text>
-        </Stack>
-      </SwiperSlide>
-      <SwiperSlide style={{ height: "100%" }}>
-        <Stack h="full" justifyContent="center" px="1" spacing="6">
-          <Text>44444444</Text>
         </Stack>
       </SwiperSlide>
     </Swiper>
