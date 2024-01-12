@@ -16,8 +16,8 @@ export const CreateAnAgencyHolder: FC<CreateAnAgencyHolderProps> = ({ onSubmit, 
 
   return (
     <FormProvider onSubmit={onSubmit}>
-      <SimpleTextFieldController isRequired label="Nombre" name="name" placeholder="Ingresa el nombre de tu agencia" />
-      <SimpleTextFieldController isRequired label="Eslogan" name="slogan" placeholder="Ingresa el eslogan" />
+      <SimpleTextFieldController label="Nombre" name="name" placeholder="Ingresa el nombre de tu agencia" />
+      <SimpleTextFieldController label="Eslogan" name="slogan" placeholder="Ingresa el eslogan" />
       <AddressFields />
       <SubmitButton colorScheme="primary" mt="4">
         Validar datos de la agencia
