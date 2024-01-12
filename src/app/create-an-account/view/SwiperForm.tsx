@@ -10,7 +10,7 @@ import { TitleLoginComponent } from "@/components/atoms/TitleLoginComponent";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
-import { CreateAnAccountContainer } from "./components/CreateAnAccount";
+import { PersonalInformationContainer } from "./components/PersonalInformation";
 import { ValidateInvitationContainer } from "./components/ValidateInvitationCode";
 
 export const SwiperForm = () => {
@@ -29,7 +29,7 @@ export const SwiperForm = () => {
             description="Crea tu cuenta para poder acceder a todos los beneficios que tenemos para ti."
             title="Crea tu cuenta"
           />
-          <CreateAnAccountContainer />
+          <PersonalInformationContainer />
           <OrDivider />
           <ContinueWithSocialMediaButtons />
         </Stack>

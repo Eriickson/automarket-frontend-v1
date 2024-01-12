@@ -8,12 +8,12 @@ import { PasswordFieldController, SimpleTextFieldController, SubmitButton } from
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 
-import { CreateAnAccountValuesFormType, resolver } from "./schema";
+import { PersonalInformationValuesFormType, resolver } from "./schema";
 
-interface CreateAnAccountHolderProps extends FormComponentProps<CreateAnAccountValuesFormType> {}
+interface PersonalInformationHolderProps extends FormComponentProps<PersonalInformationValuesFormType> {}
 
-export const CreateAnAccountHolder: FC<CreateAnAccountHolderProps> = ({ onSubmit, defaultValues }) => {
-  const { FormProvider } = useFormProvider<CreateAnAccountValuesFormType>({ resolver, defaultValues });
+export const PersonalInformationHolder: FC<PersonalInformationHolderProps> = ({ onSubmit, defaultValues }) => {
+  const { FormProvider } = useFormProvider<PersonalInformationValuesFormType>({ resolver, defaultValues });
 
   return (
     <Box w="full">
@@ -31,7 +31,7 @@ export const CreateAnAccountHolder: FC<CreateAnAccountHolderProps> = ({ onSubmit
           bgColor="gray.50"
           borderColor="gray.300"
           label="Fecha de Nacimiento"
-          name="email"
+          name="birthdate"
           placeholder="Día / Mes / Año"
           type="date"
         />
