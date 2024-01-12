@@ -10,7 +10,11 @@ const registerAgencySchema = z.object({
     .min(1, "Este campo es requerido")
     .min(3, "El nombre es demasiado corto")
     .max(50, "El nombre es demasiado largo"),
-  slogan: z.string().min(3),
+  slogan: z
+    .string()
+    .min(1, "Este campo es requerido")
+    .min(3, "El nombre es demasiado corto")
+    .max(50, "El nombre es demasiado largo"),
   province: optionFieldValidation(),
   municipality: optionFieldValidation(),
   sector: optionFieldValidation(),
