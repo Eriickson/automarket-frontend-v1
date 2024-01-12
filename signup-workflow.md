@@ -9,4 +9,3 @@ El flujo para crear un usuario va a ser de la siguiente manera:
   - Se le indica un resumen de los datos ingresados
   - Se le indica al usuario que lo estaremos contactando para confirmar su cuenta
   - Una vez confirmada la cuenta se completa el registro.
-
