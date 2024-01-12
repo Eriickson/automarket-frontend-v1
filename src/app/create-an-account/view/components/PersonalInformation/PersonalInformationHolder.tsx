@@ -21,54 +21,52 @@ export const PersonalInformationHolder: FC<PersonalInformationHolderProps> = ({ 
   const { FormProvider } = useFormProvider<PersonalInformationFormValuesType>({ resolver, defaultValues });
 
   return (
-    <Box w="full">
-      <FormProvider onSubmit={onSubmit}>
-        <SimpleTextFieldController
-          autoComplete="username"
+    <FormProvider onSubmit={onSubmit}>
+      <SimpleTextFieldController
+        autoComplete="username"
+        bgColor="gray.50"
+        borderColor="gray.300"
+        label="Nombre Completo"
+        name="fullname"
+        placeholder="John Doe"
+      />
+      <TextDateFieldController
+        autoComplete="username"
+        bgColor="gray.50"
+        borderColor="gray.300"
+        label="Fecha de Nacimiento"
+        name="birthdate"
+        placeholder="Día / Mes / Año"
+      />
+      <SimpleTextFieldController
+        autoComplete="username"
+        bgColor="gray.50"
+        borderColor="gray.300"
+        label="Correo electrónico"
+        name="email"
+        placeholder="Correo electrónico"
+      />
+      <HStack alignItems="flex-start" spacing="4">
+        <PasswordFieldController
+          autoComplete="new-password"
           bgColor="gray.50"
           borderColor="gray.300"
-          label="Nombre Completo"
-          name="fullname"
-          placeholder="John Doe"
+          label="Contraseña"
+          name="password"
+          placeholder="Ingresa tu contraseña"
         />
-        <TextDateFieldController
-          autoComplete="username"
+        <PasswordFieldController
+          autoComplete="new-password"
           bgColor="gray.50"
           borderColor="gray.300"
-          label="Fecha de Nacimiento"
-          name="birthdate"
-          placeholder="Día / Mes / Año"
+          label="Confirmar Contraseña"
+          name="passwordConfirmation"
+          placeholder="Ingresa tu contraseña"
         />
-        <SimpleTextFieldController
-          autoComplete="username"
-          bgColor="gray.50"
-          borderColor="gray.300"
-          label="Correo electrónico"
-          name="email"
-          placeholder="Correo electrónico"
-        />
-        <HStack alignItems="flex-start" spacing="4">
-          <PasswordFieldController
-            autoComplete="new-password"
-            bgColor="gray.50"
-            borderColor="gray.300"
-            label="Contraseña"
-            name="password"
-            placeholder="Ingresa tu contraseña"
-          />
-          <PasswordFieldController
-            autoComplete="new-password"
-            bgColor="gray.50"
-            borderColor="gray.300"
-            label="Confirmar Contraseña"
-            name="passwordConfirmation"
-            placeholder="Ingresa tu contraseña"
-          />
-        </HStack>
-        <SubmitButton colorScheme="primary" loadingText="Enviando código de invitación..." mt="4">
-          Enviar código de invitación
-        </SubmitButton>
-      </FormProvider>
-    </Box>
+      </HStack>
+      <SubmitButton colorScheme="primary" loadingText="Enviando código de invitación..." mt="4">
+        Enviar código de invitación
+      </SubmitButton>
+    </FormProvider>
   );
 };
