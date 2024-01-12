@@ -4,7 +4,12 @@ import { FormComponentProps } from "@atmk/components";
 
 import { Box, HStack } from "@chakra-ui/react";
 
-import { PasswordFieldController, SimpleTextFieldController, SubmitButton } from "@/components/atoms";
+import {
+  PasswordFieldController,
+  SimpleTextFieldController,
+  SubmitButton,
+  TextDateFieldController,
+} from "@/components/atoms";
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 
@@ -26,14 +31,13 @@ export const PersonalInformationHolder: FC<PersonalInformationHolderProps> = ({ 
           name="fullname"
           placeholder="John Doe"
         />
-        <SimpleTextFieldController
+        <TextDateFieldController
           autoComplete="username"
           bgColor="gray.50"
           borderColor="gray.300"
           label="Fecha de Nacimiento"
           name="birthdate"
           placeholder="Día / Mes / Año"
-          type="date"
         />
         <SimpleTextFieldController
           autoComplete="username"
