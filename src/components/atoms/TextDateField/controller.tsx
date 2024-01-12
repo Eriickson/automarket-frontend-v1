@@ -17,9 +17,10 @@ export const TextDateFieldController: FC<TextDateFieldControllerProps> = ({ name
       <Controller
         control={control}
         name={name}
-        render={({ field }) => (
+        render={({ field, formState }) => (
           <TextDateField
             {...props}
+            isLoading={formState.isSubmitting}
             value={field.value}
             onChange={(e) => {
               field.onChange(e.target.value);
