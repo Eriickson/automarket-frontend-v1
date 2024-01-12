@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 
-import { Stack, Text } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
 
 import { ContinueWithSocialMediaButtons } from "@/app/signin/view/components";
 import { OrDivider } from "@/components/atoms/OrDivider";
@@ -10,6 +10,7 @@ import { TitleLoginComponent } from "@/components/atoms/TitleLoginComponent";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
+import { CreateAnAgencyContainer } from "./components/CreateAnAgency";
 import { PersonalInformationContainer } from "./components/PersonalInformation";
 import { ValidateInvitationContainer } from "./components/ValidateInvitationCode";
 
@@ -17,7 +18,7 @@ export const SwiperForm = () => {
   return (
     <Swiper
       autoHeight
-      initialSlide={1}
+      initialSlide={2}
       slidesPerView={1}
       spaceBetween={25}
       style={{ height: "100%", width: "100%" }}
@@ -46,7 +47,11 @@ export const SwiperForm = () => {
       </SwiperSlide>
       <SwiperSlide style={{ height: "100%" }}>
         <Stack h="full" justifyContent="center" px="1" spacing="6">
-          <Text>22222222</Text>
+          <TitleLoginComponent
+            description="Esta información será la que aparecerán en tu perfil y será visible para los usuarios."
+            title="Datos de tu agencia"
+          />
+          <CreateAnAgencyContainer />
         </Stack>
       </SwiperSlide>
     </Swiper>

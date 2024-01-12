@@ -13,12 +13,12 @@ import {
 
 import { useFormProvider } from "@/hooks/useFormProvider";
 
-import { PersonalInformationValuesFormType, resolver } from "./schema";
+import { PersonalInformationFormValuesType, resolver } from "./schema";
 
-interface PersonalInformationHolderProps extends FormComponentProps<PersonalInformationValuesFormType> {}
+interface PersonalInformationHolderProps extends FormComponentProps<PersonalInformationFormValuesType> {}
 
 export const PersonalInformationHolder: FC<PersonalInformationHolderProps> = ({ onSubmit, defaultValues }) => {
-  const { FormProvider } = useFormProvider<PersonalInformationValuesFormType>({ resolver, defaultValues });
+  const { FormProvider } = useFormProvider<PersonalInformationFormValuesType>({ resolver, defaultValues });
 
   return (
     <Box w="full">

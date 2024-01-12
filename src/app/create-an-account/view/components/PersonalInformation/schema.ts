@@ -19,4 +19,4 @@ const personalInformationFormSchema = z
 
 export const resolver = zodResolver(personalInformationFormSchema);
 
-export type PersonalInformationValuesFormType = z.infer<typeof personalInformationFormSchema>;
+export type PersonalInformationFormValuesType = z.infer<typeof personalInformationFormSchema>;
