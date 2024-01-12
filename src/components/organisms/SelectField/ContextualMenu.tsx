@@ -23,7 +23,7 @@ export const ContextualMenu = () => {
         left="0"
         position="absolute"
         right="0"
-        top={["12", null, null, "14"]}
+        top={["12", null, null, "12"]}
         zIndex="10"
       >
         {options.length === 0 || !allowSearch ? null : <InputSearch />}
