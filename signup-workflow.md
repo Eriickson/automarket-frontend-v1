@@ -9,3 +9,11 @@ El flujo para crear un usuario va a ser de la siguiente manera:
   - Se le indica un resumen de los datos ingresados
   - Se le indica al usuario que lo estaremos contactando para confirmar su cuenta
   - Una vez confirmada la cuenta se completa el registro.
+
+Cambiar contraseña
+  - Si el usuario no tiene una contraseña, solo se le muestra los campos de contraseña y confirmar contraseña
+  - Si el usuario tiene una contraseña, se le muestra los campos de contraseña actual, contraseña y confirmar contraseña
+  - Se le pide al usuario que ingrese la contraseña actual
+  - Se le pide al usuario que ingrese la nueva contraseña
+  - Se le pide al usuario que confirme la nueva contraseña
+  - Se le indica al usuario que la contraseña se cambio correctamente
