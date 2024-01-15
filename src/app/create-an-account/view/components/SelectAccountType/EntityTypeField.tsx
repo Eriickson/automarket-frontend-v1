@@ -6,14 +6,8 @@ import { Zap } from "react-feather";
 import { useController } from "react-hook-form";
 
 const entitiesOptions = [
-  {
-    type: "particular",
-    name: "Particulares",
-  },
-  {
-    type: "dealer",
-    name: "Concesionarios",
-  },
+  { type: "particular", name: "Particulares" },
+  { type: "dealer", name: "Concesionarios" },
 ];
 export const AccountTypeField = () => {
   const { field } = useController({ name: "accountType" });
