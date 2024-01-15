@@ -7,6 +7,8 @@ import { OrDivider } from "@/components/atoms/OrDivider";
 import { ScreenAreaDelimiter } from "@/components/atoms/ScreenAreaDelimiter";
 import { TitleLoginComponent } from "@/components/atoms/TitleLoginComponent";
 
+import { SignupFormContainer } from "./components/signup-form";
+
 export const SignupView = () => {
   return (
     <ScreenAreaDelimiter maxWidth="480">
@@ -15,6 +17,7 @@ export const SignupView = () => {
           description="Crea tu cuenta para poder acceder a todos los beneficios de la plataforma."
           title="Crea tu cuenta"
         />
+        <SignupFormContainer />
         <OrDivider />
         <ContinueWithSocialMediaButtons />
       </Stack>
