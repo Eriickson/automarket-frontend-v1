@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-import { Stack } from "@chakra-ui/react";
+import { Stack, useToast } from "@chakra-ui/react";
 
 import { ContinueWithSocialMediaButtons } from "@/app/signin/view/components";
 import { OrDivider } from "@/components/atoms/OrDivider";
@@ -12,6 +12,7 @@ import { InvitationSent } from "../invitation-sent";
 import { SendInvitationHolder } from "./send-invitation-form-holder";
 
 export const SendInvitationFormContainer = () => {
+  const toast = useToast();
   const [invitationSent, setInvitationSent] = useState(false);
 
   async function handleResendInvitation() {}
@@ -34,7 +35,13 @@ export const SendInvitationFormContainer = () => {
           <SendInvitationHolder
             onSubmit={async (values) => {
               console.log(values);
-              setInvitationSent(true);
+              toast({
+                title: "Invitación enviada",
+                description: "Se ha enviado una invitación a tu correo electrónico",
+                status: "success",
+                duration: 5000,
+                isClosable: true,
+              });
             }}
           />
           <OrDivider />
