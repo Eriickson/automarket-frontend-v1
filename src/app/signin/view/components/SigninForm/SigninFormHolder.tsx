@@ -28,7 +28,7 @@ export const SigninFormHolder: FC<SigninFormHolderProps> = ({ onSubmit, defaultV
           borderColor="gray.300"
           label="Identificador"
           name="identifier"
-          placeholder="Correo electrónico o nombre de usuario"
+          placeholder="Correo electrónico"
         />
         <PasswordFieldController
           autoComplete="current-password"

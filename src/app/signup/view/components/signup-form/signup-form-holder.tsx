@@ -28,7 +28,7 @@ export const SignupHolder: FC<SignupHolderProps> = ({ onSubmit, defaultValues })
         borderColor="gray.300"
         label="Nombre Completo"
         name="fullname"
-        placeholder="John Doe"
+        placeholder="Ingresa tu nombre completo"
       />
       <TextDateFieldController
         autoComplete="username"
@@ -44,7 +44,7 @@ export const SignupHolder: FC<SignupHolderProps> = ({ onSubmit, defaultValues })
         borderColor="gray.300"
         label="Correo electrónico"
         name="email"
-        placeholder="Correo electrónico"
+        placeholder="Ingresa tu correo electrónico"
       />
       <HStack alignItems="flex-start" spacing="2">
         <PasswordFieldController

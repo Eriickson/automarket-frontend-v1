@@ -27,7 +27,7 @@ export const SigninForm: FC<SigninFormProps> = ({ onSubmit, defaultValues }) => 
           borderColor="gray.300"
           label="Correo electrónico"
           name="identifier"
-          placeholder="Correo electrónico o nombre de usuario"
+          placeholder="Correo electrónico"
         />
         <PasswordFieldController
           autoComplete="current-password"
