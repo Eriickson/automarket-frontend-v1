@@ -4,8 +4,6 @@ import React, { useState } from "react";
 
 import { Stack } from "@chakra-ui/react";
 
-import { ContinueWithSocialMediaButtons } from "@/app/signin/view/components";
-import { OrDivider } from "@/components/atoms/OrDivider";
 import { TitleLoginComponent } from "@/components/atoms/TitleLoginComponent";
 
 import { InvitationSent } from "../invitation-sent";
@@ -37,8 +35,6 @@ export const SignupFormContainer = () => {
               setInvitationSent(true);
             }}
           />
-          <OrDivider />
-          <ContinueWithSocialMediaButtons />
         </>
       )}
     </Stack>
