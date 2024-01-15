@@ -9,18 +9,11 @@ const entitiesOptions = [
   {
     type: "particular",
     name: "Particulares",
-    description: "Propietarios que desean vender su vehículo o persona que necesita comprar uno nuevo.",
   },
   {
     type: "dealer",
     name: "Concesionarios",
-    description: "Destinado a profesionales del sector que se dedican a la compra y venta de vehículos.",
   },
-  // {
-  //   type: "rent-a-car",
-  //   name: "Servicios de renta",
-  //   description: "Agencias que disponen de flotas de vehículos para alquilar.",
-  // },
 ];
 export const AccountTypeField = () => {
   const { field } = useController({ name: "accountType" });
@@ -33,8 +26,7 @@ export const AccountTypeField = () => {
             backgroundColor={field.value === entity.type ? "#f5f7ff" : "transparent"}
             borderColor={field.value === entity.type ? "primary.500" : "gray.500"}
             borderWidth="1px"
-            px="6"
-            py="8"
+            p="6"
             rounded="sm"
             transitionDuration="150ms"
           >
@@ -53,15 +45,6 @@ export const AccountTypeField = () => {
               userSelect="none"
             >
               {entity.name}
-            </Text>
-            <Text
-              color={field.value === entity.type ? "primary.500" : "gray.500"}
-              fontSize="sm"
-              textAlign="center"
-              transitionDuration="150ms"
-              userSelect="none"
-            >
-              {entity.description}
             </Text>
           </VStack>
         </GridItem>
